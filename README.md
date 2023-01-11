@@ -1,34 +1,32 @@
 # agency.noroff.dev
+
 Frontend web application for the Noroff Agency API
 
-# Installing and starting the project
+Documentations: Link
 
-```
+## Installing and starting the project
+
+```md
 npm i
 ```
 
-## Branches
+## Dependencies
 
+### A front-end framework
 
-This is the way you will set up the branches when creating new branch `main/FE-Application/{main}/{current work file}`
-
-ex: `main/FE-Application/forms/html-view`
-
-
-# Dependencies
-
-
-## A front end framework
 Vanilla js stack
 
-## UI framework
+### UI framework
+
 Bootstrap [NPM package](https://www.npmjs.com/package/bootstrap)
 
-## Testing framework
+### Testing framework
+
 jest [NPM package](https://www.npmjs.com/package/jest)
 Cypress [NPM package](https://www.npmjs.com/package/cypress)
 
-### Other dependencies:
+#### Other dependencies
+
 dotenv [NPM package](https://www.npmjs.com/package/dotenv)
 JSdoc [NPM package](https://www.npmjs.com/package/jsdoc)
 prettier [NPM package](https://www.npmjs.com/package/prettier)
