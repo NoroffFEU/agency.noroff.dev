@@ -1,0 +1,47 @@
+{
+  "name": "agency.noroff.dev",
+  "version": "1.0.0",
+  "description": "Frontend web application for the Noroff Agency API",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test-unit && npm run test-e2e-cli",
+    "test-unit": "jest",
+    "test-e2e": "cypress open",
+    "test-e2e-cli": "cypress run",
+    "format": "prettier -w src/**/*.js",
+    "lint": "eslint src/**/*.js",
+    "lint-fix": "eslint src/**/*.js --cache --fix",
+    "build": "sass src/scss:dist/css",
+    "start": "sass --watch src/scss:dist/css & vite",
+    "prepare": "husky install",
+    "dev": "vite",
+    "vite-build": "vite build",
+    "vite-preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoroffFEU/agency.noroff.dev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NoroffFEU/agency.noroff.dev/issues"
+  },
+  "homepage": "https://github.com/NoroffFEU/agency.noroff.dev#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "jsdoc": "^4.0.0",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "cypress": "^12.3.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.2",
+    "sass": "^1.57.1",
+    "vite": "^4.0.4",
+    "eslint": "^8.31.0",
+    "jest": "^29.3.1"
+  }
+}
