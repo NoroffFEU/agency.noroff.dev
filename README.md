@@ -2,7 +2,7 @@
 
 Frontend web application for the Noroff Agency API
 
-Documentations: Link
+Documentations: [Link](./documentation/)
 
 ## Installing and starting the project
 
