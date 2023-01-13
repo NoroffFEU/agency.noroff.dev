@@ -1,0 +1,41 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+
+// Theme colors
+$theme-Primary: #FF2F01;
+$theme-Secondary: #08F3B0;
+$theme-Success: #08F3B0;
+$theme-Light: #F8F8F8;
+$theme-Grey: #E6E6E6;
+$theme-Dark: #140F15;
+
+// Changing bootstrap colors
+$primary: #00ff4c;
+$secondary: #505059;
+$success: #0c8410;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #ea818b;
+$light: #f8f9fa;
+$dark: #212529;
+
+$custom-colors: (
+  'theme-primary': $theme-Primary,
+  'theme-secondary': $theme-Secondary,
+  'theme-success': $theme-Success,
+  'theme-light': $theme-Light,
+  'theme-grey': $theme-Grey,
+  'theme-dark': $theme-Dark,
+);
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
