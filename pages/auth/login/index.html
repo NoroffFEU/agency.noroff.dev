@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./src/scss/index.scss">
-  <script src="./index.js" type="module"></script>
-  <title>Login</title>
-</head>
-<body>
-  <header>
-    <!-- Header -->
-  </header>
-  <main>
-  </main>
-  <footer>
-    <!-- Footer -->
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../dist/css/index.css" />
+    <script src="./index.js" type="module"></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <!-- Header -->
+    </header>
+    <main class="bg-dark p-5">
+      <div class="container-sm bg-theme-grey p-5">
+        <!-- login form -->
+        <!-- 
+          {
+            "email": "user@example.com",
+            "password": "string"
+          }
+         -->
+        <form id="loginForm" class="container-sm">
+          <!-- Email input -->
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="user@example.com" required title="Must be a valid email" />
+          </div>
+          <!-- Password input -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="********" required minlength="8" title="Password must be minimum 8 characters long" />
+          </div>
+          <!-- Remember me form check -->
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="rememberMe" checked />
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+          </div>
+          <!-- Submit button -->
+          <div class="d-grid my-4">
+            <button type="submit" class="btn btn-secondary btn-lg">Login</button>
+          </div>
+          <!-- links -->
+          <div class="text-center my-2 text-dark">Don't have an user?</div>
+          <div class="d-flex justify-content-center">
+            <a class="text-dark px-2 ps-6" href="#">Register for applicants</a>
+            <a class="text-dark px-2 fs-6" href="#">Register for companies</a>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <!-- Footer -->
+    </footer>
+  </body>
 </html>
