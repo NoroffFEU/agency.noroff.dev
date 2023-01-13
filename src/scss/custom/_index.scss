@@ -1,7 +1,20 @@
 @import '../../../node_modules/bootstrap/scss/functions';
 
+//CHANGES TO BOOTSTRAP
+body {
+  font-family: 'Livvic', sans-serif;
+}
+.btn {
+  border-radius: 0;
+}
+
+.card {
+  border-radius: 10%;
+}
+
+//SECTION 1
 .section1 {
-  .section1-main {
+  .section1Main {
     min-height: 60vh;
     background-repeat: no-repeat;
     background-position: center;
@@ -10,34 +23,31 @@
   }
 }
 
+//SECTION 2
 .section2 {
-  .section2-main {
-    position: relative;
+  .section2Main {
+    height: 350px;
   }
-  .section2-img {
+  .section2Img {
     object-fit: cover;
     height: 100%;
     width: 100%;
   }
-  .section2-text {
+  .section2LgText {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
   }
-  @media (min-width: 1200px) {
-    .section2-text {
-      position: static;
-      left: auto;
-      top: auto;
-      transform: none;
-    }
+  .row {
+    --bs-gutter-x: 0;
   }
 }
 
+//SECTION 3
 .section3 {
-  .section3-main {
+  @media (min-width: 1200px) {
     padding: 0 5rem;
   }
 }
