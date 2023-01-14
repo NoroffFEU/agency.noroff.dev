@@ -43,7 +43,7 @@ export async function login(profile) {
       // Let me know if there are any particular server responses I should add and check for.
 
       case 200: // Successful request
-        Store('token', token);
+        Store('Token', token);
         if (profile.admin) {
           location.replace('#');
         } else if (profile.company) {
