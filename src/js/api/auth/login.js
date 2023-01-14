@@ -1,4 +1,5 @@
 import { Store } from '../../storage/storage.js';
+import { apiPath } from '../constants.js';
 
 // Temporary
 const action = '';
@@ -16,7 +17,7 @@ export async function login(profile) {
   */
 
   // Temporary
-  const loginURL = '';
+  const loginURL = apiPath + action;
   const body = JSON.stringify(profile);
   const options = {
     method,
