@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAge title</title>
-</head>
-<body id="homePage">
-    <header></header>
-    <main></main>
-    <footer></footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/index.css" />
+    <script src="./index.js" type="module"></script>
+    <title>Profile</title>
+  </head>
+  <body id="profile">
+    <header>
+      <!-- Header -->
+    </header>
+    <main>
+      <div id="profileContainer">
+        <!-- Profile details goes here -->
+      </div>
+
+      <div id="companyView">
+        <!-- Displayed if company is logged in -->
+        <div id="companyListings">
+          <!-- Company listings goes here -->
+        </div>
+        <div id="companyOffers">
+          <!-- Company offers goes here -->
+        </div>
+        <div id="companyApplications">
+          <!-- Company applications goes here -->
+        </div>
+      </div>
+
+      <div id="studentView">
+        <!-- Displayed if student is logged in -->
+        <div>
+          <div id="StudentOffers">
+            <!-- Student offers goes here -->
+          </div>
+          <div id="studentApplications">
+            <!-- Student applications sent goes heres -->
+          </div>
+        </div>
+        <div id="studentFavoriteListings">
+          <!-- Student favorite listings goes here -->
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- Footer -->
+    </footer>
+  </body>
 </html>
