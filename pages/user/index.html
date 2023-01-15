@@ -50,14 +50,24 @@
 
       <div id="studentView">
         <!-- Displayed if student is logged in -->
-        <div>
-          <div class="bg-theme-grey container-sm p-5 my-5" id="StudentOffers">
-            <!-- Student offers goes here -->
-            Student offers
-          </div>
-          <div class="bg-theme-grey container-sm p-5 my-5" id="studentApplications">
-            <!-- Student applications sent goes heres -->
-            Student Applications
+        <div class="bg-theme-grey container-sm p-5 my-5">
+          <!-- Tab navigation for app/offers -->
+          <nav class="nav nav-tabs" role="tablist" id="nav-tab">
+            <!-- Button for Application tab -->
+            <button class="nav-link active" data-bs-target="#studentOffers" type="button" role="tab" aria-controls="#studentOffers" data-bs-toggle="tab">Offers received</button>
+            <!-- Button for Offers tab -->
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#studentApplications" aria-controls="#studentApplications" aria-selected="true">Applications sent</button>
+          </nav>
+          <!-- Tab content -->
+          <div class="tab-content" id="nav-tabContent">
+            <div tabindex="0" class="bg-theme-grey container-sm p-5 my-5 tab-pane active" id="studentOffers" role="tabpanel">
+              <!-- Company applications goes here -->
+              Student Offers
+            </div>
+            <div class="bg-theme-grey container-sm p-5 my-5 tab-pane" id="studentApplications" role="tabpanel">
+              <!-- Company offers goes here -->
+              Student Applications
+            </div>
           </div>
         </div>
         <div class="bg-theme-grey container-sm p-5 my-5" id="studentFavoriteListings">
