@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../dist/css/index.css" />
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./index.js" type="module"></script>
+    <!-- <script src="./index.js" type="module"></script> -->
     <title>Profile</title>
   </head>
   <body id="profile">
@@ -19,19 +19,32 @@
         Profile
       </div>
 
-      <div class="d-none" id="companyView">
+      <div id="companyView">
         <!-- Displayed if company is logged in -->
         <div class="bg-theme-grey container-sm p-5 my-5" id="companyListings">
           <!-- Company listings goes here -->
           Company listings
         </div>
-        <div class="bg-theme-grey container-sm p-5 my-5" id="companyOffers">
-          <!-- Company offers goes here -->
-          Company offers
-        </div>
-        <div class="bg-theme-grey container-sm p-5 my-5" id="companyApplications">
-          <!-- Company applications goes here -->
-          Company Apps
+
+        <div class="bg-theme-grey container-sm p-5 my-5">
+          <!-- Tab navigation for app/offers -->
+          <nav class="nav nav-tabs" role="tablist" id="nav-tab">
+            <!-- Button for Application tab -->
+            <button class="nav-link active" data-bs-target="#companyApplications" type="button" role="tab" aria-controls="#companyApplications" data-bs-toggle="tab">All Applications</button>
+            <!-- Button for Offers tab -->
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#companyOffers" aria-controls="#companyOffers" aria-selected="true">Offers Sent</button>
+          </nav>
+          <!-- Tab content -->
+          <div class="tab-content" id="nav-tabContent">
+            <div tabindex="0" class="bg-theme-grey container-sm p-5 my-5 tab-pane active" id="companyApplications" role="tabpanel">
+              <!-- Company applications goes here -->
+              Company Apps
+            </div>
+            <div class="bg-theme-grey container-sm p-5 my-5 tab-pane" id="companyOffers" role="tabpanel">
+              <!-- Company offers goes here -->
+              Company offers
+            </div>
+          </div>
         </div>
       </div>
 
