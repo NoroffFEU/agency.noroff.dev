@@ -14,6 +14,7 @@ export function userDetailsTemplate(data) {
  * @returns Renders user details on profile page
  */
 export function renderUserDetails(data, parent) {
+  // Elements
   const userDetailsContainer = document.createElement('div');
   const image = document.querySelector.createElement('img');
   const fullName = document.createElement('h1');
@@ -25,9 +26,15 @@ export function renderUserDetails(data, parent) {
 
   const editButton = document.createElement('button');
 
-  // Some conditional logic
+  // Classes
+  image.classList.add('rounded-circle', 'd-block', 'mx-auto');
+  fullName.classList.add('text-center');
+  role.classList.add('text-center');
+  body.classList.add('p-2', 'bg-theme-light', 'my-2');
+  editButton.classList.add('btn btn-dark');
+
+  // Some conditional logic needs to be applied
   if (company) {
-    // For now using logo key to differentiate between company and student. A better method might reveal itself.
     const { name, logo, admin } = data;
 
     image.src = logo;
@@ -53,8 +60,10 @@ export function renderUserDetails(data, parent) {
 
   editButton.innerHTML = 'Edit Profile';
 
+  // Appending
   body.append(header, about);
   userDetailsContainer.append(image, fullName, role, body, editButton);
+  parent.append(userDetailsContainer);
 
   return userDetailsContainer;
 }
