@@ -19,7 +19,7 @@
         Profile
       </div>
 
-      <div id="companyView">
+      <div class="d-none" id="companyView">
         <!-- Displayed if company is logged in -->
         <div class="bg-theme-grey container-sm p-5 my-5" id="companyListings">
           <!-- Company listings goes here -->
@@ -53,19 +53,19 @@
         <div class="bg-theme-grey container-sm p-5 my-5">
           <!-- Tab navigation for app/offers -->
           <nav class="nav nav-tabs" role="tablist" id="nav-tab">
-            <!-- Button for Application tab -->
+            <!-- Button for Offers received tab -->
             <button class="nav-link active" data-bs-target="#studentOffers" type="button" role="tab" aria-controls="#studentOffers" data-bs-toggle="tab">Offers received</button>
-            <!-- Button for Offers tab -->
+            <!-- Button for applications sent tab -->
             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#studentApplications" aria-controls="#studentApplications" aria-selected="true">Applications sent</button>
           </nav>
           <!-- Tab content -->
           <div class="tab-content" id="nav-tabContent">
             <div tabindex="0" class="bg-theme-grey container-sm p-5 my-5 tab-pane active" id="studentOffers" role="tabpanel">
-              <!-- Company applications goes here -->
+              <!-- Student offers goes here -->
               Student Offers
             </div>
             <div class="bg-theme-grey container-sm p-5 my-5 tab-pane" id="studentApplications" role="tabpanel">
-              <!-- Company offers goes here -->
+              <!-- Student applications goes here -->
               Student Applications
             </div>
           </div>
