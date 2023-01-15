@@ -1,3 +1,7 @@
+/**
+ * Setup function for company render functions.
+ * @param {*} data object data from company model
+ */
 export function companyTemplate(data) {
   const companyListings = document.querySelector('#companyListings');
   // const companyOffers = document.querySelector('#companyOffers');
@@ -7,6 +11,12 @@ export function companyTemplate(data) {
   renderCompanyApplications(data, companyApplications);
 }
 
+/**
+ * Function for rendering Company Listings
+ * @param {object} data object data from company model
+ * @param {element} parent element to append the rendered content
+ * @returns returns rendered listings from company profile endpoint
+ */
 export function renderCompanyListings(data, parent) {
   const { listing } = data;
 
@@ -44,6 +54,12 @@ export function renderCompanyListings(data, parent) {
   return listingsContainer;
 }
 
+/**
+ * Function for rendering company applications
+ * @param {*} data object data from company model
+ * @param {*} parent element to append the rendered content
+ * @returns returns rendered applications from company profile endpoint
+ */
 export function renderCompanyApplications(data, parent) {
   const { applications } = data;
 
@@ -57,12 +73,14 @@ export function renderCompanyApplications(data, parent) {
     const appliedDate = document.createElement('div');
     const viewButton = document.createElement('div');
 
+    // Element classes
     applicantDetails.classList.add('row');
     position.classList.add('col');
     candidate.classList.add('col');
     appliedDate.classList.add('col');
     viewButton.classList.add('btn col');
 
+    // Appending
     applicantDetails.append(position, candidate, appliedDate, viewButton);
     applicationsContainer.append(applicantDetails);
 
