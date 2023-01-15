@@ -23,6 +23,8 @@ export function renderUserDetails(data, parent) {
   const header = document.createElement('h2');
   const about = document.createElement('p');
 
+  const editButton = document.createElement('button');
+
   // Some conditional logic
   if (company) {
     // For now using logo key to differentiate between company and student. A better method might reveal itself.
@@ -49,8 +51,10 @@ export function renderUserDetails(data, parent) {
     about.innerHTML = 'Lorem Ipsum'; // Placeholder
   }
 
+  editButton.innerHTML = 'Edit Profile';
+
   body.append(header, about);
-  userDetailsContainer.append(image, fullName, role, body);
+  userDetailsContainer.append(image, fullName, role, body, editButton);
 
   return userDetailsContainer;
 }
