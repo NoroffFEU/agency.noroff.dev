@@ -1,6 +1,13 @@
-export function companyTemplate(data) {}
+export function companyTemplate(data) {
+  const companyListings = document.querySelector('#companyListings');
+  // const companyOffers = document.querySelector('#companyOffers');
+  const companyApplications = document.querySelector('#companyApplications');
 
-export function renderCompanyListings(data) {
+  renderCompanyListings(data, companyListings);
+  renderCompanyApplications(data, companyApplications);
+}
+
+export function renderCompanyListings(data, parent) {
   const { listing } = data;
 
   const listingsContainer = document.createElement('div');
@@ -33,10 +40,11 @@ export function renderCompanyListings(data) {
     return listing;
   });
 
+  parent.append(listingsContainer);
   return listingsContainer;
 }
 
-export function renderCompanyApplications(data) {
+export function renderCompanyApplications(data, parent) {
   const { applications } = data;
 
   const applicationsContainer = document.createElement('div');
@@ -61,6 +69,7 @@ export function renderCompanyApplications(data) {
     return applicantDetails;
   });
 
+  parent.append(applicationsContainer);
   return applicationsContainer;
 }
 
