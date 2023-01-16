@@ -44,6 +44,7 @@ export async function login(profile) {
 
       case 200: // Successful request
         Store('Token', token);
+        Store('Profile', profile);
         if (profile.admin) {
           location.replace('#');
         } else if (profile.company) {
