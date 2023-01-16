@@ -1,6 +1,6 @@
 export const header = () => {
     const headerElement = document.querySelector("header");
-    headerElement.classList.add("bg-theme-primary")
+    headerElement.classList.add("bg-theme-dark")
 
     return headerElement.innerHTML = `<div class="container-fluid">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -8,8 +8,8 @@ export const header = () => {
           <a class="navbar-brand" href="#">
             <img src="" class="Logo-noroff" />
             <div class="d-flex flex-column">
-                <span class="company_name">Noroff</span>
-                <span class="company_branch">Job Agency</span>
+                <span class="company_name text-white">Noroff</span>
+                <span class="company_branch text-white">Job Agency</span>
             </div>
         </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

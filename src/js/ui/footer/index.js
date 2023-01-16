@@ -1,5 +1,6 @@
 export const footer = () => {
     const footerElement = document.querySelector("footer");
+    footerElement.classList.add("bg-theme-dark")
     footerElement.innerHTML = `<div class="container-fluid">
     <div class="row justify-content-evenly">
       <div class="col-2">
