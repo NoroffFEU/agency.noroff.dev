@@ -14,13 +14,14 @@
     <main class="bg-theme-grey">
       <!-- Example button for opening modal -->
       <button type="button" class="btn btn-secondary fw-semibold border-0 rounded-0" data-bs-toggle="modal" data-bs-target="#offerModal">Create Offer</button>
+      <!-- The offer form in a modal -->
       <div class="modal fade" id="offerModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <section class="container bg-light d-flex justify-content-center py-5">
-              <div class="formMain p-3 p-md-5 col-12 position-relative">
+              <div class="p-3 p-md-5 col-12 position-relative">
                 <!-- Text & X-button -->
-                <div class="formTop">
+                <div>
                   <div class="d-flex justify-content-end">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
@@ -48,8 +49,26 @@
                     <textarea class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="12"></textarea>
                   </div>
                   <!-- Submit -->
-                  <button type="submit" id="btnSend" class="btn btn-secondary fw-semibold col-12 col-md-4 mt-3 border-0 rounded-0">SEND</button>
+                  <button type="button" class="btn btn-secondary fw-semibold border-0 rounded-0 mt-2" data-bs-toggle="modal" data-bs-target="#offerSuccess">SEND</button>
                 </form>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <!-- Success message if the offer was sent -->
+      <div class="modal fade" id="offerSuccess" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <section class="container bg-light d-flex justify-content-center py-5">
+              <div class="p-3 p-md-5 col-12 position-relative">
+                <!-- Text & X-button -->
+                <div>
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <h1 class="text-center">Job Offer Sent</h1>
+                </div>
               </div>
             </section>
           </div>
