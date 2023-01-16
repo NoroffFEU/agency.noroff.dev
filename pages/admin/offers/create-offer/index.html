@@ -12,41 +12,49 @@
   <body id="homePage">
     <header></header>
     <main class="bg-theme-grey">
-      <section class="container d-flex justify-content-center py-5">
-        <div class="formMain bg-light p-3 p-md-5 col-12 col-lg-6 position-relative">
-          <!-- Text & X-button -->
-          <div class="formTop">
-            <div class="d-flex justify-content-end">
-              <button class="btn fa-solid fa-x p-0" id="btnClose"></button>
-            </div>
-            <h1 class="text-center">Job Offer</h1>
+      <!-- Example button for opening modal -->
+      <button type="button" class="btn btn-secondary fw-semibold border-0 rounded-0" data-bs-toggle="modal" data-bs-target="#offerModal">Create Offer</button>
+      <div class="modal fade" id="offerModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <section class="container d-flex justify-content-center py-5">
+              <div class="formMain bg-light p-3 p-md-5 col-12 col-lg-6 position-relative">
+                <!-- Text & X-button -->
+                <div class="formTop">
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <h1 class="text-center">Job Offer</h1>
+                </div>
+                <form>
+                  <!-- Contact Person -->
+                  <div class="form-group mt-4">
+                    <label for="name" class="fw-semibold">Contact Person</label>
+                    <input type="text" class="form-control bg-theme-grey rounded-0" id="inputName" />
+                  </div>
+                  <!-- Email -->
+                  <div class="form-group mt-2">
+                    <label for="email" class="fw-semibold">Email</label>
+                    <input type="email" class="form-control bg-theme-grey rounded-0" id="inputEmail" />
+                  </div>
+                  <!-- Phone Number -->
+                  <div class="form-group mt-2">
+                    <label for="phone" class="fw-semibold">Phone Number</label>
+                    <input type="tel" class="form-control bg-theme-grey rounded-0" id="inputPhone" />
+                  </div>
+                  <!-- Offer Text -->
+                  <div class="form-group mt-4">
+                    <label for="letter" class="fw-semibold">Offer Text</label>
+                    <textarea class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="12"></textarea>
+                  </div>
+                  <!-- Submit -->
+                  <button type="submit" id="btnSend" class="btn btn-secondary fw-semibold col-12 col-md-4 mt-3 border-0 rounded-0">SEND</button>
+                </form>
+              </div>
+            </section>
           </div>
-          <form>
-            <!-- Contact Person -->
-            <div class="form-group mt-4">
-              <label for="name" class="fw-semibold">Contact Person</label>
-              <input type="text" class="form-control bg-theme-grey rounded-0" id="inputName" />
-            </div>
-            <!-- Email -->
-            <div class="form-group mt-2">
-              <label for="email" class="fw-semibold">Email</label>
-              <input type="email" class="form-control bg-theme-grey rounded-0" id="inputEmail" />
-            </div>
-            <!-- Phone Number -->
-            <div class="form-group mt-2">
-              <label for="phone" class="fw-semibold">Phone Number</label>
-              <input type="tel" class="form-control bg-theme-grey rounded-0" id="inputPhone" />
-            </div>
-            <!-- Offer Text -->
-            <div class="form-group mt-4">
-              <label for="letter" class="fw-semibold">Offer Text</label>
-              <textarea class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="12"></textarea>
-            </div>
-            <!-- Submit -->
-            <button type="submit" id="btnSend" class="btn btn-secondary fw-semibold col-12 col-md-4 mt-3 border-0 rounded-0">SEND</button>
-          </form>
         </div>
-      </section>
+      </div>
     </main>
     <footer></footer>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
