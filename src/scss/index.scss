@@ -1,3 +1,24 @@
 @import './custom/themeColorVariables';
 
 @import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Admin pages
+#adminSearchFieldContainer {
+    max-width: 250px;
+}
+
+#adminSearchField:focus {
+    outline: none;
+}
+
+.adminTileLightGray {
+    background-color: #D9D9D9;
+}
+
+.adminTileMediumGray {
+    background-color: #C1C1C1;
+}
+
+.adminTileDarkGray {
+    background-color: #B4B4B4;
+}
