@@ -1,7 +1,12 @@
+/**
+ * Creates the HTML for a single application
+ * @param {object} data - The single application data fetched from the API
+ * @returns - The HTML for a single application
+ */
 export function singleApplicationTemplate(data) {
   const { media, listingTitle, jobTitle, companyName, location, listingCreated, deadline, applicantsCount, applicantsName, applicationCreated, email, address, phone, applicationText, link, file, id } = data;
 
-  /// Element
+  /// Elements
   const application = document.createElement('div');
   const header = document.createElement('div');
   const body = document.createElement('div');
@@ -52,7 +57,7 @@ export function singleApplicationTemplate(data) {
   </li>
 </ul>`;
 
-  /// Class
+  /// Classes
   application.classList.add('card', 'container-md', 'border-0', 'rounded-0', 'p-0', 'bg-light', 'text-capitalize', 'col-lg-8', 'col-xl-6', 'm-auto');
   header.classList.add('position-relative');
   img.classList.add('card-img-top', 'rounded-0');
@@ -61,7 +66,7 @@ export function singleApplicationTemplate(data) {
   footer.classList.add('d-grid', 'd-sm-block', 'p-4');
   deleteBtn.classList.add('btn', 'btn-dark', 'px-5', 'rounded-1', 'text-uppercase');
 
-  /// Append
+  /// Appends
   header.append(exitBtn, img);
   footer.append(deleteBtn);
   application.append(header, body, footer);
