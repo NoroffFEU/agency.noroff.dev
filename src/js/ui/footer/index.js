@@ -1,31 +1,31 @@
 export const footer = () => {
     const footerElement = document.querySelector("footer");
-    footerElement.classList.add("bg-theme-dark")
+    footerElement.classList.add("bg-theme-dark", "p-3")
     footerElement.innerHTML = `<div class="container-fluid">
     <div class="row justify-content-evenly">
       <div class="col-2">
-        <h4>About Noroff Job Agency</h4>
-        <p>Some contact information here about this concept</p>
+        <h4 class="text-white">About Noroff Job Agency</h4>
+        <p class="text-white">Some contact information here about this concept</p>
       </div>
       <div class="col-2">
-        <h4>For Companies</h4>
-        <p>Some information here about this concept. Maybe we should ask for some actual content?</p>
+        <h4 class="text-white">For Companies</h4>
+        <p class="text-white">Some information here about this concept. Maybe we should ask for some actual content?</p>
       </div>
       <div class="col-2">
-        <h4>Contact us</h4>
+        <h4 class="text-white">Contact us</h4>
         <ul class="p-0">
-          <li class="list-group-item">Noroff Education AS</li>
-          <li class="list-group-item">Tordenskjoldsgate 9</li>
-          <li class="list-group-item">4612 Kristiansand S</li>
+          <li class="list-group-item text-white">Noroff Education AS</li>
+          <li class="list-group-item text-white">Tordenskjoldsgate 9</li>
+          <li class="list-group-item text-white">4612 Kristiansand S</li>
         </ul>
         <div class="d-flex flex-column gap-1">
-          <a href="tel:38000000" class="nav-link text-black">38000000</a>
-          <a href="mailto:utdanning@noroff.no" class="nav-link text-black">utdanning@noroff.no</a>
+          <a href="tel:38000000" class="nav-link text-white">38000000</a>
+          <a href="mailto:utdanning@noroff.no" class="nav-link text-white">utdanning@noroff.no</a>
         </div>
       </div>
       <div class="col-2">
-        <h4>Help</h4>
-        <p>Some information here about this concept Maybe we should ask for some actual content?</p>
+        <h4 class="text-white">Help</h4>
+        <p class="text-white">Some information here about this concept Maybe we should ask for some actual content?</p>
       </div>
     </div>
   </div>
