@@ -3,3 +3,12 @@
 @import './custom/themeColorVariables';
 
 @import '../../node_modules/bootstrap/scss/bootstrap';
+
+body {
+  background-color: $theme-Grey;
+}
+
+.h1Style {
+  display: flex;
+  justify-content: center;
+}
