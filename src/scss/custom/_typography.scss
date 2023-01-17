@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Livvic:ital,wght@0,400;0,600;1,100;1,300&display=swap');
+
+$theme-font-family: 'Livvic', sans-serif;
+
+// Headings //
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: $theme-font-family !important;
+}
+
+// Body text //
+body {
+  font-family: $theme-font-family !important;
+}

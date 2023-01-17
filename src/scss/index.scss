@@ -1,3 +1,10 @@
+// Colors and fonts
 @import './custom/themeColorVariables';
+@import './custom/typography';
 
+// Header and footer
+@import './custom/header';
+@import './custom/footer';
+
+// Bootstrap from module
 @import '../../node_modules/bootstrap/scss/bootstrap';
