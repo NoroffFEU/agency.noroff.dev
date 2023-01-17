@@ -1,5 +1,3 @@
-import { header } from "./src/js/ui/header/index.js";
-header();
+import * as ui from './src/js/ui/index.js'
 
-import { footer } from "./src/js/ui/footer/index.js";
-footer();
+ui.displayBaseLayout()
