@@ -16,7 +16,7 @@ export function userDetailsTemplate(data) {
 export function renderUserDetails(data, parent) {
   // Elements
   const userDetailsContainer = document.createElement('div');
-  const image = document.querySelector.createElement('img');
+  const image = document.createElement('img');
   const fullName = document.createElement('h1');
   const role = document.createElement('p');
 
@@ -31,7 +31,7 @@ export function renderUserDetails(data, parent) {
   fullName.classList.add('text-center');
   role.classList.add('text-center');
   body.classList.add('p-2', 'bg-theme-light', 'my-2');
-  editButton.classList.add('btn btn-dark');
+  editButton.classList.add('btn', 'btn-dark');
 
   // Some conditional logic needs to be applied
   if (company) {
