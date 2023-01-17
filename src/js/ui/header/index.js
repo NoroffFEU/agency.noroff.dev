@@ -1,3 +1,11 @@
+/**
+ * 
+ * This function is creating the content inside the header tag on each page
+ * 
+ * @returns base header element 
+ * 
+ * 
+ */
 export const header = () => {
   const headerElement = document.querySelector('header');
   headerElement.classList.add('bg-theme-dark');
@@ -33,6 +41,17 @@ pageTitle.innerText = 'Standard';
 const stateValue = "null"
 localStorage.setItem("Role", stateValue)
 
+
+/**
+ * 
+ * This function is adding the navigation to the header element based on the state of thus user. 
+ * If the user is Admin, user og not logged in, it will display different navigation options. 
+ * 
+ * If the user is logged in the navigation will change to have a sign out button
+ * 
+ * @returns navigation option based on the user's status. 
+ * 
+ */
 export const checkState = () => {
   const role = localStorage.getItem('Role');
   const navBarNav = document.getElementById('navbarNav');
@@ -47,7 +66,7 @@ export const checkState = () => {
       <a class="nav-link text-white" href="#">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#">Log out</a>
+      <a class="btn btn-outline-light text-white" href="#" id="signOut">Log out</a>
     </li>
   </ul>`);
   }
@@ -63,7 +82,7 @@ export const checkState = () => {
       <a class="nav-link text-white" href="#">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#">Log out</a>
+    <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
     </li>
   </ul>`);
   }
@@ -76,10 +95,10 @@ export const checkState = () => {
       <a class="nav-link text-white" href="#">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#">Sign in</a>
+      <a class="btn btn-outline-light text-white" href="#" id="signInUser">Sign in</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-theme-secondary text-black">Register</a>
+      <a class="btn btn-theme-secondary text-black" id="registerUser">Register</a>
     </li>
   </ul>`);
   }
