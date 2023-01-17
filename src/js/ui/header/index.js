@@ -30,7 +30,7 @@ pageTitle.innerText = 'Standard';
 
 
 // For testing states
-const stateValue = "null"
+const stateValue = "admin"
 localStorage.setItem("Role", stateValue)
 
 export const checkState = () => {
@@ -47,10 +47,7 @@ export const checkState = () => {
       <a class="nav-link text-white" href="#">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#">Sign in</a>
-    </li>
-    <li class="nav-item">
-      <a class="btn btn-theme-secondary text-black">Register</a>
+      <a class="btn btn-outline-light text-white" href="#">Log out</a>
     </li>
   </ul>`);
   }
@@ -66,7 +63,7 @@ export const checkState = () => {
       <a class="nav-link text-white" href="#">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#">Sign in</a>
+      <a class="btn btn-outline-light text-white" href="#">Log out</a>
     </li>
   </ul>`);
   }
