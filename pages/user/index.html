@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../dist/css/index.css" />
+    <link rel="stylesheet" href="../../dist/css/custom/profile/index.css" />
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./../../src/js/index.js" type="module"></script>
     <script src="./../../index.js"></script>
@@ -16,65 +17,67 @@
     <header>
       <!-- Header -->
     </header>
-    <main class="comtainer-sm bg-theme-light p-5 shadow m-5">
-      <div class="container-sm" id="profileContainer">
-        <!-- Profile details goes here -->
-      </div>
-
-      <div class="d-none" id="companyView">
-        <!-- Displayed if company is logged in -->
-        <div class="bg-theme-grey container-sm p-5 my-5" id="companyListings">
-          <!-- Company listings goes here -->
-          Company listings
+    <main class="container-sm my-5">
+      <div class="bg-theme-light shadow p-5">
+        <div class="container-sm" id="profileContainer">
+          <!-- Profile details goes here -->
         </div>
 
-        <div class="my-5">
-          <!-- Tab navigation for app/offers -->
-          <nav class="nav nav-tabs container-sm" role="tablist" id="nav-tab">
-            <!-- Button for Application tab -->
-            <button class="nav-link active" data-bs-target="#companyApplications" type="button" role="tab" aria-controls="#companyApplications" data-bs-toggle="tab">All Applications</button>
-            <!-- Button for Offers tab -->
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#companyOffers" aria-controls="#companyOffers" aria-selected="true">Offers Sent</button>
-          </nav>
-          <!-- Tab content -->
-          <div class="tab-content" id="nav-tabContent">
-            <div tabindex="0" class="bg-theme-grey container-sm p-5 tab-pane active" id="companyApplications" role="tabpanel">
-              <!-- Company applications goes here -->
-              Company Apps
-            </div>
-            <div class="bg-theme-grey container-sm p-5 tab-pane" id="companyOffers" role="tabpanel">
-              <!-- Company offers goes here -->
-              Company offers
+        <div class="d-none" id="companyView">
+          <!-- Displayed if company is logged in -->
+          <div class="bg-theme-grey container-sm p-5 my-5" id="companyListings">
+            <!-- Company listings goes here -->
+            Company listings
+          </div>
+
+          <div class="my-5">
+            <!-- Tab navigation for app/offers -->
+            <nav class="nav nav-tabs container-sm" role="tablist" id="nav-tab">
+              <!-- Button for Application tab -->
+              <button class="nav-link active" data-bs-target="#companyApplications" type="button" role="tab" aria-controls="#companyApplications" data-bs-toggle="tab">All Applications</button>
+              <!-- Button for Offers tab -->
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#companyOffers" aria-controls="#companyOffers" aria-selected="true">Offers Sent</button>
+            </nav>
+            <!-- Tab content -->
+            <div class="tab-content" id="nav-tabContent">
+              <div tabindex="0" class="bg-theme-grey container-sm p-5 tab-pane active" id="companyApplications" role="tabpanel">
+                <!-- Company applications goes here -->
+                Company Apps
+              </div>
+              <div class="bg-theme-grey container-sm p-5 tab-pane" id="companyOffers" role="tabpanel">
+                <!-- Company offers goes here -->
+                Company offers
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="mt-5" id="studentView">
-        <!-- Displayed if student is logged in -->
-        <div>
-          <!-- Tab navigation for app/offers -->
-          <nav class="nav nav-tabs container-sm" role="tablist" id="nav-tab">
-            <!-- Button for Offers received tab -->
-            <button class="nav-link active" data-bs-target="#studentOffers" type="button" role="tab" aria-controls="#studentOffers" data-bs-toggle="tab">Offers received</button>
-            <!-- Button for applications sent tab -->
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#studentApplications" aria-controls="#studentApplications" aria-selected="true">Applications sent</button>
-          </nav>
-          <!-- Tab content -->
-          <div class="tab-content" id="nav-tabContent">
-            <div tabindex="0" class="bg-theme-grey container-sm p-5 tab-pane active" id="studentOffers" role="tabpanel">
-              <!-- Student offers goes here -->
-              Student Offers
-            </div>
-            <div class="bg-theme-grey container-sm p-5 tab-pane" id="studentApplications" role="tabpanel">
-              <!-- Student applications goes here -->
-              Student Applications
+        <div class="mt-5" id="studentView">
+          <!-- Displayed if student is logged in -->
+          <div>
+            <!-- Tab navigation for app/offers -->
+            <nav class="nav nav-tabs container-sm" role="tablist" id="nav-tab">
+              <!-- Button for Offers received tab -->
+              <button class="nav-link active" data-bs-target="#studentOffers" type="button" role="tab" aria-controls="#studentOffers" data-bs-toggle="tab">Offers received</button>
+              <!-- Button for applications sent tab -->
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#studentApplications" aria-controls="#studentApplications" aria-selected="true">Applications sent</button>
+            </nav>
+            <!-- Tab content -->
+            <div class="tab-content" id="nav-tabContent">
+              <div tabindex="0" class="bg-theme-grey container-sm p-5 tab-pane active" id="studentOffers" role="tabpanel">
+                <!-- Student offers goes here -->
+                Student Offers
+              </div>
+              <div class="bg-theme-grey container-sm p-5 tab-pane" id="studentApplications" role="tabpanel">
+                <!-- Student applications goes here -->
+                Student Applications
+              </div>
             </div>
           </div>
-        </div>
-        <div class="bg-theme-grey container-sm p-5 my-5" id="studentFavoriteListings">
-          <!-- Student favorite listings goes here -->
-          Student favorite listings
+          <div class="bg-theme-grey container-sm p-5 my-5" id="studentFavoriteListings">
+            <!-- Student favorite listings goes here -->
+            Student favorite listings
+          </div>
         </div>
       </div>
     </main>
