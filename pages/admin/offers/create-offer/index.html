@@ -7,7 +7,6 @@
     <meta name="description" content="" />
     <title>Offer Form</title>
     <link rel="stylesheet" href="/dist/css/index.css" />
-    <script src="https://kit.fontawesome.com/a4aa5944a1.js" crossorigin="anonymous"></script>
   </head>
   <body id="offerPage" class="d-flex flex-column min-vh-100 gap-4">
     <header></header>
@@ -49,12 +48,12 @@
                   <input required type="date" class="form-control bg-theme-grey rounded-0 deadlineWidth" id="deadline" name="deadline" />
                 </div>
                 <!-- Offer Text -->
-                <div class="form-group mt-4">
+                <div class="form-group mt-4 mb-2">
                   <label for="letter" class="fw-semibold">Offer Text</label>
                   <textarea required class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="8" name="offerText"></textarea>
                 </div>
                 <!-- Submit -->
-                <button type="button" class="btn btn-secondary fw-semibold border-0 rounded-0 mt-2" data-bs-toggle="modal" data-bs-target="#offerSuccess">SEND</button>
+                <button type="button" class="btn btn-secondary fw-semibold border-0 rounded-0 mt-2 px-5" data-bs-toggle="modal" data-bs-target="#offerSuccess">SEND</button>
               </form>
             </div>
           </div>
@@ -71,7 +70,7 @@
             <div class="p-3 col-12 position-relative">
               <!-- Text that will appear in the modal-->
               <div class="text-center">
-                <i class="fa-regular fa-circle-check text-theme-success" id="fa-success-icon"></i>
+                <img src="/src/assets/icons/checkmark.svg" />
                 <h1 class="pt-4">Job Offer Sent</h1>
               </div>
             </div>
