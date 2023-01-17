@@ -6,6 +6,6 @@ import { singleApplicationTemplate } from '../../templates/application/student/s
  */
 export function displaySingleApplication(data) {
   document.title = data.title;
-  const container = document.getElementById('singleApplicationContainer');
+  const container = document.getElementById(''); /// Add container for single application view
   container.append(singleApplicationTemplate(data));
 }
