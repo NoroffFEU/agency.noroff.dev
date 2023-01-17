@@ -30,7 +30,7 @@ export function renderUserDetails(data, parent) {
   image.classList.add('rounded-circle', 'd-block', 'mx-auto', 'w-25');
   fullName.classList.add('text-center', 'mt-3');
   role.classList.add('text-center', 'fs-2', 'fw-lighter');
-  body.classList.add('px-4', 'pt-3', 'pb-2', 'bg-theme-light', 'my-2', 'shadow', 'mx-auto', 'rounded-4', 'my-3', 'maxWidthContainer');
+  body.classList.add('px-4', 'pt-3', 'pb-2', 'bg-theme-light', 'my-2', 'shadow', 'mx-auto', 'rounded-4', 'my-3', 'maxWidthProfileContainer');
   header.classList.add('fs-5');
   editButton.classList.add('btn', 'btn-dark', 'd-block', 'mx-auto');
 
@@ -47,7 +47,7 @@ export function renderUserDetails(data, parent) {
 
   skillContainer.append(skillHeader, skillWrapper);
   skillHeader.classList.add('fs-5');
-  skillContainer.classList.add('px-4', 'py-3', 'bg-theme-light', 'my-2', 'shadow', 'mx-auto', 'rounded-4', 'my-3', 'maxWidthContainer');
+  skillContainer.classList.add('px-4', 'py-3', 'bg-theme-light', 'my-2', 'shadow', 'mx-auto', 'rounded-4', 'my-3', 'maxWidthProfileContainer');
   skillWrapper.classList.add('d-flex', 'gap-3', 'flex-wrap');
 
   const skills = ['HTML', 'CSS', 'JavaScript', 'SCSS', 'Bootstrap', 'React'];
