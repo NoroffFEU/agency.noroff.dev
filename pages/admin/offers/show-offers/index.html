@@ -4,11 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/dist/css/index.css" />
     <title>Admin - Show Offers</title>
   </head>
   <body id="homePage">
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header class="bg-theme-grey">Header</header>
+    <main class="d-flex flex-column justify-content-center py-2">
+      <div class="p-3 justify-content-center text-center">
+        <h2>Admin</h2>
+      </div>
+
+      <div class="container-sm w-75 pb-5">
+        <div class="grid row">
+          <div class="bg-theme-grey col p-3 rounded-top">Users</div>
+          <div class="bg-theme-grey col p-3 rounded-top">Listings</div>
+          <div class="bg-theme-grey col p-3 rounded-top">Offers</div>
+          <div class="bg-theme-grey col p-3 rounded-top">Applications</div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <div class="p-1">Filter Icon</div>
+          <div class="p-1">Search Icon</div>
+        </div>
+        <div class="d-flex">
+          <div class="flex-fill p-2">Recipient</div>
+          <div class="p-2">Company</div>
+          <div class="p-2">ID-number</div>
+          <div class="p-2">Accepted</div>
+          <div class="p-2">Delete</div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-theme-grey">Footer</footer>
+    <script src="/index.js" type="module"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>
