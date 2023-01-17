@@ -30,7 +30,7 @@ pageTitle.innerText = 'Standard';
 
 
 // For testing states
-const stateValue = "admin"
+const stateValue = "null"
 localStorage.setItem("Role", stateValue)
 
 export const checkState = () => {
