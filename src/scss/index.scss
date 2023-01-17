@@ -8,7 +8,41 @@ body {
   background-color: $theme-Grey;
 }
 
-.h1Style {
+.h1Style, .h2Style, .h3Style, .paragraphClass {
   display: flex;
   justify-content: center;
+  font-style: italic;
+}
+
+.paragraphContainer {
+  display: flex;
+  justify-content: center;
+  margin: 30px
+}
+
+.jobOfferImage {
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.jobOfferImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.acceptButton {
+  background-color: $theme-Dark;
+  color: $theme-Light;
+}
+
+.rejectButton {
+  background-color: $theme-Grey;
+  color: $theme-Light;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
