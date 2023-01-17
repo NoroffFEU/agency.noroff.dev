@@ -1,3 +1,3 @@
-import * as ui from './src/js/ui/index.js'
+import * as ui from './src/js/ui/index.js';
 
-ui.displayBaseLayout()
+ui.displayBaseLayout();
