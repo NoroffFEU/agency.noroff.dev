@@ -28,24 +28,25 @@
               </div>
               <form id="offerForm">
                 <!-- Contact Person -->
+                <!-- Example pattern for email -->
                 <div class="form-group mt-4">
                   <label for="name" class="fw-semibold">Contact Person</label>
-                  <input type="text" class="form-control bg-theme-grey rounded-0" id="inputName" name="name" />
+                  <input required pattern="^[\w\-.]+@(stud.)?noroff.no$" type="text" class="form-control bg-theme-grey rounded-0" id="inputName" name="name" />
                 </div>
                 <!-- Email -->
                 <div class="form-group mt-2">
                   <label for="email" class="fw-semibold">Email</label>
-                  <input type="email" class="form-control bg-theme-grey rounded-0" id="inputEmail" name="email" />
+                  <input required type="email" class="form-control bg-theme-grey rounded-0" id="inputEmail" name="email" />
                 </div>
                 <!-- Phone Number -->
                 <div class="form-group mt-2">
                   <label for="phone number" class="fw-semibold">Phone Number</label>
-                  <input type="tel" class="form-control bg-theme-grey rounded-0" id="inputPhone" name="number" />
+                  <input required type="tel" class="form-control bg-theme-grey rounded-0" id="inputPhone" name="number" />
                 </div>
                 <!-- Offer Text -->
                 <div class="form-group mt-4">
                   <label for="letter" class="fw-semibold">Offer Text</label>
-                  <textarea class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="12" name="offerText"></textarea>
+                  <textarea required class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="12" name="offerText"></textarea>
                 </div>
                 <!-- Submit -->
                 <button type="button" class="btn btn-secondary fw-semibold border-0 rounded-0 mt-2" data-bs-toggle="modal" data-bs-target="#offerSuccess">SEND</button>
