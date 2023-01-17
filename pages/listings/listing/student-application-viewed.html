@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Description of single listing page will have to be rendered in JS to get correct info for each listing -->
+    <meta name="description" content="" />
+
+    <link rel="stylesheet" href="/dist/css/index.css" />
+
+    <!-- Link to my font awesome, will probably have to be replaced with one that belongs to the entire team? -->
+    <script src="https://kit.fontawesome.com/155738729b.js" crossorigin="anonymous"></script>
+
+    <!-- Page title of single listing will have to be rendered in JS to get correct info related to the listing -->
+    <title>PAge title</title>
+  </head>
+  <body id="homePage">
+    <header></header>
+    <main class="min">
+      <!-- picture is just an illustration -->
+      <img class="card-img-top" src="" alt="Placeholder" style="max-height: 300px" />
+      <div class="container">
+        <div class="row d-flex alig-items-center justify-content-center my-5">
+          <div class="col-lg-7 d-md-flex align-items-start">
+            <!-- Back button, need to add JS event to make it take you to previous page -->
+            <button class="btn border-0 p-1 me-3 my-2 my-md-0 fs-5"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="card bg-theme-light border-0">
+              <!-- Content will be moved to be rendered in JS, just hard coded for now -->
+              <div class="card-body d-flex flex-column gap-1 p-sm-3 p-md-5">
+                <h1 class="card-title">Listing title</h1>
+                <small>Contact person <span>&#x2022;</span> Company name <span>&#x2022;</span> Location</small>
+                <small>1 day ago <span>&#x2022;</span> Deadline date <span>&#x2022;</span> 47 Applicants</small>
+                <div class="d-flex gap-3 my-3"></div>
+                <div class="row">
+                  <div class="col-sm">
+                    <h2 class="card-title">Lorem!</h2>
+                  </div>
+                  <div class="col-sm">
+                    <p>Time / Date</p>
+                  </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, vel consequuntur. Perferendis minus quidem quia consequatur accusamus laudantium quos atque fuga quae, libero nemo aliquid excepturi in unde dolorem enim!</p>
+                <p>Numquam qui nulla illum impedit fuga perferendis et necessitatibus hic esse nostrum sit est.</p>
+                <h2 class="card-title">Applicants/student name</h2>
+                <p>Link (added by student)</p>
+                <p>Filename (added by student)</p>
+                <div><button class="btn btn-theme-primary text-uppercase text-white">Delete</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
