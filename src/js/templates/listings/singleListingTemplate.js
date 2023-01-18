@@ -6,14 +6,15 @@ export function singleListingTemplate(listing) {
   column.className = 'col-lg-6';
 
   const card = document.createElement('div');
-  card.className = 'card bg-theme-light border-0';
+  card.className = 'card bg-theme-light border-0 rounded-0';
 
   const img = document.createElement('img');
-  img.className = 'card-img-top';
+  img.className = 'card-img-top rounded-0';
+  img.style = 'max-height: 250px; object-fit: cover;';
   img.src = listing.thumbnail;
 
   const cardBody = document.createElement('div');
-  cardBody.className = 'card-body d-flex flex-column gap-1 p-sm-3 p-md-5';
+  cardBody.className = 'card-body d-flex flex-column gap-1 p-sm-3 px-md-5 py-md-4';
 
   const cardTitle = document.createElement('h1');
   cardTitle.className = 'card-title';
@@ -35,10 +36,9 @@ export function singleListingTemplate(listing) {
   const favBtn = document.createElement('button');
   favBtn.className = 'btn btn-theme-light';
 
-  // Will be updated when i have assets
   const favIcon = document.createElement('img');
-  favIcon.src = '/src/assets/icons/heart-fav.svg';
   favIcon.style = 'width: 30px';
+  favIcon.src = '/src/assets/icons/heart-fav.svg';
 
   column.append(card);
   card.append(img, cardBody);
