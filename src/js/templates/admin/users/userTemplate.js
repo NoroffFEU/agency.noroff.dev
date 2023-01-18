@@ -19,7 +19,7 @@ export function userTemplate(userData) {
     profile.appendChild(emailContainer);
 
     const activeContainer = document.createElement('div');
-    activeContainer.classList.add('col-1', 'd-none', 'd-lg-block', 'text-center', 'py-3', 'pb-4');
+    activeContainer.classList.add('col-1', 'd-none', 'd-lg-block', 'text-center', 'my-3', 'mb-4', 'd-flex', 'align-self-center');
     const active = document.createElement('img');
     if (userData.isActive === true) {
         active.src = '/src/assets/icons/checkmark.svg';
