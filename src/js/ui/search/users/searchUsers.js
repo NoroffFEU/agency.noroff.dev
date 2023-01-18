@@ -1,4 +1,4 @@
-import { renderUsersTemplate } from "../../templates/admin/users/index.js";
+import { renderUsersTemplate } from '/src/js/ui/search/users/renderUsers.js';
 
 /*
     Filtering search results based on users input 

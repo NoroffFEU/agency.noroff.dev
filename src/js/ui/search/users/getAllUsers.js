@@ -1,4 +1,4 @@
-import { renderUsersTemplate } from '/src/js/templates/admin/users/index.js';
+import { renderUsersTemplate } from '/src/js/ui/search/users/renderUsers.js';
 import { searchUsers } from './searchUsers.js';
 
 const userArray_DUMMY = [
@@ -63,7 +63,6 @@ const userArray_DUMMY = [
         isActive:    true
     },
   ];
-
 
 /*
     Fetching data from API, and rendering data onto page

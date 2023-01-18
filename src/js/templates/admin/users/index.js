@@ -1,7 +1,5 @@
-import { clearSearchResults } from "../../../ui/search/components/clearSearchResults.js";
-
 /**
- * Template for rendering all profiles on to page.
+ * Template for rendering users onto page.
  */
 
 export function userTemplate(userData) {
@@ -41,10 +39,3 @@ export function userTemplate(userData) {
 
     return profile;
 }
-
-HTMLElement.prototype.clear = clearSearchResults;
-
-export function renderUsersTemplate(userDataList, parent) {
-    usersContainer.clear();
-    parent.append(...userDataList.map(userTemplate));
-  }
