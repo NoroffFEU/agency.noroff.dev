@@ -9,11 +9,8 @@ import { Store } from '../../storage/storage.js';
  */
 
 export const logout = function () {
-  const storedToken = new Store('token', {}, false);
-  const storedProfile = new Store('profile', {}, false);
-
-  storedToken.clear();
-  storedProfile.clear()
+  new Store('token').clear();
+  new Store('profile').clear();
 
   window.location.replace("/");
 };
