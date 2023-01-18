@@ -22,10 +22,13 @@ Version: 1.0.0
     text-decoration: underline;
 }
 
-#adminSearchFieldContainer {
-    max-width: 250px;
+.searchIcon {
+    width: 20px;
 }
 
-#adminSearchField:focus {
-    outline: none;
+// Admin users page
+.activeIcon,
+.inActiveIcon,
+.deleteIcon {
+    width: 22px;
 }
