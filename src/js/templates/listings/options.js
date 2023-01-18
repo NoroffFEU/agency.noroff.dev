@@ -9,11 +9,13 @@ export function options() {
   // Edit button
   const editBtn = document.createElement('button');
   editBtn.className = 'btn btn-theme-secondary text-uppercase rounded-0';
+  editBtn.id = 'editListingBtn';
   editBtn.innerText = 'Edit';
 
   // Delete button
   const deleteBtn = document.createElement('button');
   deleteBtn.className = 'btn btn-theme-dark text-uppercase rounded-0';
+  deleteBtn.id = 'deleteListingBtn';
   deleteBtn.innerText = 'Delete';
 
   options.append(editBtn, deleteBtn);
