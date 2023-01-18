@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/dist/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/dd25913488.js" crossorigin="anonymous"></script>
+    <script type="module" defer src="/src/js/ui/search/getAllUsers.js"></script>
+    <script type="module" defer src="/src/js/ui/search/searchUsers.js"></script>
     <title>Admin - Users</title>
 </head>
 <body class="text-bg-light">
@@ -22,18 +25,21 @@
             </div>
             <div class="row my-5">
                 <div class="col d-flex justify-content-end">
-                    <div class="w-100 border rounded-5 m-1 me-1 me-md-5 text-bg-light" id="adminSearchFieldContainer">
-                        <input type="search" id="adminSearchField" class="ms-3 me-1 my-2 border-0 rounded-5 text-bg-light">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
+                    <form id="usersSearchForm">
+                        <div class="w-100 border rounded-5 m-1 me-1 me-md-5 text-bg-light" id="adminSearchFieldContainer">
+                            <input type="search" minlength="3" name="term" id="adminSearchField" class="ms-3 me-1 my-2 border-0 rounded-5 text-bg-light">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="row p-md-5">
-                <div class="col-5 col-lg-5">Name</div>
-                <div class="col-5 col-lg-5">Email</div>
-                <div class="col-2 col-lg-1 d-none d-lg-block">Active</div>
-                <div class="col-2 col-lg-1">Delete</div>
+                <div class="col-5 col-lg-5 ps-2">Name</div>
+                <div class="col-5 col-lg-5 ps-2">Email</div>
+                <div class="col-1 d-none d-lg-block text-center">Active</div>
+                <div class="col-2 col-lg-1 text-center">Delete</div>
             </div>
+            <div id="usersContainer"></div>
         </div>
     </main>
     <footer></footer>
