@@ -27,33 +27,32 @@
               </div>
               <form id="offerForm">
                 <!-- Contact Person -->
-                <!-- Example pattern for email -->
                 <div class="form-group mt-4">
                   <label for="name" class="fw-semibold">Contact Person</label>
-                  <input required pattern="^[\w\-.]+@(stud.)?noroff.no$" type="text" class="form-control bg-theme-grey rounded-0" id="inputName" name="name" />
+                  <input required type="text" class="form-control bg-theme-grey rounded-0" id="inputName" name="name" title="Please input the Contact Persons name" />
                 </div>
                 <!-- Email -->
                 <div class="form-group mt-3">
                   <label for="email" class="fw-semibold">Email</label>
-                  <input required type="email" class="form-control bg-theme-grey rounded-0" id="inputEmail" name="email" />
+                  <input required type="email" class="form-control bg-theme-grey rounded-0" id="inputEmail" name="email" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="please use @noroff.no email." />
                 </div>
                 <!-- Phone Number -->
                 <div class="form-group mt-3">
                   <label for="phone number" class="fw-semibold">Phone Number</label>
-                  <input required type="tel" class="form-control bg-theme-grey rounded-0" id="inputPhone" name="number" />
+                  <input required type="tel" class="form-control bg-theme-grey rounded-0" id="inputPhone" name="number" title="Please enter a phone number" />
                 </div>
                 <!-- Deadline -->
                 <div class="form-group mt-3">
                   <label for="deadline" class="fw-semibold">Deadline Date</label>
-                  <input required type="date" class="form-control bg-theme-grey rounded-0 deadlineWidth" id="deadline" name="deadline" />
+                  <input required type="date" class="form-control bg-theme-grey rounded-0 deadlineWidth" id="deadline" name="deadline" title="Pleae pick a deadline for the offer." />
                 </div>
                 <!-- Offer Text -->
                 <div class="form-group mt-4 mb-3">
                   <label for="letter" class="fw-semibold">Offer Text</label>
-                  <textarea required class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="8" name="offerText"></textarea>
+                  <textarea required class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="8" name="offerText" title="Please add something to the offer text."></textarea>
                 </div>
                 <!-- Submit -->
-                <button type="button" class="btn btn-secondary fw-semibold border-0 rounded-0 mt-2 px-5" data-bs-toggle="modal" data-bs-target="#offerSuccess">SEND</button>
+                <button class="btn btn-secondary fw-semibold border-0 rounded-0 mt-2 px-5">SEND</button>
               </form>
             </div>
           </div>
