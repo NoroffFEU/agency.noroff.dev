@@ -27,12 +27,6 @@ const routerSwitch = () => {
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
       break;
 
-    // Profile UI settings
-    case 'dashboard':
-      // Page title
-      document.querySelector('title').innerText = defaultTitle + ` || ` + `Dashboard`;
-      break;
-
     // 404 UI settings
     case '404':
       // Page title
