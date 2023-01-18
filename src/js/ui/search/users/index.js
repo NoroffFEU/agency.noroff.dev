@@ -1,1 +1,1 @@
-export * from './users/getAllUsers.js';
+export * from './getAllUsers.js';
