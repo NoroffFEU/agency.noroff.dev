@@ -1,3 +1,4 @@
+import { viewSingleListing } from './src/js/views/listings/index.js';
 import * as ui from './src/js/ui/index.js';
 
 ui.displayBaseLayout();
@@ -25,6 +26,13 @@ const routerSwitch = () => {
     case 'homepage':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
+      break;
+
+    // Single listing page UI
+    case 'singleListing':
+      // Page title
+      document.querySelector('title').innerText = defaultTitle + ` || Listing`;
+      viewSingleListing();
       break;
 
     // 404 UI settings
