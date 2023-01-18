@@ -4,10 +4,16 @@ import { Store } from '../../storage/storage.js';
  we would first need to create an instance of the class, passing in the required key and state parameters.
  For example, I am assuming the token is stored under the key 'token':
 */
-let store = new Store('token', {});
+/**
+ * Removes token and profile from local storage
+ */
 
-export const logoutUser = () => {
-  store.clear();
- 
-  window.location.href = './';
+export const logout = function () {
+  const storedToken = new Store('token', {}, false);
+  const storedProfile = new Store('profile', {}, false);
+
+  storedToken.clear();
+  storedProfile.clear()
+
+  window.location.replace("/");
 };
