@@ -1,3 +1,5 @@
+// Author: May-Tove Hovdal
+
 import { apiBaseFetch } from '../apiBaseFetch.js';
 /*import { apiUrl } from '../constants.js';*/
 

@@ -1,3 +1,5 @@
+// Author: May-Tove Hovdal
+
 import { getSingleListing } from '../../api/posts/getSingleListing.js';
 import * as template from '../../templates/listings/index.js';
 

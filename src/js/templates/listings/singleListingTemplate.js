@@ -1,3 +1,5 @@
+// Author: May-Tove Hovdal
+
 export function singleListingTemplate(listing) {
   // Content will be updated and altered better when we are provided with correct endpoints, using dummy API for now
   const column = document.createElement('div');

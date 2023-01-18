@@ -1,3 +1,5 @@
+// Author: May-Tove Hovdal
+
 export function options() {
   /*const buttonContainer = document.querySelector('.buttonContainer');*/
   const cardBody = document.querySelector('.card-body');
