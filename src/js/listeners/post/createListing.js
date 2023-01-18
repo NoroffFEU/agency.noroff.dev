@@ -1,4 +1,4 @@
-import { create } from "../api/listings/create.js";
+import { create } from "../../api/posts/create.js";
 
 /**
  * A listener for when users are creating a new listing
@@ -11,43 +11,36 @@ export async function createListing() {
   const createPicture = document.querySelector("#pictureUrl");
   const createDescription = document.querySelector("#createDescription");
 
-  await create({
-    title: "Hello",
-    userId: 5,
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-
-  });
-
-  // if (form) {
-  //   form.addEventListener("submit", async (event) => {
-  //     event.preventDefault();
-
-  //     const title = createTitle.value;
-  //     const location = createLocation.value;
-  //     const deadline = createDeadline.value;
-  //     const picture = createPicture.value;
-  //     const desc = createDescription.value;
-  //     const currentTime = new Date().toISOString();
+      const title = createTitle.value;
+      const location = createLocation.value;
+      const deadline = createDeadline.value;
+      const picture = createPicture.value;
+      const desc = createDescription.value;
+      const currentTime = new Date().toISOString();
 
 
 
-  //     if (createDeadline > currentTime) {
-  //       await create({
-  //         // waiting on correct params from api
+      if (createDeadline > currentTime) {
+        await create({
+          // param to test dummyAPI
+          userId: 5,
 
-  //         // title: title,
-  //         // location: location,
-  //         // deadline: deadline,
-  //         // img: picture,
-  //         // description: desc,
-
-  //       });
-  //       // form.reset();
-  //       // pop up success message
-  //       // redirect?
-  //     } else {
-  //       alert("The date must be in the future");
-  //     }
-  //   });
-  // }
+          // waiting on correct params from api
+          title: title,
+          location: location,
+          deadline: deadline,
+          img: picture,
+          description: desc,
+        });
+        // pop up success message
+        // redirect?
+      } else {
+        alert("Something went wrong");
+      }
+    });
+  }
 }
