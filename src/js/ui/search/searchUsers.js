@@ -1,5 +1,9 @@
 import { renderUsersTemplate } from "../../templates/admin/users/index.js";
 
+/*
+    Filtering search results based on users input 
+*/
+
 export function searchUsers(users, usersContainer) {
     usersSearchForm.addEventListener('submit', function (event) {
         event.preventDefault();

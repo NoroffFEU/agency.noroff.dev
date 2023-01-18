@@ -64,6 +64,11 @@ const userArray_DUMMY = [
     },
   ];
 
+
+/*
+    Fetching data from API, and rendering data onto page
+*/
+
 const usersContainer = document.querySelector('#usersContainer');
 
 export async function getUsersList() {
