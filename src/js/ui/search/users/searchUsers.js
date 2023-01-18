@@ -1,3 +1,4 @@
+import { renderSearchMessage } from './renderSearchMessage.js';
 import { renderUsersTemplate } from '/src/js/ui/search/users/renderUsers.js';
 
 /*
@@ -17,7 +18,12 @@ export function searchUsers(users, usersContainer) {
         });
         console.log(filteredUsers);
 
-        renderUsersTemplate(filteredUsers, usersContainer)
+        if (filteredUsers.length > 0) {
+            renderUsersTemplate(filteredUsers, usersContainer);
+        } else {
+            renderSearchMessage('There are no users matching your search..');
+        }
+
     })
 };
 
