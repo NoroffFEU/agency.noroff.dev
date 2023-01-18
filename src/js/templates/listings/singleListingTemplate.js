@@ -24,18 +24,19 @@ export function singleListingTemplate(listing) {
   description.innerText = listing.description;
 
   const buttonContainer = document.createElement('div');
-  buttonContainer.className = 'd-flex gap-3 my-3 buttonContainer';
+  buttonContainer.className = 'd-flex align-items-center gap-2 my-3 buttonContainer';
 
   const applyBtn = document.createElement('a');
   applyBtn.className = 'btn btn-theme-secondary text-uppercase w-100 rounded-0 applyBtn';
-  applyBtn.innerText = 'Apply Now';
+  applyBtn.innerText = 'Apply for job';
 
   const favBtn = document.createElement('button');
   favBtn.className = 'btn btn-theme-light';
 
   // Will be updated when i have assets
-  const favIcon = document.createElement('i');
-  favIcon.className = 'fa-regular fa-heart';
+  const favIcon = document.createElement('img');
+  favIcon.src = '/src/assets/icons/heart-fav.svg';
+  favIcon.style = 'width: 30px';
 
   column.append(card);
   card.append(img, cardBody);
