@@ -48,7 +48,9 @@
                       <th scope="col">Delete</th>
                     </tr>
                   </thead>
-                  <tbody class="" id="userProfile"></tbody>
+                  <tbody class="" id="userProfile">
+                    <!-- API Fetch inserted here - userProdile -->
+                  </tbody>
                 </table>
               </div>
               <!-- Users table ends -->
@@ -63,15 +65,8 @@
                       <th scope="col">Delete</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Frontend engineer</th>
-                      <td>Noroff school</td>
-                      <td>#-124578</td>
-                      <td>
-                        <button class="btn btn-sm"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
-                      </td>
-                    </tr>
+                  <tbody id="jobListings">
+                    <!-- API Fetch inserted here - jobListings -->
                   </tbody>
                 </table>
               </div>
@@ -147,6 +142,7 @@
     </main>
     <footer class="bg-theme-grey">Footer</footer>
     <script src="/src/js/views/admin/showUsers.js" type="module"></script>
+    <script src="/src/js/views/admin/showListings.js" type="module"></script>
     <script src="/index.js" type="module"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </body>
