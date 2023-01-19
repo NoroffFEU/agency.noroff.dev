@@ -12,7 +12,7 @@
     <header></header>
     <main class="container-fluid flex-fill">
       <!-- Example button for opening modal -->
-      <button type="button" class="btn btn-secondary fw-semibold border-0 rounded-0" data-bs-toggle="modal" data-bs-target="#offerModal">Create Offer</button>
+      <button type="button" class="btn btn-secondary fw-semibold border-0 rounded-0" data-auth="openModalBtn" data-bs-toggle="modal" data-bs-target="#offerModal">Create Offer</button>
       <!-- The offer form in a modal -->
       <div class="modal fade" id="offerModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -29,30 +29,30 @@
                 <!-- Contact Person -->
                 <div class="form-group mt-4">
                   <label for="name" class="fw-semibold">Contact Person</label>
-                  <input required type="text" class="form-control bg-theme-grey rounded-0" id="inputName" name="name" title="Please input the Contact Persons name" />
+                  <input required type="text" class="form-control bg-theme-grey rounded-0" id="inputName" name="name" data-auth="inputName" title="Please input the Contact Persons name" />
                 </div>
                 <!-- Email -->
                 <div class="form-group mt-3">
                   <label for="email" class="fw-semibold">Email</label>
-                  <input required type="email" class="form-control bg-theme-grey rounded-0" id="inputEmail" name="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="A-Z, 0-9 with proper .com or similar ending" />
+                  <input required type="email" class="form-control bg-theme-grey rounded-0" id="inputEmail" name="email" data-auth="inputEmail" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="A-Z, 0-9 with proper .com or similar ending" />
                 </div>
                 <!-- Phone Number -->
                 <div class="form-group mt-3">
                   <label for="phone number" class="fw-semibold">Phone Number</label>
-                  <input required type="tel" class="form-control bg-theme-grey rounded-0" id="inputPhone" name="number" title="Please enter a phone number" />
+                  <input required type="tel" class="form-control bg-theme-grey rounded-0" id="inputPhone" name="number" data-auth="inputPhoneNumber" title="Please enter a phone number" />
                 </div>
                 <!-- Deadline -->
                 <div class="form-group mt-3">
                   <label for="deadline" class="fw-semibold">Deadline Date</label>
-                  <input required type="date" class="form-control bg-theme-grey rounded-0 deadlineWidth" id="deadline" name="deadline" title="Pleae pick a deadline for the offer." />
+                  <input required type="date" class="form-control bg-theme-grey rounded-0 deadlineWidth" id="deadline" name="deadline" data-auth="inputDeadline" title="Pleae pick a deadline for the offer." />
                 </div>
                 <!-- Offer Text -->
                 <div class="form-group mt-4 mb-3">
                   <label for="letter" class="fw-semibold">Offer Text</label>
-                  <textarea required class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="8" name="offerText" title="Please add something to the offer text."></textarea>
+                  <textarea required class="form-control bg-theme-grey rounded-0" id="inputLetter" rows="8" name="offerText" data-auth="inputOfferText" title="Please add something to the offer text."></textarea>
                 </div>
                 <!-- Submit -->
-                <button class="btn btn-secondary fw-semibold border-0 rounded-0 mt-2 px-5">SEND</button>
+                <button class="btn btn-secondary fw-semibold border-0 rounded-0 mt-2 px-5" data-auth="sendOfferBtn">SEND</button>
               </form>
             </div>
           </div>
