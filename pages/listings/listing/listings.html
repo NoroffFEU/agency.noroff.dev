@@ -14,7 +14,7 @@
       <section class="d-flex justify-content-center">
           <div class="mt-5">
                 <div class="search">
-                  <input type="text" placeholder="Search Listings..." />
+                  <input class="searchInput" type="text" placeholder="Search Listings..." />
                   <button>S</button>
 
                     <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">F</button>
@@ -28,6 +28,7 @@
            </div>
      </section>
       <section class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 m-auto">
+        <div class="testingListings"></div>
         <div class="col">
           <div class="mt-4 p-0">
             <div class="card" style="max-width: 500px">
@@ -107,5 +108,6 @@
     </main>
     <footer></footer>
     <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../../../src/js/api/posts/getListOfListings.js" type="module"></script>
   </body>
 </html>
