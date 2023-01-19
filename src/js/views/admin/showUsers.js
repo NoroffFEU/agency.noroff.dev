@@ -3,7 +3,7 @@
 
 const fetchUser = document.querySelector('#userProfile');
 
-// Import API url for fetch the data
+// Import API url for fetch the data (dummy API for users data)
 import { dummyApiUrl } from '../../api/constants.js';
 // import headers for the requestOption
 import { headers } from '../../api/headers.js';
@@ -22,14 +22,14 @@ export function showUsers() {
       const json = await response.json();
 
       const userData = json.users;
-      console.log(response.ok);
-      console.log(userData.users);
+
+      //  For loop to get all the users registered in the dataBase
 
       for (let i = 0; i < userData.length; i++) {
-        console.log(json.users[i]);
+        // Get and combine both firstName and lastName under same const
         const profileName = userData[i].firstName + ` ` + userData[i].lastName;
+        // Get email registered and cleaner during one const
         const profileEmail = userData[i].email;
-        console.log(profileName);
 
         fetchUser.innerHTML += `
         <tr>
