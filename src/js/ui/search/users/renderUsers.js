@@ -4,7 +4,7 @@ import { clearSearchResults } from '/src/js/ui/search/components/clearSearchResu
 HTMLElement.prototype.clear = clearSearchResults;
 
 /**
- * Template for rendering all users onto page.
+ * function for rendering all users onto page.
  */
 
 export function renderUsersTemplate(userDataList, parent) {

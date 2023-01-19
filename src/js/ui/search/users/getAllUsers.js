@@ -1,5 +1,5 @@
 import { renderUsersTemplate } from '/src/js/ui/search/users/renderUsers.js';
-import { setupSearch } from './searchUsers.js';
+import { liveSearch } from './searchUsers.js';
 
 const userArray_DUMMY = [
   {
@@ -71,12 +71,17 @@ const userArray_DUMMY = [
 const usersContainer = document.querySelector('#usersContainer');
 
 export async function getUsersList() {
-  const users = userArray_DUMMY;
-  setupSearch(users, usersContainer);
-  if (users.length) {
-    renderUsersTemplate(users, usersContainer);
-  } else {
-    console.log('nothing to show');
+  try {
+    const users = userArray_DUMMY;
+    liveSearch(users, usersContainer);
+    if (users.length) {
+      renderUsersTemplate(users, usersContainer);
+    } else {
+      renderSearchMessage('There are no users to show..');
+    }
+  } catch {
+    console.log('There was an error retrieving users from the API');
+    renderSearchMessage('There was an error retrieving users..');
   }
 }
 
