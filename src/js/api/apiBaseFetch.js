@@ -19,19 +19,34 @@ const data2 = await apiBaseFetch('https://api.example.com/items', headers);
 */
 
 export async function apiBaseFetch(url, headers = null, offset = 0, limit = 100) {
-    let options = {};
-    if (headers) {
-      options.headers = headers;
-    }
-    options.method = 'GET';
-    let query = `offset=${offset}&limit=${limit}`;
-    let full_url = new URL(url);
-    full_url.search = new URLSearchParams(query);
-    try {
-      const response = await fetch(full_url, options);
-      return await response.json();
-    } catch (error) {
-      console.error(`Error: ${error}`);
-      throw error;
-    }
+  let options = {};
+  if (headers) {
+    options.headers = headers;
   }
+  options.method = 'GET';
+  let query = `offset=${offset}&limit=${limit}`;
+  let full_url = new URL(url);
+  full_url.search = new URLSearchParams(query);
+  try {
+    const response = await fetch(full_url, options);
+    return await response.json();
+  } catch (error) {
+    console.error(`Error: ${error}`);
+    throw error;
+  }
+}
+
+
+
+// authBaseFetch for optional method
+
+/**
+ * Authorized fetch to be used with optional method
+ * @param {string} url 
+ * @param {string} options 
+ */
+export async function authBaseFetchOpen(url, options = {}) {
+  return fetch(url, {
+    ...options,
+  })
+}
