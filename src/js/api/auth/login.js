@@ -1,22 +1,18 @@
 import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
 
-// Temporary
-const action = '';
+// Author: Truls Haakenstad @Menubrea
+// Dev-Team: Frontend - User
+
+const action = 'users/login';
 const method = 'POST';
+const errorContainer = document.querySelector('#errorContainer');
 
 /**
  * Function for logging in an existing user in database by storing the returned token in localstorage
  * @param {object} profile Takes in input values from loginForm
  */
 export async function login(profile) {
-  /* 
-  Responses Parameters
-    Code: 200
-    Content type: application/json
-  */
-
-  // Temporary
   const loginURL = apiPath + action;
   const body = JSON.stringify(profile);
   const options = {
@@ -28,41 +24,28 @@ export async function login(profile) {
   };
 
   try {
-    /* data: {
-    userId: String,
-    firstName: String,
-    lastName: String,
-    email: email,
-    token: string,
-    } */
-
     const response = await fetch(loginURL, options);
     const { token, ...profile } = await response.json();
+    const { email, ...filteredProfile } = profile;
 
     switch (response.status) {
-      // Let me know if there are any particular server responses I should add and check for.
-
-      case 200: // Successful request
-        Store('Token', token);
-        Store('Profile', profile);
+      case 200:
+        new Store('token', token);
+        new Store('profile', filteredProfile);
         if (profile.admin) {
-          location.replace('#');
-        } else if (profile.company) {
-          location.replace('#');
+          window.location.replace('#');
         } else {
-          location.replace('#');
+          window.location.replace('./../../user/index.html');
         }
         break;
       case 401:
-        // Temporary error handling
-        alert('Wrong username/passowrd');
+        errorContainer.innerHTML = 'Incorrect username/password';
         break;
       default:
-        // Temporary error handling
-        throw new Error();
+        throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch {
-    // Temporary error handling
+    errorContainer.innerHTML = 'Unknown error occured. Please try again later, if the problem persist contact customer support.';
     console.log(error);
   }
 }
