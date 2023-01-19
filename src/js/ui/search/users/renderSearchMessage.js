@@ -1,4 +1,4 @@
-import { clearSearchResults } from '/src/js/ui/search/components/clearSearchResults.js'
+import { clearSearchResults } from '/src/js/ui/search/components/clearSearchResults.js';
 
 HTMLElement.prototype.clear = clearSearchResults;
 
@@ -7,10 +7,10 @@ HTMLElement.prototype.clear = clearSearchResults;
 */
 
 export function renderSearchMessage(message) {
-    usersContainer.clear();
-    const warningMessageContainer = document.createElement('p');
-    warningMessageContainer.classList.add('text-center', 'mt-1', 'py-3', 'bg-warning');
-    const warningMessage = message;
-    warningMessageContainer.append(warningMessage)
-    usersContainer.appendChild(warningMessageContainer);
+  usersContainer.clear();
+  const warningMessageContainer = document.createElement('p');
+  warningMessageContainer.classList.add('text-center', 'mt-1', 'py-3', 'bg-warning');
+  const warningMessage = message;
+  warningMessageContainer.append(warningMessage);
+  usersContainer.appendChild(warningMessageContainer);
 }
