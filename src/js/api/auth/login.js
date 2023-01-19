@@ -4,6 +4,7 @@ import { apiPath } from '../constants.js';
 // Temporary
 const action = 'users/login';
 const method = 'POST';
+const errorContainer = document.querySelector('#errorContainer');
 
 /**
  * Function for logging in an existing user in database by storing the returned token in localstorage
