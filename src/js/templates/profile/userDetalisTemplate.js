@@ -1,3 +1,6 @@
+// Author Truls Haakenstad @Menubrea
+// Dev Team: Frontend - User
+
 /**
  * Setup function for profile user details
  * @param {object} data object data from user or company model
