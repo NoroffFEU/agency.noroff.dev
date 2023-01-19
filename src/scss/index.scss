@@ -1,16 +1,19 @@
 // STUDENT OFFER
 
+@import './custom/customFile.scss';
+
 // Colors and fonts
 @import './custom/themeColorVariables';
 
-//@import './custom/typography';
+@import './custom/typography';
 
 // Header and footer
-//@import './custom/header';
+@import './custom/header';
 
-//@import './custom/footer';
+@import './custom/footer';
+
+// Pages
+@import './custom/index';
 
 // Bootstrap from module
 @import '../../node_modules/bootstrap/scss/bootstrap';
-
-@import './custom/customFile.scss';
