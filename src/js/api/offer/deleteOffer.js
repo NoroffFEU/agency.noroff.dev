@@ -1,5 +1,5 @@
 import { dummyApiUrl } from './constants.js';
-
+import { headers } from '../headers.js';
 /*
 Temporary id number, ideally it'll be found in the url by the Listener
 If not available, uncomment const id = 1 and comment out const url and id in the listener
@@ -7,7 +7,11 @@ If not available, uncomment const id = 1 and comment out const url and id in the
 const id = 1;
 // Need to have /posts/ without the /1 for this use case.
 const dummyApiDeletePost = 'posts/';
-
+/**
+ * A function that deletes an offer as long as you're authorized to do it
+ * @param {*} id
+ * @returns that the offer with the ID was deleted, if an id is provided.
+ */
 export async function deleteOffer(id) {
   if (!id) {
     throw new Error('Deleting an offer requires an offerID');
@@ -16,11 +20,15 @@ export async function deleteOffer(id) {
 
   const response = await fetch(deleteOfferURL, {
     method: 'DELETE',
+    headers: headers(),
   });
 
   return await response.json();
 }
 
+/**
+ * Listens for the button (in a form) to be used.
+ */
 export async function setDeleteOfferListener() {
   const form = document.querySelector('#deleteOffer');
 
