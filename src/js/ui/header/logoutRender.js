@@ -1,7 +1,6 @@
 
 import { Store } from "../../storage/localStorage.mjs";
 
-
 const checkLoginStatus = function () {
 
   const loggedIn = document.querySelectorAll("data-visible="loggedIn");
