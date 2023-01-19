@@ -54,15 +54,13 @@ export async function login(profile) {
         }
         break;
       case 401:
-        // Temporary error handling
-        alert('Wrong username/passowrd');
+        errorContainer.innerHTML = 'Incorrect username/password';
         break;
       default:
-        // Temporary error handling
-        throw new Error();
+        throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch {
-    // Temporary error handling
+    errorContainer.innerHTML = 'Unknown error occured. Please try again later, if the problem persist contact customer support.';
     console.log(error);
   }
 }
