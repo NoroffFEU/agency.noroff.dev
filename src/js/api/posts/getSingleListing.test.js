@@ -1,6 +1,7 @@
-// import getListing from somewhere
+import { getSingleListing } from "./getSingleListing";
 
-const ID = "numbers";
+const ID = "1";
+const INVALID_ID = "";
 
 const TEST_ITEM = {
     id: ID
@@ -23,12 +24,12 @@ function mockFailGetListing() {
 describe("getListing", () => {
     it("Displays a single listing from the API", async () => {
         global.fetch = jest.fn(() => mockGetListing());
-        const idListing = await getListing(ID);
+        const idListing = await getSingleListing(ID);
         expect(idListing).toEqual(TEST_ITEM);
     });
 
-    it("Fails to dsplay a single listing from the API", async () => {
+    it("Fails to display a single listing from the API", async () => {
         global.fetch = jest.fn(() => mockFailGetListing());
-        await expect(getListing).rejects.toThrow("Bad request");
+        await expect(getSingleListing(INVALID_ID)).rejects.toThrow("Get requires a listingID");
     });
 });

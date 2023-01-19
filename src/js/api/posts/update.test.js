@@ -1,17 +1,10 @@
-// import updateListing from somewhere
+import { editSingleListing } from "./editSingleListing";
 
-const ID = "numbers";
-const TITLE = "A job title";
-const COMPANYNAME = "Some comapany";
-const BODY = "Is this showing";
-const DEADLINEDATE = "A date"
+const ID = "1";
+const INVALID_ID = "";
 
 const TEST_ITEM = {
-    id: ID,
-    title: TITLE,
-    company: COMPANYNAME,
-    body: BODY,
-    date: DEADLINEDATE
+    id: ID
 };
 
 function mockUpdateListing() {
@@ -24,19 +17,19 @@ function mockUpdateListing() {
 function mockFailUpdateListing() {
     return Promise.resolve({
         ok: false,
-        statusText: "Bad request",
+        statusText: "Get requires a listingID",
     });
 }
 
 describe("updateListing", () => {
     it("Updates existing listing to the API", async () => {
         global.fetch = jest.fn(() => mockUpdateListing());
-        const updatedListing = await updateListing(ID, TITLE, COMPANYNAME, BODY, DEADLINEDATE);
+        const updatedListing = await editSingleListing(ID);
         expect(updatedListing).toEqual(TEST_ITEM);
     });
 
     it("Fails to update listing to the API", async () => {
         global.fetch = jest.fn(() => mockFailUpdateListing());
-        await expect(updateListing).rejects.toThrow("Bad request");
+        await expect(editSingleListing(INVALID_ID)).rejects.toThrow("Get requires a listingID");
     });
 });
