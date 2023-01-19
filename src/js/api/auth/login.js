@@ -2,7 +2,7 @@ import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
 
 // Temporary
-const action = '';
+const action = 'users/login';
 const method = 'POST';
 
 /**
