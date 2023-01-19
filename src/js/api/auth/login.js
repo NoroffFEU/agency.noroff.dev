@@ -1,6 +1,9 @@
 import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
 
+// Author: Truls Haakenstad @Menubrea
+// Dev-Team: Frontend - User
+
 const action = 'users/login';
 const method = 'POST';
 const errorContainer = document.querySelector('#errorContainer');
