@@ -1,3 +1,6 @@
+// Author: Stian Kornbakk
+// Team: FE-User
+
 import { userTemplate } from '/src/js/templates/admin/users/userTemplate.js';
 import { clearSearchResults } from '/src/js/ui/search/components/clearSearchResults.js';
 

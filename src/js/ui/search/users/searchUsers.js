@@ -1,3 +1,6 @@
+// Author: Stian Kornbakk
+// Team: FE-User
+
 import { renderSearchMessage } from './renderSearchMessage.js';
 import { renderUsersTemplate } from '/src/js/ui/search/users/renderUsers.js';
 

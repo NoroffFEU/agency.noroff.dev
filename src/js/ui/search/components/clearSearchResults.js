@@ -1,4 +1,9 @@
-// Used to clear html instead of using innerHTML
+// Author: Stian Kornbakk
+// Team: FE-User
+
+/* 
+  Used to clear html instead of using innerHTML
+*/
 
 export function clearSearchResults() {
   while (this.hasChildNodes()) {

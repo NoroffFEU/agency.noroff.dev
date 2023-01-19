@@ -1,5 +1,10 @@
+// Author: Stian Kornbakk
+// Team: FE-User
+
 import { renderUsersTemplate } from '/src/js/ui/search/users/renderUsers.js';
-import { liveSearch } from './searchUsers.js';
+import { liveSearch } from '/src/js/ui/search/users/searchUsers.js';
+
+// This dummy is being used until API documentation is made available
 
 const userArray_DUMMY = [
   {

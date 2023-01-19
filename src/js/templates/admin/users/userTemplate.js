@@ -1,3 +1,6 @@
+// Author: Stian Kornbakk
+// Team: FE-User
+
 /**
  * Template for rendering users onto page.
  */

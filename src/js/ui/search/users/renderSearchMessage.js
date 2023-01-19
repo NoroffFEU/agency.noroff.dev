@@ -1,3 +1,6 @@
+// Author: Stian Kornbakk
+// Team: FE-User
+
 import { clearSearchResults } from '/src/js/ui/search/components/clearSearchResults.js';
 
 HTMLElement.prototype.clear = clearSearchResults;

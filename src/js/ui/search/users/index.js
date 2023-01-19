@@ -1,1 +1,1 @@
-export * from './getAllUsers.js';
+export * from '../../../api/users/getAllUsers.js';
