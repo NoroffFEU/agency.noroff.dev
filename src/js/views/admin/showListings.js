@@ -22,7 +22,6 @@ export function showListings() {
       const json = await response.json();
 
       const listingData = json.users;
-      console.log(response.ok);
 
       for (let i = 0; i < listingData.length; i++) {
         /* API DUMMY - Fetch from user profiles and added company name + title */
@@ -40,7 +39,7 @@ export function showListings() {
         <td>${jobCompany}</td>
         <td>#-${jobId}</td>
         <td>
-          <button class="btn btn-sm"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+        <button class="btn btn-sm" id="deleteUserBtn"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
         </td>
       </tr>
         `;
