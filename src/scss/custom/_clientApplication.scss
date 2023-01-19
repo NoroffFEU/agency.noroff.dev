@@ -1,0 +1,13 @@
+//Author: August Wahlberg
+//Page: Client->Application
+//Version: 1.0.0
+
+@import '../../../node_modules/bootstrap/scss/functions';
+
+.clientAplication {
+  max-width: 30rem;
+}
+
+.clientAplication .card-img-top {
+  height: 20em;
+}
