@@ -22,7 +22,7 @@ const routerSwitch = () => {
   const routeName = document.body.id;
   switch (routeName) {
     // Homepage UI settings
-    case 'homepage':
+    case 'homePage':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
       break;
