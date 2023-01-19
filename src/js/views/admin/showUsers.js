@@ -7,6 +7,9 @@ const fetchUser = document.querySelector('#userProfile');
 import { dummyApiUrl } from '../../api/constants.js';
 // import headers for the requestOption
 import { headers } from '../../api/headers.js';
+// import deleteUser function
+import { deleteUser } from './deleteUsers.js';
+//import { deleteUserApi } from './deleteUsers.js';
 
 const userUrl = dummyApiUrl + `users`;
 
@@ -26,17 +29,21 @@ export function showUsers() {
       //  For loop to get all the users registered in the dataBase
 
       for (let i = 0; i < userData.length; i++) {
-        // Get and combine both firstName and lastName under same const
+        /* API DUMMY - Fetch from user profiles and added company name + title */
+        // Cleaning up name from the API call.
+        // profileName = get and combine both firstName and lastName under same const
         const profileName = userData[i].firstName + ` ` + userData[i].lastName;
-        // Get email registered and cleaner during one const
+        // profileEmail = get email registered
         const profileEmail = userData[i].email;
+        // profileId = get unique profile ID
+        const profileId = userData[i].id;
 
         fetchUser.innerHTML += `
         <tr>
         <th scope="row">${profileName}</th>
         <td>${profileEmail}</td>
         <td>
-          <button class="btn btn-sm"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+        <button class="btn btn-sm" id="deleteUserBtn"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
         </td>
       </tr>
         `;
@@ -46,7 +53,7 @@ export function showUsers() {
     }
   }
 
-  getUsers(userUrl);
+  getUsers();
 }
 
 showUsers();
