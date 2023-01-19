@@ -31,9 +31,11 @@ export function singleListingTemplate(listing) {
 
   const applyBtn = document.createElement('a');
   applyBtn.className = 'btn btn-theme-secondary text-uppercase w-100 rounded-0 applyBtn';
+  applyBtn.dataset.auth = 'applyForJob';
   applyBtn.innerText = 'Apply for job';
 
   const favBtn = document.createElement('button');
+  favBtn.dataset.auth = 'favoriteListing';
   favBtn.className = 'btn btn-theme-light';
 
   const favIcon = document.createElement('img');
