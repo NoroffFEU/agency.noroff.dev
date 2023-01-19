@@ -1,7 +1,6 @@
 import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
 
-// Temporary
 const action = 'users/login';
 const method = 'POST';
 const errorContainer = document.querySelector('#errorContainer');
@@ -11,13 +10,6 @@ const errorContainer = document.querySelector('#errorContainer');
  * @param {object} profile Takes in input values from loginForm
  */
 export async function login(profile) {
-  /* 
-  Responses Parameters
-    Code: 200
-    Content type: application/json
-  */
-
-  // Temporary
   const loginURL = apiPath + action;
   const body = JSON.stringify(profile);
   const options = {
@@ -29,22 +21,12 @@ export async function login(profile) {
   };
 
   try {
-    /* data: {
-    userId: String,
-    firstName: String,
-    lastName: String,
-    email: email,
-    token: string,
-    } */
-
     const response = await fetch(loginURL, options);
     const { token, ...profile } = await response.json();
     const { email, ...filteredProfile } = profile;
 
     switch (response.status) {
-      // Let me know if there are any particular server responses I should add and check for.
-
-      case 200: // Successful request
+      case 200:
         new Store('token', token);
         new Store('profile', filteredProfile);
         if (profile.admin) {
