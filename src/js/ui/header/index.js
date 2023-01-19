@@ -53,7 +53,7 @@ export const checkState = () => {
   if (role == 'user') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html">Profile</a>
     </li>
     <li class="nav-item">
       <a class="nav-link text-white" href="#">Listings</a>
@@ -84,7 +84,7 @@ export const checkState = () => {
       <a class="nav-link text-white" href="#">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#" id="signInUser">Sign in</a>
+      <a class="btn btn-outline-light text-white" href="/pages/auth/login/index.html" id="signInUser">Sign in</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-theme-secondary text-black" id="registerUser">Register</a>
