@@ -7,7 +7,7 @@ export function singleApplicationTemplate() {
   /// Placeholders. Needs to be swapped with data parameter
   const data = {
     listingTitle: 'Listing title',
-    media: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/1362px-Placeholder_view_vector.svg.png?20220519031949',
+    media: '/src/assets/icons/DefaultPlaceholder.svg',
     jobTitle: 'Job title',
     companyName: 'Company name',
     location: 'Location',
@@ -43,6 +43,7 @@ export function singleApplicationTemplate() {
   exitBtn.innerHTML = `<i class="fa-solid fa-xmark m-0"></i>`;
   exitBtn.dataset.bsDismiss = 'modal';
   deleteBtn.textContent = 'delete';
+  deleteBtn.dataset.auth = 'delete-application';
 
   body.innerHTML = `
   <h1 class="card-title fw-normal">${listingTitle}</h1>

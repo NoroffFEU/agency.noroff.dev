@@ -1,4 +1,10 @@
+/**
+ * Template for applications sent by student
+ * @param {array} data - Application array from the API
+ * @returns - The HTML for applications sent
+ */
 export function allApplicationsTemplate() {
+  /// Placeholders
   const data = {
     applicationTitle: 'Listing title',
     media: '/src/assets/icons/DefaultPlaceholder.svg',
@@ -44,7 +50,5 @@ export function allApplicationsTemplate() {
   body.append(title, text, footer);
   application.append(imgContainer, body);
 
-  const container = document.getElementById('applications');
-  container.append(application);
+  return application;
 }
-allApplicationsTemplate();
