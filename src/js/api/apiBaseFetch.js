@@ -41,7 +41,7 @@ export async function apiBaseFetch(url, headers = null, offset = 0, limit = 100)
 // authBaseFetch for optional method
 
 /**
- * Authorized fetch to be used in create, get, remove and update
+ * Authorized fetch to be used with optional method
  * @param {string} url 
  * @param {string} options 
  */
