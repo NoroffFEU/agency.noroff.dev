@@ -1,12 +1,17 @@
 // Example of where I get the api call and headers for token
-import { headers } from '../../api/headers.js';
+import { headers } from '../headers.js';
 // import { apiPath } from '../../api/constants';
-import { dummyApiUrl, dummyApiCreateProduct } from '../../api/constants.js';
+import { dummyApiUrl, dummyApiCreateProduct } from '../constants.js';
 
 // Temp files until URL endpoint is made
 const method = 'POST';
 // const path = '';
 
+/**
+ * Function that based on input data creates an offer.
+ * @param {*} postData
+ * @returns the data filled into the form in json format.
+ */
 export async function createOffer(postData) {
   const createOfferURL = dummyApiUrl + dummyApiCreateProduct;
 
@@ -20,7 +25,10 @@ export async function createOffer(postData) {
   const response = await fetch(createOfferURL, options);
   return await response.json();
 }
-
+/**
+ * Listens for the form to be filled in,
+ * if filled in properly, POST the Offer.
+ */
 export async function setCreateOfferListener() {
   const form = document.querySelector('#offerForm');
 
