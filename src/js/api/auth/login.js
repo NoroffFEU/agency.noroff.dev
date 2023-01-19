@@ -38,19 +38,18 @@ export async function login(profile) {
 
     const response = await fetch(loginURL, options);
     const { token, ...profile } = await response.json();
+    const { email, ...filteredProfile } = profile;
 
     switch (response.status) {
       // Let me know if there are any particular server responses I should add and check for.
 
       case 200: // Successful request
-        Store('Token', token);
-        Store('Profile', profile);
+        new Store('token', token);
+        new Store('profile', filteredProfile);
         if (profile.admin) {
-          location.replace('#');
-        } else if (profile.company) {
-          location.replace('#');
+          window.location.replace('#');
         } else {
-          location.replace('#');
+          window.location.replace('./../../user/index.html');
         }
         break;
       case 401:
