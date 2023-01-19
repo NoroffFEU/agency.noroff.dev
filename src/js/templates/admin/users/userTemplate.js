@@ -2,7 +2,7 @@
 // Team: FE-User
 
 /**
- * Template for rendering users onto page.
+ * Template for rendering user onto page.
  */
 
 export function userTemplate(userData) {
