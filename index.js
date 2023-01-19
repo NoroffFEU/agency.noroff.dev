@@ -17,7 +17,7 @@ ui.displayBaseLayout();
  */
 const routerSwitch = () => {
   // Default/Fallback page title
-  const defaultTitle = 'Add default title';
+  const defaultTitle = 'Noroff Job';
 
   const routeName = document.body.id;
   switch (routeName) {
@@ -25,6 +25,18 @@ const routerSwitch = () => {
     case 'homepage':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
+      break;
+
+    // Terms Of Use UI settings
+    case 'termsOfUse':
+      // Page title
+      document.querySelector('title').innerText = defaultTitle + ` || Terms Of Use`;
+      break;
+
+    // Privacy Policy UI settings
+    case 'privacyPolicy':
+      // Page title
+      document.querySelector('title').innerText = defaultTitle + ` || Privacy Policy`;
       break;
 
     // 404 UI settings
