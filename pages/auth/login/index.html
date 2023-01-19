@@ -27,27 +27,28 @@
             "password": "string"
           }
          -->
-        <form id="loginForm" class="container-sm">
+        <form data-auth="login" id="loginForm" class="container-sm">
           <!-- Email input -->
           <div class="mb-3">
             <label for="email" class="form-label mb-0">E-mail</label>
-            <input type="email" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="email" name="email" required title="Must be a valid email" />
+            <input data-auth="login" type="email" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="email" name="email" required title="Must be a valid email" />
           </div>
           <!-- Password input -->
           <div class="mb-3">
             <label for="email" class="form-label mb-0">Password</label>
-            <input type="password" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="password" name="password" required minlength="5" maxlength="20" title="Password must be minimum 5 characters long" />
+            <input data-auth="login" type="password" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="password" name="password" required minlength="5" maxlength="20" title="Password must be minimum 5 characters long" />
           </div>
           <!-- Error Container for UX -->
           <div id="errorContainer" class="text-theme-primary text-center"></div>
           <!-- Remember me form check -->
           <div class="form-check">
+            <!-- At the moment this does nothing -->
             <input class="form-check-input border-theme-dark rounded-0 bg-theme-dark border-theme-dark" type="checkbox" value="" id="rememberMe" checked />
             <label class="form-check-label" for="rememberMe">Remember me</label>
           </div>
           <!-- Submit button -->
           <div class="d-grid my-4">
-            <button type="submit" class="btn btn-theme-primary btn-lg text-light rounded-1">Log in</button>
+            <button data-auth="login" type="submit" class="btn btn-theme-primary btn-lg text-light rounded-1">Log in</button>
           </div>
           <!-- links -->
           <div class="text-center my-2 text-dark">Don't have a user?</div>
