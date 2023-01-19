@@ -1,4 +1,6 @@
 // Author: May-Tove Hovdal
+// Author: Gonzalo Longe
+
 import { deleteListing, editListing } from './optionEvents.js';
 
 export function options() {
@@ -13,6 +15,8 @@ export function options() {
   const editBtn = document.createElement('button');
   editBtn.className = 'btn btn-theme-secondary text-uppercase rounded-0';
   editBtn.id = 'editListingBtn';
+  // Author: Gonzalo Longe
+
   editBtn.innerText = 'Edit';
   editBtn.addEventListener('click', editListing);
 

@@ -1,3 +1,5 @@
+// Author: Gonzalo Longe
+
 import { deleteSingleListing } from '../../api/posts/deleteSingleListing.js';
 
 export async function deleteListing(id) {
