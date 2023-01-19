@@ -44,6 +44,20 @@ export async function apiBaseFetch(url, headers = null, offset = 0, limit = 100)
  * Authorized fetch to be used with optional method
  * @param {string} url 
  * @param {string} options 
+ * 
+ * @example
+ * Ex of use:
+ * export async function create(listData) {
+ *  const createListingUrl = dummyApiUrl + dummyApiCreatePost;
+ *  console.log(createListingUrl)
+ *  const data = await authBaseFetchOpen(createListingUrl, {
+ *    method: "POST",
+ *    headers: { "Content-Type": "application/json" },
+ *    body: JSON.stringify(listData),
+ *  }
+ * );
+  return await data.json();
+}
  */
 export async function authBaseFetchOpen(url, options = {}) {
   return fetch(url, {
