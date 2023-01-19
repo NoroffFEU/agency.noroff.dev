@@ -19,6 +19,16 @@ export function liveSearch(users, usersContainer) {
   function onSearch(event) {
     event.preventDefault();
     const searchTerm = event.target.value;
+
+    if (!searchTerm.length) {
+      renderUsersTemplate(users, usersContainer);
+      return;
+    }
+
+    if (searchTerm.length < 3) {
+      return;
+    }
+
     const term = searchTerm.toLowerCase();
     const filteredUsers = users.filter(function (user) {
       const userName = user.fullName.toLowerCase();
