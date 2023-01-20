@@ -1,35 +1,20 @@
 // Author: Emilie Herrera Thomsen
+// The Dummy json needs to be replaced with actual endpoint.
 
 import { authBaseFetchOpen } from "../apiBaseFetch.js";
-import { renderListings } from "../../templates/listings/renderListings.js";
-import { searchListings } from "../../listeners/post/searchListing.js";
 
-
-export async function getListOfListings(listData) {
+export async function getListOfListings() {
     const getListingsUrl = "https://dummyjson.com/products";
-  
-    const data = await authBaseFetchOpen(getListingsUrl, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(listData),
+
+    const response = await authBaseFetchOpen(getListingsUrl);
+
+    if(response.ok) {
+      return await response.json()
     }
-    );
-  
-    if (data.ok) {
-      
-      const listings = await data.json();
-      console.log(listings);
-
-      renderListings(Object.entries(listings));
-      searchListings(Object.entries(listings))
-
-
-    } else {
-      console.log(data);
+    else {
       alert("Something went wrong, please try again");
-    }
-  }
-  
+    }  
+  }  
   getListOfListings()
 
   

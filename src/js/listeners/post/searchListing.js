@@ -1,6 +1,7 @@
-// Emilie Herrera Thomsen
+// Author: Emilie Herrera Thomsen
 // This is just the skeleton for a search functionality, not finished.
 
+import { getListOfListings } from "../../api/posts/getListOfListings.js";
 import {renderListings} from "../../templates/listings/renderListings.js";
 
 export function searchListings(arrayOfListings) {
@@ -19,3 +20,10 @@ export function searchListings(arrayOfListings) {
     };
 };
 
+// const searchButton = document.querySelector(".searchButton")
+// searchButton.onclick = function() {
+//     const searchInput = document.querySelector(".searchInput").value;
+//     const newUrl = getListingsUrl + `/search?q=${searchInput}`;
+    
+//     getListOfListings(newUrl);
+// }
