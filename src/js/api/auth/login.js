@@ -5,7 +5,11 @@ import { apiPath } from '../constants.js';
 // Dev-Team: Frontend - User
 
 /* To future Developer
-  At the moment of this. 
+  At the point of writing this, none of this code has been run on client to the API as its not up and running. The login response is still a bit up in the air, so its possible you will have to change some of the variables created from the response, as well as updating logic. What should and shouldn't be added to local storage is also up for contention, our frontend team discussed other options than local storage for security sensitive data, but priority has been more geared towards creating a structure more so than a final product.
+
+  What server responses to target is also something that could be discussed. At the moment it only checks for 200 and 401 and throws an error if neither. 
+  
+  Any questions can be forwarded to Truls H. Haugen on Discord or @Menubrea on github.
  */
 
 const action = 'users/login';
@@ -36,6 +40,8 @@ export async function login(profile) {
       case 200:
         new Store('token', token);
         new Store('profile', filteredProfile);
+        new Store('role', role);
+
         if (profile.admin) {
           window.location.replace('#');
         } else {
