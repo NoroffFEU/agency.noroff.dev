@@ -17,17 +17,35 @@ ui.displayBaseLayout();
  */
 const routerSwitch = () => {
   // Default/Fallback page title
-  const defaultTitle = 'Add default title';
+  const defaultTitle = 'Noroff Job';
 
   const routeName = document.body.id;
   switch (routeName) {
     // Homepage UI settings
-    case 'homepage':
+    case 'homePage':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
       break;
 
-    // 404 UI settings
+      // Terms Of Use UI settings
+    case 'termsOfUse':
+      // Page title
+      document.querySelector('title').innerText = defaultTitle + ` || Terms Of Use`;
+      break;
+
+      // Privacy Policy UI settings
+    case 'privacyPolicy':
+      // Page title
+      document.querySelector('title').innerText = defaultTitle + ` || Privacy Policy`;
+      break;
+
+
+    case 'studentOffer':
+      // Page title
+      document.querySelector('title').innerText = defaultTitle + ` || Student Offer`;
+      break;
+
+      // 404 UI settings
     case '404':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || ` + '404';
