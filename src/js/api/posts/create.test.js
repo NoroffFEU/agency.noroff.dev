@@ -27,6 +27,6 @@ describe("createPost", () => {
 
     it("Fails to create a new item to the API", async () => {
         global.fetch = jest.fn(() => mockFailCreatePost());
-        await expect(create).rejects.toThrow("alert is not defined");
+        await expect(create).rejects.toThrow("Something went wrong, please try again");
     });
 });
