@@ -33,14 +33,9 @@ export const header = () => {
 </div>`);
 };
 
-let pageTitle = document.querySelector('title');
-pageTitle.innerText = 'Standard';
-
-
 // For testing states
 const stateValue = "null"
 localStorage.setItem("Role", stateValue)
-
 
 /**
  * 
@@ -56,11 +51,9 @@ export const checkState = () => {
   const role = localStorage.getItem('Role');
   const navBarNav = document.getElementById('navbarNav');
   if (role == 'user') {
-    pageTitle.innerText = 'Profile';
-
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html">Profile</a>
     </li>
     <li class="nav-item">
       <a class="nav-link text-white" href="#">Listings</a>
@@ -72,8 +65,6 @@ export const checkState = () => {
   }
 
   if (role == 'admin') {
-    pageTitle.innerText = 'Admin';
-
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
     <li class="nav-item">
       <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
@@ -88,14 +79,12 @@ export const checkState = () => {
   }
 
   if (role == 'null') {
-    pageTitle.innerText = 'Not logged in';
-
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
     <li class="nav-item">
       <a class="nav-link text-white" href="#">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#" id="signInUser">Sign in</a>
+      <a class="btn btn-outline-light text-white" href="/pages/auth/login/index.html" id="signInUser">Sign in</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-theme-secondary text-black" id="registerUser">Register</a>
