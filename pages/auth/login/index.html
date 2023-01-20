@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Author -->
     <meta name="author" content="@Menubrea" />
     <meta name="team" content="user" />
@@ -12,14 +13,17 @@
     <script src="./../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./../../../src/js/index.js" type="module"></script>
     <script src="./../../../index.js" type="module"></script>
+
     <title>Login</title>
   </head>
   <body>
     <header>
       <!-- Header -->
     </header>
+
     <main class="bg-theme-dark py-5 px-3 shadow-lg">
       <div class="bg-theme-light mx-auto p-3 py-4 maxWidthContainer rounded-1">
+
         <!-- login form -->
         <!-- 
           {
@@ -27,6 +31,7 @@
             "password": "string"
           }
          -->
+
         <form data-auth="login" id="loginForm" class="container-sm">
           <!-- Email input -->
           <div class="mb-3">
@@ -44,10 +49,12 @@
           <div class="form-check">
             <!-- At the moment this does nothing -->
             <input class="form-check-input border-theme-dark rounded-0 bg-theme-dark border-theme-dark" type="checkbox" value="" id="rememberMe" checked />
+
             <label class="form-check-label" for="rememberMe">Remember me</label>
           </div>
           <!-- Submit button -->
           <div class="d-grid my-4">
+
             <button data-auth="login" type="submit" class="btn btn-theme-primary btn-lg text-light rounded-1">Log in</button>
           </div>
           <!-- links -->
@@ -55,6 +62,7 @@
           <div class="d-flex justify-content-center">
             <a class="text-dark px-2 ps-6" href="./../register/index.html">Register for applicants</a>
             <a class="text-dark px-2 fs-6" href="./../register/index.html">Register for companies</a>
+
           </div>
         </form>
       </div>
