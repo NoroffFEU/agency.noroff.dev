@@ -1,12 +1,8 @@
 // Author: Åke Ek
+// comment: There is an issue with the response, wich is why I added a "1" in the filename. Remove the 1 and run the test to see the response.
 
 import { getListOfListings } from "./getListOfListings";
 
-const TEST_ITEM = {
-    title: TITLE,
-    location: LOCATION,
-    deadline: DEADLINE,
-};
 
 function mockGetList() {
     return Promise.resolve({
