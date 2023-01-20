@@ -60,7 +60,7 @@ routerSwitch();
 
 //For testing purposes. True=Logged in.
 const studentIsLoggedIn = false
-const organisationIsLoggedIn = false
+const organisationIsLoggedIn = true
 const section2Container = document.querySelector(".section2")
 
 /**
