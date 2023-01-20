@@ -146,6 +146,30 @@ export function renderProfileRole(data, element) {
   return element;
 }
 
+export function renderProfileSkills(data, parent) {
+  if (roleCompany()) return;
+
+  const { skills } = data;
+  skills.forEach(item, () => {
+    const renderSkill = document.createElement('li');
+    renderSkill.classList.add('fw-bolder', 'fs-6');
+    renderSkill.innerHTML = item;
+
+    parent.append(renderSkill);
+  });
+
+  return parent;
+}
+
+export function renderDescriptionHeader(element) {
+  if (roleCompany) {
+    element.innerHTML = 'Abous us';
+  } else {
+    element.innerHTML = 'About me';
+  }
+  return element;
+}
+
 /**
  * Function to check if user is a company or not.
  * @returns true if condition is met
