@@ -28,7 +28,7 @@ export function userDetailsTemplate(data) {
  * Function to render profile image
  * @param {object} data
  * @param {element} element
- * @returns returns param element
+ * @returns renders html based on state
  */
 export function renderProfileImage(data, element) {
   if (roleCompany()) {
@@ -43,6 +43,12 @@ export function renderProfileImage(data, element) {
   return element;
 }
 
+/**
+ * Function to render profile name
+ * @param {object} data
+ * @param {element} element
+ * @returns Renders html based on state
+ */
 export function renderProfileName(data, element) {
   if (roleCompany()) {
     const { name } = data;
@@ -54,6 +60,12 @@ export function renderProfileName(data, element) {
   return element;
 }
 
+/**
+ * Function to render profile Role
+ * @param {object} data profile response
+ * @param {element} element
+ * @returns returns param element
+ */
 export function renderProfileRole(data, element) {
   if (roleCompany()) {
     const { admin } = data;
@@ -65,9 +77,17 @@ export function renderProfileRole(data, element) {
   return element;
 }
 
+/**
+ * Function for rendering skills to parent
+ * @param {object} data profile response
+ * @param {element} parent
+ * @param {element} element
+ * @returns returns a list of skills to parent element.
+ */
 export function renderProfileSkills(data, parent, element) {
   if (roleCompany()) {
     element.classList.add('d-none');
+    return;
   } else {
     const { skills } = data;
     skills.forEach(item, () => {
@@ -77,11 +97,15 @@ export function renderProfileSkills(data, parent, element) {
 
       parent.append(renderSkill);
     });
+    return parent;
   }
-
-  return parent;
 }
 
+/**
+ * Function for rendering description header
+ * @param {element} element container
+ * @returns returns html based on state
+ */
 export function renderDescriptionHeader(element) {
   if (roleCompany) {
     element.innerHTML = 'Abous us';
@@ -91,6 +115,12 @@ export function renderDescriptionHeader(element) {
   return element;
 }
 
+/**
+ * Function for rendering profile description
+ * @param {*} data profile response
+ * @param {*} element container
+ * @returns returns html based on state
+ */
 export function renderProfileDescription(data, element) {
   if (roleCompany) {
     const { about } = data;
