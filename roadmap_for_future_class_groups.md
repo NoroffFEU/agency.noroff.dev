@@ -1,5 +1,7 @@
 # Roadmap for future class groups
 
+## Information about the work that have been done
+
 ## Teams
 
 ---
@@ -7,6 +9,8 @@
 ## Front end
 
 ### Front end Application
+
+- Scrum master: Christopher (github: @christonn93)
 
 ### Front end listings
 
