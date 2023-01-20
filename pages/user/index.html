@@ -12,8 +12,6 @@
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/src/js/index.js" type="module"></script>
     <script src="/index.js" type="module"></script>
-    <!-- Temp script file for testing dummy data -->
-    <script src="/src/js/templates/profile/index.js" type="module"></script>
     <title>Profile</title>
   </head>
   <body id="profile" class="bg-theme-grey">
@@ -43,6 +41,10 @@
 
         <div class="d-none" id="companyView">
           <!-- Displayed if company is logged in -->
+          <div>
+            <button class="btn btn-dark d-block mx-auto">Edit Profile</button>
+            <!-- Modal could live here -->
+          </div>
 
           <div class="mt-5">
             <!-- Tab navigation for app/offers -->
@@ -69,9 +71,13 @@
           </div>
         </div>
 
-        <div class="mt-5" id="studentView">
-          <!-- Displayed if student is logged in -->
+        <div id="studentView">
           <div>
+            <button class="btn btn-dark d-block mx-auto">Edit Profile</button>
+            <!-- Modal could live here -->
+          </div>
+          <!-- Displayed if student is logged in -->
+          <div class="mt-5">
             <!-- Tab navigation for app/offers -->
             <nav class="nav nav-tabs border-0" role="tablist" id="nav-tab">
               <!-- Button for Offers received tab -->
