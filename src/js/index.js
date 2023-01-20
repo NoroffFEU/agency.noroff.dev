@@ -35,8 +35,9 @@ const routerSwitch = () => {
       renderListings();
       break;
 
+
     // 404 UI settings
-    case '404':
+    case '404';
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || ` + '404';
       break;
