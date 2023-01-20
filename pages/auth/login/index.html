@@ -1,19 +1,22 @@
 <!DOCTYPE html>
+<!-- For future developer
+    At this stage, none of this code is actually tested against an actual API, but based on current HTML I would expect you to run into some issues when it comes to the #rememberMe input and return an error. You will likely have to ommit it from the payload or ommit it from the loginForm. It was added to it for the simplicity of styling.
+
+    There is also no current functionality associated with #rememberMe as I am not sure how you would go about storing this information safely, as well as it's been viewed by me as secondary to primary login functionality.
+   -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- Author -->
     <meta name="author" content="@Menubrea" />
     <meta name="team" content="user" />
     <!-- Links and scripts -->
-    <link rel="stylesheet" href="./../../../dist/css/custom/auth/index.css" />
-    <script src="./../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./../../../src/js/index.js" type="module"></script>
-    <script src="./../../../index.js" type="module"></script>
-
+    <link rel="stylesheet" href="/dist/css/custom/auth/index.css" />
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/src/js/index.js" type="module"></script>
+    <script src="/index.js" type="module"></script>
     <title>Login</title>
   </head>
   <body>
@@ -23,7 +26,6 @@
 
     <main class="bg-theme-dark py-5 px-3 shadow-lg">
       <div class="bg-theme-light mx-auto p-3 py-4 maxWidthContainer rounded-1">
-
         <!-- login form -->
         <!-- 
           {
@@ -31,7 +33,6 @@
             "password": "string"
           }
          -->
-
         <form data-auth="login" id="loginForm" class="container-sm">
           <!-- Email input -->
           <div class="mb-3">
@@ -45,16 +46,16 @@
           </div>
           <!-- Error Container for UX -->
           <div id="errorContainer" class="text-theme-primary text-center"></div>
+
           <!-- Remember me form check -->
           <div class="form-check">
-            <!-- At the moment this does nothing -->
+            <!-- See comment at top -->
             <input class="form-check-input border-theme-dark rounded-0 bg-theme-dark border-theme-dark" type="checkbox" value="" id="rememberMe" checked />
 
             <label class="form-check-label" for="rememberMe">Remember me</label>
           </div>
           <!-- Submit button -->
           <div class="d-grid my-4">
-
             <button data-auth="login" type="submit" class="btn btn-theme-primary btn-lg text-light rounded-1">Log in</button>
           </div>
           <!-- links -->
@@ -62,7 +63,6 @@
           <div class="d-flex justify-content-center">
             <a class="text-dark px-2 ps-6" href="./../register/index.html">Register for applicants</a>
             <a class="text-dark px-2 fs-6" href="./../register/index.html">Register for companies</a>
-
           </div>
         </form>
       </div>

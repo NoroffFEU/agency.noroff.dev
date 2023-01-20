@@ -1,9 +1,12 @@
 import { login } from '../auth/index.js';
 
-
 // Author: Truls Haakenstad @Menubrea
 // Dev-team: Frontend - User
 
+/* To future Developer
+  If you run into issues with this code, I would start with looking at #rememberMe in login/index.html.
+  It will likely have to be ommited from the payload or handled in some other way.
+*/
 
 /**
  * Listener for handling login functionality
