@@ -170,6 +170,17 @@ export function renderDescriptionHeader(element) {
   return element;
 }
 
+export function renderProfileDescription(data, element) {
+  if (roleCompany) {
+    const { about } = data;
+    element.innerHTML = about;
+  } else {
+    const { about } = data;
+    element.innerHTML = about;
+  }
+  return element;
+}
+
 /**
  * Function to check if user is a company or not.
  * @returns true if condition is met
