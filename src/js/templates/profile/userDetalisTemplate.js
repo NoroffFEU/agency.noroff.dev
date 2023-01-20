@@ -1,3 +1,5 @@
+import { Store } from './../../storage/storage.js';
+
 // Author Truls Haakenstad @Menubrea
 // Dev Team: Frontend - User
 
@@ -101,4 +103,35 @@ export function renderUserDetails(data, parent) {
   parent.append(userDetailsContainer);
 
   return userDetailsContainer;
+}
+
+/**
+ * Function to render profile image
+ * @param {object} data
+ * @param {element} element
+ * @returns returns param element
+ */
+export function renderProfileImage(data, element) {
+  if (roleCompany()) {
+    const { logo, name } = data;
+    element.src = logo;
+    element.alt = name + 'logo';
+  } else {
+    const { avatar, fullName } = data;
+    element.src = avatar;
+    element.alt = fullName + 'avatar';
+  }
+  return element;
+}
+
+/**
+ * Function to check if user is a company or not.
+ * @returns true if condition is met
+ */
+export function roleCompany() {
+  const roleState = new Store('role').state;
+
+  if (roleState === 'Company') {
+    return true;
+  }
 }
