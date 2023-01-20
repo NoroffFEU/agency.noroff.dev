@@ -1,7 +1,9 @@
 import { login } from '../auth/index.js';
 
+
 // Author: Truls Haakenstad @Menubrea
 // Dev-team: Frontend - User
+
 
 /**
  * Listener for handling login functionality
