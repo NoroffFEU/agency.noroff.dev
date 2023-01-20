@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/dist/css/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff Job Create Listing</title>
+  </head>
+  <body class="d-flex flex-column flex-fill min-vh-100 gap-4" id="homepage">
+    <header></header>
+    <main class="container-fluid d-flex flex-fill flex-lg-row justify-content-center">
+      <div
+      class="mt-5 mb-5"
+      id="newListing"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      >
+        <div class="border">
+          <!-- Waiting on API docs for validation requirements -->
+          <form class="m-2" id="createNewListing">
+            <div class="text-end">
+              <button
+                type="button"
+                class="btn-close"
+                style="border-radius: 0px;"
+              ></button>
+            </div>
+            <h1 class="text-center mt-4">Create New Listing</h1>
+            <div class="m-4 mt-5">
+              <div class="form mb-3">
+                <label for="createTitle">Job Title/Position</label>
+                <input
+                  class="form-control bg-theme-light"
+                  style="border-radius: 0px;"
+                  type="text"
+                  name="title"
+                  id="createTitle"
+                  required
+                />
+              </div>
+              <div class="form mb-3">
+                <label for="location">Location</label>
+                <input
+                  class="form-control  bg-theme-light"
+                  style="border-radius: 0px;"
+                  type="text"
+                  name="location"
+                  id="createLocation"
+                  required
+                />
+              </div>
+              <div class="form mb-3">
+                <label for="deadline">Application Deadline</label>
+                <input
+                  class="form-control bg-theme-light"
+                  style="border-radius: 0px;"
+                  type="datetime-local"
+                  name="deadline"
+                  id="createDeadline"
+                  required
+                  title="Enter a valid date"
+                /> 
+              </div>
+              <div class="input-group mt-5 mb-3">
+                <span class="input-group-text" style="border-radius: 0px;">Upload Cover Picture</span>
+                <input type="text" class="form-control bg-theme-light" style="border-radius: 0px;" id="pictureUrl">
+              </div>
+              <div class="form mb-3">
+                <label for="jobDescription" class=""
+                  >Job Description</label
+                >
+                <textarea
+                  class="form-control bg-theme-light"
+                  style="border-radius: 0px;"
+                  rows="10"
+                  type="text"
+                  name="jobDescription"
+                  id="createDescription"
+                ></textarea>
+              </div>
+            </div>
+            <div class="ms-4 mb-4">
+              <button
+                class="btn btn-theme-secondary ps-4 pe-4 me-4"
+                style="border-radius: 0px; width: 250px"
+                type="submit"
+                style="border-radius: 0px"
+              >
+                CREATE NEW LISTING
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="/index.js" type="module"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  </body>
+</html>

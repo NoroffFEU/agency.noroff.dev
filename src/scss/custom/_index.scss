@@ -1,0 +1,61 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+
+//CHANGES TO BOOTSTRAP
+.btn {
+  border-radius: 0;
+}
+
+.card {
+  border-radius: 10%;
+}
+
+//SECTION 1
+#section1 {
+  background-image: url(https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 65vh;
+}
+.customButton {
+  width: 200px;
+  height: 50px;
+}
+
+.itemPositionRelative {
+  position: relative;
+}
+
+.itemPositionAbsoluteCenter {
+  position: absolute;
+  left: 5%;
+  top: 40%;
+}
+
+//SECTION 2
+#section2 {
+  .imgContainer {
+    width: 100%;
+    height: 300px;
+  }
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  @media only screen and (min-width: 767px) {
+    .imgContainer {
+      height: 100%;
+    }
+  }
+}
+
+//SECTION 3
+
+.clientAplication {
+  max-width: 30rem;
+}
+
+.clientAplication .card-img-top {
+  height: 20em;
+}
