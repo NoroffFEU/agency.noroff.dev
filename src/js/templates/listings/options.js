@@ -1,7 +1,6 @@
 // Author: May-Tove Hovdal
 
 export function options() {
-  /*const buttonContainer = document.querySelector('.buttonContainer');*/
   const cardBody = document.querySelector('.card-body');
 
   // Container for edit and delete button
@@ -25,6 +24,4 @@ export function options() {
 
   options.append(editBtn, deleteBtn);
   cardBody.append(options);
-
-  /*buttonContainer.classList.add('d-none');*/
 }

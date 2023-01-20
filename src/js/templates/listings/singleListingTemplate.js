@@ -20,8 +20,8 @@ export function singleListingTemplate(listing) {
   cardTitle.className = 'card-title';
   cardTitle.innerText = listing.title;
 
-  const smallText = document.createElement('small');
-  smallText.innerHTML = `${listing.brand} <span>&#x2022;</span> ${listing.category} <span>&#x2022;</span> ${listing.price}`;
+  const details = document.createElement('small');
+  details.innerHTML = `${listing.brand} <span>&#x2022;</span> ${listing.category} <span>&#x2022;</span> ${listing.price}`;
 
   const description = document.createElement('p');
   description.innerText = listing.description;
@@ -44,7 +44,7 @@ export function singleListingTemplate(listing) {
 
   column.append(card);
   card.append(img, cardBody);
-  cardBody.append(cardTitle, smallText, buttonContainer, description);
+  cardBody.append(cardTitle, details, buttonContainer, description);
   buttonContainer.append(applyBtn, favBtn);
   favBtn.append(favIcon);
 
