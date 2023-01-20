@@ -19,12 +19,9 @@ export async function create(listData) {
   );
 
   if (data.ok) {
-    // return await response.json();
-    const response = await data.json();
-    console.log(response);
+    return await data.json();
   } else {
-    console.log(data);
-    alert("Something went wrong, please try again");
+    throw new Error("Something went wrong, please try again");
   }
 }
 
