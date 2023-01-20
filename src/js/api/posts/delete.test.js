@@ -1,3 +1,5 @@
+// Author: Åke Ek
+
 import { deleteSingleListing } from "./deleteSingleListing";
 
 const ID = "1";

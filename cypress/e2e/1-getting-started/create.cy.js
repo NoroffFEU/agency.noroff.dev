@@ -1,3 +1,5 @@
+// Author: Åke Ek
+
 describe('Create function', () => {
     it('should create a new item', () => {
         cy.visit('/pages/listings/create/index.html');

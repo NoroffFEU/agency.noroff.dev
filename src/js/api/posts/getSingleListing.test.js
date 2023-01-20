@@ -1,3 +1,5 @@
+// Author: Åke Ek
+
 import { getSingleListing } from "./getSingleListing";
 
 const ID = "1";

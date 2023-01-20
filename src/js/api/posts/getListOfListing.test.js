@@ -1,3 +1,5 @@
+// Author: Åke Ek
+
 import { getListOfListings } from "./getListOfListings";
 
 const TEST_ITEM = {

@@ -1,3 +1,5 @@
+// Author: Åke Ek
+
 import { create } from "./create";
 
 const LIST_DATA = "Input information"
