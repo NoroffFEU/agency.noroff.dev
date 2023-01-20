@@ -28,7 +28,7 @@
 
 ### Front end User
 
-- Scrum master: Daniel (github: @christonn93)
+- Scrum master: Daniel (github: @DanielPyb)
 - QA: Joakim (github: @pjatte1337)
 - Dev: (github: @)
 - Dev: (github: @)
