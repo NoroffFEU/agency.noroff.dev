@@ -1,4 +1,4 @@
-import { Store } from './../../storage/storage.js';
+import { Store } from '../../storage/storage.js';
 
 // Author Truls Haakenstad @Menubrea
 // Dev Team: Frontend - User
