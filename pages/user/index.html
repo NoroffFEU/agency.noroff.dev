@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- For future developer
+      User details is handled by userDetailsTemplate.js in /template/
+
+      #companyView targets company specific content and is hidden by default.
+        --- Holds #companyListings
+        --- Holds #companyApplications
+        --- Holds #companyOffers
+
+      #studentView targets student specific content and is hidden by default.
+        --- Holds #studentListings
+        --- Holds #studentApplications
+        --- Holds #studentOffers
+
+      Views might have to be altered based on recent design updates.
+    -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,8 +27,6 @@
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/src/js/index.js" type="module"></script>
     <script src="/index.js" type="module"></script>
-    <!-- Temp script file for testing dummy data -->
-    <script src="/src/js/templates/profile/index.js" type="module"></script>
     <title>Profile</title>
   </head>
   <body id="profile" class="bg-theme-grey">
@@ -24,10 +37,29 @@
       <div class="bg-theme-light shadow p-5 maxWidthLayout">
         <div class="container-sm" id="profileContainer">
           <!-- Profile details goes here -->
+          <div>
+            <img class="rounded-circle d-block mx-auto w-25" id="profileImage" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="" />
+            <h1 class="text-center mt-3 fw-bolder" id="profileName">Peter Parker</h1>
+            <p id="profileRole" class="text-center fs-2 fw-lighter">Front-End Developer</p>
+          </div>
+          <div class="px-4 py-3 bg-theme-light shadow mx-auto rounded-4 my-3 maxWidthProfileContainer" id="skillsContainer">
+            <h2 class="fs-5" id="skillsHeader">Skills</h2>
+            <ul class="" id="skillsList">
+              <!-- Array of skills goes here -->
+            </ul>
+          </div>
+          <div class="px-4 pt-3 pb-2 bg-theme-light my-2 shadow mx-auto rounded-4 my-3 maxWidthProfileContainer" id="descriptionContainer">
+            <h2 class="fs-5" id="descriptionHeader">About Me</h2>
+            <p id="descriptionBody">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi rem ullam inventore tenetur delectus animi dolorum sit sequi totam suscipit doloribus nemo fuga, quam vel? Alias, repellendus, at aut inventore, obcaecati ipsa tenetur incidunt illo exercitationem dolor porro odit facilis pariatur. Rerum quam consequuntur consequatur velit molestiae minus reiciendis?</p>
+          </div>
         </div>
 
         <div class="d-none" id="companyView">
           <!-- Displayed if company is logged in -->
+          <div>
+            <button class="btn btn-dark d-block mx-auto">Edit Profile</button>
+            <!-- Modal could live here -->
+          </div>
 
           <div class="mt-5">
             <!-- Tab navigation for app/offers -->
@@ -54,9 +86,13 @@
           </div>
         </div>
 
-        <div class="mt-5" id="studentView">
-          <!-- Displayed if student is logged in -->
+        <div class="d-none" id="studentView">
           <div>
+            <button class="btn btn-dark d-block mx-auto">Edit Profile</button>
+            <!-- Modal could live here -->
+          </div>
+          <!-- Displayed if student is logged in -->
+          <div class="mt-5">
             <!-- Tab navigation for app/offers -->
             <nav class="nav nav-tabs border-0" role="tablist" id="nav-tab">
               <!-- Button for Offers received tab -->
