@@ -124,6 +124,28 @@ export function renderProfileImage(data, element) {
   return element;
 }
 
+export function renderProfileName(data, element) {
+  if (roleCompany()) {
+    const { name } = data;
+    element.innerHTML = name;
+  } else {
+    const { fullName } = data;
+    element.innerHTML = fullName;
+  }
+  return element;
+}
+
+export function renderProfileRole(data, element) {
+  if (roleCompany()) {
+    const { admin } = data;
+    element.innerHTML = admin;
+  } else {
+    const { role } = data;
+    element.innerHTML = role;
+  }
+  return element;
+}
+
 /**
  * Function to check if user is a company or not.
  * @returns true if condition is met
