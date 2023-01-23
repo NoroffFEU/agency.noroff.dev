@@ -26,17 +26,17 @@
             <!-- Email -->
             <div class="form-group mt-4">
               <label for="email" class="fw-semibold">Email</label>
-              <input name="email" type="email" class="form-control bg-theme-grey rounded-0 border-dark" id="inputEmail" />
+              <input name="email" type="email" class="form-control bg-theme-grey rounded-0 border-dark" id="inputEmail" data-auth="email"/>
             </div>
             <!-- Address -->
             <div class="form-group mt-2">
               <label for="address" class="fw-semibold">Address</label>
-              <input name="address" type="text" class="form-control bg-theme-grey rounded-0 border-dark" id="inputAddress" />
+              <input name="address" type="text" class="form-control bg-theme-grey rounded-0 border-dark" id="inputAddress" data-auth="address"/>
             </div>
             <!-- Phone Number -->
             <div class="form-group mt-2">
               <label for="phone" class="fw-semibold">Phone Number</label>
-              <input name="phone" type="tel" class="form-control bg-theme-grey rounded-0 border-dark" id="inputPhone" />
+              <input name="phone" type="tel" class="form-control bg-theme-grey rounded-0 border-dark" id="inputPhone" data-auth="phone"/>
             </div>
             <!-- Links -->
             <div class="form-group d-flex mt-3 border border-dark">
@@ -44,7 +44,7 @@
                 <label for="links">Links</label>
               </div>
               <div class="col-7 col-md-8 col-xl-9">
-                <input name="link" type="text" class="form-control rounded-0 border-dark border-start border-0 bg-theme-grey" id="inputLink" />
+                <input name="link" type="text" class="form-control rounded-0 border-dark border-start border-0 bg-theme-grey" id="inputLink" data-auth="link"/>
               </div>
             </div>
             <!-- Upload File -->
@@ -53,13 +53,13 @@
                 <label for="file">Upload File</label>
               </div>
               <div class="col-7 col-md-8 col-xl-9">
-                <input name="file" type="text" class="form-control rounded-0 border-dark border-start border-0 bg-theme-grey" id="inputFile" />
+                <input name="file" type="text" class="form-control rounded-0 border-dark border-start border-0 bg-theme-grey" id="inputFile" data-auth="file"/>
               </div>
             </div>
             <!-- Letter Text -->
             <div class="form-group mt-2">
               <label for="letter" class="fw-semibold">Letter Text</label>
-              <textarea name="letter" class="form-control rounded-0 border-dark bg-theme-grey" id="inputLetter" rows="15"></textarea>
+              <textarea name="letter" class="form-control rounded-0 border-dark bg-theme-grey" id="inputLetter" rows="15" data-auth="letter"></textarea>
             </div>
             <!-- Submit -->
             <button type="submit" id="btnSend" class="btn btn-theme-secondary fw-semibold col-12 col-md-4 mt-3 border-0 rounded-0">SEND</button>
