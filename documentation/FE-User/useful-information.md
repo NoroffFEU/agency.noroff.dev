@@ -28,13 +28,13 @@ A lot of information is missing and is not updated with the current state of the
 
 [routes](https://github.com/NoroffFEU/agency-api.noroff.dev/blob/main/src/modules/user/routes.js)
 
-[schema.prisma](https://www.figma.com/file/cNUVBifEDpYxAgAV57da3q/Experimentation?node-id=6%3A2&t=zhwHG24xwodydGdY-0)
+[schema.prisma](https://github.com/NoroffFEU/agency-api.noroff.dev/blob/main/prisma/schema.prisma)
 
 Provides you with name of `keys` and `datatype` of `value`. Current code uses a lot of placeholder keys, so a good place would be to update those accordingly.
 
 #### Design
 
-[Figma hifi-wireframes](https://github.com/NoroffFEU/agency-api.noroff.dev/blob/main/prisma/schema.prisma)
+[Figma hifi-wireframes](https://www.figma.com/file/cNUVBifEDpYxAgAV57da3q/Experimentation?node-id=6%3A2&t=zhwHG24xwodydGdY-0)
 You might need permission to view this.
 
 ## Code
