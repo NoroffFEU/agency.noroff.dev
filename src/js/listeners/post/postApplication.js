@@ -1,4 +1,5 @@
-import { create } from '../../api/posts/create.js';
+// It is unable to create anything at the moment, until the proper API is here.
+// import { create } from '../../api/posts/create.js';
 
 export async function postApplication() {
   const appForm = document.querySelector('#appForm');

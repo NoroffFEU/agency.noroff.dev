@@ -1,3 +1,5 @@
+// DOESNT WORK, WILL FIX ONCE API IS HERE :)
+
 import { apiBaseFetch } from '../apiBaseFetch.js';
 import { dummyApiCreatePost, dummyApiUrl } from '../constants.js';
 
