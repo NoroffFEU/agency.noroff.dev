@@ -1,0 +1,29 @@
+  // Author: August Wahlberg
+  
+  // Dummy variables and functions for now
+  // Have to adjust when View all Applications function is ready
+  // SearchApplcations can then be imported into that function
+
+  /**
+ * Filters the array of view all applications based on user input 
+ * and updates the container element (where the applications is stored)
+ * to display the matching applications or a message if no matches are found.
+ */
+
+  const searchInput = document.getElementById("searchBar");
+  const container = document.getElementById("container");
+
+  function searchApplications () {
+    searchInput.addEventListener("keyup", (e) => {
+      const query = e.target.value.trim().toLowerCase();
+      const matchingApplications = applications.filter(function(application) {
+        return application.title.toLowerCase().includes(query);
+      });
+      container.innerHTML = "";
+      if (matchingApplications.length > 0) {
+        renderApplicationsTemplate(matchingApplications, container);
+      } else {
+        container.innerHTML = "No applications found with this title.";
+      }
+    });
+  }
