@@ -1,9 +1,11 @@
-import { displaySingleApplication } from '../../ui/application/singleApplication';
+import { displaySingleApplication } from '../../ui/application/singleApplication.js';
+import { apiBaseFetch } from '../apiBaseFetch.js';
 
 /// Query string for single application
 /// const queryString = document.location.search;
 /// const params = new URLSearchParams(queryString);
-/// const id = params.get('id');
+/// export const id = params.get('id');
+
 
 /**
  * Fetches single application
