@@ -10,6 +10,8 @@ I would suggest having a defined structure on how to communicate issues, and use
 
 Our instructor highlighted that we're being evaluated on `communication` and that's really what also stands out to me having completed to module. I wouldn't have expected just how secondary writing `code` for the project is to actually communicating about the project really is.
 
+I hope you enjoy yourselves just as much as I did, if there's any questions, don't hesiate to ask and best of luck to you.
+
 ## Links
 
 #### Docs
