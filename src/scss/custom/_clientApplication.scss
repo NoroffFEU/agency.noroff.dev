@@ -1,3 +1,4 @@
+
 @import '../../../node_modules/bootstrap/scss/functions';
 
 /*
@@ -48,10 +49,21 @@ body {
 
 //SECTION 3
 
+//Author: August Wahlberg
+//Page: Client->Application->Index.html
+//Version: 1.0.0
+
+
 .clientAplication {
   max-width: 30rem;
 }
 
 .clientAplication .card-img-top {
   height: 20em;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+
 }
