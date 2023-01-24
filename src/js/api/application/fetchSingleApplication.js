@@ -6,6 +6,7 @@ import { apiBaseFetch } from '../apiBaseFetch.js';
 /// const params = new URLSearchParams(queryString);
 /// export const id = params.get('id');
 
+
 /**
  * Fetches single application
  * @param {string} url - The URL for single application GET request
