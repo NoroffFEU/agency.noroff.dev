@@ -1,4 +1,5 @@
 import * as ui from './src/js/ui/index.js';
+import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
 
 ui.displayBaseLayout();
 
@@ -25,6 +26,13 @@ const routerSwitch = () => {
     case 'homePage':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
+      break;
+
+    // Terms Of Use UI settings
+    case 'listing':
+      // Page title
+      document.querySelector('title').innerText = defaultTitle;
+      singleApplicationTemplate();
       break;
 
     // Terms Of Use UI settings
