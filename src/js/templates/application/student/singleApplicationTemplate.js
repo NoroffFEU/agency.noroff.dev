@@ -1,30 +1,56 @@
+import {
+  authBaseFetchOpen
+} from "/src/js/api/apiBaseFetch.js";
+import {
+  dummyApiUrl,
+  dummyApiGetSingel
+} from '../../../api/constants.js'
+
+
 /**
  * Creates the HTML for a single application
  * @param {object} data - The single application data fetched from the API
  * @returns - The HTML for a single application
  */
-export function singleApplicationTemplate() {
-  /// Placeholders. Needs to be swapped with data parameter
-  const data = {
-    listingTitle: 'Listing title',
-    media: '/src/assets/icons/DefaultPlaceholder.svg',
-    jobTitle: 'Job title',
-    companyName: 'Company name',
-    location: 'Location',
-    listingCreated: 'One day ago',
-    deadline: 'Deadline date',
-    applicantsCount: '48 applicants',
-    applicantsName: 'Applicants name',
-    applicationCreated: 'Time / date',
-    email: 'Email',
-    address: 'Address',
-    phone: 'Phone number',
-    applicationText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum enim facilisis gravida neque convallis a cras. Ut faucibus pulvinar elementum integer enim neque.',
-    link: 'Link (Link added by student',
-    file: 'File (file added by student)',
-  };
+export async function singleApplicationTemplate() {
 
-  const { media, listingTitle, jobTitle, companyName, location, listingCreated, deadline, applicantsCount, applicantsName, applicationCreated, email, address, phone, applicationText, link, file, id } = data;
+  const url = dummyApiUrl + dummyApiGetSingel;
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(),
+  }
+
+  const req = await authBaseFetchOpen(url, options)
+  const res = await req.json()
+  const data = res
+  console.log(data)
+
+
+  const {
+    media,
+    title: listingTitle,
+    jobTitle,
+    companyName,
+    location,
+    listingCreated,
+    deadline,
+    applicantsCount,
+    applicantsName,
+    applicationCreated,
+    email,
+    address,
+    phone,
+    body: applicationText,
+    link,
+    file,
+    id
+  } = data;
+
+
+  const applicationData = document.getElementById('applicationData')
 
   /// Element
   const modal = document.createElement('div');
@@ -66,6 +92,10 @@ export function singleApplicationTemplate() {
     <h2 class="fs-2 fw-semibold">${applicantsName}</h2>
     <p>${applicationCreated}</p>
   </div>
+  <div class="d-flex gap-3 my-3">
+  <button class="btn btn-theme-primary text-uppercase text-white w-100">Apply Now</button>
+  <button class="btn btn-theme-secondary"><i class="fa-regular fa-heart"></i></button>
+</div>
   <ul class="list-unstyled">
     <li>${email}</li>
     <li>${address}</li>
@@ -100,6 +130,8 @@ export function singleApplicationTemplate() {
   application.append(header, body, footer);
   modalDialog.append(application);
   modal.append(modalDialog);
+
+  applicationData.append(body)
 
   return modal;
 }
