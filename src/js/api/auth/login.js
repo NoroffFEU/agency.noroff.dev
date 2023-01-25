@@ -48,7 +48,7 @@ export async function login(profile) {
           window.location.replace('./../../user/index.html');
         }
         break;
-      case 401:
+      case 403:
         errorContainer.innerHTML = 'Incorrect username/password';
         break;
       default:
