@@ -1,4 +1,4 @@
-import { login } from '../../api/index.js';
+import { login } from '../../api/auth/index.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-team: Frontend - User
