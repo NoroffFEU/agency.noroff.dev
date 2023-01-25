@@ -6,15 +6,24 @@ const method = 'post';
 export async function register(profile) {
   const registerURL = apiUrl + action;
 
-  const response = await fetch(registerURL, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method,
-    body: JSON.stringify(profile),
-  });
+  try {
+    const response = await fetch(registerURL, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method,
+      body: JSON.stringify(profile),
+    });
 
-  const result = await response.json();
-  location.href = `login.html`;
-  return result;
+    switch (response.status) {
+      case 201:
+        const result = await response.json();
+        window.location.replace('/pages/auth/login/index.html');
+        return result;
+      default:
+        throw new Error(`${response.status} ${response.statusText}`);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
