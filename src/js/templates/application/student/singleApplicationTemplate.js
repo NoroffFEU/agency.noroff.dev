@@ -69,6 +69,7 @@ export async function singleApplicationTemplate() {
   exitBtn.innerHTML = `<i class="fa-solid fa-xmark m-0"></i>`;
   exitBtn.dataset.bsDismiss = 'modal';
   deleteBtn.textContent = 'delete';
+  deleteBtn.dataset.auth = 'delete-application';
 
   body.innerHTML = `
   <h1 class="card-title fw-normal">${listingTitle}</h1>
