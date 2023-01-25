@@ -45,7 +45,7 @@ export async function login(profile) {
         if (profile.admin) {
           window.location.replace('#');
         } else {
-          window.location.replace('./../../user/index.html');
+          window.location.replace('/pages/user/index.html');
         }
         break;
       case 403:
@@ -54,7 +54,7 @@ export async function login(profile) {
       default:
         throw new Error(`${response.status} ${response.statusText}`);
     }
-  } catch {
+  } catch (error) {
     errorContainer.innerHTML = 'Unknown error occured. Please try again later, if the problem persist contact customer support.';
     console.log(error);
   }
