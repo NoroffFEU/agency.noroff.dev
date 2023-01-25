@@ -1,4 +1,4 @@
-import { dummyApiUrl } from './constants.js';
+import { dummyApiUrl } from '../constants.js';
 import { headers } from '../headers.js';
 /*
 Temporary id number, ideally it'll be found in the url by the Listener
