@@ -10,6 +10,14 @@
 @import './custom/index';
 @import './custom/customFile.scss';
 
+/* 
+Create Offer CSS 
+Author: Martin Pedersen
+Team: Offer Team
+Page:Temp page is: /admin/offers/create-offer/ 
+Version: 1.0.0 
+*/
+@import "./custom/createOffer";
+
 // Bootstrap from module
 @import '../../node_modules/bootstrap/scss/bootstrap';
-

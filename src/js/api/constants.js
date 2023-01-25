@@ -18,6 +18,7 @@ export const dummyApiCreatePost = 'posts/add'; //create a post
 export const dummyAPiUpddatePost = 'posts/1'; //Update a post
 export const dummyApiDeletePost = 'posts/1'; //Delete a post
 export const dummyApiGetPostByID = 'posts/user/'; //This needs a id of a user from query
+export const dummyApiCreateProduct = 'products/add'; //create a product
 
 // Limit resources to be viewed
 export const dummyApiLimitResources = 'RESOURCE/?limit=10&skip=5&select=key1,key2,key3'; //Url with limit
