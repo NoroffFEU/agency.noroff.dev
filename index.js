@@ -167,11 +167,10 @@ function createOrginisationViewHtml() {
  * @description Creates the HTML for the student view and sets it as the innerHTML of the section2Container element.
  */
 function createStudentViewHtml() {
-  if (!studentIsLoggedIn) {
+  if (studentIsLoggedIn) {
     section2Container.innerHTML = studentView
   }
 }
 
-
-createStudentViewHtml()
-createOrginisationViewHtml()
+// createStudentViewHtml()
+// createOrginisationViewHtml()
