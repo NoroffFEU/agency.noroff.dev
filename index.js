@@ -1,6 +1,7 @@
 import { viewSingleListing } from './src/js/views/listings/index.js';
 import { displayBaseLayout } from './src/js/ui/index.js';
 import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
+import { setLoginFormListener } from './src/js/listeners/auth/index.js';
 
 displayBaseLayout();
 
@@ -40,6 +41,11 @@ const routerSwitch = () => {
       // Page title
       document.querySelector('title').innerText = defaultTitle;
       singleApplicationTemplate();
+      break;
+
+      case 'signIn':
+      document.querySelector('title').innerText = defaultTitle;
+      setLoginFormListener()
       break;
 
     // Terms Of Use UI settings
