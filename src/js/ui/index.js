@@ -5,7 +5,7 @@ import { checkState } from './header/index.js';
 export const displayBaseLayout = () => {
   const headerSection = header();
   if (headerSection) {
-    checkState();
+    checkState()
   }
   footer();
 };

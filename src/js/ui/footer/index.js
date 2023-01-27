@@ -1,6 +1,6 @@
 export const footer = () => {
   const footerElement = document.querySelector('footer');
-  footerElement.classList.add('bg-theme-dark', 'p-3');
+  footerElement.classList.add('bg-theme-dark', 'p-3', 'mt-auto');
   footerElement.innerHTML = `<div class="container-fluid justify-content-center">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 justify-content-evenly">
       <div class="col" data-footer-col>

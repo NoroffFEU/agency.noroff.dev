@@ -7,12 +7,18 @@
 @import './custom/footer';
 
 // Pages
-@import './custom/index';
 @import './custom/customFile.scss';
 @import "./custom/createOffer";
 
-@import './custom/index';
 @import './custom/admin.scss';
+
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
 
 
 // Bootstrap from module

@@ -17,14 +17,6 @@ const data1 = await apiBaseFetch('https://api.example.com/items', headers, 0, 25
 const headers2 = {'Authorization': 'Token YOUR_API_KEY'};
 const data2 = await apiBaseFetch('https://api.example.com/items', headers);
 */
- * @async
- * @function fetch
- * @param {string} url - The URL of the API endpoint.
- * @param {object} [headers=null] - An object containing custom headers to be sent with the request.
- * @param {number} [offset=0] - The offset to be used for pagination.
- * @param {number} [limit=100] - The number of items to be returned per page.
- * @returns {Promise<any>} A promise that resolves to the JSON data returned by the API.
- */
 
 export async function apiBaseFetch(url, headers = null, offset = 0, limit = 100) {
   let options = {};
@@ -76,10 +68,4 @@ export async function authBaseFetchOpen(url, options = {}) {
     ...options,
   })
 }
-=======
-const headers1 = { Authorization: 'Token YOUR_API_KEY' };
-const data1 = await apiBaseFetch('https://api.example.com/items', headers, 0, 25);
 
-// You can also use this function with an argument, like offset and limit as default. and then call it without those argument.
-const headers2 = { Authorization: 'Token YOUR_API_KEY' };
-const data2 = await apiBaseFetch('https://api.example.com/items', headers);

@@ -13,7 +13,7 @@ export const header = () => {
   return (headerElement.innerHTML = `<div class="container-fluid">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
         <div class="d-flex gap-2">
           <img src="/src/assets/icons/noroff-logo.svg" class="Logo-noroff" />
           <div class="d-flex flex-column">
@@ -38,10 +38,6 @@ const stateValue = "null"
 localStorage.setItem("Role", stateValue)
 let pageTitle = document.querySelector('title');
 pageTitle.innerText = 'Standard';
-
-// For testing states
-const stateValue = 'null';
-localStorage.setItem('Role', stateValue);
 
 /**
  *
