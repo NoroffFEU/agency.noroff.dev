@@ -58,6 +58,7 @@ export async function apiBaseFetch(url, headers = null, offset = 0, limit = 100)
  * @example
  * Ex of use:
  * export async function create(listData) {
+
  *   const createListingUrl = dummyApiUrl + dummyApiCreatePost;
  *   console.log(createListingUrl)
  *   const data = await authBaseFetchOpen(createListingUrl, {

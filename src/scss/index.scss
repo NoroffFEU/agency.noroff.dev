@@ -1,4 +1,3 @@
-// Colors and fonts
 @import './custom/themeColorVariables';
 @import './custom/_clientApplication.scss';
 @import './custom/typography';
@@ -11,6 +10,9 @@
 @import './custom/index';
 @import './custom/customFile.scss';
 @import "./custom/createOffer";
+
+@import './custom/index';
+@import './custom/admin.scss';
 
 
 // Bootstrap from module
