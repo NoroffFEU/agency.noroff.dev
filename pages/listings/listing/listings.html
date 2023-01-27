@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/css/index.css" />
+    <title>Listings</title>
+  </head>
+  <body id="listingsPage" class="bodytest">
+    <header></header>
+    <main class="container" style="max-width: 1100px">
+      <section class="d-flex justify-content-center">
+          <div class="mt-5">
+                <div class="search">
+                  <input class="searchInput" type="text" placeholder="Search Listings..." />
+                  <button class="searchButton">S</button>
+
+                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown">F</button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Filter 1</a></li>
+                      <li><a class="dropdown-item" href="#">Filter 2</a></li>
+                      <li><a class="dropdown-item" href="#">Filter 3</a></li>
+                    </ul>
+                </div>
+             </div>
+           </div>
+     </section>
+      <section class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 m-auto">        
+        <div class="col">
+          <div class="mt-4 p-0 listingContainer">
+            
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <!-- <script src="/index.js" type="module"></script> -->
+    <script src="../../../src/js/templates/listings/renderListings.js" type="module"></script>
+    <!-- <script src="../../../src/js/listeners/post/searchListing.js" type="module" ></script> -->
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  </body>
+</html>
