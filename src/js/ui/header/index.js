@@ -1,10 +1,10 @@
 /**
- * 
+ *
  * This function is creating the content inside the header tag on each page
- * 
- * @returns base header element 
- * 
- * 
+ *
+ * @returns base header element
+ *
+ *
  */
 export const header = () => {
   const headerElement = document.querySelector('header');
@@ -36,16 +36,22 @@ export const header = () => {
 // For testing states
 const stateValue = "null"
 localStorage.setItem("Role", stateValue)
+let pageTitle = document.querySelector('title');
+pageTitle.innerText = 'Standard';
+
+// For testing states
+const stateValue = 'null';
+localStorage.setItem('Role', stateValue);
 
 /**
- * 
- * This function is adding the navigation to the header element based on the state of thus user. 
- * If the user is Admin, user og not logged in, it will display different navigation options. 
- * 
+ *
+ * This function is adding the navigation to the header element based on the state of thus user.
+ * If the user is Admin, user og not logged in, it will display different navigation options.
+ *
  * If the user is logged in the navigation will change to have a sign out button
- * 
- * @returns navigation option based on the user's status. 
- * 
+ *
+ * @returns navigation option based on the user's status.
+ *
  */
 export const checkState = () => {
   const role = localStorage.getItem('Role');

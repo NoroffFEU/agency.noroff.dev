@@ -43,18 +43,25 @@ const routerSwitch = () => {
       break;
 
     // Terms Of Use UI settings
+
     case 'termsOfUse':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Terms Of Use`;
       break;
 
-    // Privacy Policy UI settings
+      // Privacy Policy UI settings
     case 'privacyPolicy':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Privacy Policy`;
       break;
 
-    // 404 UI settings
+
+    case 'studentOffer':
+      // Page title
+      document.querySelector('title').innerText = defaultTitle + ` || Student Offer`;
+      break;
+
+      // 404 UI settings
     case '404':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || ` + '404';
@@ -63,6 +70,16 @@ const routerSwitch = () => {
   }
 };
 routerSwitch();
+
+import { header } from './src/js/ui/header/index.js';
+header();
+
+import { footer } from './src/js/ui/footer/index.js';
+footer();
+import * as ui from './src/js/ui/index.js';
+
+ui.displayBaseLayout();
+
 
 
 
@@ -182,3 +199,5 @@ function createStudentViewHtml() {
 // createStudentViewHtml()
 // createOrginisationViewHtml()
 
+createStudentViewHtml()
+createOrginisationViewHtml()
