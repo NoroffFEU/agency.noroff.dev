@@ -1,0 +1,18 @@
+/*
+Author: Truls Haakenstad - @Menubrea
+Team: User
+Page: Profile
+Version: 1.0.0
+*/
+
+.maxWidthProfileContainer {
+  max-width: 750px;
+}
+
+.maxWidthLayout {
+  max-width: 1420px;
+}
+
+.tabWidth {
+  width: clamp(80px, 25vw, 326px);
+}

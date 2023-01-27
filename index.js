@@ -1,3 +1,4 @@
+import { viewSingleListing } from './src/js/views/listings/index.js';
 import * as ui from './src/js/ui/index.js';
 import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
 
@@ -28,6 +29,12 @@ const routerSwitch = () => {
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
       break;
 
+    // Single listing page UI
+    case 'singleListing':
+      // Page title
+      document.querySelector('title').innerText = defaultTitle + ` || Listing`;
+      viewSingleListing();
+      break;
     // Terms Of Use UI settings
     case 'listing':
       // Page title
@@ -174,3 +181,4 @@ function createStudentViewHtml() {
 
 // createStudentViewHtml()
 // createOrginisationViewHtml()
+
