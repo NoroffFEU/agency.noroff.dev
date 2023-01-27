@@ -178,3 +178,7 @@ function createStudentViewHtml() {
     section2Container.innerHTML = studentView
   }
 }
+
+// createStudentViewHtml()
+// createOrginisationViewHtml()
+
