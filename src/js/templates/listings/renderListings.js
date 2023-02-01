@@ -26,9 +26,9 @@ export async function renderListings() {
                       <div class="px-4 mt-5">EndsAt</div>
                     </div>
                   </div>
-                  <div class="position-absolute bottom-0 end-0">
+                  <div class="position-absolute bottom-0 end-0 mx-3 my-3">
                     <div>
-                      <a href="#" class="btn bg-theme-primary">View</a>
+                      <a href="#" class="btn bg-theme-primary">View More</a>
                     </div>
                   </div>
                 </div>
