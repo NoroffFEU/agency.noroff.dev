@@ -2,6 +2,7 @@ import { viewSingleListing } from './src/js/views/listings/index.js';
 import { displayBaseLayout } from './src/js/ui/index.js';
 import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
 import { setLoginFormListener } from './src/js/listeners/auth/index.js';
+import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js';
 
 displayBaseLayout();
 
@@ -48,8 +49,13 @@ const routerSwitch = () => {
       setLoginFormListener()
       break;
 
-    // Terms Of Use UI settings
 
+      case 'registerUser':
+      document.querySelector('title').innerText = defaultTitle;
+      showRegFormListener()
+      break;
+
+    // Terms Of Use UI settings
     case 'termsOfUse':
       // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Terms Of Use`;
