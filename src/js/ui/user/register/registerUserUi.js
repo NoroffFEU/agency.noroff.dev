@@ -30,7 +30,7 @@ export const showRegForm = (buttonId) => {
           </div>
         </div>
         <div class="d-flex flex-column gap-3 mt-5">
-          <button class="btn btn-theme-secondary mx-auto">Register</button>
+          <button class="btn btn-theme-secondary mx-auto btn-lg">Register</button>
           <button class="btn text-black align-self-center" id="companyReg" data-button-companyReg>Not an company? Register as applicant instead!</button>
         </div>
       </form>`
@@ -62,7 +62,7 @@ export const showRegForm = (buttonId) => {
           </div>
         </div>
         <div class="d-flex flex-column gap-3 mt-5">
-          <button class="btn btn-theme-secondary mx-auto">Register</button>
+          <button class="btn btn-theme-secondary mx-auto btn-lg">Register</button>
           <button class="btn text-black align-self-center" id="studentReg" data-button-studentReg>Not an applicant? Register as company instead!</button>
         </div>
       </form>`
