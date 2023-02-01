@@ -58,7 +58,30 @@ export const showRegForm = (buttonId) => {
             <input type="password" class="form-control" aria-label="Repeat password" id="repPassword">
 
             <label for="degrees">Degree(s)</label>
-            <input type="email" class="form-control" aria-label="Degree(s)" id="degrees">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option value="">Applied Machine Learning</option>
+              <option value="">Front-end Development</option>
+              <option value="">Back-end Development</option>
+              <option value="Full-stack Developer">Full-stack Developer</option>
+              <option value="">Data Analyst</option>
+              <option value="">UX/UI Design</option>
+              <option value="">Graphic Design</option>
+              <option value="">Music production</option>
+              <option value="">Film production</option>
+              <option value="">Digital marketing</option>
+              <option value="">Video marketing in social Media</option>
+              <option value="">3D art and game technology</option>
+              <option value="">Network and IT security</option>
+              <option value="">Network and System administration</option>
+              <option value="">Cyber security</option>
+              <option value="">Applied data science</option>
+              <option value="">Digital Forensics</option>
+              <option value="">Interactive Media - Animation</option>
+              <option value="">Interactive Media - Games</option>
+              <option value="">Modern project management</option>
+              <option value="">Other</option>
+            </select>
           </div>
         </div>
         <div class="d-flex flex-column gap-3 mt-5">
