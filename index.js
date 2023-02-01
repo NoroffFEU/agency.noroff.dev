@@ -1,8 +1,19 @@
-import { viewSingleListing } from './src/js/views/listings/index.js';
-import { displayBaseLayout } from './src/js/ui/index.js';
-import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
-import { setLoginFormListener } from './src/js/listeners/auth/index.js';
-import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js';
+import {
+  viewSingleListing
+} from './src/js/views/listings/index.js';
+import {
+  displayBaseLayout
+} from './src/js/ui/index.js';
+import {
+  singleApplicationTemplate
+} from './src/js/templates/application/student/singleApplicationTemplate.js';
+import {
+  setLoginFormListener
+} from './src/js/listeners/auth/index.js';
+import {
+  showRegFormListener
+} from './src/js/listeners/auth/showRegFormListener.js';
+import { renderListings } from './src/js/templates/listings/renderListings.js';
 
 displayBaseLayout();
 
@@ -25,57 +36,58 @@ const routerSwitch = () => {
 
   const routeName = document.body.id;
   switch (routeName) {
+
     // Homepage UI settings
     case 'homePage':
-      // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
       break;
 
-    // Single listing page UI
+      // Single listing page UI
     case 'singleListing':
-      // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Listing`;
       viewSingleListing();
       break;
-    // Terms Of Use UI settings
+
+      // Listing UI settings
     case 'listing':
-      // Page title
       document.querySelector('title').innerText = defaultTitle;
-      singleApplicationTemplate();
+      renderListings()
       break;
 
-      case 'signIn':
+      // Sign in UI settings
+    case 'signIn':
       document.querySelector('title').innerText = defaultTitle;
       setLoginFormListener()
       break;
 
-
-      case 'registerUser':
+      // Register user UI settings
+    case 'registerUser':
       document.querySelector('title').innerText = defaultTitle;
       showRegFormListener()
       break;
 
-    // Terms Of Use UI settings
+      // Profile UI settings
+    case 'profile':
+      document.querySelector('title').innerText = defaultTitle;
+      break;
+
+      // Student offer UI settings
+    case 'studentOffer':
+      document.querySelector('title').innerText = defaultTitle + ` || Student Offer`;
+      break;
+
+      // Terms Of Use UI settings
     case 'termsOfUse':
-      // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Terms Of Use`;
       break;
 
       // Privacy Policy UI settings
     case 'privacyPolicy':
-      // Page title
       document.querySelector('title').innerText = defaultTitle + ` || Privacy Policy`;
-      break;
-
-
-    case 'studentOffer':
-      // Page title
-      document.querySelector('title').innerText = defaultTitle + ` || Student Offer`;
       break;
 
       // 404 UI settings
     case '404':
-      // Page title
       document.querySelector('title').innerText = defaultTitle + ` || ` + '404';
       break;
     default:

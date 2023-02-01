@@ -4,6 +4,9 @@ export const footer = () => {
   footerElement.innerHTML = `<div class="container-fluid justify-content-center">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 justify-content-evenly">
       <div class="col" data-footer-col>
+        <a href="/pages/user/index.html">Profile page</a>
+      </div>
+      <div class="col" data-footer-col>
         <h4 class="text-white mb-3">About Noroff Job Agency</h4>
         <p class="text-white">Noroff Jobs is a student-built and student-run employment agency designed to link Industry Partners with skilled candidates.</p> 
         <p class="text-white">Noroff Jobs is a non-profit organisation dedicated to placing students into their ideal workplace.</p>
