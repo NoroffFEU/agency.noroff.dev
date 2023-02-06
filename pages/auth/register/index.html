@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/css/index.css" />
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/src/js/index.js" type="module"></script>
+    <script src="/index.js" type="module"></script>
+    <title>Register profile</title>
+  </head>
+  <body id="registerPage">
+    <header></header>
+    <main>
+      <div class="registerCompanies container d-flex justify-content-center align-items-center">
+        <form action="" id="register_form">
+          <h5>register as company</h5>
+          <div class="column">
+            <label for="company-name">Company Name</label>
+            <input type="text" name="company-name" required />
+            <label for="password">Password</label>
+            <input type="password" name="password" required />
+            <label for="contact-person">Contact Person</label>
+            <input type="text" name="contact-person" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" required />
+            <label for="password-2">Repeat Password</label>
+            <input type="password" name="password-2" required />
+            <label for="contact-number">Contact Number</label>
+            <input type="number" name="contact-number" />
+          </div>
+          <div>
+            <button class="btn mb-3 btn-primary" type="submit">Register</button>
+            <a href="">Not an applicant? Register as a company instead!</a>
+          </div>
+        </form>
+      </div>
+      <div class="registerStudents container d-flex justify-content-center align-items-center">
+        <form action="" id="register_form">
+          <h5>register as student</h5>
+          <div>
+            <label for="full-name">Full Name</label>
+            <input type="text" name="full-name" required />
+            <label for="password">Password</label>
+            <input type="password" name="password" required />
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Degree</label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+              <option selected>Choose...</option>
+              <option value="1">Front-end</option>
+              <option value="2">Back-end</option>
+              <option value="3">Full-stack</option>
+            </select>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" required />
+            <label for="password-2">Repeat Password</label>
+            <input type="password" name="password-2" required />
+            <button class="btn mb-3 btn-primary">+</button>
+          </div>
+          <div>
+            <button class="btn mb-3 btn-primary" type="submit">Register</button>
+            <a href="">Not a company? Register as an applicant instead!</a>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 import { Store } from '../../storage/storage.js';
-import { apiPath} from '../constants.js';
+import { apiPath } from '../constants.js';
 import { dummyApiUrl } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
@@ -46,16 +46,16 @@ export async function login(profile) {
         if (profile.admin) {
           window.location.replace('#');
         } else {
-          window.location.replace('./../../user/index.html');
+          window.location.replace('/pages/user/index.html');
         }
         break;
-      case 401:
+      case 403:
         errorContainer.innerHTML = 'Incorrect username/password';
         break;
       default:
         throw new Error(`${response.status} ${response.statusText}`);
     }
-  } catch(error) {
+  } catch (error) {
     errorContainer.innerHTML = 'Unknown error occured. Please try again later, if the problem persist contact customer support.';
     console.log(error);
   }
