@@ -58,7 +58,7 @@ export const checkState = () => {
       <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html">Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="/pages/listings/listing/listings.html">Listings</a>
+      <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-outline-light text-white" href="#" id="signOut">Log out</a>
@@ -72,7 +72,7 @@ export const checkState = () => {
       <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link text-white" href="/pages/listings/listing/listings.html">Listings</a>
+    <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
     </li>
     <li class="nav-item">
     <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
@@ -83,7 +83,7 @@ export const checkState = () => {
   if (role == 'null') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
     <li class="nav-item">
-    <a class="nav-link text-white" href="/pages/listings/listing/listings.html">Listings</a>
+    <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-outline-light text-white" href="/pages/auth/login/index.html" id="signInUser">Sign in</a>

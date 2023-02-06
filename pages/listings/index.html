@@ -20,14 +20,33 @@
           <section class="d-flex justify-content-center">
             <div class="mt-5">
               <h1 class="mt-2 py-1">Job Listings</h1>
-              <form class="d-flex mb-4" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+              <div class="container d-flex justify-content-center mt-3">
+                <div class="col-md-5 w-100">
+                  <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search Listings..." id="searchListing" data-search-listings />
+                    <span class="input-group-append">
+                      <button class="btn ms-n5" type="button">
+                        <img src="/src/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
+                      </button>
+                    </span>
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="/src/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">All</a></li>
+                    <li><a class="dropdown-item" href="#">Latest</a></li>
+                    <li><a class="dropdown-item" href="#">Last 14 days</a></li>
+                    <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </section>
           <!--Bootstrap grid cards-->
-          <div class="row mb-4">
+          <div class="row mb-4 listingContainer">
             <div class="col-sm-6">
               <div class="card my-3 px-3 bg-theme-light shadow">
                 <div class="col-md-4 mt-5 px-2">
