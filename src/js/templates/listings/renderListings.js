@@ -35,5 +35,5 @@ export async function renderListings() {
               </div>`                   
     });
 }
-renderListings()
+
 
