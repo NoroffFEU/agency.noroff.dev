@@ -1,10 +1,10 @@
 /**
- * 
+ *
  * This function is creating the content inside the header tag on each page
- * 
- * @returns base header element 
- * 
- * 
+ *
+ * @returns base header element
+ *
+ *
  */
 export const header = () => {
   const headerElement = document.querySelector('header');
@@ -13,7 +13,7 @@ export const header = () => {
   return (headerElement.innerHTML = `<div class="container-fluid">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
         <div class="d-flex gap-2">
           <img src="/src/assets/icons/noroff-logo.svg" class="Logo-noroff" />
           <div class="d-flex flex-column">
@@ -36,16 +36,18 @@ export const header = () => {
 // For testing states
 const stateValue = "null"
 localStorage.setItem("Role", stateValue)
+let pageTitle = document.querySelector('title');
+pageTitle.innerText = 'Standard';
 
 /**
- * 
- * This function is adding the navigation to the header element based on the state of thus user. 
- * If the user is Admin, user og not logged in, it will display different navigation options. 
- * 
+ *
+ * This function is adding the navigation to the header element based on the state of thus user.
+ * If the user is Admin, user og not logged in, it will display different navigation options.
+ *
  * If the user is logged in the navigation will change to have a sign out button
- * 
- * @returns navigation option based on the user's status. 
- * 
+ *
+ * @returns navigation option based on the user's status.
+ *
  */
 export const checkState = () => {
   const role = localStorage.getItem('Role');
@@ -56,7 +58,7 @@ export const checkState = () => {
       <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html">Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="#">Listings</a>
+      <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-outline-light text-white" href="#" id="signOut">Log out</a>
@@ -70,7 +72,7 @@ export const checkState = () => {
       <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="#">Listings</a>
+    <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
     </li>
     <li class="nav-item">
     <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
@@ -81,13 +83,13 @@ export const checkState = () => {
   if (role == 'null') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
     <li class="nav-item">
-      <a class="nav-link text-white" href="#">Listings</a>
+    <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-outline-light text-white" href="/pages/auth/login/index.html" id="signInUser">Sign in</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-theme-secondary text-black" id="registerUser">Register</a>
+      <a class="btn btn-theme-secondary text-black" id="registerUser" href="/pages/auth/register.html">Register</a>
     </li>
   </ul>`);
   }

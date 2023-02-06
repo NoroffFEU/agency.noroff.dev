@@ -21,7 +21,6 @@ export function setLoginFormListener() {
       const form = e.target;
       const formData = new FormData(form);
       const profile = Object.fromEntries(formData.entries());
-
       login(profile);
     });
   }

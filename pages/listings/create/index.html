@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="/dist/css/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="create job listings" />
     <title>Noroff Job Create Listing</title>
   </head>
-  <body class="d-flex flex-column flex-fill min-vh-100 gap-4" id="homepage">
+  <body class="d-flex flex-column flex-fill min-vh-100 gap-4" id="createListing">
     <header></header>
-    <main class="container-fluid d-flex flex-fill flex-lg-row justify-content-center">
+    <main class="container-fluid d-flex flex-fill flex-lg-row justify-content-center bg-theme-grey">
       <div
       class="mt-5 mb-5"
       id="newListing"
@@ -18,12 +19,13 @@
       >
         <div class="border">
           <!-- Waiting on API docs for validation requirements -->
-          <form class="m-2" id="createNewListing">
+          <form class="m-2" id="createNewListing" data-auth="createForm">
             <div class="text-end">
               <button
                 type="button"
                 class="btn-close"
                 style="border-radius: 0px;"
+                data-auth="createFormClose"
               ></button>
             </div>
             <h1 class="text-center mt-4">Create New Listing</h1>
@@ -36,6 +38,7 @@
                   type="text"
                   name="title"
                   id="createTitle"
+                  data-auth="createFormTitle"
                   required
                 />
               </div>
@@ -47,6 +50,7 @@
                   type="text"
                   name="location"
                   id="createLocation"
+                  data-auth="createFormLocation"
                   required
                 />
               </div>
@@ -58,13 +62,14 @@
                   type="datetime-local"
                   name="deadline"
                   id="createDeadline"
+                  data-auth="createFormLocation"
                   required
                   title="Enter a valid date"
                 /> 
               </div>
               <div class="input-group mt-5 mb-3">
                 <span class="input-group-text" style="border-radius: 0px;">Upload Cover Picture</span>
-                <input type="text" class="form-control bg-theme-light" style="border-radius: 0px;" id="pictureUrl">
+                <input type="text" class="form-control bg-theme-light" style="border-radius: 0px;" id="pictureUrl" data-auth="createFormPicture">
               </div>
               <div class="form mb-3">
                 <label for="jobDescription" class=""
@@ -77,6 +82,7 @@
                   type="text"
                   name="jobDescription"
                   id="createDescription"
+                  data-auth="createFormDescription"
                 ></textarea>
               </div>
             </div>
@@ -85,7 +91,7 @@
                 class="btn btn-theme-secondary ps-4 pe-4 me-4"
                 style="border-radius: 0px; width: 250px"
                 type="submit"
-                style="border-radius: 0px"
+                data-auth="createFormSubmitButton"
               >
                 CREATE NEW LISTING
               </button>
@@ -96,6 +102,8 @@
     </main>
     <footer></footer>
     <script src="/index.js" type="module"></script>
+    <!-- Temporary script to call createListing function -->
+    <script src="/src/js/listeners/post/index.js" type="module"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>

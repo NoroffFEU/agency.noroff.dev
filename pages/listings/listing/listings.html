@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/css/index.css" />
+
+    <script src="/index.js" type="module" defer></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <title></title>
+  </head>
+
+  <body id="listingsPage">
+    <header></header>
+    <main class="bg-theme-grey">
+      <div class="d-flex flex-column mt-5 mb-5">
+        <div>
+          <h1 class="text-center">Job Listings</h1>
+        </div>
+
+        <div class="container d-flex justify-content-center mt-3">
+          <div class="col-md-5">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Search Listings..." id="searchListing" data-search-listings />
+              <span class="input-group-append">
+                <button class="btn ms-n5" type="button">
+                  <img src="/src/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
+                </button>
+              </span>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="/src/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="container mt-4">
+          <div class="row row-cols-2 gap-5 justify-content-center" id="jobListings">
+            <div class="card flex-row p-0 gap-4 w-auto">
+              <img src="https://via.placeholder.com/150 " alt="" class="" />
+              <div class="d-flex flex-column gap-2 me-3">
+                <h2>Company name</h2>
+                <p>Some text from the company</p>
+                <div class="d-flex gap-2 align-content-center align-items-center">
+                  <p>() Applications</p>
+                  <p>Ends at:</p>
+                  <button class="btn btn-info">View</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card flex-row p-0 gap-4 w-auto">
+              <img src="https://via.placeholder.com/150 " alt="" class="" />
+              <div class="d-flex flex-column gap-2 me-3">
+                <h2>Company name</h2>
+                <p>Some text from the company</p>
+                <div class="d-flex gap-2 align-content-center align-items-center">
+                  <p>() Applications</p>
+                  <p>Ends at:</p>
+                  <button class="btn btn-info">View</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card flex-row p-0 gap-4 w-auto">
+              <img src="https://via.placeholder.com/150 " alt="" class="" />
+              <div class="d-flex flex-column gap-2 me-3">
+                <h2>Company name</h2>
+                <p>Some text from the company</p>
+                <div class="d-flex gap-2 align-content-center align-items-center">
+                  <p>() Applications</p>
+                  <p>Ends at:</p>
+                  <button class="btn btn-info">View</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card flex-row p-0 gap-4 w-auto">
+              <img src="https://via.placeholder.com/150 " alt="" class="" />
+              <div class="d-flex flex-column gap-2 me-3">
+                <h2>Company name</h2>
+                <p>Some text from the company</p>
+                <div class="d-flex gap-2 align-content-center align-items-center">
+                  <p>() Applications</p>
+                  <p>Ends at:</p>
+                  <button class="btn btn-info">View</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

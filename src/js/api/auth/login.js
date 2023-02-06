@@ -1,5 +1,6 @@
 import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
+import { dummyApiUrl } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-Team: Frontend - User
@@ -21,7 +22,7 @@ const errorContainer = document.querySelector('#errorContainer');
  * @param {object} profile Takes in input values from loginForm
  */
 export async function login(profile) {
-  const loginURL = apiPath + action;
+  const loginURL = dummyApiUrl + 'auth/login';
   const body = JSON.stringify(profile);
   const options = {
     method,

@@ -39,3 +39,23 @@ $theme-colors: (
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
+
+
+//Active State
+$nav-tabs-link-active-color: $theme-Light;
+$nav-tabs-link-active-bg: $theme-Dark;
+$nav-tabs-link-active-border-color: $nav-tabs-link-active-bg;
+
+// Idle State
+$nav-link-color: $theme-Dark;
+$nav-tabs-border-color: $theme-Dark;
+
+// Hover State
+$nav-link-hover-color: $theme-Dark;
+$nav-tabs-link-hover-border-color: $nav-tabs-border-color;
+
+// Shadow
+$box-shadow: 0 2px 5px 1px rgba(#000, 0.15);
+
+// Button
+$btn-border-radius: none;
