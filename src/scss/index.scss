@@ -8,9 +8,8 @@
 
 // Pages
 
-@import './custom/index';
+// @import './custom/index'; // What is this for? Commenting it out since it breaks dev environment.
 @import './custom/admin.scss';
-
 
 // Bootstrap from module
 @import '../../node_modules/bootstrap/scss/bootstrap';
