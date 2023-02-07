@@ -7,7 +7,7 @@
 
 export function userTemplate(userData) {
   const profile = document.createElement('div');
-  profile.classList.add('row', 'ps-2', 'px-md-5');
+  profile.classList.add('row');
 
   const nameContainer = document.createElement('p');
   nameContainer.classList.add('col-5', 'bg-light', 'px-2', 'py-3', 'mb-2', 'overflow-hidden');
