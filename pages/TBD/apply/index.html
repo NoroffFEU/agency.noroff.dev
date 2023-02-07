@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="@ImBenni" />
+    <meta name="team" content="Application" />
+    <title>Application Form</title>
+    <link rel="stylesheet" href="/dist/css/index.css" />
+    <script src="https://kit.fontawesome.com/7894e946c2.js" crossorigin="anonymous"></script>
+  </head>
+  <body id="homePage">
+    <header></header>
+    <main class="bg-theme-grey">
+      <section class="container d-flex justify-content-center py-5">
+        <div class="formMain bg-light p-3 p-md-5 col-12 col-lg-6 position-relative">
+          <!-- Text & X-button -->
+          <div class="formTop">
+            <div class="d-flex justify-content-end">
+              <button class="btn fa-solid fa-x p-0" id="btnClose"></button>
+            </div>
+            <h1 class="text-center">Cover Field Letter</h1>
+          </div>
+          <form id="appForm">
+            <!-- Email -->
+            <div class="form-group mt-4">
+              <label for="email" class="fw-semibold">Email</label>
+              <input name="email" type="email" class="form-control bg-theme-grey rounded-0 border-dark" id="inputEmail" data-auth="email"/>
+            </div>
+            <!-- Address -->
+            <div class="form-group mt-2">
+              <label for="address" class="fw-semibold">Address</label>
+              <input name="address" type="text" class="form-control bg-theme-grey rounded-0 border-dark" id="inputAddress" data-auth="address"/>
+            </div>
+            <!-- Phone Number -->
+            <div class="form-group mt-2">
+              <label for="phone" class="fw-semibold">Phone Number</label>
+              <input name="phone" type="tel" class="form-control bg-theme-grey rounded-0 border-dark" id="inputPhone" data-auth="phone"/>
+            </div>
+            <!-- Links -->
+            <div class="form-group d-flex mt-3 border border-dark">
+              <div class="col-5 col-md-4 col-xl-3 bg-dark bg-opacity-25 fw-semibold ps-1 ps-sm-3 d-flex align-items-center">
+                <label for="links">Links</label>
+              </div>
+              <div class="col-7 col-md-8 col-xl-9">
+                <input name="link" type="text" class="form-control rounded-0 border-dark border-start border-0 bg-theme-grey" id="inputLink" data-auth="link"/>
+              </div>
+            </div>
+            <!-- Upload File -->
+            <div class="form-group d-flex mt-3 border border-dark">
+              <div class="col-5 col-md-4 col-xl-3 bg-dark bg-opacity-25 fw-semibold ps-1 ps-sm-3 d-flex align-items-center">
+                <label for="file">Upload File</label>
+              </div>
+              <div class="col-7 col-md-8 col-xl-9">
+                <input name="file" type="text" class="form-control rounded-0 border-dark border-start border-0 bg-theme-grey" id="inputFile" data-auth="file"/>
+              </div>
+            </div>
+            <!-- Letter Text -->
+            <div class="form-group mt-2">
+              <label for="letter" class="fw-semibold">Letter Text</label>
+              <textarea name="letter" class="form-control rounded-0 border-dark bg-theme-grey" id="inputLetter" rows="15" data-auth="letter"></textarea>
+            </div>
+            <!-- Submit -->
+            <button type="submit" id="btnSend" class="btn btn-theme-secondary fw-semibold col-12 col-md-4 mt-3 border-0 rounded-0">SEND</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="/index.js" type="module"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/src/js/listeners/post/index.js" type="module"></script>
+    <!-- <script src="/src/js/api/posts/create.js" type="module"></script> -->
+  </body>
+</html>
