@@ -53,10 +53,62 @@
           </div>
         </div>
 
-        <div class="d-none" id="companyView">
+        <!-- Edit Profile Modal -->
+        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModal" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div>Edit Profile</div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form disabled id="editStudentForm" class="px-md-5 p-2 container-sm">
+                  <div class="mb-4">
+                    <img class="w-25 h-25 img-fluid d-block mx-auto rounded-circle" for="studentAvatar" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
+                  </div>
+                  <div class="row">
+                    <div class="mb-2 col">
+                      <label for="nameStudent" class="form-label">Full Name</label>
+                      <input type="text" name="fullName" id="nameStudent" class="form-control" />
+                    </div>
+                    <div class="mb-2 col">
+                      <label for="emailStudent" class="form-label">E-mail</label>
+                      <input type="email" name="email" id="emailStudent" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mb-2 col">
+                      <label for="titleStudent" class="form-label">Title</label>
+                      <input type="text" name="title" id="titleStudent" class="form-control" />
+                    </div>
+                    <div class="mb-2 col">
+                      <label for="degreeStudent" class="form-label">Degree(s)</label>
+                      <input type="text" name="degree" id="degreeStudent" class="form-control" />
+                    </div>
+                  </div>
+                  <button class="btn btn-dark">Add degree</button>
+                  <div class="mb-2">
+                    <label for="studentSkills">Skills</label>
+                    <textarea class="form-control" rows="5" name="skills" id="studentSkills"> </textarea>
+                  </div>
+                  <div class="mb-2">
+                    <label for="studentDescription">Description</label>
+                    <textarea class="form-control" rows="5" name="description" id="studentDescription"> </textarea>
+                  </div>
+                  <div class="d-grid">
+                    <button type="button" class="btn btn-dark">Save changes</button>
+                  </div>
+                </form>
+                <form id="editCompanyForm"></form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="companyView">
           <!-- Displayed if company is logged in -->
           <div>
-            <button class="btn btn-dark d-block mx-auto">Edit Profile</button>
+            <button class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
             <!-- Modal could live here -->
           </div>
 
@@ -85,9 +137,9 @@
           </div>
         </div>
 
-        <div class="d-none" id="studentView">
+        <div id="studentView">
           <div>
-            <button class="btn btn-dark d-block mx-auto">Edit Profile</button>
+            <button class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
             <!-- Modal could live here -->
           </div>
           <!-- Displayed if student is logged in -->
