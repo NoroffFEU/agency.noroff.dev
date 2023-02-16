@@ -1,19 +1,10 @@
-import {
-  viewSingleListing
-} from './src/js/views/listings/index.js';
-import {
-  displayBaseLayout
-} from './src/js/ui/index.js';
-import {
-  singleApplicationTemplate
-} from './src/js/templates/application/student/singleApplicationTemplate.js';
-import {
-  setLoginFormListener
-} from './src/js/listeners/auth/index.js';
-import {
-  showRegFormListener
-} from './src/js/listeners/auth/showRegFormListener.js';
+import { viewSingleListing } from './src/js/views/listings/index.js';
+import { displayBaseLayout } from './src/js/ui/index.js';
+import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
+import { setLoginFormListener } from './src/js/listeners/auth/index.js';
+import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js';
 import { renderListings } from './src/js/templates/listings/renderListings.js';
+import { profileRouter } from './src/js/listeners/profile/index.js';
 
 displayBaseLayout();
 
@@ -36,57 +27,57 @@ const routerSwitch = () => {
 
   const routeName = document.body.id;
   switch (routeName) {
-
     // Homepage UI settings
     case 'homePage':
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
       break;
 
-      // Single listing page UI
+    // Single listing page UI
     case 'singleListing':
       document.querySelector('title').innerText = defaultTitle + ` || Listing`;
       viewSingleListing();
       break;
 
-      // Listing UI settings
+    // Listing UI settings
     case 'listing':
       document.querySelector('title').innerText = defaultTitle;
-      renderListings()
+      renderListings();
       break;
 
-      // Sign in UI settings
+    // Sign in UI settings
     case 'signIn':
       document.querySelector('title').innerText = defaultTitle;
-      setLoginFormListener()
+      setLoginFormListener();
       break;
 
-      // Register user UI settings
+    // Register user UI settings
     case 'registerUser':
       document.querySelector('title').innerText = defaultTitle;
-      showRegFormListener()
+      showRegFormListener();
       break;
 
-      // Profile UI settings
-    case 'profile':
+    // Profile UI settings
+    case 'profilePage':
       document.querySelector('title').innerText = defaultTitle;
+      profileRouter();
       break;
 
-      // Student offer UI settings
+    // Student offer UI settings
     case 'studentOffer':
       document.querySelector('title').innerText = defaultTitle + ` || Student Offer`;
       break;
 
-      // Terms Of Use UI settings
+    // Terms Of Use UI settings
     case 'termsOfUse':
       document.querySelector('title').innerText = defaultTitle + ` || Terms Of Use`;
       break;
 
-      // Privacy Policy UI settings
+    // Privacy Policy UI settings
     case 'privacyPolicy':
       document.querySelector('title').innerText = defaultTitle + ` || Privacy Policy`;
       break;
 
-      // 404 UI settings
+    // 404 UI settings
     case '404':
       document.querySelector('title').innerText = defaultTitle + ` || ` + '404';
       break;
@@ -94,7 +85,6 @@ const routerSwitch = () => {
   }
 };
 routerSwitch();
-
 
 /**
  * @fileoverview This file displays different views to the user based on their login status.
@@ -104,9 +94,9 @@ routerSwitch();
  */
 
 //For testing purposes. True=Logged in.
-const studentIsLoggedIn = false
-const organisationIsLoggedIn = true
-const section2Container = document.querySelector(".section2")
+const studentIsLoggedIn = false;
+const organisationIsLoggedIn = true;
+const section2Container = document.querySelector('.section2');
 
 /**
  * @constant
@@ -151,7 +141,7 @@ https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png
 </div>
 </div>
 </div>
-`
+`;
 
 /**
  * @constant
@@ -176,7 +166,7 @@ const organisationView = `
   </div>
 </div>
 </div>
-`
+`;
 
 /**
  * @function
@@ -184,9 +174,9 @@ const organisationView = `
  */
 function createOrginisationViewHtml() {
   if (organisationIsLoggedIn) {
-    let html = ""
+    let html = '';
     for (let i = 0; i < 4; i++) {
-      html += organisationView
+      html += organisationView;
     }
     section2Container.innerHTML = `
     <div class="bg-theme-light p-lg-5 container-lg seaction2Company">
@@ -195,7 +185,7 @@ function createOrginisationViewHtml() {
     ${html}
     </div>
   </div>
-    `
+    `;
   }
 }
 
@@ -205,7 +195,7 @@ function createOrginisationViewHtml() {
  */
 function createStudentViewHtml() {
   if (studentIsLoggedIn) {
-    section2Container.innerHTML = studentView
+    section2Container.innerHTML = studentView;
   }
 }
 
