@@ -33,7 +33,7 @@
       <!-- Header -->
     </header>
     <main class="container-sm my-5">
-      <div class="bg-theme-light shadow p-5 maxWidthLayout">
+      <div class="bg-theme-light shadow p-md-5 p-3 maxWidthLayout">
         <div class="container-sm" id="profileContainer">
           <!-- Profile details goes here -->
           <div>
@@ -62,53 +62,93 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form disabled id="editStudentForm" class="px-md-5 p-2 container-sm">
-                  <div class="mb-4">
-                    <img class="w-25 h-25 img-fluid d-block mx-auto rounded-circle" for="studentAvatar" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
+                <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
+                  <div class="mb-4 position-relative">
+                    <img type="button" id="avatarButton" class="imgSize img-fluid d-block mx-auto rounded-circle" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
+                    <div class="position-absolute top-50 start-50 translate-middle d-block">
+                      <label type="button" id="avatarLabel" for="avatarInput" class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Avatar</label>
+                      <input class="form-control text-center d-none" type="url" name="avatar" id="avatarInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
+                    </div>
                   </div>
                   <div class="row">
-                    <div class="mb-2 col">
-                      <label for="nameStudent" class="form-label">Full Name</label>
+                    <div class="mb-2 col-md">
+                      <label for="nameStudent" class="form-label mb-0">Full Name</label>
                       <input type="text" name="fullName" id="nameStudent" class="form-control" />
                     </div>
-                    <div class="mb-2 col">
-                      <label for="emailStudent" class="form-label">E-mail</label>
+                    <div class="mb-2 col-md">
+                      <label for="emailStudent" class="form-label mb-0">E-mail</label>
                       <input type="email" name="email" id="emailStudent" class="form-control" />
                     </div>
                   </div>
                   <div class="row">
-                    <div class="mb-2 col">
-                      <label for="titleStudent" class="form-label">Title</label>
+                    <div class="mb-2 col-md">
+                      <label for="titleStudent" class="form-label mb-0">Title</label>
                       <input type="text" name="title" id="titleStudent" class="form-control" />
                     </div>
-                    <div class="mb-2 col">
-                      <label for="degreeStudent" class="form-label">Degree(s)</label>
+                    <div class="mb-2 col-md">
+                      <label for="degreeStudent" class="form-label mb-0">Degree(s)</label>
                       <input type="text" name="degree" id="degreeStudent" class="form-control" />
                     </div>
                   </div>
-                  <button class="btn btn-dark">Add degree</button>
+                  <button type="button" id="degreesButton" class="btn btn-dark d-block mx-auto mt-2">Add degree</button>
+                  <div class="mt-2" id="degreesContainer"></div>
                   <div class="mb-2">
-                    <label for="studentSkills">Skills</label>
-                    <textarea class="form-control" rows="5" name="skills" id="studentSkills"> </textarea>
+                    <label for="studentSkills" class="form-label mb-0 fw-bold fs-4">Skills</label> <span class="fw-lighter fs-6">(Comma Separated)</span>
+                    <textarea class="form-control bg-grey" rows="5" name="skills" id="studentSkills"> </textarea>
                   </div>
                   <div class="mb-2">
-                    <label for="studentDescription">Description</label>
+                    <label for="studentDescription" class="form-label mb-0 fw-bold fs-4">About Me</label> <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
                     <textarea class="form-control" rows="5" name="description" id="studentDescription"> </textarea>
                   </div>
                   <div class="d-grid">
-                    <button type="button" class="btn btn-dark">Save changes</button>
+                    <button type="submit" class="btn btn-dark mt-2">Save changes</button>
                   </div>
                 </form>
-                <form id="editCompanyForm"></form>
+                <form id="editCompanyProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
+                  <div class="mb-4 position-relative">
+                    <img type="button" class="imgSize img-fluid d-block mx-auto rounded-circle" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
+                    <div class="position-absolute top-50 start-50 translate-middle d-block">
+                      <label type="button" id="logoLabel" for="logoInput" class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Logo</label>
+                      <input class="form-control text-center d-none" type="url" name="logo" id="logoInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mb-2 col-md">
+                      <label for="nameCompany" class="form-label mb-0">Company Name</label>
+                      <input type="text" name="companyName" id="nameCompany" class="form-control" />
+                    </div>
+                    <div class="mb-2 col-md">
+                      <label for="emailCompany" class="form-label mb-0">E-mail</label>
+                      <input type="email" name="email" id="emailCompany" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="mb-2 col-md">
+                      <label for="contactPerson" class="form-label mb-0">Contact Person</label>
+                      <input type="text" name="contact" id="contactPerson" class="form-control" />
+                    </div>
+                    <div class="mb-2 col-md">
+                      <label for="degreeStudent" class="form-label mb-0">Contact Number</label>
+                      <input type="number" name="number" id="degreeStudent" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <label for="companyDescription" class="form-label mb-0 fw-bold fs-4">About Us</label> <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
+                    <textarea class="form-control" rows="5" name="description" id="companyDescription"> </textarea>
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-dark mt-2">Save changes</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="companyView">
+        <div class="d-none" id="companyView">
           <!-- Displayed if company is logged in -->
           <div>
-            <button class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
+            <button id="companyModalButton" class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
             <!-- Modal could live here -->
           </div>
 
@@ -137,9 +177,9 @@
           </div>
         </div>
 
-        <div id="studentView">
+        <div class="d-none" id="studentView">
           <div>
-            <button class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
+            <button id="studentModalButton" class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
             <!-- Modal could live here -->
           </div>
           <!-- Displayed if student is logged in -->
