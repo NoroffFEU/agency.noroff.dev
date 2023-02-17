@@ -6,7 +6,7 @@ import { liveSearch } from '/src/js/ui/search/users/searchUsers.js';
 
 // This dummy is being used until API documentation is made available
 
-const userArray_DUMMY = [
+export const userArray_DUMMY = [
   {
     id: 1001,
     fullName: 'Test Testingson',

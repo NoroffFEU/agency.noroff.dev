@@ -5,6 +5,7 @@ import { setLoginFormListener } from './src/js/listeners/auth/index.js';
 import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js';
 import { renderListings } from './src/js/templates/listings/renderListings.js';
 import { profileRouter } from './src/js/listeners/profile/index.js';
+import { adminRouter } from './src/js/views/admin/adminRouter.js';
 
 displayBaseLayout();
 
@@ -31,6 +32,10 @@ const routerSwitch = () => {
     case 'homePage':
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
       break;
+
+    case 'adminPage':
+      document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
+      adminRouter();
 
     // Single listing page UI
     case 'singleListing':
