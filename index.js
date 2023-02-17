@@ -36,6 +36,7 @@ const routerSwitch = () => {
     case 'adminPage':
       document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
       adminRouter();
+      break;
 
     // Single listing page UI
     case 'singleListing':
