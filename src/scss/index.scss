@@ -13,11 +13,11 @@
 
 @import './custom/admin';
 
+// Bootstrap from module
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
 body {
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
-
-// Bootstrap from module
-@import '../../node_modules/bootstrap/scss/bootstrap';
