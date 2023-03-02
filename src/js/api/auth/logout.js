@@ -11,6 +11,7 @@ import { Store } from '../../storage/storage.js';
 export const logout = function () {
   new Store('token').clear();
   new Store('profile').clear();
+  new Store('role').clear();
 
-  window.location.replace("/");
+  window.location.replace('/');
 };

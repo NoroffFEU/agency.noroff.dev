@@ -16,3 +16,8 @@ Version: 1.0.0
 .tabWidth {
   width: clamp(80px, 25vw, 326px);
 }
+
+.imgSize {
+  max-width: 300px;
+  max-height: 300px;
+}

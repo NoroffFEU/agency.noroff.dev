@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- For future developer
+<!-- For future developer
       User details is handled by userDetailsTemplate.js in /template/
 
       #companyView targets company specific content and is hidden by default.
@@ -16,6 +13,9 @@
 
       Views might have to be altered based on recent design updates.
     -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,14 +26,16 @@
     <link rel="stylesheet" href="/dist/css/custom/profile/index.css" />
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="/index.js" type="module" defer></script>
-    <title>Profile</title>
+    <title>Noroff Jobs</title>
   </head>
-  <body id="profile" class="bg-theme-grey">
-    <header></header>
-    <main class="container-sm my-5 bg-theme-grey">
-      <div class="bg-theme-light shadow p-5 maxWidthLayout">
+  <body id="profilePage" class="bg-theme-grey">
+    <header>
+      <!-- Header -->
+    </header>
+    <main class="container-sm my-5">
+      <div class="bg-theme-light shadow p-md-5 p-3 maxWidthLayout">
+        <!-- // Profile details goes here // -->
         <div class="container-sm" id="profileContainer">
-          <!-- Profile details goes here -->
           <div>
             <img class="rounded-circle d-block mx-auto w-25" id="profileImage" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="" />
             <h1 class="text-center mt-3 fw-bolder" id="profileName">Peter Parker</h1>
@@ -50,12 +52,127 @@
             <p id="descriptionBody">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi rem ullam inventore tenetur delectus animi dolorum sit sequi totam suscipit doloribus nemo fuga, quam vel? Alias, repellendus, at aut inventore, obcaecati ipsa tenetur incidunt illo exercitationem dolor porro odit facilis pariatur. Rerum quam consequuntur consequatur velit molestiae minus reiciendis?</p>
           </div>
         </div>
+        <!-- // Profile Details ends // -->
 
+        <!-- // Edit Profile Modal // -->
+        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModal" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <!-- Modal header -->
+              <div class="modal-header">
+                <div>Edit Profile</div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <!-- Modal content -->
+              <div class="modal-body">
+                <!-- // Student form starts here // -->
+                <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
+                  <!-- avatar input -->
+                  <div class="mb-4 position-relative">
+                    <img type="button" id="avatarButton" class="imgSize img-fluid d-block mx-auto rounded-circle" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
+                    <div class="position-absolute top-50 start-50 translate-middle d-block">
+                      <label type="button" id="avatarLabel" for="avatarInput" class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Avatar</label>
+                      <input class="form-control text-center d-none" type="url" name="avatar" id="avatarInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
+                    </div>
+                  </div>
+                  <!-- // Name and email input group -->
+                  <div class="row">
+                    <div class="mb-2 col-md">
+                      <label for="nameStudent" class="form-label mb-0">Full Name</label>
+                      <input type="text" name="fullName" id="nameStudent" class="form-control" />
+                    </div>
+                    <div class="mb-2 col-md">
+                      <label for="emailStudent" class="form-label mb-0">E-mail</label>
+                      <input type="email" name="email" id="emailStudent" class="form-control" />
+                    </div>
+                  </div>
+                  <!-- // Title and degree input group -->
+                  <div class="row">
+                    <div class="mb-2 col-md">
+                      <label for="titleStudent" class="form-label mb-0">Title</label>
+                      <input type="text" name="title" id="titleStudent" class="form-control" />
+                    </div>
+                    <div class="mb-2 col-md">
+                      <label for="degreeStudent" class="form-label mb-0">Degree(s)</label>
+                      <input type="text" name="degree" id="degreeStudent" class="form-control" />
+                    </div>
+                  </div>
+                  <!-- Add degree button -->
+                  <button type="button" id="degreesButton" class="btn btn-dark d-block mx-auto mt-2">Add degree</button>
+                  <!-- Container for additional degrees -->
+                  <div class="mt-2" id="degreesContainer"></div>
+                  <!-- student skills input -->
+                  <div class="mb-2">
+                    <label for="studentSkills" class="form-label mb-0 fw-bold fs-4">Skills</label> <span class="fw-lighter fs-6">(Comma Separated)</span>
+                    <textarea class="form-control bg-grey" rows="5" name="skills" id="studentSkills"> </textarea>
+                  </div>
+                  <!-- Student description input -->
+                  <div class="mb-2">
+                    <label for="studentDescription" class="form-label mb-0 fw-bold fs-4">About Me</label> <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
+                    <textarea class="form-control" rows="5" name="description" id="studentDescription"> </textarea>
+                  </div>
+                  <!-- Submit button -->
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-dark mt-2">Save changes</button>
+                  </div>
+                </form>
+                <!-- // Student form ends // -->
+
+                <!-- // company form starts -->
+                <form id="editCompanyProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
+                  <!-- Logo input -->
+                  <div class="mb-4 position-relative">
+                    <img type="button" class="imgSize img-fluid d-block mx-auto rounded-circle" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
+                    <div class="position-absolute top-50 start-50 translate-middle d-block">
+                      <label type="button" id="logoLabel" for="logoInput" class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Logo</label>
+                      <input class="form-control text-center d-none" type="url" name="logo" id="logoInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
+                    </div>
+                  </div>
+                  <!-- Company name and email group -->
+                  <div class="row">
+                    <div class="mb-2 col-md">
+                      <label for="nameCompany" class="form-label mb-0">Company Name</label>
+                      <input type="text" name="companyName" id="nameCompany" class="form-control" />
+                    </div>
+                    <div class="mb-2 col-md">
+                      <label for="emailCompany" class="form-label mb-0">E-mail</label>
+                      <input type="email" name="email" id="emailCompany" class="form-control" />
+                    </div>
+                  </div>
+                  <!-- Contact person and contact number -->
+                  <div class="row">
+                    <div class="mb-2 col-md">
+                      <label for="contactPerson" class="form-label mb-0">Contact Person</label>
+                      <input type="text" name="contact" id="contactPerson" class="form-control" />
+                    </div>
+                    <div class="mb-2 col-md">
+                      <label for="contactNumber" class="form-label mb-0">Contact Number</label>
+                      <input type="number" name="contactNumber" id="contactNumber" class="form-control" />
+                    </div>
+                  </div>
+                  <!-- Company description -->
+                  <div class="mb-2">
+                    <label for="companyDescription" class="form-label mb-0 fw-bold fs-4">About Us</label> <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
+                    <textarea class="form-control" rows="5" name="description" id="companyDescription"> </textarea>
+                  </div>
+                  <!-- Submit button -->
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-dark mt-2">Save changes</button>
+                  </div>
+                </form>
+                <!-- // company form ends // -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- // Edit Profile Modal Ends // -->
+
+        <!-- // Company view section goes here // -->
         <div class="d-none" id="companyView">
           <!-- Displayed if company is logged in -->
           <div>
-            <button class="btn btn-dark d-block mx-auto">Edit Profile</button>
-            <!-- Modal could live here -->
+            <!-- // Button for modal goes here // -->
+            <button id="companyModalButton" class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
           </div>
 
           <div class="mt-5">
@@ -83,9 +200,10 @@
           </div>
         </div>
 
+        <!-- // Student view section goes here // -->
         <div class="d-none" id="studentView">
           <div>
-            <button class="btn btn-dark d-block mx-auto">Edit Profile</button>
+            <button id="studentModalButton" class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
             <!-- Modal could live here -->
           </div>
           <!-- Displayed if student is logged in -->
@@ -110,12 +228,14 @@
           <div class="mt-5">
             <h2 class="fw-bold">Saved Listings</h2>
             <div class="mt-3 p-5" id="studentFavoriteListings">
-              <!-- Student favorite listings goes here -->
+              <!-- Student favourite listings goes here -->
             </div>
           </div>
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <!-- Footer -->
+    </footer>
   </body>
 </html>

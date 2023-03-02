@@ -1,0 +1,13 @@
+@import '../themeColorVariables';
+
+//Active State
+$nav-tabs-link-active-color: $theme-Dark;
+$nav-tabs-link-active-bg: $theme-Light;
+
+// Idle State
+$nav-link-color: $theme-Dark;
+$nav-tabs-border-width: 0;
+
+// Hover State
+$nav-link-hover-color: $theme-Dark;
+$nav-tabs-link-hover-border-color: $theme-Dark;
