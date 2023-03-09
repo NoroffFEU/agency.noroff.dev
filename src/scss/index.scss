@@ -1,6 +1,5 @@
-// Colors and fonts
 @import './custom/themeColorVariables';
-@import './custom/_clientApplication.scss';
+@import './custom/clientApplication';
 @import './custom/typography';
 
 // Header and footer
@@ -8,7 +7,17 @@
 @import './custom/footer';
 
 // Pages
-//@import './custom/index';
+@import './custom/customFile';
+@import './custom/createOffer';
+@import './custom/allListingPage';
+
+@import './custom/admin';
 
 // Bootstrap from module
 @import '../../node_modules/bootstrap/scss/bootstrap';
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}

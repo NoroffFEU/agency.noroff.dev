@@ -1,14 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAge title</title>
-</head>
-<body id="homePage">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../dist/css/index.css" rel="stylesheet" />
+    <script src="../../index.js" type="module" defer></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Noroff Jobs</title>
+  </head>
+  <body id="homePage">
+    <!--Header is created trough JS script-->
     <header></header>
-    <main></main>
+    <!--Main content on page-->
+    <main class="bg-theme-grey">
+      <div class="container border border-black shadow mt-4">
+        <div class="container w-75 flex">
+          <!--Top of listings container-->
+          <section class="d-flex justify-content-center">
+            <div class="mt-5">
+              <h1 class="mt-2 py-1">Job Listings</h1>
+              <div class="container d-flex justify-content-center mt-3">
+                <div class="col-md-5 w-100">
+                  <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search Listings..." id="searchListing" data-search-listings />
+                    <span class="input-group-append">
+                      <button class="btn ms-n5" type="button">
+                        <img src="/src/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
+                      </button>
+                    </span>
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="/src/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">All</a></li>
+                    <li><a class="dropdown-item" href="#">Latest</a></li>
+                    <li><a class="dropdown-item" href="#">Last 14 days</a></li>
+                    <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--Bootstrap grid cards-->
+          <div class="row mb-4 listingContainer">
+            <div class="col-sm-6">
+              <div class="card my-3 px-3 bg-theme-light shadow">
+                <div class="col-md-4 mt-5 px-2">
+                  <img src="../../images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque tempore harum, fugiat laudantium optio eveniet quae deleniti iste.</p>
+                  </div>
+                  <div class="position-absolute bottom-0 end-0 mx-3 my-3">
+                    <div>
+                      <a href="#" class="btn bg-theme-primary">View More</a>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-sm-6">
+              <div class="card my-3 px-3 bg-theme-light shadow">
+                <div class="col-md-4 mt-5 px-2">
+                  <img src="../../images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque tempore harum, fugiat laudantium optio eveniet quae deleniti iste.</p>
+                  </div>
+                  <div class="position-absolute bottom-0 end-0 mx-3 my-3">
+                    <div>
+                      <a href="#" class="btn bg-theme-primary">View More</a>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card my-3 px-3 bg-theme-light shadow">
+                <div class="col-md-4 mt-5 px-2">
+                  <img src="../../images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque tempore harum, fugiat laudantium optio eveniet quae deleniti iste.</p>
+                </div>
+                <div class="position-absolute bottom-0 end-0 mx-3 my-3">
+                  <div>
+                    <a href="#" class="btn bg-theme-primary">View More</a>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </main>
+    <!--Footer is created trough JS script-->
     <footer></footer>
-</body>
+  </body>
 </html>

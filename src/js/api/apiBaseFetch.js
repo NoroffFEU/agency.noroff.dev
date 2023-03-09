@@ -36,7 +36,9 @@ export async function apiBaseFetch(url, headers = null, offset = 0, limit = 100)
   }
 }
 
+// HOW TO USE THIS FUNCTION
 
+// You can use the function by providing the url of the API endpoint, custom headers in a dictionary form and offset and limit as integers for pagination.
 
 // authBaseFetch for optional method
 
@@ -48,6 +50,7 @@ export async function apiBaseFetch(url, headers = null, offset = 0, limit = 100)
  * @example
  * Ex of use:
  * export async function create(listData) {
+
  *   const createListingUrl = dummyApiUrl + dummyApiCreatePost;
  *   console.log(createListingUrl)
  *   const data = await authBaseFetchOpen(createListingUrl, {
@@ -65,3 +68,4 @@ export async function authBaseFetchOpen(url, options = {}) {
     ...options,
   })
 }
+

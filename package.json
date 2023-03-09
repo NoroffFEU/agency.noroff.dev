@@ -12,6 +12,7 @@
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --cache --fix",
     "build": "sass src/scss:dist/css",
+    "watch": "sass --watch src/scss:dist/css & live-server",
     "start": "sass --watch src/scss:dist/css & vite",
     "prepare": "husky install",
     "dev": "vite",

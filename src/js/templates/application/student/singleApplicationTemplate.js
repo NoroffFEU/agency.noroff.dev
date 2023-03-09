@@ -1,6 +1,6 @@
 import {
   authBaseFetchOpen
-} from "/src/js/api/apiBaseFetch.js";
+} from "../../../api/apiBaseFetch.js";
 import {
   dummyApiUrl,
   dummyApiGetSingel
