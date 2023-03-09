@@ -1,5 +1,5 @@
-import { editCompany } from '../../api/users/editCompany';
-import { editStudent } from '../../api/users/editStudent';
+import { editCompany } from '../../api/users/editCompany.js';
+import { editStudent } from '../../api/users/editStudent.js';
 
 export function handleEditForms() {
   const studentForm = document.getElementById('editStudentProfile');

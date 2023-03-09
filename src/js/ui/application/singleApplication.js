@@ -1,4 +1,4 @@
-import { singleApplicationTemplate } from '../../templates/application/student/singleApplicationTemplate';
+import { singleApplicationTemplate } from '../../templates/application/student/singleApplicationTemplate.js';
 
 /**
  * Displays single application

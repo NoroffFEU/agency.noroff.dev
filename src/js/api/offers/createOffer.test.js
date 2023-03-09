@@ -1,4 +1,4 @@
-import { createOffer } from './createOffer';
+import { createOffer } from './createOffer.js';
 
 const OFFER_DATA = 'Input information';
 

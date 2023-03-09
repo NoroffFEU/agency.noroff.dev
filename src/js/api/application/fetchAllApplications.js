@@ -1,4 +1,4 @@
-import { displayAllApplications } from '../../ui/application/allApplications';
+import { displayAllApplications } from '../../ui/application/allApplications.js';
 
 /**
  * Gets all applications sent by student

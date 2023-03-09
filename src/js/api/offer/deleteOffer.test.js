@@ -1,4 +1,4 @@
-import { deleteOffer } from "./deleteOffer";
+import { deleteOffer } from "./deleteOffer.js";
 
 const ID = "2";
 const INVALID_ID = "";

@@ -1,4 +1,4 @@
-import { showRegForm } from "../../ui/user/register/registerUserUi";
+import { showRegForm } from "../../ui/user/register/registerUserUi.js";
 
 export const showRegFormListener = () => {
     const companyReg = document.getElementById("companyReg")
