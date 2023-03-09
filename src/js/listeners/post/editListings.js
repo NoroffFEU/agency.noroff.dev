@@ -1,6 +1,6 @@
 // Author: Gonzalo Longe
 
-import { editSingleListing } from '../../api/posts/editSingleListing';
+import { editSingleListing } from '../../api/posts/editSingleListing.js';
 
 export async function editListingListener() {
   const form = document.querySelector('#editListings');

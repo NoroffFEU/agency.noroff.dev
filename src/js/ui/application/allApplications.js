@@ -1,4 +1,4 @@
-import { allApplicationsTemplate } from '../../templates/application/student/allApplicationsTemplate';
+import { allApplicationsTemplate } from '../../templates/application/student/allApplicationsTemplate.js';
 
 /**
  * Displays applications
