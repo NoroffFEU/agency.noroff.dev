@@ -47,7 +47,7 @@ Probably the closest code to the finished `product`. There are however some issu
 - Functionality for remembering `login` information is not in place, partly due to it being viewed as secondary to primary function, but also because I'm unsure about how to handle this data securely.
 - The `remember` me checkmark is part of the `login form`, but is not omitted from the listener. This is probably something that needs to be handled.
 - As of now the custom styling have been isolated to a local environment, and should probably instead be handled by agreed upon global custom class(es) instead.
-- If there's only `login-form` there needs to be somethinkg part of the server response that indicates the status of `admin` to redirect to the admin section of the app.
+- If there's only `login-form` there needs to be something part of the server response that indicates the status of `admin` to redirect to the admin section of the app.
 
 #### Profile
 
