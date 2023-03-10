@@ -4,7 +4,7 @@ Each team has their own main working branch `FE-Offers` `FE-Listing` etc.
 From this main working branch each dev will make the branch for the task their working on. 
 
 ex: 
-Ola nordman is working on creating listener for createOffer. Ola will then create a branch from `FE-Offers` that is named 
+Ola Nordmann is working on creating a listener for createOffer. Ola will then create a branch from `FE-Offers` that is named 
 ```
 FE-Offers-createOfferListener
 ```
@@ -16,11 +16,11 @@ rather then spending time figure out who has worked on what files.
 
 
 ## Commits
-It's important that you commit your work regularly, and you are to use descriptive commit messages. Not like : Added something, fixed a thing. 
-Use messages like : Created function "name your function" this is for "name what it's for", (if it's working state it in the text, if it's not working state it)
+It's important that you commit your work regularly, and you are to use descriptive commit messages. Not like: Added something, fixed a thing. 
+Use messages like: Created function "name your function" this is for "name what it's for", (if it's working state it in the text, if it's not working state it)
 We do love descriptive commit texts. 
 
-When commiting trough the code editor terminal, you can write a longer text for message then you can in gitHub desktop. Use this as an advantage for your self. 
+When committing trough the code editor terminal, you can write a longer text for message than you can in gitHub desktop. Use this as an advantage for your self. 
 
 ---
 
@@ -44,7 +44,7 @@ git commit -m "your descriptive commit text goes here"
 
 ---
 
-### View all branches in terminal : 
+### View all branches in terminal: 
 
 ```
 git branch --all
@@ -67,7 +67,7 @@ To be sure you are in the right branch you can use
 ```
 git checkout nameOfBranch
 ``` 
-this will put you in the correct branch befor you make a new branch for your task. 
+this will put you in the correct branch before you make a new branch for your task. 
 
 This can also be done in one line by use of one command. 
 ```
@@ -87,7 +87,7 @@ If the branch contains changes that have not yet been merged into the default br
 
 ## Merge
 
-When your work is ready for testing, QA engineers will make PR's and run tests, if approved the QA engineer will merge the branch into teams main working branch.
+When your work is ready for testing, QA engineers will go through PR's and run tests. If approved, the QA engineer will merge the branch into your teams' main working branch.
 
 All merges into main/master should be approved by a reviewer, if all is approved then the code goes into main/master for production. It is beneficial if QA engineers from other teams inspect this PR, as the team QA already have approved for these changes.
 
