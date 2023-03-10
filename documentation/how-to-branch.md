@@ -12,6 +12,8 @@ and then add the file for the listener in that branch.
 This will give a more sense of ownership, easier for the general overview when you know who has been working on something,
 rather then spending time figure out who has worked on what files. 
 
+![A graphic displaying the branching format](https://i.imgur.com/vdOzdpk.png)
+
 
 ## Commits
 It's important that you commit your work regularly, and you are to use descriptive commit messages. Not like : Added something, fixed a thing. 
@@ -86,7 +88,8 @@ If the branch contains changes that have not yet been merged into the default br
 ## Merge
 
 When your work is ready for testing, QA engineers will make PR's and run tests, if approved the QA engineer will merge the branch into teams main working branch.
-All merges into main/master should be approved by a reviewer, if all is approved then the code goes into main/master for production. This is also something QA does.
+
+All merges into main/master should be approved by a reviewer, if all is approved then the code goes into main/master for production. It is beneficial if QA engineers from other teams inspect this PR, as the team QA already have approved for these changes.
 
 Merging is not a thing the devs will do unless asked to or told to do it. 
 
