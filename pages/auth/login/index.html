@@ -34,13 +34,19 @@
         <form data-auth="login" id="loginForm" class="container-sm">
           <h1>Sign in</h1>
           <!-- Email input -->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="email" class="form-label mb-0">E-mail</label>
-            <input data-auth="login" type="text" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="email" name="email" required title="Must be a valid email" />
+            <input data-auth="login" type="email" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="email" name="email" required title="Must be a valid email" />
+          </div> -->
+
+          <!-- this field is for dummyJSON which takes username instead of email -->
+          <div class="mb-3">
+            <label for="username" class="form-label mb-0">Username</label>
+            <input data-auth="login" type="text" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="username" name="username" required title="Must be a valid username" />
           </div>
           <!-- Password input -->
           <div class="mb-3">
-            <label for="email" class="form-label mb-0">Password</label>
+            <label for="password" class="form-label mb-0">Password</label>
             <input data-auth="login" type="password" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="password" name="password" required minlength="5" maxlength="20" title="Password must be minimum 5 characters long" />
           </div>
           <!-- Error Container for UX -->
