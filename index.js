@@ -2,14 +2,14 @@ import { viewSingleListing } from './src/js/views/listings/index.js';
 import { displayBaseLayout } from './src/js/ui/index.js';
 import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
 import { setLoginFormListener } from './src/js/listeners/auth/index.js';
-import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js'; // don´t need this
+import { searchListings } from './src/js/listeners/post/searchListing.js';
+import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js';
 import { renderListings } from './src/js/templates/listings/renderListings.js';
 import { profileRouter } from './src/js/listeners/profile/index.js';
 import { adminRouter } from './src/js/views/admin/adminRouter.js';
 
-
-import{setRegisterFormListenerApplicant} from './src/js/listeners/auth/index.js'; // for applicant
-import{setRegisterFormListenerCompany} from './src/js/listeners/auth/index.js'; // for company
+import { setRegisterFormListenerApplicant } from './src/js/listeners/auth/index.js'; // for applicant
+import { setRegisterFormListenerCompany } from './src/js/listeners/auth/index.js'; // for company
 
 displayBaseLayout();
 
@@ -48,6 +48,12 @@ const routerSwitch = () => {
       viewSingleListing();
       break;
 
+    case 'listings':
+      document.querySelector('title').innerText = defaultTitle + ` || Listings`;
+      renderListings();
+      searchListings();
+      break;
+
     // Listing UI settings
     case 'listing':
       document.querySelector('title').innerText = defaultTitle;
@@ -63,22 +69,20 @@ const routerSwitch = () => {
     // Register user UI settings
     case 'registerUser':
       document.querySelector('title').innerText = defaultTitle;
-      showRegFormListener();
+      // showRegFormListener();
       break;
 
+    // Register applicant UI settings
 
-      // Register applicant UI settings
+    case 'registerPageApplicant':
+      document.querySelector('title').innerText = defaultTitle;
+      setRegisterFormListenerApplicant();
+      break;
 
-      case 'registerPageApplicant':
-        document.querySelector('title').innerText = defaultTitle;
-        setRegisterFormListenerApplicant()
-        break;
-
-      case 'registerPageCompany':
-          document.querySelector('title').innerText = defaultTitle;
-          setRegisterFormListenerCompany()
-          break;  
-
+    case 'registerPageCompany':
+      document.querySelector('title').innerText = defaultTitle;
+      setRegisterFormListenerCompany();
+      break;
 
     // Profile UI settings
     case 'profilePage':
@@ -107,11 +111,5 @@ const routerSwitch = () => {
       break;
     default:
   }
-  
-
-
-   
-
-
 };
 routerSwitch();
