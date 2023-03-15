@@ -9,7 +9,7 @@
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <title>Noroff Jobs</title>
   </head>
-  <body id="homePage">
+  <body id="listings">
     <!--Header is created trough JS script-->
     <header></header>
     <!--Main content on page-->
@@ -22,14 +22,16 @@
               <h1 class="mt-2 py-1">Job Listings</h1>
               <div class="container d-flex justify-content-center mt-3">
                 <div class="col-md-5 w-100">
-                  <div class="input-group">
-                    <input class="form-control" type="search" placeholder="Search Listings..." id="searchListing" data-search-listings />
-                    <span class="input-group-append">
-                      <button class="btn ms-n5" type="button">
-                        <img src="/src/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
-                      </button>
-                    </span>
-                  </div>
+                  <form>
+                      <div class="input-group">
+                          <input class="form-control" type="search" placeholder="Search Listings..." id="searchListing" data-search-listings />
+                          <span class="input-group-append">
+                              <button class="btn ms-n5" type="button">
+                                  <img src="/src/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
+                                </button>
+                            </span>
+                        </div>
+                    </form>
                 </div>
                 <div class="dropdown">
                   <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
