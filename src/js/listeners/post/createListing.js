@@ -11,8 +11,8 @@ export async function createListing() {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-    const form = event.target;
-    const formData = new FormData(form);
+    const data = event.target;
+    const formData = new FormData(data);
     const listing = Object.fromEntries(formData.entries());
     listing.userId = 5; // Example id required for the dummy API
 

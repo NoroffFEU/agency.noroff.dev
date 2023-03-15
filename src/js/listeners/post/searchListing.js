@@ -14,11 +14,7 @@ export async function searchListings(arrayOfListings) {
 
         //Filters the listings based on searchvalue
         const listingsFiltered = listings.products.filter((listing) => {
-            if(listing.title.toLowerCase().match(searchValue)){
-                return true; 
-            } else {
-                return false;
-            }
+          return listing.title.toLowerCase().match(searchValue)
         });
 
         // Empties the listings container and adds the listings matching the searchvalue
