@@ -25,7 +25,7 @@ describe('deleteApplication', () => {
   it('Delete an application from the API', async () => {
     global.fetch = jest.fn(() => mockDeleteApplication());
     const deletedApplication = await deleteApplication(ID);
-    expect(deletedApplication).toEqual(TEST_APPLICATION);
+    expect(deletedApplication).toEqual('Deleted!');
   });
 
   it('Fails to delete application from API', async () => {

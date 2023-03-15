@@ -14,7 +14,7 @@ const dummyApiDeletePost = 'posts/';
  */
 export async function deleteApplication(id) {
   if (!id) {
-    throw new Error('Missing ID');
+    throw new Error('Missing application ID');
   }
 
   const deleteApplicationURL = dummyApiUrl + dummyApiDeletePost + id;
@@ -24,7 +24,10 @@ export async function deleteApplication(id) {
     headers: headers(),
   });
 
-  return await response.json();
+  if (!response.ok) {
+    throw new Error(response);
+  }
+  return 'Deleted!';
 }
 
 /**
