@@ -38,19 +38,23 @@
           <!-- Users -->
           <div tabindex="0" class="tab-pane active container-sm p-2" id="adminUsers" role="tabpanel">
             <!-- Users search -->
-            <div class="row container-sm">
+            <div class="row container-sm pb-5">
               <div class="col d-flex justify-content-end">
-                <form id="usersSearchForm" class="d-flex" role="search" placeholder="search" aria-label="search" data-auth="search">
-                  <input type="search" minlength="3" name="term" class="adminSearchField form-control my-2 border-0 rounded-5 text-bg-light" />
-                  <img src="/src/assets/icons/search.svg" class="searchIcon ps-1" />
+                <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
+                  <div class="form-floating">
+                    <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField form-control border-0 rounded-5 ps-5 text-bg-light" />
+                    <label class="form-label"><img src="/src/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                  </div>
                 </form>
               </div>
             </div>
-            <div class="row container-sm">
-              <div class="col-5 col-lg-5">Name</div>
-              <div class="col-5 col-lg-5">Email</div>
-              <div class="col-1 d-none d-lg-block text-center">Active</div>
-              <div class="col-2 col-lg-1 text-center">Delete</div>
+            <div class="container-sm mb-2">
+              <div class="d-flex">
+                <div class="col-5 ms-1">Name</div>
+                <div class="col-5">Email</div>
+                <div class="mx-auto d-none d-lg-block text-center">Active</div>
+                <div class="mx-auto text-center">Delete</div>
+              </div>
             </div>
 
             <!-- Users goes here -->

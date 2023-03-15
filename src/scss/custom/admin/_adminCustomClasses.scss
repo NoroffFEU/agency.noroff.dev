@@ -1,1 +1,30 @@
+@import '../themeColorVariables';
 
+// Stripes on listings
+.stripes:nth-child(odd) {
+  background-color: $theme-Light;
+  border: 1px solid white;
+}
+
+.stripes:nth-child(even) {
+  background-color: $theme-Grey;
+  border: 1px solid white;
+}
+
+.listing-border {
+  border: 4px solid white;
+}
+
+// Active
+.active {
+  font-weight: 600 !important;
+}
+
+// Hover State on tabs
+.nav-link:hover {
+  background-color: $theme-Light !important;
+}
+
+.active:hover {
+  background-color: white !important;
+}
