@@ -6,6 +6,7 @@ import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener
 import { renderListings } from './src/js/templates/listings/renderListings.js';
 import { profileRouter } from './src/js/listeners/profile/index.js';
 import { adminRouter } from './src/js/views/admin/adminRouter.js';
+import { setDeleteApplicationListener } from './src/js/api/application/deleteApplication.js';
 
 displayBaseLayout();
 
@@ -88,6 +89,11 @@ const routerSwitch = () => {
       document.querySelector('title').innerText = defaultTitle + ` || ` + '404';
       break;
     default:
+
+    // Template HTML for testing
+    case 'applicationTEMP':
+      setDeleteApplicationListener();
+      break;
   }
 };
 routerSwitch();
