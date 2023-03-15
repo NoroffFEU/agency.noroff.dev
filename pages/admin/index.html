@@ -11,25 +11,25 @@
     <script src="/index.js" type="module"></script>
     <title>Noroff Jobs</title>
   </head>
-  <body id="adminPage">
+  <body id="adminPage" class="bg-theme-new-grey">
     <header></header>
-    <h1 class="text-center py-5 m-0 bg-theme-grey">Admin</h1>
-    <main class="bg-theme-grey">
+    <h1 class="text-center py-5 m-0 fw-bold">Admin</h1>
+    <main>
       <!-- Main view -->
       <div class="m-md-5 m-2">
         <nav>
-          <ul class="nav nav-tabs nav-fill">
+          <ul class="nav nav-tabs nav-fill rounded-top bg-theme-new-light">
             <li class="nav-item">
-              <a class="nav-link active w-100" aria-current="page" data-bs-target="#adminUsers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminUsers">Users</a>
+              <a id="tabsUser" class="nav-link border-end active" aria-current="page" data-bs-target="#adminUsers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminUsers">Users</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-target="#adminListings" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminListings">Listing</a>
+              <a id="tabsListing" class="nav-link border-end" data-bs-target="#adminListings" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminListings">Listing</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-target="#adminOffers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminOffers">Offers</a>
+              <a id="tabsOffers" class="nav-link border-end" data-bs-target="#adminOffers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminOffers">Offers</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-target="#adminApplications" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminApplications">Application</a>
+              <a id="tabsApplication" class="nav-link border-0" data-bs-target="#adminApplications" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminApplications">Application</a>
             </li>
           </ul>
         </nav>
@@ -50,10 +50,10 @@
             </div>
             <div class="container-sm mb-2">
               <div class="d-flex">
-                <div class="col-5 ms-1">Name</div>
-                <div class="col-5">Email</div>
-                <div class="mx-auto d-none d-lg-block text-center">Active</div>
-                <div class="mx-auto text-center">Delete</div>
+                <div class="col-5 ms-1 fw-light">Name</div>
+                <div class="col-5 fw-light">Email</div>
+                <div class="mx-auto d-none d-lg-block text-center fw-light">Active</div>
+                <div class="mx-auto text-center fw-light">Delete</div>
               </div>
             </div>
 
