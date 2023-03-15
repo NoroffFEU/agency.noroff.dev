@@ -10,7 +10,7 @@ const dummyApiDeletePost = 'posts/';
 /**
  * A function that deletes an application as long as you're authorized to do it
  * @param {*} id
- * @returns that the application with the ID was deleted, if an id is provided.
+ * @returns String "Deleted!" when success, else throws an error.
  */
 export async function deleteApplication(id) {
   if (!id) {
