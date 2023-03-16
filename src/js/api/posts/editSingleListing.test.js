@@ -19,7 +19,7 @@ function mockUpdateListing() {
 function mockFailUpdateListing() {
     return Promise.resolve({
         ok: false,
-        statusText: "Get requires a listingID",
+        statusText: "Update requires a listingID",
     });
 }
 
@@ -32,6 +32,6 @@ describe("updateListing", () => {
 
     it("Fails to update listing to the API", async () => {
         global.fetch = jest.fn(() => mockFailUpdateListing());
-        await expect(editSingleListing(INVALID_ID)).rejects.toThrow("Get requires a listingID");
+        await expect(editSingleListing(INVALID_ID)).rejects.toThrow("Update requires a listingID");
     });
 });
