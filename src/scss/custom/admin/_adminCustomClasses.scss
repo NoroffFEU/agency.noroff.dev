@@ -9,6 +9,11 @@
   background-color: white;
 }
 
+// Active
+.active {
+  font-weight: 600 !important;
+}
+
 // Hover State on tabs
 .nav-link:hover {
   background-color: $theme-Light !important;
@@ -16,4 +21,10 @@
 
 .active:hover {
   background-color: white !important;
+}
+
+// Search
+
+.adminSearchField {
+  height: 38px !important;
 }
