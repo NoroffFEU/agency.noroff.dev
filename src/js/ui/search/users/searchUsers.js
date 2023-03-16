@@ -1,13 +1,16 @@
 // Author: Stian Kornbakk
 // Team: FE-User
 
+//-------- Commented out for now, as there was 2 different views made. ----------//
+
+/*
 import { renderSearchMessage } from './renderSearchMessage.js';
 import { renderUsersTemplate } from '/src/js/ui/search/users/renderUsers.js';
 
 /*
     Filtering search results based on users live input 
 */
-
+/*
 const debounce = (callback, wait) => {
   let timeoutId = null;
   return (...args) => {
@@ -48,3 +51,4 @@ export function liveSearch(users, usersContainer) {
 
   usersSearchForm.addEventListener('input', debounce(onSearch, 250));
 }
+*/

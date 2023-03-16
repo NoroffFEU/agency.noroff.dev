@@ -1,10 +1,12 @@
 // Author: Jonas Hope
 // Team: Warrior Gallop
 
+//-------- Commented out for now, as there was 2 different views made. ----------//
+
 /**
  * Function for adding/removing borders on tabs.
  */
-
+/*
 const tabsUser = document.querySelector('#tabsUser');
 const tabsListing = document.querySelector('#tabsListing');
 const tabsOffers = document.querySelector('#tabsOffers');
@@ -49,3 +51,4 @@ export function changeTabApperence() {
 }
 
 changeTabApperence();
+*/
