@@ -1,5 +1,5 @@
 export const headers = (contentType) => {
-  const token = localStorage.getItem('Token');
+  const token = localStorage.getItem('token');
   const headers = {};
 
   if (contentType) {
