@@ -2,10 +2,14 @@ import { viewSingleListing } from './src/js/views/listings/index.js';
 import { displayBaseLayout } from './src/js/ui/index.js';
 import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
 import { setLoginFormListener } from './src/js/listeners/auth/index.js';
-import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js';
+import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js'; // don´t need this
 import { renderListings } from './src/js/templates/listings/renderListings.js';
 import { profileRouter } from './src/js/listeners/profile/index.js';
 import { adminRouter } from './src/js/views/admin/adminRouter.js';
+
+
+import{setRegisterFormListenerApplicant} from './src/js/listeners/auth/index'; // for applicant
+import{setRegisterFormListenerCompany} from './src/js/listeners/auth/index'; // for company
 
 displayBaseLayout();
 
@@ -62,6 +66,20 @@ const routerSwitch = () => {
       showRegFormListener();
       break;
 
+
+      // Register applicant UI settings
+
+      case 'registerPageApplicant':
+        document.querySelector('title').innerText = defaultTitle;
+        setRegisterFormListenerApplicant()
+        break;
+
+      case 'registerPageCompany':
+          document.querySelector('title').innerText = defaultTitle;
+          setRegisterFormListenerCompany()
+          break;  
+
+
     // Profile UI settings
     case 'profilePage':
       document.querySelector('title').innerText = defaultTitle;
@@ -89,5 +107,11 @@ const routerSwitch = () => {
       break;
     default:
   }
+  
+
+
+   
+
+
 };
 routerSwitch();
