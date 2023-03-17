@@ -89,7 +89,7 @@ export const checkState = () => {
       <a class="btn btn-outline-light text-white" href="/pages/auth/login/index.html" id="signInUser">Sign in</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-theme-secondary text-black" id="registerUser" href="/pages/auth/register.html">Register</a>
+      <a class="btn btn-theme-secondary text-black" id="registerUser" href="/pages/auth/register/index.html">Register</a>
     </li>
   </ul>`);
   }
