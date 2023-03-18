@@ -1,11 +1,14 @@
 // Author: Stian Kornbakk
 // Team: FE-User
 
+//-------- Commented out for now, as there was 2 different views made. ----------//
+
+/*
 import { renderUsersTemplate } from '../../ui/search/users/renderUsers.js';
 import { liveSearch } from '../../ui/search/users/searchUsers.js';
-
+*/
 // This dummy is being used until API documentation is made available
-
+/*
 export const userArray_DUMMY = [
   {
     id: 1001,
@@ -68,11 +71,11 @@ export const userArray_DUMMY = [
     isActive: true,
   },
 ];
-
+*/
 /*
     Fetching data from API, and rendering data onto page
 */
-
+/*
 const usersContainer = document.querySelector('#usersContainer');
 
 export async function getUsersList() {
@@ -91,3 +94,4 @@ export async function getUsersList() {
 }
 
 getUsersList();
+*/
