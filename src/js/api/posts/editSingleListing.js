@@ -1,9 +1,9 @@
 // Author: Gonzalo Longe
 
-import { authBaseFetchOpen } from "../apiBaseFetch";
+import { authBaseFetchOpen } from '../apiBaseFetch';
 /*import { apiUrl } from '../constants.js';*/
 
-const method = "put";
+const method = 'PUT';
 
 export async function editSingleListing(listingData) {
   if (!listingData.id) {
@@ -12,13 +12,12 @@ export async function editSingleListing(listingData) {
 
   const url = `https://dummyjson.com/products/${listingData.id}`;
 
-
   const response = await authBaseFetchOpen(url, {
     method,
     headers: {
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(listingData)
+    body: JSON.stringify(listingData),
   });
 
   if (response.ok) {
