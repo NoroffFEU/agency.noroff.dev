@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/css/index.css" />
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/src/js/index.js" type="module" defer ></script>
+    <script src="/index.js" type="module" defer></script>
+    <title>Noroff Jobs</title>
+  </head>
+  <body id="registerPageApplicant">
+    <header></header>
+    <main class="bg-theme-grey">
+      <div class="container mb-3 mt-3 shadow bg-white p-3">
+        <h2>Register For Applicant</h2>
+         <!-- Register form -->
+        <form class="row g-3 id ="registerForm-applicant">
+          <div class="mx-auto text-center">
+            <img src="https://via.placeholder.com/150" class="rounded-circle w-25 " alt="placeholder image">
+            <button
+            type="button"
+            class="btn"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            add image
+            </button>
+          </div>
+          <div class="col-md-6">
+            <label for="fullName">Full Name*</label>
+            <input type="text" class="form-control" aria-label="Full name" id="fullName" required>
+            <div class="error"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="emailStudent">Email*</label>
+            <input type="email" class="form-control" aria-label="Email" id="emailStudent" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="The email value must be a valid stud.noroff.no or noroff.no email address." required>
+            <div class="error"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="passwordStudent">Password*</label>
+            <input type="password" class="form-control" aria-label="Password" id="passwordStudent" minlength="8" title="The password value must be at least 8 characters." required>
+            <div class="error"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="repPasswordStud">Repeat password*</label>
+            <input type="password" class="form-control" aria-label="Repeat password" minlength="8" title="The password value must be at least 8 characters." id="repPasswordStud" required>
+            <div class="error"></div>
+          </div>
+          <div class="col-md-6">
+            <label for="degrees">Degree(s)</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected></option>
+              <option value="">Applied Machine Learning</option>
+              <option value="">Front-end Development</option>
+              <option value="">Back-end Development</option>
+              <option value="Full-stack Developer">Full-stack Developer</option>
+              <option value="">Data Analyst</option>
+              <option value="">UX/UI Design</option>
+              <option value="">Graphic Design</option>
+              <option value="">Music production</option>
+              <option value="">Film production</option>
+              <option value="">Digital marketing</option>
+              <option value="">Video marketing in social Media</option>
+              <option value="">3D art and game technology</option>
+              <option value="">Network and IT security</option>
+              <option value="">Network and System administration</option>
+              <option value="">Cyber security</option>
+              <option value="">Applied data science</option>
+              <option value="">Digital Forensics</option>
+              <option value="">Interactive Media - Animation</option>
+              <option value="">Interactive Media - Games</option>
+              <option value="">Modern project management</option>
+              <option value="">Other</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <!-- this field not clear in design -->
+            <!-- <label for=""></label>
+            <input type="text" class="form-control" aria-label="" id=""> -->
+            <div class="error"></div>
+          </div>
+          <div class="d-grid gap-2 col-md-6 mx-auto">
+            <button class="btn btn-theme-primary btn-lg text-light rounded-1" type="submit">Register</button>
+            <a href="/pages/auth/register/company/index.html"class="btn text-black align-self-center" id="companyReg"><p><u>Not an applicant? Register as company instead!</u></p></a>
+          </div>
+        </form>
+        <!-- image modal -->        
+        <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <form class="modal-dialog" id="add-image">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">
+                      Add image
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-floating mb-3">
+                      <input
+                        type="url"
+                        class="form-control"
+                        id="imageUrl"
+                        name="avatar"
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-theme-primary btn-lg text-light rounded-1">Add image</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+        <div id="confirm-message"></div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

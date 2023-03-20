@@ -1,3 +1,5 @@
 export * from './setLoginFormListener.js';
-export * from './registerListener.js';
+export * from './setRegisterFormListenerApplicant.js'; // for applicant
+export * from './setRegisterFormListenerCompany.js'; // for company
 export * from './logoutListener.js';
+
