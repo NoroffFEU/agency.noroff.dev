@@ -8,8 +8,8 @@ import { profileRouter } from './src/js/listeners/profile/index.js';
 import { adminRouter } from './src/js/views/admin/adminRouter.js';
 
 
-import{setRegisterFormListenerApplicant} from './src/js/listeners/auth/index'; // for applicant
-import{setRegisterFormListenerCompany} from './src/js/listeners/auth/index'; // for company
+import{setRegisterFormListenerApplicant} from './src/js/listeners/auth/index.js'; // for applicant
+import{setRegisterFormListenerCompany} from './src/js/listeners/auth/index.js'; // for company
 
 displayBaseLayout();
 
