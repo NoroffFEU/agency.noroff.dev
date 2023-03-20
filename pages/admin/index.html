@@ -11,25 +11,25 @@
     <script src="/index.js" type="module"></script>
     <title>Noroff Jobs</title>
   </head>
-  <body id="adminPage">
+  <body id="adminPage" class="bg-theme-new-grey">
     <header></header>
-    <h1 class="text-center py-5 m-0 bg-theme-grey">Admin</h1>
-    <main class="bg-theme-grey">
+    <h1 class="text-center py-5 m-0 fw-bold">Admin</h1>
+    <main>
       <!-- Main view -->
       <div class="m-md-5 m-2">
         <nav>
-          <ul class="nav nav-tabs nav-fill">
-            <li class="nav-item">
-              <a class="nav-link active w-100" aria-current="page" data-bs-target="#adminUsers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminUsers">Users</a>
+          <ul class="nav nav-tabs nav-fill rounded-top bg-theme-new-light">
+            <li class="nav-item text-start">
+              <a id="tabsUser" class="nav-link border-end active" aria-current="page" data-bs-target="#adminUsers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminUsers">Users</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-target="#adminListings" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminListings">Listing</a>
+            <li class="nav-item text-start">
+              <a id="tabsListing" class="nav-link border-end" data-bs-target="#adminListings" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminListings">Listing</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-target="#adminOffers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminOffers">Offers</a>
+            <li class="nav-item text-start">
+              <a id="tabsOffers" class="nav-link border-end" data-bs-target="#adminOffers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminOffers">Offers</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-target="#adminApplications" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminApplications">Application</a>
+            <li class="nav-item text-start">
+              <a id="tabsApplication" class="nav-link border-0" data-bs-target="#adminApplications" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminApplications">Applications</a>
             </li>
           </ul>
         </nav>
@@ -38,25 +38,21 @@
           <!-- Users -->
           <div tabindex="0" class="tab-pane active container-sm p-2" id="adminUsers" role="tabpanel">
             <!-- Users search -->
-            <div class="row container-sm">
+            <div class="row container-sm pb-5">
               <div class="col d-flex justify-content-end">
-                <form id="usersSearchForm" class="d-flex" role="search" placeholder="search" aria-label="search" data-auth="search">
-                  <input type="search" minlength="3" name="term" class="adminSearchField form-control my-2 border-0 rounded-5 text-bg-light" />
-                  <img src="/src/assets/icons/search.svg" class="searchIcon ps-1" />
+                <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
+                  <div class="form-floating">
+                    <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
+                    <label class="form-label py-1"><img src="/src/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                  </div>
                 </form>
+                <label class="d-flex justify-content-center ms-1"><img src="/src/assets/icons/sliders.svg" /></label>
               </div>
             </div>
-            <div class="row container-sm">
-              <div class="col-5 col-lg-5">Name</div>
-              <div class="col-5 col-lg-5">Email</div>
-              <div class="col-1 d-none d-lg-block text-center">Active</div>
-              <div class="col-2 col-lg-1 text-center">Delete</div>
-            </div>
-
             <!-- Users goes here -->
             <div id="usersContainer" class="container-sm"></div>
-            <!-- Author: Linus_Aakerberg commented out for now as there are two views currently existing -->
-            <!-- <table class="table table-striped table-hover">
+            <!-- Author: Linus_Aakerberg -->
+            <table class="table table-striped table-hover">
               <thead>
                 <tr class="fs-5">
                   <th scope="col">Name</th>
@@ -64,12 +60,23 @@
                   <th scope="col">Delete</th>
                 </tr>
               </thead>
-              <tbody class="" id="userProfile">
-              </tbody>
-            </table> -->
+              <tbody class="" id="userProfile"></tbody>
+            </table>
           </div>
           <!-- Listings -->
           <div tabindex="0" class="tab-pane container-sm p-2" id="adminListings" role="tabpanel">
+            <!-- Listings search -->
+            <div class="row container-sm pb-5">
+              <div class="col d-flex justify-content-end">
+                <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
+                  <div class="form-floating">
+                    <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
+                    <label class="form-label py-1"><img src="/src/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                  </div>
+                </form>
+                <label class="d-flex justify-content-center ms-1"><img src="/src/assets/icons/sliders.svg" /></label>
+              </div>
+            </div>
             <!-- Listings goes here -->
             <table class="table table-striped table-hover">
               <thead>
@@ -87,6 +94,18 @@
           </div>
           <!-- Offers -->
           <div tabindex="0" class="tab-pane container-sm p-2" id="adminOffers" role="tabpanel">
+            <!-- Offers search -->
+            <div class="row container-sm pb-5">
+              <div class="col d-flex justify-content-end">
+                <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
+                  <div class="form-floating">
+                    <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
+                    <label class="form-label py-1"><img src="/src/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                  </div>
+                </form>
+                <label class="d-flex justify-content-center ms-1"><img src="/src/assets/icons/sliders.svg" /></label>
+              </div>
+            </div>
             <!-- Offers goes here -->
             <table class="table table-striped table-hover">
               <thead>
@@ -127,6 +146,18 @@
           </div>
           <!-- Applications -->
           <div tabindex="0" class="tab-pane container-sm p-2" id="adminApplications" role="tabpanel">
+            <!-- Application search -->
+            <div class="row container-sm pb-5">
+              <div class="col d-flex justify-content-end">
+                <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
+                  <div class="form-floating">
+                    <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
+                    <label class="form-label py-1"><img src="/src/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                  </div>
+                </form>
+                <label class="d-flex justify-content-center ms-1"><img src="/src/assets/icons/sliders.svg" /></label>
+              </div>
+            </div>
             <!-- Applications goes here -->
             <table class="table table-striped table-hover">
               <thead>

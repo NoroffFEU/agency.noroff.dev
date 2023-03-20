@@ -1,28 +1,40 @@
 // Author: Stian Kornbakk
 // Team: FE-User
 
+// Updated 15.03.23 by Jonas Hope - warrior Gallop team
+
+//-------- Commented out for now, as there was 2 different views made. ----------//
+
 /**
  * Template for rendering user onto page.
  */
-
+/*
 export function userTemplate(userData) {
   const profile = document.createElement('div');
-  profile.classList.add('row');
+  profile.classList.add('stripes', 'd-flex');
+
+  const userInfoContainer = document.createElement('div');
+  userInfoContainer.classList.add('d-flex', 'col-10');
 
   const nameContainer = document.createElement('p');
-  nameContainer.classList.add('col-5', 'bg-light', 'px-2', 'py-3', 'mb-2', 'overflow-hidden');
+  nameContainer.classList.add('col-6', 'px-2', 'py-3', 'mb-0', 'overflow-hidden', 'small');
   const name = userData.fullName;
   nameContainer.append(name);
-  profile.appendChild(nameContainer);
+  userInfoContainer.appendChild(nameContainer);
 
   const emailContainer = document.createElement('p');
-  emailContainer.classList.add('col-5', 'bg-light', 'px-2', 'py-3', 'mb-2', 'overflow-hidden');
+  emailContainer.classList.add('col-6', 'px-2', 'py-3', 'mb-0', 'overflow-hidden', 'small', 'fw-light');
   const email = userData.email;
   emailContainer.append(email);
-  profile.appendChild(emailContainer);
+  userInfoContainer.appendChild(emailContainer);
+
+  profile.appendChild(userInfoContainer);
+
+  const listingIconsContainer = document.createElement('div');
+  listingIconsContainer.classList.add('d-flex', 'w-100', 'justify-content-between');
 
   const activeContainer = document.createElement('div');
-  activeContainer.classList.add('col-1', 'd-none', 'd-lg-block', 'text-center', 'my-3', 'mb-4', 'd-flex', 'align-self-center');
+  activeContainer.classList.add('mx-auto', 'd-none', 'd-lg-block', 'text-center', 'my-3', 'd-flex', 'align-self-center');
   const active = document.createElement('img');
   if (userData.isActive === true) {
     active.src = '/src/assets/icons/checkmark.svg';
@@ -33,15 +45,19 @@ export function userTemplate(userData) {
     active.classList.add('inActiveIcon');
     activeContainer.appendChild(active);
   }
-  profile.appendChild(activeContainer);
 
   const deleteProfileButton = document.createElement('button');
-  deleteProfileButton.classList.add('col-2', 'col-lg-1', 'text-center', 'my-3', 'mb-4', 'border-0', 'bg-white');
+  deleteProfileButton.classList.add('mx-auto', 'text-center', 'my-3', 'border-0', 'p-0', 'bg-transparent');
   const deleteProfileIcon = document.createElement('img');
   deleteProfileIcon.src = '/src/assets/icons/delete-black.svg';
   deleteProfileIcon.classList.add('deleteIcon');
   deleteProfileButton.appendChild(deleteProfileIcon);
-  profile.appendChild(deleteProfileButton);
+
+  listingIconsContainer.appendChild(activeContainer);
+  listingIconsContainer.appendChild(deleteProfileButton);
+
+  profile.appendChild(listingIconsContainer);
 
   return profile;
 }
+*/
