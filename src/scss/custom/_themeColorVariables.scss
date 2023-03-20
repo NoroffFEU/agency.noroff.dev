@@ -8,6 +8,11 @@ $theme-Light: #f8f8f8;
 $theme-Grey: #e6e6e6;
 $theme-Dark: #212931;
 
+// Updated theme colors - by Jonas Hope (warrior gallop)
+
+$theme-new-light: #f2f2f2;
+$theme-new-grey: #dde3ea;
+
 // Changing bootstrap colors
 $primary: #00ff4c;
 $secondary: #505059;
@@ -25,6 +30,8 @@ $custom-colors: (
   'theme-light': $theme-Light,
   'theme-grey': $theme-Grey,
   'theme-dark': $theme-Dark,
+  'theme-new-light': $theme-new-light,
+  'theme-new-grey': $theme-new-grey,
 );
 
 $theme-colors: (
