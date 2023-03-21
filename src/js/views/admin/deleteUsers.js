@@ -23,14 +23,14 @@ export async function deleteUser(url, data) {
   }
 }
 
-setTimeout(() => {
-  const btnDelete = document.querySelector('#deleteUserBtn');
-  console.log(btnDelete);
-  btnDelete.onclick = function () {
-    deleteUser();
-    window.location.replace('/pages/admin/offers/show-offers/index.html');
-  };
-}, 100);
+// setTimeout(() => {
+//   const btnDelete = document.querySelector('#deleteUserBtn');
+//   console.log(btnDelete);
+//   btnDelete.onclick = function () {
+//     deleteUser();
+//     window.location.replace('/pages/admin/offers/show-offers/index.html');
+//   };
+// }, 100);
 
 /**
  * This is a delete button that's will delete to post.
