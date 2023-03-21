@@ -10,8 +10,7 @@ import { headers } from '../../api/headers.js';
 
 const userUrl = dummyApiUrl + `users`;
 
-export function showListings() {
-  async function getListings(url, data) {
+export async function showListings(url, data) {
     try {
       const reqOption = {
         method: 'GET',
@@ -46,10 +45,5 @@ export function showListings() {
       }
     } catch (error) {
       console.log(error);
-    }
   }
-
-  getListings(userUrl);
 }
-
-showListings();
