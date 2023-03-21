@@ -7,5 +7,5 @@ export function adminRouter() {
   deleteUser();
   showListings();
   showUsers();
-  // getUsersList();
+  //   getUsersList();
 }
