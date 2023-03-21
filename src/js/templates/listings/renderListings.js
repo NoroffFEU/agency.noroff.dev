@@ -8,7 +8,8 @@ export async function renderListings() {
 
     const data = await getListOfListings();
     const listings = data.products;
-    console.log(listings)
+
+    
             
     listingsContainer.innerHTML = "";
     listings.forEach(listing => {
@@ -21,7 +22,7 @@ export async function renderListings() {
            </div>
            <div class="col-md-8">
              <div class="card-body">
-               <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+               <h5 class="card-title">${listing.title}</h5>
                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque tempore harum, fugiat laudantium optio eveniet quae deleniti iste.</p>
              </div>
              <div class="position-absolute bottom-0 end-0 mx-3 my-3">
@@ -34,6 +35,8 @@ export async function renderListings() {
        </div>
        `                   
     });
+
+
 }
 
 

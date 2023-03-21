@@ -28,8 +28,8 @@ export async function editListingListener() {
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
+    const data = event.target;
+    const formData = new FormData(data);
     const listing = Object.fromEntries(formData.entries());
     listing.id = id;
 

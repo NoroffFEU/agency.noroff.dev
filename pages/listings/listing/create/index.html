@@ -30,11 +30,13 @@
               </div>
               <div class="form mb-3">
                 <label for="deadline">Application Deadline</label>
-                <input class="form-control bg-theme-light" style="border-radius: 0px" type="datetime-local" name="deadline" id="createDeadline" data-auth="createFormLocation" required title="Enter a valid date" />
+                <input class="form-control bg-theme-light" style="border-radius: 0px" type="datetime-local" name="deadline" id="createDeadline" data-auth="createFormDeadline" required title="Enter a valid date" />
               </div>
               <div class="input-group mt-5 mb-3">
-                <span class="input-group-text" style="border-radius: 0px">Upload Cover Picture</span>
-                <input type="text" class="form-control bg-theme-light" style="border-radius: 0px" id="pictureUrl" data-auth="createFormPicture" />
+                <label for="picture">
+                  <span class="input-group-text" style="border-radius: 0px">Upload Cover Picture</span>
+                </label>
+                <input type="text" class="form-control bg-theme-light" style="border-radius: 0px" id="pictureUrl" data-auth="createFormPicture" name="picture"/>
               </div>
               <div class="form mb-3">
                 <label for="jobDescription" class="">Job Description</label>

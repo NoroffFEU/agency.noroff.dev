@@ -1,3 +1,4 @@
+// Co-author: Oskar Jenssen
 import { create } from "../../api/posts/create.js";
 
 /**
@@ -5,37 +6,22 @@ import { create } from "../../api/posts/create.js";
  */
 export async function createListing() {
   const form = document.querySelector("#createNewListing");
-  const createTitle = document.querySelector("#createTitle");
-  const createLocation = document.querySelector("#createLocation");
-  const createDeadline = document.querySelector("#createDeadline");
-  const createPicture = document.querySelector("#pictureUrl");
-  const createDescription = document.querySelector("#createDescription");
 
   if (form) {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      const title = createTitle.value;
-      const location = createLocation.value;
-      const deadline = createDeadline.value;
-      const picture = createPicture.value;
-      const desc = createDescription.value;
-      const currentTime = new Date().toISOString();
+    const data = event.target;
+    const formData = new FormData(data);
+    const listing = Object.fromEntries(formData.entries());
+    listing.userId = 5; // Example id required for the dummy API
+
+    const currentTime = new Date().toISOString();
 
 
 
-      if (createDeadline > currentTime) {
-        await create({
-          // param to test dummyAPI
-          userId: 5,
-
-          // waiting on correct params from api
-          title: title,
-          location: location,
-          deadline: deadline,
-          img: picture,
-          description: desc,
-        });
+      if (listing.deadline > currentTime) {
+        await create(listing);
         // pop up success message
         // redirect?
       } else {
