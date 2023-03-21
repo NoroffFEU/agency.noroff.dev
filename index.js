@@ -70,6 +70,7 @@ const routerSwitch = () => {
     case 'registerUser':
       document.querySelector('title').innerText = defaultTitle;
       // showRegFormListener();
+<<<<<<< HEAD
       break;
 
     // Register applicant UI settings
@@ -82,6 +83,8 @@ const routerSwitch = () => {
     case 'registerPageCompany':
       document.querySelector('title').innerText = defaultTitle;
       setRegisterFormListenerCompany();
+=======
+>>>>>>> majestic-gallop-formListeners
       break;
 
     // Profile UI settings
