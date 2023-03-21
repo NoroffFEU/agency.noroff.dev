@@ -13,8 +13,7 @@ import { deleteUser } from './deleteUsers.js';
 
 const userUrl = dummyApiUrl + `users`;
 
-export function showUsers() {
-  async function getUsers(url, data) {
+export async function showUsers(url, data) {
     try {
       const reqOption = {
         method: 'GET',
@@ -51,9 +50,5 @@ export function showUsers() {
     } catch (error) {
       console.log(error);
     }
-  }
 
-  getUsers();
 }
-
-showUsers();
