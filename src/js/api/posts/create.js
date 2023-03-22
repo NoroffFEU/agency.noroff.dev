@@ -1,3 +1,4 @@
+
 import { dummyApiUrl } from "../constants.js";
 import { dummyApiCreatePost } from "../constants.js";
 import { authBaseFetchOpen } from "../apiBaseFetch.js";
@@ -27,28 +28,28 @@ export async function create(listData) {
 
 // DOESNT WORK, WILL FIX ONCE API IS HERE :)
 
-import { apiBaseFetch } from '../apiBaseFetch.js';
-import { dummyApiCreatePost, dummyApiUrl } from '../constants.js';
+// import { apiBaseFetch } from '../apiBaseFetch.js';
+// import { dummyApiCreatePost, dummyApiUrl } from '../constants.js';
 
-/**
- * Sends a POST request to create a new Application.
- * @param {string} appData - The input data for the new post
- * @returns 
- */
+// /**
+//  * Sends a POST request to create a new Application.
+//  * @param {string} appData - The input data for the new post
+//  * @returns 
+//  */
 
-export async function create(appData) {
-  const createAppURL = dummyApiUrl + dummyApiCreatePost;
+// export async function create(appData) {
+//   const createAppURL = dummyApiUrl + dummyApiCreatePost;
 
-  const data = await apiBaseFetch(createAppURL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(appData),
-  });
+//   const data = await apiBaseFetch(createAppURL, {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(appData),
+//   });
 
-  if (data.ok) {
-    console.log(data)
-    return await data.json();
-  } else {
-    console.error('An error occured.');
-  }
-}
+//   if (data.ok) {
+//     console.log(data)
+//     return await data.json();
+//   } else {
+//     console.error('An error occured.');
+//   }
+// }
