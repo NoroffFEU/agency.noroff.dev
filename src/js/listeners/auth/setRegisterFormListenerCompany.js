@@ -20,7 +20,10 @@ export function setRegisterFormListenerCompany() {
         await registerCompany(data);
         window.location.replace('/pages/auth/login/');
       } catch (error) {
-        userFeedback.innerText = 'An error occurred. Please check the inputs';
+        // This should give more helpful error to the user.
+        // At the time of writing, API is out of order,
+        // But it should display different error messages according to the error received by API.
+        userFeedback.innerText = 'An error occurred. Please check the inputs.';
         console.warn('error:', error);
       }
     });
