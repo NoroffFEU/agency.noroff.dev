@@ -60,7 +60,17 @@
                   <th scope="col">Delete</th>
                 </tr>
               </thead>
-              <tbody class="" id="userProfile"></tbody>
+              <tbody class="" id="userProfile">
+                <template id="userRowTemplate">
+                  <tr>
+                    <th scope="row" data-show-user-name></th>
+                    <td data-show-user-email>${profileEmail}</td>
+                    <td>
+                      <button class="btn btn-sm" data-show-user-remove><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
             </table>
           </div>
           <!-- Listings -->
