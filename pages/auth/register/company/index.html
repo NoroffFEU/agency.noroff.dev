@@ -17,86 +17,65 @@
         <h2>Register For Company</h2>
         <form class="row g-3" id="registerForm-company">
           <div class="mx-auto text-center">
-            <img src="https://via.placeholder.com/150" class="rounded-circle w-25 " alt="placeholder image">
-            <button
-            type="button"
-            class="btn"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            add image
-            </button>
+            <img src="https://via.placeholder.com/150" class="rounded-circle w-25" alt="placeholder image" />
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">add image</button>
           </div>
           <div class="col-md-6">
             <label for="companyName">Company name*</label>
-            <input type="text" class="form-control" aria-label="Company name" id="companyName" required>
+            <input type="text" class="form-control" aria-label="Company name" id="companyName" required />
             <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label for="companyEmail">Email*</label>
-            <input type="email" class="form-control" aria-label="Email" id="companyEmail" required>
+            <input type="email" class="form-control" aria-label="Email" id="companyEmail" required />
             <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label for="password">Password*</label>
-            <input type="password" class="form-control" aria-label="Password" id="password" required>
+            <input type="password" class="form-control" aria-label="Password" id="password" required />
             <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label for="repPassword">Repeat password*</label>
-            <input type="password" class="form-control" aria-label="Repeat password" id="repPassword" required>
+            <input type="password" class="form-control" aria-label="Repeat password" id="repPassword" required />
             <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label for="contactPerson">Contact person</label>
-            <input type="text" class="form-control" aria-label="Contact person" id="contactPerson" required>
+            <input type="text" class="form-control" aria-label="Contact person" id="contactPerson" required />
             <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label for="contactNumber">Contact number</label>
-            <input type="tel" class="form-control" aria-label="Contact number" id="contactNumber" required>
+            <input type="tel" class="form-control" aria-label="Contact number" id="contactNumber" required />
             <div class="error"></div>
           </div>
           <div class="d-grid gap-2 col-md-6 mx-auto">
+            <div class="user-feedback confirmation-message"></div>
             <button class="btn btn-theme-primary btn-lg text-light rounded-1" type="submit">Register</button>
-            <a href="/pages/auth/register/applicant/index.html"class="btn text-black align-self-center" id="companyReg"><p><u>Not a company? Register as an applicant instead!</u></p></a>
+            <a href="/pages/auth/register/applicant/index.html" class="btn text-black align-self-center" id="companyReg"
+              ><p><u>Not a company? Register as an applicant instead!</u></p></a
+            >
           </div>
         </form>
-      <!-- image modal -->        
-        <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <form class="modal-dialog" id="add-image">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">
-                        Add image
-                      </h1>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="form-floating mb-3">
-                        <input
-                          type="url"
-                          class="form-control"
-                          id="imageUrl"
-                          name="avatar"
-                        />
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-theme-primary btn-lg text-light rounded-1">Add image</button>
-                    </div>
-                  </div>
-                </form>
+        <!-- image modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <form class="modal-dialog" id="add-image">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Add image</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="form-floating mb-3">
+                  <input type="url" class="form-control" id="imageUrl" name="avatar" />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-theme-primary btn-lg text-light rounded-1">Add image</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </main>
