@@ -1,4 +1,4 @@
-import { deleteUser } from '../../views/admin/deleteUsers';
+import { deleteUser } from '../../views/admin/deleteUsers.js';
 
 /**
  * @description adds a listener to a delete button that deletes user when clicked. If button or id is not passed in, the function will give a warning in console and exit function and not set a listener
