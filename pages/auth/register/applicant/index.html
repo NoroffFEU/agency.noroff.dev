@@ -31,22 +31,18 @@
           <div class="col-md-6">
             <label for="fullName">Full Name*</label>
             <input type="text" class="form-control" aria-label="Full name" id="fullName" required>
-            <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label for="emailStudent">Email*</label>
             <input type="email" class="form-control" aria-label="Email" id="emailStudent" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="The email value must be a valid stud.noroff.no or noroff.no email address." required>
-            <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label for="passwordStudent">Password*</label>
             <input type="password" class="form-control" aria-label="Password" id="passwordStudent" minlength="8" title="The password value must be at least 8 characters." required>
-            <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label for="repPasswordStud">Repeat password*</label>
             <input type="password" class="form-control" aria-label="Repeat password" minlength="8" title="The password value must be at least 8 characters." id="repPasswordStud" required>
-            <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label for="degrees">Degree(s)</label>
@@ -79,9 +75,9 @@
             <!-- this field not clear in design -->
             <!-- <label for=""></label>
             <input type="text" class="form-control" aria-label="" id=""> -->
-            <div class="error"></div>
           </div>
           <div class="d-grid gap-2 col-md-6 mx-auto">
+            <div class="user-feedback"></div>
             <button class="btn btn-theme-primary btn-lg text-light rounded-1" type="submit">Register</button>
             <a href="/pages/auth/register/company/index.html"class="btn text-black align-self-center" id="companyReg"><p><u>Not an applicant? Register as company instead!</u></p></a>
           </div>
@@ -122,7 +118,6 @@
                 </div>
               </form>
         </div>
-        <div id="confirm-message"></div>
       </div>
     </main>
     <footer></footer>
