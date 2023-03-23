@@ -6,7 +6,7 @@ export const API_LoginUser = 'users/login'; // User login
 
 export const API_Listings = 'listings'; // Create a listing(POST) || Get all listings(GET).
 export const API_ListingID = 'listings/'; // Update, Delete or fetch a single listing. This needs an ID (example: listings/{id})
-// If listing is owned by user's company offers and applications will be returned with a valid header token.
+// If listing is owned by user's company, offers and applications will be returned with a valid header token.
 
 export const API_Applications = 'application'; // Get all applications
 export const API_ApplicationID = 'application/'; // Update, Delete or get a single application. This needs an ID (example: application/{id})
