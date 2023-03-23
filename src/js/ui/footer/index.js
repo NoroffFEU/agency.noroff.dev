@@ -31,8 +31,8 @@ export const footer = () => {
                                   <div class="col p-4">
                                     <h4>Resources</h4>
                                     <ul class="p-0">
-                                      <li class="list-group-item"><a href="/pages/privacy_policy.html" class="nav-link ">Privacy Policy</a></li>
-                                      <li class="list-group-item"><a href="/pages/terms_of_use.html" class="nav-link">Terms of use</a></li>
+                                      <li class="list-group-item"><a href="/pages/info/privacy_policy/index.html" class="nav-link ">Privacy Policy</a></li>
+                                      <li class="list-group-item"><a href="/pages/info/terms_of_use/index.html" class="nav-link">Terms of use</a></li>
                                     </ul>
                                   </div>
                                 </div>
