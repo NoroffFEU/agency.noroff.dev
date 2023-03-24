@@ -35,13 +35,25 @@
           <div class="row">
             <div class="col-xs-12 col-md-6 d-flex flex-column mx-auto my-5">
               <input class="btn btn-theme-success text-theme-dark my-2" type="submit" value="ACCEPT" />
-              <input class="btn btn-theme-dark text-theme-light my-2" type="submit" value="REJECT" />
+              <input class="btn btn-theme-dark text-theme-light my-2" type="submit" value="REJECT" data-bs-toggle="modal" data-bs-target="#rejectApplicationModal"/>
             </div>
           </div>
         </div>
       </div>
     </main>
     <footer class="bg-theme-grey"></footer>
+    <!--Reject Modal-->
+    <div class="modal fade" id="rejectApplicationModal" tabindex="-1" role="dialog" aria-labelledby="rejectApplicationModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body mx-auto text-center"><h3 class="my-5">Are you sure you want to reject this offer?</h3></div>
+          <div class="modal-footer d-flex flex-column p-3 bg-theme-grey">
+            <button type="button" class="btn btn-theme-primary text-white w-75 my-2">YES</button>
+            <button type="button" class="btn btn-theme-dark w-75 my-2" data-bs-dismiss="modal">CANCEL</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/index.js"></script>
   </body>
