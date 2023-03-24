@@ -8,7 +8,7 @@ import { dummyApiUrl } from '../../api/constants.js';
 // import headers for the requestOption
 import { headers } from '../../api/headers.js';
 // import deleteUser function
-import { deleteUser } from './deleteUsers.js';
+//import { deleteUser } from './deleteUsers.js';
 //import { deleteUserApi } from './deleteUsers.js';
 
 const userUrl = dummyApiUrl + `users`;

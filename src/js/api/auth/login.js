@@ -1,5 +1,5 @@
 import { Store } from '../../storage/storage.js';
-import { apiPath } from '../constants.js';
+import { API_Path } from '../constants.js';
 import { dummyApiUrl } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
