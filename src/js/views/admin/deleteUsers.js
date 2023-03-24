@@ -1,6 +1,6 @@
 // Author: Linus Aakerberg
 // Team: FE-Offers
-
+/*
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get('id');
@@ -31,7 +31,7 @@ setTimeout(() => {
     window.location.replace('/pages/admin/offers/show-offers/index.html');
   };
 }, 100);
-
+*/
 /**
  * This is a delete button that's will delete to post.
  */

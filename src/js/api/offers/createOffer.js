@@ -1,6 +1,6 @@
 // Example of where I get the api call and headers for token
 import { headers } from '../headers.js';
-// import { apiPath } from '../../api/constants';
+// import { API_Path } from '../../api/constants';
 import { dummyApiUrl, dummyApiCreateProduct } from '../constants.js';
 
 // Temp files until URL endpoint is made
