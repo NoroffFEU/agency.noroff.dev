@@ -44,9 +44,9 @@ export function renderProfileImage(data, element) {
     element.src = logo;
     element.alt = name + 'logo';
   } else {
-    const { avatar, fullName } = data;
+    const { avatar, firstName, lastName } = data;
     element.src = avatar;
-    element.alt = fullName + 'avatar';
+    element.alt = firstName + lastName + 'avatar';
   }
   return element;
 }
@@ -62,8 +62,8 @@ export function renderProfileName(data, element) {
     const { name } = data;
     element.innerHTML = name;
   } else {
-    const { fullName } = data;
-    element.innerHTML = fullName;
+    const { firstName, lastName } = data;
+    element.innerHTML = firstName + lastName;
   }
   return element;
 }
@@ -78,10 +78,8 @@ export function renderProfileRole(data, element) {
   if (roleCompany()) {
     const { admin } = data;
     element.innerHTML = admin;
-  } else {
-    const { role } = data;
-    element.innerHTML = role;
-  }
+  }  //User does not return "role" or anything similar
+
   return element;
 }
 
@@ -116,7 +114,7 @@ export function renderProfileSkills(data, parent, element) {
  */
 export function renderDescriptionHeader(element) {
   if (roleCompany) {
-    element.innerHTML = 'Abous us';
+    element.innerHTML = 'Sector';
   } else {
     element.innerHTML = 'About me';
   }
@@ -131,8 +129,8 @@ export function renderDescriptionHeader(element) {
  */
 export function renderProfileDescription(data, element) {
   if (roleCompany) {
-    const { about } = data;
-    element.innerHTML = about;
+    const { sector } = data; // company does not return any about, only sector
+    element.innerHTML = sector;
   } else {
     const { about } = data;
     element.innerHTML = about;
