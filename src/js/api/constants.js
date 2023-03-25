@@ -1,5 +1,26 @@
-export const apiUrl = new URL('https://api.noroff.dev/api/v1/');
-export const apiPath = apiUrl.toString();
+export const API_URL = new URL('https://agency-api.noroff.dev/');
+export const API_Path = API_URL.toString();
+
+export const API_RegisterUser = 'users'; // Register a new user
+export const API_LoginUser = 'users/login'; // User login
+
+export const API_Listings = 'listings'; // Create a listing(POST) || Get all listings(GET).
+export const API_ListingID = 'listings/'; // Update, Delete or fetch a single listing. This needs an ID (example: listings/{id})
+// If listing is owned by user's company, offers and applications will be returned with a valid header token.
+
+export const API_Applications = 'application'; // Get all applications
+export const API_ApplicationID = 'application/'; // Update, Delete or get a single application. This needs an ID (example: application/{id})
+export const API_ApplicationQueryParams = '?applicant=true&listing=true&offers=true'; // QueryParams for applications
+
+export const API_Company = 'company'; // Create a new company(POST) || Get all companies(GET)
+export const API_CompanyAdmin = 'company/admin/'; // Add or remove an admin from the company. This needs an ID (example: company/admin/{id})
+export const API_CompanyID = 'company/'; // Update, Delete or get a single company, offers and applicaions provided with correct authorization from company admin.
+// This needs an ID (example: company/{id})
+
+export const API_Offer = 'offer/'; // Delete an offer. This needs an ID (example: offer/{id})
+
+export const API_Users = 'users'; // Get all users
+export const API_UsersID = 'users/'; // Update, Delete or get a single user. This needs an ID (example: users/{id})
 
 /* This section is for Dummy API that is for testing purpose and development
    it`s a well documented dummy API so make sure to read the docs for it.

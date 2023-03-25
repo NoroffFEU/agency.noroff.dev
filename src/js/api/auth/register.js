@@ -1,11 +1,11 @@
-import { apiUrl } from '../constants.js';
+import { API_URL } from '../constants.js';
 
 const action = 'auth/register';
 const method = 'post';
 
 export async function register(profile) {
 
-  const registerURL = apiUrl + action;
+  const registerURL = API_URL + action;
 
     const response = await fetch(registerURL, {
       headers: {
