@@ -42,6 +42,7 @@ export async function login(profile) {
         new Store('token', token);
         new Store('profile', filteredProfile);
         new Store('role', role);
+        new Store('email', email);
 
         if (profile.admin) {
           window.location.replace('#');
