@@ -173,7 +173,38 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">Mark Leonardo</th>
+                  <th scope="row" class="applicant-modal" data-bs-toggle="modal" data-bs-target="#applicantModal">Mark Leonardo</th>
+                  <!-- Modal -->
+                  <div class="modal fade applicant" id="applicantModal" tabindex="-1" aria-labelledby="applicantModalModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content rounded-0 border-0">
+                        <div class="close-btn-content">
+                          <div class="close-btn float-end">
+                            <button type="button" class="btn-close btn-close-white rounded-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                        </div>
+                        <div class="modal-header border-0 align-items-center px-4 mt-5">
+                          <h1 class="modal-title" id="applicantModalLabel">Mark Leonardo</h1>
+                          <p class="fw-normal m-0 time-date">09:30 <br> 30/05/2023</p>
+                        </div>
+                        <div class="modal-body px-4 pt-0">
+                          <ul class="fw-normal ps-0 mb-5">
+                            <li class="list-group-item">Leonardo@stud.noroff.no</li>
+                            <li class="list-group-item">Parkveien 2, 4307 Sandnes</li>
+                            <li class="list-group-item">+47 502 95 040</li>
+                          </ul>
+                          <p>Lorem!</p>
+                          <p class="fw-normal mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum enim facilisis gravida neque convallis a cras. Ut faucibus pulvinar elementum integer enim neque. <br><br>Bibendum enim facilisis gravida neque convallis a cras. Ut faucibus pulvinar elementum integer enim neque.</p>
+                          <p>Mark Leonardo</p>
+                          <a class="list-group-item fw-normal fst-italic"><img src="/src/assets/icons/linkApplicant.svg" alt="Link icon" class="footerIcon" />&nbsp;&nbsp; http://www.example.com</a>
+                          <a class="list-group-item fw-normal mt-2"><img src="/src/assets/icons/download.svg" alt="File icon" class="downloadIcon" />&nbsp;&nbsp;&nbsp; ExampleFilename.pdf</a>
+                        </div>
+                        <div class="modal-footer border-0 px-4 my-4">
+                          <button type="button" class="btn float-start rounded-0">DELETE</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <td>Lenovo AS</td>
                   <td>#-457812</td>
                   <td>
