@@ -8,9 +8,9 @@ input[type='password'] {
 }
 
 $input-border-color: #cbcbcb;
-$input-color: #ffffff;
+$input-bg: #ffffff;
 
 $input-colors: (
   'input-border-color': $input-border-color,
-  'input-color': $input-color,
+  'input-bg': $input-bg,
 );
