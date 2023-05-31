@@ -1,9 +1,12 @@
 // Author: Ilya Martchenko
 // The api is not available yet, so this is just a dummy search function that should work with proper api.
 
-import * as search from "../index.js";
+// import * as search from "../index.js";
 import { getListOfListings } from "../../api/posts/getListOfListings.js";
 import { renderListings } from "../../templates/listings/renderListings.js";
+import { getSearchTermsListings } from "./getSearchTerms.js";
+import { listingNotFound } from "./searchNotFoundDisplay.js";
+
 
 /**
  * Adds an event listener to the search input field and filters the listings based on the user's input.
@@ -11,8 +14,7 @@ import { renderListings } from "../../templates/listings/renderListings.js";
  * @param {string} container - The container element for the listings.
  * @param {function} getListOfListings - The function to get a list of listings from the API.
  * @param {function} renderListings - The function to render the listings on the page.
- * @param {function} search.getSearchTermsListings - The search for listings based on a search term.
- * @param {function} search.getSearchTermsListings(container) - The function to search for listings based on a search term.
+ * @param {function} getSearchTermsListings - The search for listings based on a search term.
  */
 
 export function searchFunction() {
@@ -23,24 +25,21 @@ export function searchFunction() {
     e.preventDefault();
     const searchTerm = e.target.value;
     const term = searchTerm.toLowerCase();
-    if (!term.length) {
+    //
+    if (!term.length || term.length < 3) {
       container.innerHTML = "";
       return renderListings(getListOfListings, container);
     }
     //
-    if (term.length < 3) {
-      return;
-    }
-    //
-    container.innerHTML = "";
-    //
-    if (search.getSearchTermsListings(getListOfListings, term).length) {
+    if (getSearchTermsListings(getListOfListings, term).length) {
+      container.innerHTML = "";
       return renderListings(
-        search.getSearchTermsListings(getListOfListings, term),
+        getSearchTermsListings(getListOfListings, term),
         container
       );
     } else {
-      return search.getSearchTermsListings(container);
+      container.innerHTML = "";
+      return listingNotFound(container);
     }
     });
 }
