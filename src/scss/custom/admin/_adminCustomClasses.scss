@@ -56,23 +56,15 @@
     }
   }
 
-  & ul,
+  & span,
   .time-date {
     font-size: 0.9rem;
   }
 
-  & .downloadIcon {
-    width: 16px;
-  }
-
-  & .modal-footer {
-    justify-content: start;
-
-    & button {
-      color: black;
-      font-weight: bold;
-      background-color: #FD2E07;
-      width: 150px;
-    }
+  & .modal-footer button {
+    color: black;
+    font-weight: bold;
+    background-color: #FD2E07;
+    width: 150px;
   }
 }
