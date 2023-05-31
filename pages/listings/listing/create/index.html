@@ -45,8 +45,20 @@
               </div>
             </div>
             <div class="ms-4 mb-4">
-              <button class="btn btn-theme-secondary ps-4 pe-4 me-4" style="border-radius: 0px; width: 250px" type="submit" data-auth="createFormSubmitButton">CREATE NEW LISTING</button>
+              <button id="createListingBtn" class="btn btn-theme-secondary ps-4 pe-4 me-4" style="border-radius: 0px; width: 250px" type="submit" data-auth="createFormSubmitButton" data-bs-toggle="modal" data-bs-target="#createModal">CREATE NEW LISTING</button>
             </div>
+          </div>
+        </form>
+          <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content text-center">
+                <div class="modal-body">
+                  <img src="/src/assets/icons/cancel.svg" alt="" />
+                  <h3>Woops! Please try again.</h3>
+                </div>
+              </div>
+            </div>
+          </div>
           </form>
         </div>
       </div>
