@@ -35,5 +35,3 @@ SASS [NPM package](https://www.npmjs.com/package/sass)
 Vite (for dev server work) [NPM package](https://www.npmjs.com/package/vite)
 lint-staged [NPM package](https://www.npmjs.com/package/lint-staged)
 husky [NPM package](https://www.npmjs.com/package/husky)
-
-test
