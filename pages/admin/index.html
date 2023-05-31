@@ -171,48 +171,8 @@
                   <th scope="col">Delete</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row" class="applicant-modal" data-bs-toggle="modal" data-bs-target="#applicantModal">Mark Leonardo</th>
-                  <!-- Modal -->
-                  <div class="modal fade applicant" id="applicantModal" tabindex="-1" aria-labelledby="applicantModalModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content rounded-0 border-0">
-                        <div class="close-btn-content">
-                          <div class="close-btn float-end">
-                            <button type="button" class="btn-close btn-close-white rounded-0" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                        </div>
-                        <div class="modal-header border-0 align-items-center px-4 pb-0 mt-5 fw-normal">
-                          <p class="modal-title fs-2" id="applicantModalLabel">Mark Leonardo</p>
-                          <p class="m-0 time-date">09:30 <br> 30/05/2023</p>
-                        </div>
-                        <div class="modal-body px-4 pt-0">
-                          <p class="py-3 fw-normal">
-                            <span > Leonardo@stud.noroff.no </span>
-                            <br />
-                            <span > Somewhere 1, 0000 Stavanger </span>
-                            <br />
-                            <span > +47 00 00 000 </span>
-                          </p>
-                          <p>Lorem!</p>
-                          <p class="fw-normal mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum enim facilisis gravida neque convallis a cras. Ut faucibus pulvinar elementum integer enim neque. <br><br>Bibendum enim facilisis gravida neque convallis a cras. Ut faucibus pulvinar elementum integer enim neque.</p>
-                          <p>Mark Leonardo</p>
-                          <a href="#" class="list-group-item fw-normal fst-italic"><img src="/src/assets/icons/linkApplicant.svg" alt="Link icon" class="footerIcon me-3" /> http://www.example.com</a>
-                          <a href="#" class="list-group-item fw-normal mt-2"><img src="/src/assets/icons/download.svg" alt="File icon" class="footerIcon me-3" /> ExampleFilename.pdf</a>
-                        </div>
-                        <div class="modal-footer border-0 px-4 my-4 justify-content-start">
-                          <button type="button" class="btn rounded-0">DELETE</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <td>Lenovo AS</td>
-                  <td>#-457812</td>
-                  <td>
-                    <button class="btn btn-sm"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
-                  </td>
-                </tr>
+              <tbody id="applicants">
+                <!-- API Fetch inserted here - Applications -->
               </tbody>
             </table>
           </div>
