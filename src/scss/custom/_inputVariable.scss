@@ -6,3 +6,11 @@ input[type='text'],
 input[type='password'] {
   border-radius: $input-border-radius !important;
 }
+
+$input-border-color: #cbcbcb;
+$input-color: #ffffff;
+
+$input-colors: (
+  'input-border-color': $input-border-color,
+  'input-color': $input-color,
+);
