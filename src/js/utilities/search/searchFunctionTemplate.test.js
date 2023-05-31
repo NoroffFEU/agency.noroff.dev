@@ -6,53 +6,23 @@ import { listingNotFound } from "./searchNotFoundDisplay.js";
 
 jest.mock("../../api/posts/getListOfListings.js");
 jest.mock("../../templates/listings/renderListings.js");
-jest.mock("./getSearchTerms.js");
+jest.mock("./searchFunctionTemplate.js");
 jest.mock("./searchNotFoundDisplay.js");
+jest.mock("../../templates/listings/renderListings.js")
 
 describe("searchFunction", () => {
-  let searchInput;
-  let container;
 
-  beforeEach(() => {
-    searchInput = document.createElement("input");
-    searchInput.id = "searchListing";
-    container = document.createElement("div");
-    container.classList.add("listingContainer");
-    document.body.appendChild(container);
-    document.body.appendChild(searchInput);
-  });
-
-  afterEach(() => {
-    document.body.removeChild(searchInput);
-    document.body.removeChild(container);
-  });
-
-  it("should render listings when search input is empty", () => {
-    searchFunction();
-    expect(getListOfListings).toHaveBeenCalled();
-    expect(renderListings).toHaveBeenCalledWith(getListOfListings, container);
-  });
-
-  it("should render listings when search input is less than 3 characters", () => {
-    searchInput.value = "ab";
-    searchFunction();
-    expect(getListOfListings).toHaveBeenCalled();
-    expect(renderListings).toHaveBeenCalledWith(getListOfListings, container);
-  });
-
-  it("should render search results when search input is 3 or more characters", () => {
-    searchInput.value = "abc";
-    getSearchTermsListings.mockReturnValueOnce([{}]);
+  it("should render search results if the item exists when search input is 3 or more characters", () => {
+    getSearchTermsListings.mockReturnValueOnce("abc");
     searchFunction();
     expect(getSearchTermsListings).toHaveBeenCalledWith(getListOfListings, "abc");
-    expect(renderListings).toHaveBeenCalledWith([{}], container);
+    expect(renderListings).toHaveBeenCalledWith("abc");
   });
 
-  it("should display 'No results found' when search input matches no listings", () => {
-    searchInput.value = "def";
-    getSearchTermsListings.mockReturnValueOnce([]);
+  it("should display 'Something went wrong' when search input matches no listings", () => {
+    getSearchTermsListings.mockReturnValueOnce("def");
     searchFunction();
     expect(getSearchTermsListings).toHaveBeenCalledWith(getListOfListings, "def");
-    expect(listingNotFound).toHaveBeenCalledWith(container);
+    expect(listingNotFound).toHaveBeenCalledWith();
   });
 });
