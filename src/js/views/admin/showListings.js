@@ -8,6 +8,9 @@ import { dummyApiUrl } from '../../api/constants.js';
 // import headers for the requestOption
 import { headers } from '../../api/headers.js';
 
+// import delete function
+import { setDeleteListingListener } from './deleteListing.js';
+
 const userUrl = dummyApiUrl + `users`;
 
 export function showListings() {
@@ -39,10 +42,12 @@ export function showListings() {
         <td>${jobCompany}</td>
         <td>#-${jobId}</td>
         <td>
-        <button class="btn btn-sm" id="deleteUserBtn"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+        <button class="btn btn-sm btn${jobId}" id="deleteUserBtn"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
         </td>
-      </tr>
+      </tr> 
         `;
+
+        setDeleteListingListener(jobId); 
       }
     } catch (error) {
       console.log(error);
@@ -52,4 +57,3 @@ export function showListings() {
   getListings(userUrl);
 }
 
-showListings();
