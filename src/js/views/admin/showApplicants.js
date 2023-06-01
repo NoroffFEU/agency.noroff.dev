@@ -1,17 +1,15 @@
 // Author: Hanna Fjeldsaa
 // Team: origin-bliss
 
-const fetchApplicants = document.querySelector('#applicants');
-
-// Import API url for fetch the data (dummy API for users data)
+// Import API url to fetch the data (dummy API for users data)
 import { dummyApiUrl } from '../../api/constants.js';
 // import headers for the requestOption
 import { headers } from '../../api/headers.js';
 
+const fetchApplicants = document.querySelector('#applicants');
 const userUrl = dummyApiUrl + `users`;
 
-export function showApplicants() {
-    async function getApplicants(url, data) {
+export async function showApplicants(url, data) {
       try {
         const reqOption = {
           method: 'GET',
@@ -24,10 +22,10 @@ export function showApplicants() {
         const applicantData = json.users;
   
         for (let i = 0; i < applicantData.length; i++) {
-            /* API DUMMY - Fetch from user profiles, company name, id and added applicant data in a modal */
+            /* API DUMMY - Fetch from user profiles, company name and title, id and applicant data in a modal */
             // applicantsName = get and combine both firstName and lastName under same const
             const applicantsName = applicantData[i].firstName + ` ` + applicantData[i].lastName;
-            // applicationCreated = Time and date of application creation 
+            // applicationCreated = Time and date of application creation. Unsure about format. 
             const applicationCreated = "09:30 <br> 30/05/2023";
             // applicantEmail = get the applicant email
             const applicantEmail = applicantData[i].email;
@@ -43,7 +41,9 @@ export function showApplicants() {
             const applicationLink = applicantData[i].image;
             // applicationLink = Registered file
             const applicationFile = "ExampleFilename.pdf";
-             // companyName = get Company name
+            // jobTitle = get application job title
+            const jobTitle = applicantData[i].company.title;
+            // companyName = get Company name
             const companyName = applicantData[i].company.name;
             // applicationId = get the postalCode from the company to symbolize an fake-ID number.
             const applicationId = applicantData[i].company.address.postalCode;
@@ -83,6 +83,7 @@ export function showApplicants() {
                       </div>
                     </div>
                   </div>
+            <td class="job-title">${jobTitle}</td>      
             <td>${companyName}</td>
             <td>#-${applicationId}</td>
             <td>
@@ -96,7 +97,4 @@ export function showApplicants() {
       }
     }
   
-    getApplicants();
-  }
-  
-  showApplicants();
+    showApplicants();
