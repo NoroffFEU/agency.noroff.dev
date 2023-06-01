@@ -1,10 +1,11 @@
 /**
  * Class to store items in localstorage.
  * This code I got from Oliver
+ * Joakim Tveter changed the third parameter nameing for clarity
  */
 export class Store {
-  constructor(key, state, test = false) {
-    this.storage = test ? sessionStorage : localStorage;
+  constructor(key, state, session = false) {
+    this.storage = session ? sessionStorage : localStorage;
 
     if (!key) {
       throw new Error('Key is required');
