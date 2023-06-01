@@ -1,11 +1,11 @@
 // Author: Margrethe By
 // Team: Enigma Bullet
 
-const token = localStorage.getItem("accessToken");
+const token = localStorage.getItem("token");
 
 /**
- * Sends a delete request to the API based on the url paramter.
- * @param { string } url 
+ * Sends a delete request to the API based on the url parameter.
+ * @param { string } url to target the listing that is going to be deleted.
  */
 export async function deleteItem(url) {
     try {
