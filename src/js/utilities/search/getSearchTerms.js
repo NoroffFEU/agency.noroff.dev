@@ -26,6 +26,6 @@ export function getSearchTermsListings(listingData, term) {
     const id = listing.id;
     const jobTitle = listing.name.toLowerCase();
     const companyName = listing.company.name.toLowerCase();
-    return jobTitle.includes(term) || companyName.includes(term) || id.includes(term);
+    return jobTitle.includes(term) || companyName.includes(term) || id === parseInt(term);
   });
 }

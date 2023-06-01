@@ -1,28 +1,58 @@
-import { searchFunction } from "./searchFunctionTemplate.js";
-import { getListOfListings } from "../../api/posts/getListOfListings.js";
-import { renderListings } from "../../templates/listings/renderListings.js";
-import { getSearchTermsListings } from "./getSearchTerms.js";
-import { listingNotFound } from "./searchNotFoundDisplay.js";
+import { getSearchTermsUsers, getSearchTermsListings } from "./getSearchTerms.js";
 
-jest.mock("../../api/posts/getListOfListings.js");
-jest.mock("../../templates/listings/renderListings.js");
-jest.mock("./searchFunctionTemplate.js");
-jest.mock("./searchNotFoundDisplay.js");
-jest.mock("../../templates/listings/renderListings.js")
+describe('getSearchTermsUsers', () => {
+  const userData = [
+    { name: 'John Doe', email: 'john.doe@example.com' },
+    { name: 'Jane Smith', email: 'jane.smith@example.com' },
+    { name: 'Bob Johnson', email: 'bob.johnson@example.com' },
+  ];
 
-describe("searchFunction", () => {
-
-  it("should render search results if the item exists when search input is 3 or more characters", () => {
-    getSearchTermsListings.mockReturnValueOnce("abc");
-    searchFunction();
-    expect(getSearchTermsListings).toHaveBeenCalledWith(getListOfListings, "abc");
-    expect(renderListings).toHaveBeenCalledWith("abc");
+  it('should return an array of users that match the search term in their name', () => {
+    const result = getSearchTermsUsers(userData, 'doe');
+    expect(result).toEqual([
+      { name: 'John Doe', email: 'john.doe@example.com' },
+    ]);
   });
 
-  it("should display 'Something went wrong' when search input matches no listings", () => {
-    getSearchTermsListings.mockReturnValueOnce("def");
-    searchFunction();
-    expect(getSearchTermsListings).toHaveBeenCalledWith(getListOfListings, "def");
-    expect(listingNotFound).toHaveBeenCalledWith();
+  it('should return an array of users that match the search term in their email', () => {
+    const result = getSearchTermsUsers(userData, 'mith');
+    expect(result).toEqual([
+      { name: 'Jane Smith', email: 'jane.smith@example.com' },
+    ]);
+  });
+
+  it('should return an array of users that match the search term in both their name and email', () => {
+    const result = getSearchTermsUsers(userData, 'john');
+    expect(result).toEqual([
+      { name: 'John Doe', email: 'john.doe@example.com' },
+      { name: 'Bob Johnson', email: 'bob.johnson@example.com' },
+    ]);
+  });
+});
+
+describe('getSearchTermsListings', () => {
+  const listingData = [
+    { id: 1, name: 'Software Engineer', company: { name: 'Google' } },
+    { id: 2, name: 'Data Analyst', company: { name: 'Facebook' } },
+    { id: 3, name: 'Marketing Manager', company: { name: 'Amazon' } },
+  ];
+
+  it('should return an array of listings that match the search term in their job title', () => {
+    const result = getSearchTermsListings(listingData, 'engineer');
+    expect(result).toEqual([
+      { id: 1, name: 'Software Engineer', company: { name: 'Google' } },
+    ]);
+  });
+
+  it('should return an array of listings that match the search term in their company name', () => {
+    const result = getSearchTermsListings(listingData, 'google');
+    expect(result).toEqual([
+      { id: 1, name: 'Software Engineer', company: { name: 'Google' } },
+    ]);
+  });
+
+  it('should return an object that match the searched ID', () => {
+    const result = getSearchTermsListings(listingData, '1');
+    expect(result).toEqual([{ id: 1, name: 'Software Engineer', company: { name: 'Google' } }]);
   });
 });
