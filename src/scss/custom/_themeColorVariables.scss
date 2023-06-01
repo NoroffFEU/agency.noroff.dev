@@ -7,6 +7,7 @@ $theme-Success: #08f3b0;
 $theme-Light: #f8f8f8;
 $theme-Grey: #e6e6e6;
 $theme-Dark: #212931;
+$theme-black: #000000;
 
 // Updated theme colors - by Jonas Hope (warrior gallop)
 
@@ -32,6 +33,7 @@ $custom-colors: (
   'theme-dark': $theme-Dark,
   'theme-new-light': $theme-new-light,
   'theme-new-grey': $theme-new-grey,
+  'theme-black': $theme-black,
 );
 
 $theme-colors: (
