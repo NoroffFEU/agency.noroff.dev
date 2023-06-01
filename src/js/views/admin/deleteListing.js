@@ -20,7 +20,6 @@ export function setDeleteListingListener(id) {
 
     document.addEventListener("click", (event) => {
         const btnPath = event.path[1].classList[2];
-        console.log(btnPath)
         if(btnPath === (`btn${id}`)) {
             if(confirm(`Are you sure you want to delete this listing?`) === true) {
                 deleteItem(deleteUrl);
