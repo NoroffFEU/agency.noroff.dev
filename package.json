@@ -33,7 +33,8 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
-    "jsdoc": "^4.0.0"
+    "jsdoc": "^4.0.0",
+    "run": "^1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
