@@ -1,0 +1,16 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+
+$input-border-radius: 0.625rem;
+
+input[type='text'],
+input[type='password'] {
+  border-radius: $input-border-radius !important;
+}
+
+$input-border-color: #cbcbcb;
+$input-bg: #ffffff;
+
+$input-colors: (
+  'input-border-color': $input-border-color,
+  'input-bg': $input-bg,
+);

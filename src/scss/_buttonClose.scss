@@ -1,0 +1,16 @@
+@import './custom/themeColorVariables';
+
+.button-close {
+  background-color: $theme-black !important;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+
+  &:hover {
+    background-color: $theme-Primary !important;
+  }
+}
