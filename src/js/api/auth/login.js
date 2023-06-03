@@ -33,11 +33,11 @@ const method = 'POST';
 const errorContainer = document.querySelector('#errorContainer');
 
 /**
- * Function for logging in an existing user in database by storing the returned token in localstorage
+ * Function for logging in an existing user in database by storing the returned token in session or localstorage
  * @param {object} profile Values from loginForm
  * @param {string} profile.email Email of the user
  * @param {string} profile.password Plain text password
- * @param {string} [profile.remember] If the user checkbox is checked it wil equal to the string 'on'
+ * @param {string} [profile.remember] If the user checkbox is checked it will equal to the string 'on'
  * @returns {void}
  */
 export async function login(profile) {
@@ -58,10 +58,10 @@ export async function login(profile) {
 
     switch (response.status) {
       case 200:
-        new Store('token', token);
-        new Store('profile', filteredProfile);
-        new Store('role', role);
-        new Store('email', email);
+        new Store('token', token, Boolean(remember !== 'on'));
+        new Store('profile', filteredProfile, Boolean(remember !== 'on'));
+        new Store('role', role, Boolean(remember !== 'on'));
+        new Store('email', email, false);
 
         if (profile.admin) {
           window.location.replace('#'); // TODO: Add admin page url
