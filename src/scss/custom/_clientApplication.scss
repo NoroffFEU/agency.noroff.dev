@@ -15,12 +15,6 @@ Version: 1.0.0
   background-repeat: no-repeat;
   background-size: cover;
   height: 80vh;
-
-  @media only screen and (max-width: 576px) {
-    .section h1.display-5 {
-      margin-left: 0;
-    }
-  }
 }
 // .customButton {
 //   width: 200px;
