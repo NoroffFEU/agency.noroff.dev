@@ -1,4 +1,3 @@
-
 @import '../../../node_modules/bootstrap/scss/functions';
 
 /*
@@ -15,6 +14,13 @@ Version: 1.0.0
   background-repeat: no-repeat;
   background-size: cover;
   height: 80vh;
+  
+
+    @media only screen and (max-width: 767px) {
+      .section1 h1.display-5 {
+        font-size: 2em;
+      }
+    }
 }
 // .customButton {
 //   width: 200px;
@@ -48,7 +54,6 @@ Version: 1.0.0
 //Page: Client->Application->Index.html
 //Version: 1.0.0
 
-
 .clientAplication {
   max-width: 30rem;
 }
@@ -56,4 +61,3 @@ Version: 1.0.0
 .clientAplication .card-img-top {
   height: 20em;
 }
-
