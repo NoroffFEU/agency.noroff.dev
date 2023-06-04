@@ -40,8 +40,6 @@ export async function createListing() {
         // redirect?
         modalBody.innerHTML = `<img src="/src/assets/icons/checkmark.svg" alt="" />
         <h3>Success</h3>`;
-
-        window.location.href = '../../../../pages/listings/listing/index.html';
       } else {
         alert('Something went wrong');
       }
