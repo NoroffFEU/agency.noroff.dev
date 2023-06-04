@@ -24,8 +24,8 @@
   <body id="signIn">
     <header></header>
 
-    <main class="bg-theme-grey">
-      <div class="bg-theme-light shadow-lg mx-auto p-3 py-4 maxWidthContainer rounded-1 mt-5">
+    <main class="px-3 bg-theme-dark">
+      <div class="bg-theme-light shadow-lg mx-auto p-3 py-5 maxWidthContainer rounded-1 mt-5">
         <!-- login form -->
         <!-- 
           {
@@ -37,13 +37,13 @@
           <h1>Sign in</h1>
           <!-- Email input -->
           <div class="mb-3">
-            <label for="email" class="form-label mb-0">E-mail</label>
-            <input data-auth="login" type="text" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="email" name="email" required title="Must be a valid email" />
+            <label for="email" class="form-label mb-2">E-mail</label>
+            <input data-auth="login" type="text" class="form-control p-3" id="email" name="email" required title="Must be a valid email" />
           </div>
           <!-- Password input -->
           <div class="mb-3">
-            <label for="email" class="form-label mb-0">Password</label>
-            <input data-auth="login" type="password" class="form-control p-3 border-theme-dark rounded-0 bg-theme-grey" id="password" name="password" required minlength="5" maxlength="20" title="Password must be minimum 5 characters long" />
+            <label for="email" class="form-label mb-2">Password</label>
+            <input data-auth="login" type="password" class="form-control p-3" id="password" name="password" required minlength="5" maxlength="20" title="Password must be minimum 5 characters long" />
           </div>
           <!-- Error Container for UX -->
           <div id="errorContainer" class="text-theme-primary text-center"></div>
@@ -51,7 +51,9 @@
           <!-- Remember me form check -->
           <div class="form-check">
             <!-- See comment at top -->
+
             <input class="form-check-input border-theme-dark rounded-0 bg-theme-dark border-theme-dark" type="checkbox" name="remember" id="rememberMe" checked />
+
 
             <label class="form-check-label" for="rememberMe">Remember me</label>
           </div>
@@ -61,9 +63,9 @@
           </div>
           <!-- links -->
           <div class="text-center my-2 text-dark">Don't have a user?</div>
-          <div class="d-flex justify-content-center">
-            <a class="text-dark px-2 ps-6" href="/pages/auth/register/applicant/index.html">Register for applicants</a>
-            <a class="text-dark px-2 fs-6" href="/pages/auth/register/company/index.html">Register for companies</a>
+          <div class="d-flex flex-column flex-md-row justify-content-center text-center">
+            <a class="text-dark px-3 ps-6" href="/pages/auth/register/applicant/index.html">Register for applicants</a>
+            <a class="text-dark px-3 fs-6" href="/pages/auth/register/company/index.html">Register for companies</a>
           </div>
         </form>
       </div>

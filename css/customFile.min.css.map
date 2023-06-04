@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/scss/custom/customFile.scss"],"names":[],"mappings":"AACA,MACI,UAAA,CAGF,SACE,UAAA,CAGF,OACE,iBAAA","file":"customFile.min.css","sourcesContent":["//This is for search bar on listingspage\n.icon {\n    width: 50px;\n  }\n  \n  .icon-sm {\n    width: 25px;\n  }\n  \n  .ms-n5 {\n    margin-left: -40px;\n  }"]}

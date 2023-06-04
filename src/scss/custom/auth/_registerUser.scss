@@ -1,0 +1,24 @@
+@import '../themeColorVariables';
+
+$registerImg: 200px;
+$registerImg-size-small: 120px;
+
+.registerImg {
+  width: $registerImg;
+  height: $registerImg;
+  border: 1px solid $theme-black;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (max-width: 576px) {
+    width: $registerImg-size-small;
+    height: $registerImg-size-small;
+  }
+}
+
+#showMore {
+  &:hover {
+    background-color: $theme-Grey;
+  }
+}
