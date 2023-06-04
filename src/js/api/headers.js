@@ -1,5 +1,7 @@
+import { getToken } from './getToken';
+
 export const headers = (contentType) => {
-  const token = localStorage.getItem('token');
+  const token = getToken();
   const headers = {};
 
   if (contentType) {

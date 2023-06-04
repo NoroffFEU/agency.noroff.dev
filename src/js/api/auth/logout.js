@@ -1,17 +1,22 @@
 import { Store } from '../../storage/storage.js';
-
-/** To remove the token from local storage using the provided Store class,
- we would first need to create an instance of the class, passing in the required key and state parameters.
- For example, I am assuming the token is stored under the key 'token':
-*/
 /**
- * Removes token and profile from local storage
+ * I removed the use of the Store class from the logout function because the token can now be stored in either local storage or session storage.
+ * Joakim Tveter - joakimtveter
+ */
+
+/**
+ * Removes token, profile and role from local storage or session storage.
+ * It levaes the email in the local storage for prefilling of the login form.
+ * @return {void}
  */
 
 export const logout = function () {
-  new Store('token').clear();
-  new Store('profile').clear();
-  new Store('role').clear();
+  localStorage.removeItem('token');
+  sessionStorage.removeItem('token');
+  sessionStorage.removeItem('profile');
+  localStorage.removeItem('profile');
+  sessionStorage.removeItem('role');
+  localStorage.removeItem('role');
 
   window.location.replace('/');
 };
