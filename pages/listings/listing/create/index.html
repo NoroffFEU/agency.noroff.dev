@@ -25,11 +25,11 @@
             <div class="m-4 mt-5">
               <div class="form mb-3">
                 <label for="createTitle">Job Title/Position</label>
-                <input class="form-control bg-theme-light" style="border-radius: 0px" type="text" name="title" id="createTitle" data-auth="createFormTitle" required />
+                <input class="form-control bg-theme-light" style="border-radius: 0px" type="text" name="title" id="createTitle" data-auth="createFormTitle" required minlength="3" max="20" />
               </div>
               <div class="form mb-3">
                 <label for="location">Location</label>
-                <input class="form-control bg-theme-light" style="border-radius: 0px" type="text" name="location" id="createLocation" data-auth="createFormLocation" required />
+                <input class="form-control bg-theme-light" style="border-radius: 0px" type="text" name="location" id="createLocation" data-auth="createFormLocation" required minlength="3" maxlength="20" />
               </div>
               <div class="form mb-3">
                 <label for="deadline">Application Deadline</label>
@@ -45,14 +45,24 @@
               </div>
             </div>
             <div class="ms-4 mb-4">
-              <button class="btn btn-theme-secondary ps-4 pe-4 me-4" style="border-radius: 0px; width: 250px" type="submit" data-auth="createFormSubmitButton">CREATE NEW LISTING</button>
+              <button id="createListingBtn" class="btn btn-theme-secondary ps-4 pe-4 me-4" style="border-radius: 0px; width: 250px" type="submit" data-auth="createFormSubmitButton" data-bs-toggle="modal" data-bs-target="#createModal">CREATE NEW LISTING</button>
             </div>
           </form>
+        </div>
+        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content text-center">
+              <div class="modal-body">
+                <!-- <img src="/src/assets/icons/cancel.svg" alt="" />
+                <h3>Woops! Please try again.</h3> -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
     <footer></footer>
-    <script src="/index.js" type="module"></script>
+    <!-- <script src="/index.js" type="module"></script> -->
     <!-- Temporary script to call createListing function -->
     <script src="/src/js/listeners/post/index.js" type="module"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
