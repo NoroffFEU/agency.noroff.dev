@@ -27,10 +27,10 @@ export async function renderListings() {
                  style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;"
                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque tempore harum, fugiat laudantium optio eveniet quae deleniti iste.</p>
              </div>
-             <div class="d-flex align-items-end mx-3 my-3" style="font-size: .75rem">
-               <span>(4) Applications</span>
+             <div class="d-flex align-items-end gap-1 mx-3 my-3" style="font-size: .75rem">
+               <span class="text-nowrap">(4) Applications</span>
                <span>dd.mm.yy</span>
-               <a href="#" class="btn bg-theme-primary py-1">View</a>
+               <a href="#" class="bg-theme-primary text-theme-light py-1 px-3 text-decoration-none" style="font-size: 1rem">View</a>
              </div>
            </div>
          </div>
