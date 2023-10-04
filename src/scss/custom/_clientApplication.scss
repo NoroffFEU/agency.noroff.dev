@@ -21,6 +21,13 @@ Version: 1.0.0
       .section1 h1.display-5 {
         font-size: 2em;
       }
+
+      h1 {
+        // background-color: $theme-Dark;
+        background-color: rgba(42, 47, 52, 0.5);
+        margin: 0 !important;
+      }
+
     }
 }
 // .customButton {
