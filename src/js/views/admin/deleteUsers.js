@@ -23,6 +23,8 @@ export async function deleteUser(url, data) {
   }
 }
 
+/*
+//-------- Commented out for now, This file needs work. ----------//
 setTimeout(() => {
   const btnDelete = document.querySelector('#deleteUserBtn');
   console.log(btnDelete);

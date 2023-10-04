@@ -47,7 +47,7 @@ export function showListings() {
       </tr> 
         `;
 
-        setDeleteListingListener(jobId); 
+        //setDeleteListingListener(jobId); Comment out, needs work before using.
       }
     } catch (error) {
       console.log(error);
