@@ -81,11 +81,11 @@ export function createListing() {
 
     if (results.title.length >= 3 && results.location.length >= 3 && deadline > currentTime) {
       console.log(title.length, location.length);
-      modalText = `<img src="/src/assets/icons/checkmark.svg" alt="" />
+      modalText = `<img src="/src/assets/icons/checkmark.svg" alt="" data-bs-dismiss="modal" aria-label="Close"/>
       <h3>Success</h3>`;
       return (modalBody.innerHTML = `${modalText}`);
     } else {
-      modalText = `<img src="/src/assets/icons/cancel.svg" alt="" />
+      modalText = `<img src="/src/assets/icons/cancel.svg" alt="" data-bs-dismiss="modal" aria-label="Close"/>
       <h3>Woops! Please try again.</h3>`;
       return (modalBody.innerHTML = `${modalText}`);
     }
