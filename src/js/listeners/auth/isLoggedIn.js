@@ -7,7 +7,7 @@ export function isUserLoggedIn() {
 
 const viewListingsButton = document.getElementById('viewListingsButton');
 
-viewListingsButton.addEventListener('click', function() {
+viewListingsButton?.addEventListener('click', function() {
     if (isUserLoggedIn()) {
         window.location.href = '/pages/listings/index.html'; 
     } else {
