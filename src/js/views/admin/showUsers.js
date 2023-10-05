@@ -2,6 +2,7 @@
 // Team: Elastic Meerkat
 
 import { getAllUsers } from "../../api/users/getAllUsers.js"
+import { addDeleteUserButtonEventListener } from "./deleteUsers.js"
 
 /**
  * Fetches and displays all users in the '#userProfile' container.
@@ -30,11 +31,8 @@ export async function showUsers() {
   });
   container.innerHTML = HTML
 
-  /*
-  //-------- Commented out for now, addDeleteUserButtonEventListener is not ready. ----------//
   users.forEach(user => {
     const userId = user.id
     addDeleteUserButtonEventListener(userId)
   })
-  */
 }
