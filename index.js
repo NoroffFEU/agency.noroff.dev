@@ -114,6 +114,13 @@ const routerSwitch = () => {
       postApplication();
       break;
 
+    // Single application UI settings
+    case 'singleApplicationPage':
+      //Title could be changed to applicants name
+      document.querySelector('title').innerText = defaultTitle + ` || Applicant`;
+      // singleApplicationTemplate();
+      break;
+
     // Terms Of Use UI settings
     case 'termsOfUse':
       document.querySelector('title').innerText = defaultTitle + ` || Terms Of Use`;
