@@ -44,7 +44,7 @@ const routerSwitch = () => {
       adminRouter();
       break;
 
-    // Single listing page UI
+    // Single listing page UI (PAGE DOESNT EXIST YET)
     case 'singleListing':
       document.querySelector('title').innerText = defaultTitle + ` || Listing`;
       viewSingleListing();
@@ -56,7 +56,14 @@ const routerSwitch = () => {
       renderListings();
       break;
 
+    // Listings UI settings
     case 'listings':
+      document.querySelector('title').innerText = defaultTitle + ` || Job Listings`;
+      showListings();
+      break;
+
+    // TBD Listings UI settings
+    case 'listingsPage':
       document.querySelector('title').innerText = defaultTitle + ` || Job Listings`;
       showListings();
       break;
@@ -137,7 +144,7 @@ const routerSwitch = () => {
       document.querySelector('title').innerText = defaultTitle + ` || Privacy Policy`;
       break;
 
-    // 404 UI settings
+    // 404 UI settings (PAGE DOESNT EXIST YET)
     case '404':
       document.querySelector('title').innerText = defaultTitle + ` || ` + '404';
       break;
