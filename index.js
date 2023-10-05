@@ -66,6 +66,7 @@ const routerSwitch = () => {
       editListingListener();
       break;
 
+    // Create listing UI settings
     case 'createListing':
       document.querySelector('title').innerText = defaultTitle + ` || createListing`;
       createListing();
