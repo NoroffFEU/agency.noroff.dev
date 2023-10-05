@@ -4,12 +4,14 @@ import { singleApplicationTemplate } from './src/js/templates/application/studen
 import { setLoginFormListener } from './src/js/listeners/auth/index.js';
 import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js'; // don´t need this
 import { renderListings } from './src/js/templates/listings/renderListings.js';
+import { editListingListener } from './src/js/listeners/post/editListings.js';
 import { profileRouter } from './src/js/listeners/profile/index.js';
 import { adminRouter } from './src/js/views/admin/adminRouter.js';
-
-
-import{setRegisterFormListenerApplicant} from './src/js/listeners/auth/index.js'; // for applicant
-import{setRegisterFormListenerCompany} from './src/js/listeners/auth/index.js'; // for company
+import { setRegisterFormListenerApplicant } from './src/js/listeners/auth/index.js'; // for applicant
+import { setRegisterFormListenerCompany } from './src/js/listeners/auth/index.js'; // for company
+import { createListing } from './src/js/listeners/post/createListing.js';
+import { postApplication } from './src/js/listeners/post/postApplication.js';
+import { showListings } from './src/js/views/admin/showListings.js';
 
 displayBaseLayout();
 
@@ -38,11 +40,11 @@ const routerSwitch = () => {
       break;
 
     case 'adminPage':
-      document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
+      document.querySelector('title').innerText = defaultTitle + ` || Adminpage`;
       adminRouter();
       break;
 
-    // Single listing page UI
+    // Single listing page UI (PAGE DOESNT EXIST YET)
     case 'singleListing':
       document.querySelector('title').innerText = defaultTitle + ` || Listing`;
       viewSingleListing();
@@ -50,45 +52,86 @@ const routerSwitch = () => {
 
     // Listing UI settings
     case 'listing':
-      document.querySelector('title').innerText = defaultTitle;
+      document.querySelector('title').innerText = defaultTitle + ` || Listings`;
       renderListings();
+      break;
+
+    // Listings UI settings
+    case 'listings':
+      document.querySelector('title').innerText = defaultTitle + ` || Job Listings`;
+      showListings();
+      break;
+
+    // TBD Listings UI settings
+    case 'listingsPage':
+      document.querySelector('title').innerText = defaultTitle + ` || Job Listings`;
+      showListings();
       break;
 
     // Sign in UI settings
     case 'signIn':
-      document.querySelector('title').innerText = defaultTitle;
+      document.querySelector('title').innerText = defaultTitle + ` || Sign In`;
       setLoginFormListener();
+      break;
+
+    // Edit listing UI settings
+    case 'editListing':
+      document.querySelector('title').innerText = defaultTitle + ` || editListing`;
+      editListingListener();
+      break;
+
+    // Create listing UI settings
+    case 'createListing':
+      document.querySelector('title').innerText = defaultTitle + ` || createListing`;
+      createListing();
       break;
 
     // Register user UI settings
     case 'registerUser':
-      document.querySelector('title').innerText = defaultTitle;
+      document.querySelector('title').innerText = defaultTitle + ` || Register User`;
       showRegFormListener();
       break;
 
+    // Register applicant UI settings
+    case 'registerPageApplicant':
+      document.querySelector('title').innerText = defaultTitle + ` || Register Applicant`;
+      setRegisterFormListenerApplicant();
+      break;
 
-      // Register applicant UI settings
-
-      case 'registerPageApplicant':
-        document.querySelector('title').innerText = defaultTitle;
-        setRegisterFormListenerApplicant()
-        break;
-
-      case 'registerPageCompany':
-          document.querySelector('title').innerText = defaultTitle;
-          setRegisterFormListenerCompany()
-          break;  
-
+    // Register company UI settings
+    case 'registerPageCompany':
+      document.querySelector('title').innerText = defaultTitle + ` || Register Company`;
+      setRegisterFormListenerCompany();
+      break;
 
     // Profile UI settings
     case 'profilePage':
-      document.querySelector('title').innerText = defaultTitle;
+      document.querySelector('title').innerText = defaultTitle + ` || Profile`;
       profileRouter();
       break;
 
     // Student offer UI settings
     case 'studentOffer':
       document.querySelector('title').innerText = defaultTitle + ` || Student Offer`;
+      break;
+
+    // Create offer UI settings
+    case 'offerPage':
+      document.querySelector('title').innerText = defaultTitle + ` || Create Offer`;
+      setCreateOfferListener();
+      break;
+
+    // Apply UI settings
+    case 'applyPage':
+      document.querySelector('title').innerText = defaultTitle + ` || Apply`;
+      postApplication();
+      break;
+
+    // Single application UI settings
+    case 'singleApplicationPage':
+      //Title could be changed to applicants name
+      document.querySelector('title').innerText = defaultTitle + ` || Applicant`;
+      singleApplicationTemplate();
       break;
 
     // Terms Of Use UI settings
@@ -101,17 +144,11 @@ const routerSwitch = () => {
       document.querySelector('title').innerText = defaultTitle + ` || Privacy Policy`;
       break;
 
-    // 404 UI settings
+    // 404 UI settings (PAGE DOESNT EXIST YET)
     case '404':
       document.querySelector('title').innerText = defaultTitle + ` || ` + '404';
       break;
     default:
   }
-  
-
-
-   
-
-
 };
 routerSwitch();
