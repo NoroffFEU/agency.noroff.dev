@@ -4,6 +4,7 @@ import { singleApplicationTemplate } from './src/js/templates/application/studen
 import { setLoginFormListener } from './src/js/listeners/auth/index.js';
 import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener.js'; // don´t need this
 import { renderListings } from './src/js/templates/listings/renderListings.js';
+import { editListingListener } from './src/js/listeners/post/editListings.js';
 import { profileRouter } from './src/js/listeners/profile/index.js';
 import { adminRouter } from './src/js/views/admin/adminRouter.js';
 import { setRegisterFormListenerApplicant } from './src/js/listeners/auth/index.js'; // for applicant
@@ -56,6 +57,12 @@ const routerSwitch = () => {
     case 'signIn':
       document.querySelector('title').innerText = defaultTitle + ` || Sign In`;
       setLoginFormListener();
+      break;
+
+    // Edit listing UI settings
+    case 'editListing':
+      document.querySelector('title').innerText = defaultTitle + ` || editListing`;
+      editListingListener();
       break;
 
     // Register user UI settings
