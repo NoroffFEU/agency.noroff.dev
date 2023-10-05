@@ -101,6 +101,12 @@ const routerSwitch = () => {
       document.querySelector('title').innerText = defaultTitle + ` || Student Offer`;
       break;
 
+    // Create offer UI settings
+    case 'offerPage':
+      document.querySelector('title').innerText = defaultTitle + ` || Create Offer`;
+      setCreateOfferListener();
+      break;
+
     // Terms Of Use UI settings
     case 'termsOfUse':
       document.querySelector('title').innerText = defaultTitle + ` || Terms Of Use`;
