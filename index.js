@@ -6,10 +6,8 @@ import { showRegFormListener } from './src/js/listeners/auth/showRegFormListener
 import { renderListings } from './src/js/templates/listings/renderListings.js';
 import { profileRouter } from './src/js/listeners/profile/index.js';
 import { adminRouter } from './src/js/views/admin/adminRouter.js';
-
-
-import{setRegisterFormListenerApplicant} from './src/js/listeners/auth/index.js'; // for applicant
-import{setRegisterFormListenerCompany} from './src/js/listeners/auth/index.js'; // for company
+import { setRegisterFormListenerApplicant } from './src/js/listeners/auth/index.js'; // for applicant
+import { setRegisterFormListenerCompany } from './src/js/listeners/auth/index.js'; // for company
 
 displayBaseLayout();
 
@@ -38,7 +36,7 @@ const routerSwitch = () => {
       break;
 
     case 'adminPage':
-      document.querySelector('title').innerText = defaultTitle + ` || Homepage`;
+      document.querySelector('title').innerText = defaultTitle + ` || Adminpage`;
       adminRouter();
       break;
 
@@ -50,39 +48,37 @@ const routerSwitch = () => {
 
     // Listing UI settings
     case 'listing':
-      document.querySelector('title').innerText = defaultTitle;
+      document.querySelector('title').innerText = defaultTitle + ` || Listings`;
       renderListings();
       break;
 
     // Sign in UI settings
     case 'signIn':
-      document.querySelector('title').innerText = defaultTitle;
+      document.querySelector('title').innerText = defaultTitle + ` || Sign In`;
       setLoginFormListener();
       break;
 
     // Register user UI settings
     case 'registerUser':
-      document.querySelector('title').innerText = defaultTitle;
+      document.querySelector('title').innerText = defaultTitle + ` || Register User`;
       showRegFormListener();
       break;
 
+    // Register applicant UI settings
+    case 'registerPageApplicant':
+      document.querySelector('title').innerText = defaultTitle + ` || Register Applicant`;
+      setRegisterFormListenerApplicant();
+      break;
 
-      // Register applicant UI settings
-
-      case 'registerPageApplicant':
-        document.querySelector('title').innerText = defaultTitle;
-        setRegisterFormListenerApplicant()
-        break;
-
-      case 'registerPageCompany':
-          document.querySelector('title').innerText = defaultTitle;
-          setRegisterFormListenerCompany()
-          break;  
-
+    // Register company UI settings
+    case 'registerPageCompany':
+      document.querySelector('title').innerText = defaultTitle + ` || Register Company`;
+      setRegisterFormListenerCompany();
+      break;
 
     // Profile UI settings
     case 'profilePage':
-      document.querySelector('title').innerText = defaultTitle;
+      document.querySelector('title').innerText = defaultTitle + ` || Profile`;
       profileRouter();
       break;
 
@@ -107,11 +103,5 @@ const routerSwitch = () => {
       break;
     default:
   }
-  
-
-
-   
-
-
 };
 routerSwitch();
