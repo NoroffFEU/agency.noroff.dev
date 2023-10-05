@@ -9,6 +9,7 @@ import { profileRouter } from './src/js/listeners/profile/index.js';
 import { adminRouter } from './src/js/views/admin/adminRouter.js';
 import { setRegisterFormListenerApplicant } from './src/js/listeners/auth/index.js'; // for applicant
 import { setRegisterFormListenerCompany } from './src/js/listeners/auth/index.js'; // for company
+import { createListing } from './src/js/listeners/post/createListing.js';
 
 displayBaseLayout();
 
@@ -63,6 +64,11 @@ const routerSwitch = () => {
     case 'editListing':
       document.querySelector('title').innerText = defaultTitle + ` || editListing`;
       editListingListener();
+      break;
+
+    case 'createListing':
+      document.querySelector('title').innerText = defaultTitle + ` || createListing`;
+      createListing();
       break;
 
     // Register user UI settings
