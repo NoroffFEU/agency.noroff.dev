@@ -33,7 +33,7 @@
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="fullName">Full Name*</label>
-            <input type="text" class="form-control" aria-label="Full name" id="fullName" required>
+            <input type="text" class="form-control" aria-label="Full name" id="fullName" required pattern="^[a-zA-Z]+( [a-zA-Z]+)+$" title="Full Name must only contain lowercase and uppercase letters. Example: John Johnson">
             <div class="error"></div>
           </div>
           <div class="col-md-6">
