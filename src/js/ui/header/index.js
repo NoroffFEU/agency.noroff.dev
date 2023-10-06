@@ -6,6 +6,10 @@
  *
  *
  */
+import{Store} from '../../storage/storage.js';
+
+const roleStore = new Store('Role', 'null');
+
 export const header = () => {
   const headerElement = document.querySelector('header');
   headerElement.classList.add('bg-theme-dark');
@@ -49,7 +53,7 @@ pageTitle.innerText = 'Standard';
  *
  */
 export const checkState = () => {
-  const role = localStorage.getItem('Role');
+  const role = roleStore.state;
   const navBarNav = document.getElementById('navbarNav');
   if (role == 'user') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">

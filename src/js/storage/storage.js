@@ -29,3 +29,14 @@ export class Store {
     this.storage.removeItem(this.key);
   }
 }
+
+// Create an instance of Store for localStorage
+const localStorageStore = new Store('myKey', { foo: 'bar' });
+
+// Set the state
+localStorageStore.state = { foo: 'baz' };
+
+// Get the state
+const currentState = localStorageStore.state;
+console.log(currentState); // { foo: 'baz' }
+
