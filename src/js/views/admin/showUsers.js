@@ -25,7 +25,7 @@ export async function showUsers() {
                     <th scope="row">${fullName}</th>
                     <td>${email}</td>
                     <td>
-                    <button class="btn btn-sm" id="deleteBtn${id}"><img src="/images/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+                    <button class="btn btn-sm" id="deleteBtn${id}"><img src="/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
                     </td>
                   </tr>`;
   });

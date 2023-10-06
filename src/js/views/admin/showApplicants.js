@@ -80,8 +80,8 @@ export async function applicantTemplate(applicantData) {
                       <p>${applicationTitle}</p>
                       <p class="fw-normal mb-4">${applicationText}</p>
                       <p>${applicantsName}</p>
-                      <a href="${applicationLink}" class="list-group-item fw-normal fst-italic"><img src="/images/icons/linkApplicant.svg" alt="Link icon" class="footerIcon me-3" /> ${applicationLink}</a>
-                      <a href="#" class="list-group-item fw-normal mt-2"><img src="/images/icons/download.svg" alt="File icon" class="footerIcon me-3" download/> ${applicationFile}</a>
+                      <a href="${applicationLink}" class="list-group-item fw-normal fst-italic"><img src="/assets/icons/linkApplicant.svg" alt="Link icon" class="footerIcon me-3" /> ${applicationLink}</a>
+                      <a href="#" class="list-group-item fw-normal mt-2"><img src="/assets/icons/download.svg" alt="File icon" class="footerIcon me-3" download/> ${applicationFile}</a>
                     </div>
                     <div class="modal-footer border-0 px-4 my-4 justify-content-start">
                       <button type="button" class="btn rounded-0">DELETE</button>
@@ -93,7 +93,7 @@ export async function applicantTemplate(applicantData) {
         <td class="company-name">${companyName}</td>
         <td class="applicant-id">#-${applicationId}</td>
         <td>
-            <button class="btn btn-sm applicant-delete-btn"><img src="/images/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+            <button class="btn btn-sm applicant-delete-btn"><img src="/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
         </td>
       </tr>
       `;
