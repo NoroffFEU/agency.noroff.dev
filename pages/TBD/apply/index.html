@@ -8,15 +8,18 @@
     <meta name="author" content="@ImBenni" />
     <meta name="team" content="Application" />
     <title>Application Form</title>
-    <link rel="stylesheet" href="/dist/css/index.css" />
+    <link href="/dist/css/index.css" rel="stylesheet">
+    <script src="/index.js" defer type="module"></script>
+    <!-- X-on top of the form -->
     <script src="https://kit.fontawesome.com/7894e946c2.js" crossorigin="anonymous"></script>
+  </head>
   </head>
   <body id="applyPage">
     <header></header>
     <main class="bg-theme-grey">
       <section class="container d-flex justify-content-center py-5">
         <div class="formMain bg-light p-3 p-md-5 col-12 col-lg-6 position-relative">
-          <!-- Text & X-button -->
+          <!-- Text & X-button. This button has no function yet -->
           <div class="formTop">
             <div class="d-flex justify-content-end">
               <button class="btn fa-solid fa-x p-0" id="btnClose"></button>
@@ -69,9 +72,7 @@
       </section>
     </main>
     <footer></footer>
-    <script src="/index.js" type="module"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/src/js/listeners/post/index.js" type="module"></script>
-    <!-- <script src="/src/js/api/posts/create.js" type="module"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
