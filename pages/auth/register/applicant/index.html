@@ -17,7 +17,7 @@
       <div class="container maxWidthContainer mb-3 mt-3 shadow bg-white p-3 rounded-1">
         <h1>Register For Applicant</h1>
          <!-- Register form -->
-        <form class="row g-3" id=registerForm-applicant">
+        <form class="row g-3" id="registerForm-applicant">
           <div class="d-flex justify-content-center mb-3">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-theme-new-grey registerImg"> <button
             type="button"
@@ -31,7 +31,7 @@
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="fullName">Full Name*</label>
-            <input type="text" class="form-control" aria-label="Full name" id="fullName" required>
+            <input type="text" class="form-control" aria-label="Full name" id="fullName" required pattern="^[a-zA-Z]+( [a-zA-Z]+)+$" title="Full Name must only contain lowercase and uppercase letters. Example: John Johnson">
             <div class="error"></div>
           </div>
           <div class="col-md-6">
