@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="d-flex justify-content-center">
-          <button id="editProfileBtn" class="mt-4 m-1 btn btn-theme-dark w-25 text-theme-light p-1 fs-4">EDIT PROFILE</button>
+          <button id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editProfileModal" class="mt-4 m-1 btn btn-theme-dark w-25 text-theme-light p-1 fs-4 rounded-0">EDIT PROFILE</button>
         </div>
 
         <!-- // Profile Details ends // -->
@@ -79,13 +79,13 @@
               <!-- Modal content -->
               <div class="modal-body">
                 <!-- // Student form starts here // -->
-                <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
+                <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm">
                   <!-- avatar input -->
                   <div class="mb-4 position-relative">
-                    <img type="button" id="avatarButton" class="imgSize img-fluid d-block mx-auto rounded-circle" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
+                    <img type="button" id="avatarButton" class="imgSize img-fluid d-block mx-auto rounded-circle w-25" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
                     <div class="position-absolute top-50 start-50 translate-middle d-block">
                       <label type="button" id="avatarLabel" for="avatarInput" class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Avatar</label>
-                      <input class="form-control text-center d-none" type="url" name="avatar" id="avatarInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
+                      <input class="form-control text-center" type="url" name="avatar" id="avatarInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
                     </div>
                   </div>
                   <!-- // Name and email input group -->
@@ -111,7 +111,7 @@
                     </div>
                   </div>
                   <!-- Add degree button -->
-                  <button type="button" id="degreesButton" class="btn btn-dark d-block mx-auto mt-2">Add degree</button>
+                  <button type="button" id="degreesButton" class="btn btn-dark d-block mx-auto mt-2 rounded-0">Add degree</button>
                   <!-- Container for additional degrees -->
                   <div class="mt-2" id="degreesContainer"></div>
                   <!-- student skills input -->
@@ -126,7 +126,7 @@
                   </div>
                   <!-- Submit button -->
                   <div class="d-grid">
-                    <button type="submit" class="btn btn-dark mt-2">Save changes</button>
+                    <button type="submit" class="btn btn-dark mt-2 rounded-0 mx-auto">Save changes</button>
                   </div>
                 </form>
                 <!-- // Student form ends // -->
