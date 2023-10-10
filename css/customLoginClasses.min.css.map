@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/scss/custom/auth/customLoginClasses.scss"],"names":[],"mappings":"AAAA,mBACE,eAAA","file":"customLoginClasses.min.css","sourcesContent":[".maxWidthContainer {\n  max-width: 754px;\n}\n\n/*\nAuthor: Truls Haakenstad - @Menubrea\nTeam: User\nPage: Profile\nVersion: 1.0.0\n*/\n"]}
