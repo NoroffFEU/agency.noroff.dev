@@ -79,8 +79,12 @@ export const checkState = () => {
   </ul>`);
   }
 
+  // The profile button on here is for development reasons
   if (role == 'null') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5 float-end">
+    <li class="nav-item">
+    <a class="nav-link text-white fw-semibold" href="/pages/user/index.html">Profile</a>
+  </li>
     <li class="nav-item">
     <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html">Listings</a>
     </li>
