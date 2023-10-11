@@ -1,11 +1,11 @@
 import { apiPath } from '../constants.js';
 
 const method = 'PUT';
-const action = '/user/';
+const action = 'users/';
 
 export async function editStudent(profile) {
   const { id } = profile;
-  const profileURL = apiPath + action + `/${id}`;
+  const profileURL = apiPath + action + `${id}`;
   const body = JSON.stringify(profile);
   const options = {
     method,

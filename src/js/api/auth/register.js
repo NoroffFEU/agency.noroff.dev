@@ -1,7 +1,7 @@
 import { apiUrl } from '../constants.js';
 
-const action = 'auth/register';
-const method = 'post';
+const action = 'users';
+const method = 'POST';
 
 export async function register(profile) {
   const registerURL = apiUrl + action;
@@ -12,6 +12,7 @@ export async function register(profile) {
         'Content-Type': 'application/json',
       },
       method,
+      mode: 'cors',
       body: JSON.stringify(profile),
     });
 

@@ -1,7 +1,7 @@
 import { apiUrl } from '../constants.js';
 
-const action = '/auth/register';
-const method = 'post';
+const action = 'company';
+const method = 'POST';
 
 export async function registerCompany(profile) {
   const registerURL = apiUrl + action;
