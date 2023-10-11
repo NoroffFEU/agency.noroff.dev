@@ -52,12 +52,12 @@ export const checkState = () => {
   const role = localStorage.getItem('Role');
   const navBarNav = document.getElementById('navbarNav');
   if (role == 'user') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
+    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html" id="navItems">Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
+      <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-outline-light text-white" href="#" id="signOut">Log out</a>
@@ -66,12 +66,12 @@ export const checkState = () => {
   }
 
   if (role == 'admin') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
+    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="#" id="navItems">Profile</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
+    <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
     <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
@@ -81,15 +81,15 @@ export const checkState = () => {
 
   // The profile button on here is for development reasons
   if (role == 'null') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5 float-end">
+    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
     <li class="nav-item">
-    <a class="nav-link text-white fw-semibold" href="/pages/user/index.html">Profile</a>
+    <a class="nav-link text-white fw-semibold" href="/pages/user/index.html" id="navItems">Profile</a>
   </li>
     <li class="nav-item">
-    <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html">Listings</a>
+    <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item my-auto">
-      <a class="btn btn-outline-light text-white rounded-0 py-1 px-4 fw-semibold" href="/pages/auth/login/index.html" id="signInUser">Log in</a>
+      <a class="btn btn-outline-light text-white rounded-0 py-1 px-4 fw-semibold" href="/pages/auth/login/index.html" id="navItems">Log in</a>
     </li>
     <li class="nav-item my-auto">
       <a class="btn btn-theme-secondary text-black rounded-0 py-1 px-4 fw-semibold" id="registerUser" href="/pages/auth/register/applicant/index.html">Register</a>
