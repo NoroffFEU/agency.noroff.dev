@@ -20,7 +20,7 @@ export function setRegisterFormListenerApplicant() {
         const profile = Object.fromEntries(formData.entries());
         const imageUrl = document.querySelector('#imageUrl').value;
         const data = { ...profile, imageUrl };
-        try {
+         try {
           // send it to Api
           await register(data);
         } catch (error) {
