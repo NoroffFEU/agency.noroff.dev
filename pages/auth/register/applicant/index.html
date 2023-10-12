@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Description -->
-    <meta name="description" content="This page lets users who are looking for work to register as Applicants on the website.">
+    <meta name="description" content="This page lets users who are looking for work to register as Applicants on the website." />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet" />
     <script src="/index.js" defer type="module"></script>
   </head>
   <body id="registerPageApplicant">
@@ -16,37 +16,29 @@
     <main class="px-3 bg-theme-dark">
       <div class="container maxWidthContainer mb-3 mt-3 shadow bg-white p-3 rounded-1">
         <h1>Register For Applicant</h1>
-         <!-- Register form -->
+        <!-- Register form -->
         <form class="row g-3" id="registerForm-applicant">
           <div class="d-flex justify-content-center mb-3">
-            <div class="d-flex justify-content-center align-items-center rounded-circle bg-theme-new-grey registerImg"> <button
-            type="button"
-            class="btn text-decoration-underline"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            >
-            Add image
-            </button>
-          </div>
+            <div class="d-flex justify-content-center align-items-center rounded-circle bg-theme-new-grey registerImg"><button type="button" class="btn text-decoration-underline" data-bs-toggle="modal" data-bs-target="#exampleModal">Add image</button></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="fullName">Full Name*</label>
-            <input type="text" class="form-control" aria-label="Full name" id="fullName" required pattern="^[a-zA-Z]+( [a-zA-Z]+)+$" title="Full Name must only contain lowercase and uppercase letters. Example: John Johnson">
+            <input type="text" class="form-control" aria-label="Full name" id="fullName" required pattern="^[a-zA-Z]+( [a-zA-Z]+)+$" title="Full Name must only contain lowercase and uppercase letters. Example: John Johnson" />
             <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="emailStudent">Email*</label>
-            <input type="email" class="form-control" aria-label="Email" id="emailStudent" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="The email value must be a valid stud.noroff.no or noroff.no email address." required>
+            <input type="email" class="form-control" aria-label="Email" id="emailStudent" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="The email value must be a valid stud.noroff.no or noroff.no email address." required />
             <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="passwordStudent">Password*</label>
-            <input type="password" class="form-control" aria-label="Password" id="passwordStudent" minlength="8" title="The password value must be at least 8 characters." required>
+            <input type="password" class="form-control" aria-label="Password" id="passwordStudent" minlength="8" title="The password value must be at least 8 characters." required />
             <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="repPasswordStud">Repeat password*</label>
-            <input type="password" class="form-control" aria-label="Repeat password" minlength="8" title="The password value must be at least 8 characters." id="repPasswordStud" required>
+            <input type="password" class="form-control" aria-label="Repeat password" minlength="8" title="The password value must be at least 8 characters." id="repPasswordStud" required />
             <div class="error"></div>
           </div>
           <div class="col-md-6">
@@ -80,89 +72,69 @@
             <!-- this field not clear in design -->
             <!-- <label for=""></label>
             <input type="text" class="form-control" aria-label="" id=""> -->
- 
-    
-        <div id="hiddenInput" class="collapse-horizontal collapse w-100 me-3">
-          <select class="form-select w-100 mt-4" aria-label="Default select example">
-              <option selected></option>
-              <option value="">Applied Machine Learning</option>
-              <option value="">Front-end Development</option>
-              <option value="">Back-end Development</option>
-              <option value="Full-stack Developer">Full-stack Developer</option>
-              <option value="">Data Analyst</option>
-              <option value="">UX/UI Design</option>
-              <option value="">Graphic Design</option>
-              <option value="">Music production</option>
-              <option value="">Film production</option>
-              <option value="">Digital marketing</option>
-              <option value="">Video marketing in social Media</option>
-              <option value="">3D art and game technology</option>
-              <option value="">Network and IT security</option>
-              <option value="">Network and System administration</option>
-              <option value="">Cyber security</option>
-              <option value="">Applied data science</option>
-              <option value="">Digital Forensics</option>
-              <option value="">Interactive Media - Animation</option>
-              <option value="">Interactive Media - Games</option>
-              <option value="">Modern project management</option>
-              <option value="">Other</option>
-            </select>
-        </div>
-        <button id="showMore" class="btn border-0" type="button" data-bs-toggle="collapse" data-bs-target="#hiddenInput"><img class="icon-sm" src="../../../../assets/icons/plus.svg" alt=""></button>
-        <div class="error"></div>
+
+            <div id="hiddenInput" class="collapse-horizontal collapse w-100 me-3">
+              <select class="form-select w-100 mt-4" aria-label="Default select example">
+                <option selected></option>
+                <option value="">Applied Machine Learning</option>
+                <option value="">Front-end Development</option>
+                <option value="">Back-end Development</option>
+                <option value="Full-stack Developer">Full-stack Developer</option>
+                <option value="">Data Analyst</option>
+                <option value="">UX/UI Design</option>
+                <option value="">Graphic Design</option>
+                <option value="">Music production</option>
+                <option value="">Film production</option>
+                <option value="">Digital marketing</option>
+                <option value="">Video marketing in social Media</option>
+                <option value="">3D art and game technology</option>
+                <option value="">Network and IT security</option>
+                <option value="">Network and System administration</option>
+                <option value="">Cyber security</option>
+                <option value="">Applied data science</option>
+                <option value="">Digital Forensics</option>
+                <option value="">Interactive Media - Animation</option>
+                <option value="">Interactive Media - Games</option>
+                <option value="">Modern project management</option>
+                <option value="">Other</option>
+              </select>
+            </div>
+            <button id="showMore" class="btn border-0" type="button" data-bs-toggle="collapse" data-bs-target="#hiddenInput"><img class="icon-sm" src="../../../../public/assets/icons/plus.svg" alt="" /></button>
+            <div class="error"></div>
           </div>
           <div class="d-grid gap-2 col-md-6 mx-auto">
             <button class="btn btn-theme-primary btn-lg text-light rounded-1 mt-3" type="submit">Register</button>
             <a href="../company/index.html" class="btn text-black align-self-center text-decoration-underline" id="companyReg">Not an applicant? Register as company instead!</a>
           </div>
         </form>
-        <!-- image modal -->        
-        <div
-              class="modal fade"
-              id="exampleModal"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <form class="modal-dialog " id="add-image">
-                <div class="modal-content d-flex">
-                   <button
-                      type="button"
-                      class="button-close align-self-end"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ><img class="icon" src="../../../../assets/icons/close.svg" alt=""></button>
-                  <div class="px-4 pb-4">
-                    <div class="modal-header border-0">
-                    <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">
-                      Add image
-                    </h1>
-                  </div>
-                  <div class="modal-body">
-                    <div class="mb-3">
-                      <label class="mb-2" for="imageUrl">Direct image url</label>
-                      <input
-                        type="url"
-                        class="form-control"
-                        id="imageUrl"
-                        name="avatar"
-                      />
-                    </div>
-                    <span>Generate a direct image url on <a class="link-theme-primary" href="https://postimages.org/">https://postimages.org/</a></span>
-                  </div>
-                  <div class="modal-footer border-0">
-                    <!-- There are styles for a background img ready for JS.-->
-                    <button class="btn btn-theme-primary btn-lg text-light rounded-1 w-100">Add image</button>
-                  </div>
-                  </div>
-                  
+        <!-- image modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <form class="modal-dialog" id="add-image">
+            <div class="modal-content d-flex">
+              <button type="button" class="button-close align-self-end" data-bs-dismiss="modal" aria-label="Close"><img class="icon" src="../../../../public/assets/icons/close.svg" alt="" /></button>
+              <div class="px-4 pb-4">
+                <div class="modal-header border-0">
+                  <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Add image</h1>
                 </div>
-              </form>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label class="mb-2" for="imageUrl">Direct image url</label>
+                    <input type="url" class="form-control" id="imageUrl" name="avatar" />
+                  </div>
+                  <span>Generate a direct image url on <a class="link-theme-primary" href="https://postimages.org/">https://postimages.org/</a></span>
+                </div>
+                <div class="modal-footer border-0">
+                  <!-- There are styles for a background img ready for JS.-->
+                  <button class="btn btn-theme-primary btn-lg text-light rounded-1 w-100">Add image</button>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
         <div id="confirm-message"></div>
       </div>
     </main>
     <footer></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
