@@ -36,16 +36,35 @@ export function showListings() {
         // jobId = Fetching the postalCode from the company to symbolize an fake-ID number.
         const jobId = listingData[i].company.address.postalCode;
 
-        fetchListings.innerHTML += `
-        <tr>
-        <th scope="row">${jobTitle}</th>
-        <td>${jobCompany}</td>
-        <td>#-${jobId}</td>
-        <td>
-        <button class="btn btn-sm btn${jobId}" id="deleteUserBtn"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
-        </td>
-      </tr> 
+        jobListings.innerHTML += `
+        <div class="card flex-row p-0 gap-4 w-auto">
+          <img src="https://via.placeholder.com/150 " alt="" class="" />
+          <div class="d-flex flex-column gap-2 me-3">
+            <h3>${jobCompany}</h3>
+            <p>${jobTitle}#-${jobId}</p>
+            <p>Some text from the company</p>
+            <div class="d-flex gap-2 align-content-center align-items-center">
+              <p>() Applications</p>
+              <p>Ends at:</p>
+              <button class="btn btn-info">View</button>
+              <button class="btn btn-sm btn${jobId}" id="deleteUserBtn">
+                <img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" />
+              </button>
+            </div>
+          </div>
+        </div>
         `;
+
+        //   fetchListings.innerHTML += `
+        //   <tr>
+        //   <th scope="row">${jobTitle}</th>
+        //   <td>${jobCompany}</td>
+        //   <td>#-${jobId}</td>
+        //   <td>
+        //   <button class="btn btn-sm btn${jobId}" id="deleteUserBtn"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+        //   </td>
+        // </tr>
+        //   `;
 
         //setDeleteListingListener(jobId); Comment out, needs work before using.
       }
