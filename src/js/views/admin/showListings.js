@@ -54,19 +54,6 @@ export function showListings() {
           </div>
         </div>
         `;
-
-        //   fetchListings.innerHTML += `
-        //   <tr>
-        //   <th scope="row">${jobTitle}</th>
-        //   <td>${jobCompany}</td>
-        //   <td>#-${jobId}</td>
-        //   <td>
-        //   <button class="btn btn-sm btn${jobId}" id="deleteUserBtn"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
-        //   </td>
-        // </tr>
-        //   `;
-
-        //setDeleteListingListener(jobId); Comment out, needs work before using.
       }
     } catch (error) {
       console.log(error);
