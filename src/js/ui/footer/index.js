@@ -12,9 +12,9 @@ export const footer = () => {
       <div class="col mb-5 mb-md-0" data-footer-col>
         <h4 class="text-white mb-3 fw-bold">For Companies</h4>
         <ul class="p-0 d-flex flex-column gap-1">
-        <li class="list-group-item"><a href="#" class="nav-link text-white" target="_blanc">About Noroff Jobs</a></li>
-        <li class="list-group-item"><a href="#" class="nav-link text-white" target="_blanc">Company User Guide</a></li>
-        <li class="list-group-item"><a href="#" class="nav-link text-white" target="_blanc">FAQ</a></li>
+        <li class="list-group-item"><a href="#" class="nav-link text-white" target="_blanc" id="navlink-footer-id">About Noroff Jobs</a></li>
+        <li class="list-group-item"><a href="#" class="nav-link text-white" target="_blanc" id="navlink-footer-id">Company User Guide</a></li>
+        <li class="list-group-item"><a href="#" class="nav-link text-white" target="_blanc" id="navlink-footer-id">FAQ</a></li>
         </ul>
       </div>
       <div class="col mb-5 mb-md-0" data-footer-col>
@@ -25,17 +25,17 @@ export const footer = () => {
           <li class="list-group-item text-white">4612 Kristiansand S</li>
         </ul>
         <div class="d-flex flex-column gap-1">
-          <a href="tel:38000000" class="nav-link text-white"><img src="/public/assets/icons/phone.svg" class="footerIcon"/> 38000000</a>
-          <a href="mailto:utdanning@noroff.no" class="nav-link text-white"><img src="/public/assets/icons/mail.svg" class="footerIcon"/> utdanning@noroff.no</a>
+          <a href="tel:38000000" class="nav-link text-white" id="navlink-footer-id"><img src="/public/assets/icons/phone.svg" class="footerIcon"/> 38000000</a>
+          <a href="mailto:utdanning@noroff.no" class="nav-link text-white" id="navlink-footer-id"><img src="/public/assets/icons/mail.svg" class="footerIcon" id="navlink-footer-id"/> utdanning@noroff.no</a>
         </div>
       </div>
       <div class="col" data-footer-col>
         <h4 class="text-white mb-3 fw-bold">Help</h4>
         <ul class="p-0 d-flex flex-column gap-1">
-       <li class="list-group-item"><a href="#" class="nav-link text-white">Customer Service</a></li>
-       <li class="list-group-item"><a href="/privacy_policy.html" class="nav-link text-white">Privacy Policy</a></li>
-       <li class="list-group-item"><a href="/terms_of_use.html" class="nav-link text-white">Terms of use</a></li>
-       <li class="list-group-item"><a href="#" class="nav-link text-white">Ad policies</a></li>
+       <li class="list-group-item"><a href="#" class="nav-link text-white" id="navlink-footer-id">Customer Service</a></li>
+       <li class="list-group-item"><a href="/privacy_policy.html" class="nav-link text-white" id="navlink-footer-id">Privacy Policy</a></li>
+       <li class="list-group-item"><a href="/terms_of_use.html" class="nav-link text-white" id="navlink-footer-id">Terms of use</a></li>
+       <li class="list-group-item"><a href="#" class="nav-link text-white" id="navlink-footer-id">Ad policies</a></li>
        </ul>
       </div>
     </div>
