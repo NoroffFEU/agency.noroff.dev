@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="d-flex justify-content-center">
-          <button id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editProfileModal" class="mt-4 m-1 btn btn-theme-dark w-25 text-theme-light p-1 fs-4 rounded-0">EDIT PROFILE</button>
+          <button id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editProfileModal" class="fw-semibold mt-4 m-1 btn btn-theme-dark w-25 text-theme-light p-1 fs-4 rounded-0">EDIT PROFILE</button>
         </div>
 
         <!-- // Profile Details ends // -->
@@ -89,34 +89,34 @@
                     </div>
                   </div>
                   <!-- // Name and email input group -->
-                  <div class="">
-                    <div class="mx-auto w-50 mb-2 col-md">
+                  <div class="w-50 mx-auto">
+                    <div class="mb-2 col-md">
                       <label for="nameStudent" class="form-label mb-0">Full Name*</label>
                       <input type="text" name="fullName" id="nameStudent" class="form-control" />
                     </div>
-                    <div class="mx-auto w-50 mb-2 col-md">
+                    <div class="mb-2 col-md">
                       <label for="emailStudent" class="form-label mb-0">E-mail*</label>
                       <input type="email" name="email" id="emailStudent" class="form-control" />
                     </div>
 
                     <!-- // Title and degree input group -->
 
-                    <div class="mx-auto w-50 mb-2 col-md">
+                    <div class="mb-2 col-md">
                       <label for="titleStudent" class="form-label mb-0">Title</label>
                       <input type="text" name="title" id="titleStudent" class="form-control" />
                     </div>
-                    <div class="w-50 mx-auto mb-2 col-md">
+                    <div class="mb-2 col-md">
                       <label for="degreeStudent" class="form-label mb-0">Degree(s)</label>
                       <div class="position-relative">
                         <input type="text" name="degree" id="degreeStudent" class="w-100 form-control" />
+                        <!-- Degree button -->
                         <svg id="degreesButton" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" role="button" class="position-absolute top-50 start-100 translate-middle-y ms-2 bi bi-plus-lg" viewBox="0 0 16 16">
                           <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                         </svg>
                       </div>
                     </div>
                   </div>
-                  <!-- Add degree button -->
-                  <!-- <button type="button" class="btn btn-dark d-block mx-auto mt-2 rounded-0">Add degree</button> -->
+
                   <!-- Container for additional degrees -->
                   <div class="mt-2" id="degreesContainer"></div>
                   <!-- student skills input -->
@@ -131,7 +131,7 @@
                   </div>
                   <!-- Submit button -->
                   <div class="d-grid">
-                    <button type="submit" class="btn btn-dark mt-2 rounded-0 mx-auto px-5">SAVE</button>
+                    <button type="submit" class="fw-semibold btn btn-dark mt-2 rounded-0 mx-auto px-5">SAVE</button>
                   </div>
                 </form>
                 <!-- // Student form ends // -->
