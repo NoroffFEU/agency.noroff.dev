@@ -42,12 +42,12 @@ export function showListings() {
         <td>${jobCompany}</td>
         <td>#-${jobId}</td>
         <td>
-        <button class="btn btn-sm btn${jobId}" id="deleteUserBtn"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+        <button class="btn btn-sm btn${jobId}" id="deleteUserBtn"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
         </td>
       </tr> 
         `;
 
-        setDeleteListingListener(jobId); 
+        //setDeleteListingListener(jobId); Comment out, needs work before using.
       }
     } catch (error) {
       console.log(error);
@@ -56,4 +56,3 @@ export function showListings() {
 
   getListings(userUrl);
 }
-

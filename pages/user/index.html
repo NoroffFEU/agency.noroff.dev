@@ -22,11 +22,10 @@
     <!-- Dev -->
     <meta name="author" content="@Menubrea" />
     <meta name="team" content="User" />
-    <!-- Links and scripts -->
-    <link rel="stylesheet" href="/dist/css/custom/profile/index.css" />
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="/index.js" type="module" defer></script>
     <title>Noroff Jobs</title>
+    <!-- Links and scripts -->
+    <link href="/css/index.css" rel="stylesheet" />
+    <script src="/index.js" defer type="module"></script>
   </head>
   <body id="profilePage" class="bg-theme-grey">
     <header>
@@ -38,20 +37,34 @@
         <div class="container-sm" id="profileContainer">
           <div>
             <img class="rounded-circle d-block mx-auto w-25" id="profileImage" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="" />
-            <h1 class="text-center mt-3 fw-bolder" id="profileName">Peter Parker</h1>
-            <p id="profileRole" class="text-center fs-2 fw-lighter">Front-End Developer</p>
+            <h1 class="text-center mt-3 fw-bold" id="profileName">Peter Parker</h1>
+            <p id="profileRole" class="text-center fw-bold fs-2">Front-End Developer</p>
           </div>
-          <div class="px-4 py-3 bg-theme-light shadow mx-auto rounded-4 my-3 maxWidthProfileContainer" id="skillsContainer">
-            <h2 class="fs-5" id="skillsHeader">Skills</h2>
-            <ul class="" id="skillsList">
+          <div class="px-4 py-3 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer" id="skillsContainer">
+            <h2 class="fs-2 fw-bold" id="skillsHeader">Skills</h2>
+            <ul class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6" id="skillsList">
               <!-- Array of skills goes here -->
+              <!-- Hard Coded Array of skills to try the style -->
+              <li class="me-5">HardCoded</li>
+              <li class="me-5">Testing Wrap</li>
+              <li class="me-5">HTML</li>
+              <li class="me-5">CSS</li>
+              <li class="me-5">javaScript</li>
+              <li class="me-5">SCSS</li>
+              <li class="me-5">Bootstrap</li>
+              <li class="me-5">React</li>
+              <li class="me-5">Wordpress</li>
             </ul>
           </div>
-          <div class="px-4 pt-3 pb-2 bg-theme-light my-2 shadow mx-auto rounded-4 my-3 maxWidthProfileContainer" id="descriptionContainer">
-            <h2 class="fs-5" id="descriptionHeader">About Me</h2>
+          <div class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 shadow mx-auto rounded-4 my-3 maxWidthProfileContainer" id="descriptionContainer">
+            <h2 class="fs-2 fw-bold" id="descriptionHeader">About Me</h2>
             <p id="descriptionBody">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi rem ullam inventore tenetur delectus animi dolorum sit sequi totam suscipit doloribus nemo fuga, quam vel? Alias, repellendus, at aut inventore, obcaecati ipsa tenetur incidunt illo exercitationem dolor porro odit facilis pariatur. Rerum quam consequuntur consequatur velit molestiae minus reiciendis?</p>
           </div>
         </div>
+        <div class="d-flex justify-content-center">
+          <button id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editProfileModal" class="mt-4 m-1 btn btn-theme-dark w-25 text-theme-light p-1 fs-4 rounded-0">EDIT PROFILE</button>
+        </div>
+
         <!-- // Profile Details ends // -->
 
         <!-- // Edit Profile Modal // -->
@@ -66,13 +79,13 @@
               <!-- Modal content -->
               <div class="modal-body">
                 <!-- // Student form starts here // -->
-                <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
+                <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm">
                   <!-- avatar input -->
                   <div class="mb-4 position-relative">
-                    <img type="button" id="avatarButton" class="imgSize img-fluid d-block mx-auto rounded-circle" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
+                    <img type="button" id="avatarButton" class="imgSize img-fluid d-block mx-auto rounded-circle w-25" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
                     <div class="position-absolute top-50 start-50 translate-middle d-block">
                       <label type="button" id="avatarLabel" for="avatarInput" class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Avatar</label>
-                      <input class="form-control text-center d-none" type="url" name="avatar" id="avatarInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
+                      <input class="form-control text-center" type="url" name="avatar" id="avatarInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
                     </div>
                   </div>
                   <!-- // Name and email input group -->
@@ -98,7 +111,7 @@
                     </div>
                   </div>
                   <!-- Add degree button -->
-                  <button type="button" id="degreesButton" class="btn btn-dark d-block mx-auto mt-2">Add degree</button>
+                  <button type="button" id="degreesButton" class="btn btn-dark d-block mx-auto mt-2 rounded-0">Add degree</button>
                   <!-- Container for additional degrees -->
                   <div class="mt-2" id="degreesContainer"></div>
                   <!-- student skills input -->
@@ -113,7 +126,7 @@
                   </div>
                   <!-- Submit button -->
                   <div class="d-grid">
-                    <button type="submit" class="btn btn-dark mt-2">Save changes</button>
+                    <button type="submit" class="btn btn-dark mt-2 rounded-0 mx-auto">Save changes</button>
                   </div>
                 </form>
                 <!-- // Student form ends // -->
@@ -237,5 +250,6 @@
     <footer>
       <!-- Footer -->
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>

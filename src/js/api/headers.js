@@ -1,4 +1,4 @@
-import { getToken } from './getToken';
+import { getToken } from './getToken.js';
 
 export const headers = (contentType) => {
   const token = getToken();

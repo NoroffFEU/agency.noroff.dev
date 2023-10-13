@@ -7,12 +7,10 @@
     <meta name="author" content="Linus_Aakerberg, Stian Kornbakk, @Menubrea" />
     <meta name="team" content=" FE_Offer  " />
     <!-- Description -->
-    <meta name="description" content="The Admin page provides an overview of the currently available users, listings, offers and applications.">
-    <!-- Links and scripts -->
-    <link rel="stylesheet" href="/dist/css/custom/admin/index.css" />
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="/index.js" type="module"></script>
+    <meta name="description" content="The Admin page provides an overview of the currently available users, listings, offers and applications." />
     <title>Noroff Jobs</title>
+    <link href="/css/index.css" rel="stylesheet" />
+    <script src="/index.js" defer type="module"></script>
   </head>
   <body id="adminPage" class="bg-theme-new-grey">
     <header></header>
@@ -46,10 +44,10 @@
                 <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
                   <div class="form-floating">
                     <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
-                    <label class="form-label py-1"><img src="/src/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                    <label class="form-label py-1"><img src="/public/assets/icons/search.svg" class="searchIcon ps-1" /></label>
                   </div>
                 </form>
-                <label class="d-flex justify-content-center ms-1"><img src="/src/assets/icons/sliders.svg" /></label>
+                <label class="d-flex justify-content-center ms-1"><img src="/public/assets/icons/sliders.svg" /></label>
               </div>
             </div>
             <!-- Users goes here -->
@@ -74,10 +72,10 @@
                 <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
                   <div class="form-floating">
                     <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
-                    <label class="form-label py-1"><img src="/src/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                    <label class="form-label py-1"><img src="/public/assets/icons/search.svg" class="searchIcon ps-1" /></label>
                   </div>
                 </form>
-                <label class="d-flex justify-content-center ms-1"><img src="/src/assets/icons/sliders.svg" /></label>
+                <label class="d-flex justify-content-center ms-1"><img src="/public/assets/icons/sliders.svg" /></label>
               </div>
             </div>
             <!-- Listings goes here -->
@@ -103,10 +101,10 @@
                 <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
                   <div class="form-floating">
                     <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
-                    <label class="form-label py-1"><img src="/src/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                    <label class="form-label py-1"><img src="/public/assets/icons/search.svg" class="searchIcon ps-1" /></label>
                   </div>
                 </form>
-                <label class="d-flex justify-content-center ms-1"><img src="/src/assets/icons/sliders.svg" /></label>
+                <label class="d-flex justify-content-center ms-1"><img src="/public/assets/icons/sliders.svg" /></label>
               </div>
             </div>
             <!-- Offers goes here -->
@@ -125,7 +123,7 @@
                   <td>Lenovo AS</td>
                   <td>#-123456</td>
                   <td>
-                    <button class="btn btn-sm"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+                    <button class="btn btn-sm"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
                   </td>
                 </tr>
                 <tr>
@@ -133,7 +131,7 @@
                   <td>Lenovo AS</td>
                   <td>#-457811</td>
                   <td>
-                    <button class="btn btn-sm"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+                    <button class="btn btn-sm"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
                   </td>
                 </tr>
                 <tr>
@@ -141,7 +139,7 @@
                   <td>Lenovo AS</td>
                   <td>#-457812</td>
                   <td>
-                    <button class="btn btn-sm"><img src="/src/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+                    <button class="btn btn-sm"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
                   </td>
                 </tr>
               </tbody>
@@ -155,10 +153,10 @@
                 <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
                   <div class="form-floating">
                     <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
-                    <label class="form-label py-1"><img src="/src/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                    <label class="form-label py-1"><img src="/public/assets/icons/search.svg" class="searchIcon ps-1" /></label>
                   </div>
                 </form>
-                <label class="d-flex justify-content-center ms-1"><img src="/src/assets/icons/sliders.svg" /></label>
+                <label class="d-flex justify-content-center ms-1"><img src="/public/assets/icons/sliders.svg" /></label>
               </div>
             </div>
             <!-- Applications goes here -->
@@ -181,5 +179,6 @@
       </div>
     </main>
     <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
