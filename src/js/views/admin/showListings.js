@@ -36,6 +36,7 @@ export function showListings() {
         // jobId = Fetching the postalCode from the company to symbolize an fake-ID number.
         const jobId = listingData[i].company.address.postalCode;
 
+        /* The styling of these elements are not consistent as the placeholders are to small to fit the information needed so a decition has to be made as to how big the listings should be */
         jobListings.innerHTML += `
         <div class="card flex-row p-0 gap-4 w-auto">
           <img src="https://via.placeholder.com/150 " alt="" class="" />
