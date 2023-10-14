@@ -13,7 +13,7 @@ export async function renderListings() {
   listingsContainer.innerHTML = '';
   listings.forEach((listing, number) => {
     listingsContainer.innerHTML += `
-       <div class="col-12 col-lg-6">
+       <div class="col-12 col-lg-6 my-2">
          <div class="row p-2 px-3 g-3 bg-theme-light m-0">
            <div class="m-0 px-0 col-3 d-flex flex-column justify-content-center">
              <img src="../../public/images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
