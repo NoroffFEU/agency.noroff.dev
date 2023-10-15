@@ -56,7 +56,12 @@ export const checkState = () => {
   if (role == 'user') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html" id="navItems">Profile</a>
+
+      <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html">Profile</a>
+
     </li>
     <li class="nav-item">
       <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
@@ -69,8 +74,11 @@ export const checkState = () => {
 
   if (role == 'admin') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
+
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="#" id="navItems">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
+    </li>
+      <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
     </li>
     <li class="nav-item">
     <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
@@ -84,8 +92,12 @@ export const checkState = () => {
   // The profile button on here is for development reasons
   if (role == 'null') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
+  
+
     <li class="nav-item">
-    <a class="nav-link text-white fw-semibold" href="/pages/user/index.html" id="navItems">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
+    </li>
+    <a class="nav-link text-white fw-semibold" href="/pages/user/index.html">Profile</a>
   </li>
     <li class="nav-item">
     <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
