@@ -1,7 +1,7 @@
 import { apiPath } from '../constants.js';
 
 const method = 'PUT';
-const action = '/user/';
+const action = 'users/';
 
 /**
  * This function sends a PUT request to the API to update the company profile 
@@ -13,7 +13,7 @@ const action = '/user/';
 
 export async function editStudent(profile) {
   const { id } = profile;
-  const profileURL = apiPath + action + `/${id}`;
+  const profileURL = apiPath + action + `${id}`;
   const body = JSON.stringify(profile);
   const options = {
     method,

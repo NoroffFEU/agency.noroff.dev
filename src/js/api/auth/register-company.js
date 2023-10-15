@@ -1,7 +1,7 @@
 import { apiUrl } from '../constants.js';
 
-const action = '/auth/register';
-const method = 'post';
+const action = 'company';
+const method = 'POST';
 
 /**
  * Register a company by sending a POST request to the API 
