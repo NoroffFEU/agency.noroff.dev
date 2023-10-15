@@ -6,19 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Description -->
     <meta name="description" content="This page lets companies who are looking for talent to register on the website." />
-    <!-- Links and scripts -->
-    <link rel="stylesheet" href="/dist/css/index.css" />
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/src/js/index.js" type="module" defer></script>
-    <script src="/index.js" type="module" defer></script>
     <title>Noroff Jobs</title>
+    <!-- Links and scripts -->
+    <link href="/css/index.css" rel="stylesheet">
+    <script src="/index.js" defer type="module"></script>
   </head>
   <body id="registerPageCompany">
     <header></header>
-    <main class="px-3 bg-theme-dark">
-      <div class="container maxWidthContainer mb-3 mt-3 shadow bg-white p-3 rounded-1">
-        <h1>Register for companies</h1>
-        <!-- Register form -->
+    <main class="px-sm-3 py-5 bg-theme-dark">
+      <div class="container maxWidthContainer my-3 shadow bg-white p-3 rounded-1 w-50" style="min-width: 300px;">
+        <h1 class="fw-bold">Register For companies</h1>
+         <!-- Register form -->
         <form class="row g-3" id="registerForm-company">
           <div class="d-flex justify-content-center mb-3">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-theme-new-grey registerImg"><button type="button" class="btn text-decoration-underline" data-bs-toggle="modal" data-bs-target="#exampleModal">Add image</button></div>
@@ -58,19 +56,43 @@
             <a href="../applicant/index.html" class="btn text-black align-self-center text-decoration-underline" id="companyReg">Not a company? Register as an applicant instead!</a>
           </div>
         </form>
-        <!-- image modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <form class="modal-dialog" id="add-image">
-            <div class="modal-content d-flex">
-              <button type="button" class="button-close align-self-end" data-bs-dismiss="modal" aria-label="Close"><img class="icon" src="../../../../src/assets/icons/close.svg" alt="" /></button>
-              <div class="px-4 pb-4">
-                <div class="modal-header border-0">
-                  <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Add image</h1>
-                </div>
-                <div class="modal-body">
-                  <div class="mb-3">
-                    <label class="mb-2" for="imageUrl">Direct image url</label>
-                    <input type="url" class="form-control" id="imageUrl" name="avatar" />
+        <!-- image modal -->        
+        <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <form class="modal-dialog " id="add-image">
+                <div class="modal-content d-flex">
+                   <button
+                      type="button"
+                      class="button-close align-self-end"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ><img class="icon" src="../../../../public/assets/icons/close.svg" alt=""></button>
+                  <div class="px-4 pb-4">
+                    <div class="modal-header border-0">
+                    <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">
+                      Add image
+                    </h1>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label class="mb-2" for="imageUrl">Direct image url</label>
+                      <input
+                        type="url"
+                        class="form-control"
+                        id="imageUrl"
+                        name="avatar"
+                      />
+                    </div>
+                    <span>Generate a direct image url on <a class="link-theme-primary" href="https://postimages.org/">https://postimages.org/</a></span>
+                  </div>
+                  <div class="modal-footer border-0">
+                    <!-- There are styles for a background img ready for JS.-->
+                    <button class="btn btn-theme-primary btn-lg text-light rounded-1 w-100">Add image</button>
+                  </div>
                   </div>
                   <span>Generate a direct image url on <a class="link-theme-primary" href="https://postimages.org/">https://postimages.org/</a></span>
                 </div>
@@ -86,5 +108,7 @@
       </div>
     </main>
     <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>

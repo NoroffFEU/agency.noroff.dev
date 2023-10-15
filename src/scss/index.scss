@@ -3,7 +3,7 @@
 @import './custom/typography';
 @import './custom/inputVariable';
 @import './custom/auth/registerUser';
-@import './buttonClose';
+@import './custom/buttonClose';
 
 // Header and footer
 @import './custom/header';
@@ -13,6 +13,15 @@
 @import './custom/customFile';
 @import './custom/createOffer';
 @import './custom/allListingPage';
+
+//Admin
+@import './custom/admin/index';
+
+//Auth 
+@import './custom/auth/index';
+
+//Profile
+@import './custom/profile/index';
 
 // Bootstrap from module
 @import '../../node_modules/bootstrap/scss/bootstrap';
