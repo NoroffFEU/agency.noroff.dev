@@ -11,25 +11,27 @@ export const header = () => {
   headerElement.classList.add('bg-theme-dark');
 
   return (headerElement.innerHTML = `<div class="container-fluid px-0 px-md-5">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary mx-0 mx-md-5 px-0 px-md-5 py-2">
-      <div class="mx-0 mx-md-5 px-0 px-md-3 container-fluid">
-        <a class="navbar-brand ms-5 me-0 p-0" href="/">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary mx-0 mx-md-5 px-0 px-md-5 py-2 shadow">
+    <div class="mx-0 mx-md-5 px-0 px-md-3 container-fluid">
+      <a class="navbar-brand ms-5 me-0 p-0" href="/">
         <div class="d-flex gap-2">
-          <img src="/assets/icons/noroff-logo.svg" class="Logo-noroff my-auto" style="width: 40px;height: 56px" />
+          <img src="/public/assets/icons/noroff-logo.svg" class="Logo-noroff my-auto" style="width: 40px;height: 56px" />
           <div class="d-flex flex-column">
-              <span class="company_name fs-4 fw-semibold text-white" style="height: 28px">Noroff</span>
-              <span class="company_branch fs-6 text-white">Job Agency</span>
+            <span class="company_name fs-4 fw-semibold text-white" style="height: 28px">Noroff</span>
+            <span class="company_branch fs-6 text-white">Job Agency</span>
           </div>
-          </div>
-      </a>
-        <button class="navbar-toggler shadow-none navbar-dark border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon navbar-dark"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
         </div>
+      </a>
+      <button class="navbar-toggler shadow-none navbar-dark border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon navbar-dark"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       </div>
-    </nav>
+    </div>
+  </nav>
 </div>`);
+
 };
 
 // For testing states
@@ -52,12 +54,12 @@ export const checkState = () => {
   const role = localStorage.getItem('Role');
   const navBarNav = document.getElementById('navbarNav');
   if (role == 'user') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
+    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html" id="navItems">Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
+      <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-outline-light text-white" href="#" id="signOut">Log out</a>
@@ -66,12 +68,12 @@ export const checkState = () => {
   }
 
   if (role == 'admin') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2">
+    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="#" id="navItems">Profile</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link text-white" href="/pages/listings/index.html">Listings</a>
+    <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
     <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
@@ -79,13 +81,17 @@ export const checkState = () => {
   </ul>`);
   }
 
+  // The profile button on here is for development reasons
   if (role == 'null') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5 float-end">
+    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
     <li class="nav-item">
-    <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html">Listings</a>
+    <a class="nav-link text-white fw-semibold" href="/pages/user/index.html" id="navItems">Profile</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item my-auto">
-      <a class="btn btn-outline-light text-white rounded-0 py-1 px-4 fw-semibold" href="/pages/auth/login/index.html" id="signInUser">Log in</a>
+      <a class="btn btn-outline-light text-white rounded-0 py-1 px-4 fw-semibold" href="/pages/auth/login/index.html" id="navItems">Log in</a>
     </li>
     <li class="nav-item my-auto">
       <a class="btn btn-theme-secondary text-black rounded-0 py-1 px-4 fw-semibold" id="registerUser" href="/pages/auth/register/applicant/index.html">Register</a>

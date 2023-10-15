@@ -1,0 +1,14 @@
+@import './customLoginClasses.scss';
+@import './registerUser';
+/*
+Author: Truls Haakenstad - @Menubrea
+Team: User
+Page: Profile
+Version: 1.0.0
+*/
+
+/* To future developers
+  There's almost no custom styling here, but I've still provided a local environment to avoid any sort of conflict with other developers. What's here should probably be removed and and added in a global scope instead once a more defined styling structure has been finalized for general page layout. 
+  
+  At that point the link also needs to be updated, as of right now it links the global properties into a local environment rather than the other way around to avoid conflict and issues
+*/
