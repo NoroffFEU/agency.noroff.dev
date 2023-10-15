@@ -1,10 +1,10 @@
-import { apiUrl } from '../constants.js';
+import { apiPath } from '../constants.js';
 
-const action = '/auth/register';
+const action = '/users';
 const method = 'post';
 
 export async function register(profile) {
-  const registerURL = apiUrl + action;
+  const registerURL = apiPath + action;
 
   try {
     const response = await fetch(registerURL, {

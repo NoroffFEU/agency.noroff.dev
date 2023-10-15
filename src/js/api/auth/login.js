@@ -1,6 +1,5 @@
 import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
-import { dummyApiUrl } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-Team: Frontend - User
@@ -29,7 +28,7 @@ import { dummyApiUrl } from '../constants.js';
    }
  */
 const action = 'users/login';
-const method = 'POST';
+/* const method = 'POST'; */
 const errorContainer = document.querySelector('#errorContainer');
 
 /**
@@ -42,20 +41,24 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  const loginURL = dummyApiUrl + 'auth/login';
-  const body = JSON.stringify(credentials);
+  
+  
+  const loginURL = 'https://cors.noroff.dev/' + apiPath + action;
+
+  const data = JSON.stringify(credentials);
+  
   const options = {
-    method,
-    body,
+    method : 'POST',
+    body: data,
     headers: {
-      'Content-Type': 'application/json;',
+      "Content-Type": "application/json"
     },
   };
 
   try {
     const response = await fetch(loginURL, options);
     const { token, role, email, ...filteredProfile } = await response.json();
-
+    
     switch (response.status) {
       case 200:
         new Store('token', token, Boolean(remember !== 'on'));
