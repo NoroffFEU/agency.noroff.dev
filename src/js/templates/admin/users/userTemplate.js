@@ -37,11 +37,11 @@ export function userTemplate(userData) {
   activeContainer.classList.add('mx-auto', 'd-none', 'd-lg-block', 'text-center', 'my-3', 'd-flex', 'align-self-center');
   const active = document.createElement('img');
   if (userData.isActive === true) {
-    active.src = '/assets/icons/checkmark.svg';
+    active.src = '/public/assets/icons/checkmark.svg';
     active.classList.add('activeIcon');
     activeContainer.appendChild(active);
   } else {
-    active.src = '/assets/icons/cancel.svg';
+    active.src = '/public/assets/icons/cancel.svg';
     active.classList.add('inActiveIcon');
     activeContainer.appendChild(active);
   }
@@ -49,7 +49,7 @@ export function userTemplate(userData) {
   const deleteProfileButton = document.createElement('button');
   deleteProfileButton.classList.add('mx-auto', 'text-center', 'my-3', 'border-0', 'p-0', 'bg-transparent');
   const deleteProfileIcon = document.createElement('img');
-  deleteProfileIcon.src = '/assets/icons/delete-black.svg';
+  deleteProfileIcon.src = '/public/assets/icons/delete-black.svg';
   deleteProfileIcon.classList.add('deleteIcon');
   deleteProfileButton.appendChild(deleteProfileIcon);
 
