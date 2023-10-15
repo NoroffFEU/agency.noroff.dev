@@ -1,3 +1,4 @@
+//import { data } from 'cypress/types/jquery/index.js';
 import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
 import { dummyApiUrl } from '../constants.js';
@@ -42,31 +43,42 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  const loginURL = dummyApiUrl + 'auth/login';
+  //const loginURL = dummyApiUrl + 'auth/login';
+  const loginURL = dummyApiUrl + action;
   const body = JSON.stringify(credentials);
   const options = {
     method,
     body,
     headers: {
-      'Content-Type': 'application/json;',
+      'Content-Type': 'application/json',
     },
   };
 
+  console.log('access:', options);
+
   try {
     const response = await fetch(loginURL, options);
-    const { token, role, email, ...filteredProfile } = await response.json();
 
+    console.log('Respons:', response);
+
+    const { token, role, email, id, ...filteredProfile } = await response.json();
+    // add  chck for id :
     switch (response.status) {
       case 200:
         new Store('token', token, Boolean(remember !== 'on'));
         new Store('profile', filteredProfile, Boolean(remember !== 'on'));
         new Store('role', role, Boolean(remember !== 'on'));
         new Store('email', email, false);
-
-        if (profile.admin) {
+        new Store('id', id, Boolean(remember !== 'on'));
+        // add  chck for id :
+        if (id === id) {
+          window.location.replace('/pages/user/index');
+        } else if (profile.admin) {
+          //window.location.replace(dummyApiUrl + '/pages/user/index.html');
           window.location.replace('#'); // TODO: Add admin page url
         } else {
           window.location.replace('/pages/user/index.html');
+          //window.location.replace(dummyApiUrl + 'pages/user/index.html');
         }
         break;
       case 403:
