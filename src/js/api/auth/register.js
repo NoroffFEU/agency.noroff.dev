@@ -1,7 +1,17 @@
 import { apiUrl } from '../constants.js';
 
-const action = '/auth/register';
-const method = 'post';
+const action = 'users';
+const method = 'POST';
+
+/**
+ * 
+ * @param {Object} profile - The profile data for the user to be registered.
+ * @param {string} profile.username - The username of the user.
+ * @param {string} profile.email - The email of the user.
+ * @param {string} profile.password - The password of the user. 
+ * @returns {Promise<Object>} A Promise that resolves with the registration result if successful.
+ * @throws {Error} Throws error if the registration request fails or returns error status.
+ */
 
 export async function register(profile) {
   const registerURL = apiUrl + action;
@@ -12,6 +22,7 @@ export async function register(profile) {
         'Content-Type': 'application/json',
       },
       method,
+      mode: 'cors',
       body: JSON.stringify(profile),
     });
 

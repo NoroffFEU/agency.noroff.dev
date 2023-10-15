@@ -1,4 +1,4 @@
-@import '../themeColorVariables';
+@import './themeColorVariables';
 
 $registerImg: 200px;
 $registerImg-size-small: 120px;
@@ -22,3 +22,7 @@ $registerImg-size-small: 120px;
     background-color: $theme-Grey;
   }
 }
+
+.maxWidthContainer {
+    max-width: 700px;
+  }
