@@ -1,7 +1,5 @@
-//import { data } from 'cypress/types/jquery/index.js';
 import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
-import { dummyApiUrl } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-Team: Frontend - User
@@ -43,8 +41,7 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  //const loginURL = dummyApiUrl + 'auth/login';
-  const loginURL = dummyApiUrl + action;
+  const loginURL = apiPath + action;
   const body = JSON.stringify(credentials);
   const options = {
     method,
@@ -74,11 +71,9 @@ export async function login(profile) {
         if (id === id) {
           window.location.replace('/pages/user/index');
         } else if (profile.admin) {
-          //window.location.replace(dummyApiUrl + '/pages/user/index.html');
           window.location.replace('#'); // TODO: Add admin page url
         } else {
           window.location.replace('/pages/user/index.html');
-          //window.location.replace(dummyApiUrl + 'pages/user/index.html');
         }
         break;
       case 403:

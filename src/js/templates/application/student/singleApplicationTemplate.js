@@ -1,11 +1,5 @@
-import {
-  authBaseFetchOpen
-} from "../../../api/apiBaseFetch.js";
-import {
-  dummyApiUrl,
-  dummyApiGetSingel
-} from '../../../api/constants.js'
-
+import { authBaseFetchOpen } from '../../../api/apiBaseFetch.js';
+import { apiPath, dummyApiGetSingel } from '../../../api/constants.js';
 
 /**
  * Creates the HTML for a single application
@@ -13,44 +7,23 @@ import {
  * @returns - The HTML for a single application
  */
 export async function singleApplicationTemplate() {
-
-  const url = dummyApiUrl + dummyApiGetSingel;
+  const url = apiPath + dummyApiGetSingel;
   const options = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(),
-  }
+  };
 
-  const req = await authBaseFetchOpen(url, options)
-  const res = await req.json()
-  const data = res
-  console.log(data)
+  const req = await authBaseFetchOpen(url, options);
+  const res = await req.json();
+  const data = res;
+  console.log(data);
 
+  const { media, title: listingTitle, jobTitle, companyName, location, listingCreated, deadline, applicantsCount, applicantsName, applicationCreated, email, address, phone, body: applicationText, link, file, id } = data;
 
-  const {
-    media,
-    title: listingTitle,
-    jobTitle,
-    companyName,
-    location,
-    listingCreated,
-    deadline,
-    applicantsCount,
-    applicantsName,
-    applicationCreated,
-    email,
-    address,
-    phone,
-    body: applicationText,
-    link,
-    file,
-    id
-  } = data;
-
-
-  const applicationData = document.getElementById('applicationData')
+  const applicationData = document.getElementById('applicationData');
 
   /// Element
   const modal = document.createElement('div');
@@ -131,7 +104,7 @@ export async function singleApplicationTemplate() {
   modalDialog.append(application);
   modal.append(modalDialog);
 
-  applicationData.append(body)
+  applicationData.append(body);
 
   return modal;
 }

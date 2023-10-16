@@ -1,4 +1,3 @@
-
 export const apiUrl = new URL('https://cors.noroff.dev/https://agency-api.noroff.dev/');
 
 export const apiPath = apiUrl.toString();
@@ -9,7 +8,7 @@ export const apiPath = apiUrl.toString();
    Docs for dummy API can be found here https://dummyjson.com/docs 
 */
 
-export const dummyApiUrl = 'https://dummyjson.com/'; // Base url
+//export const dummyApiUrl = 'https://dummyjson.com/'; // Base url
 
 export const dummyApiRegisterUser = 'users/add'; // It will simulate a POST request and will return the new created user with a new id
 export const dummyApiLogin = 'auth/login'; // user Login
