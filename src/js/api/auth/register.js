@@ -12,8 +12,8 @@ const method = 'POST';
  * @returns {Promise<Object>} A Promise that resolves with the registration result if successful.
  * @throws {Error} Throws error if the registration request fails or returns error status.
  */
-let data, error;
 export async function register(profile) {
+  let data, error;
   const registerURL = apiPath + action;
 
   const response = await fetch(registerURL, {
