@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Description -->
     <meta name="description" content="This page lets companies who are looking for talent to create and publish listings." />
-    <!-- Links and scripts -->
-    <link rel="stylesheet" href="/dist/css/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="create job listings" />
     <title>Noroff Jobs</title>
+    <!-- Links and scripts -->
+    <link href="/css/index.css" rel="stylesheet" />
+    <script src="/index.js" defer type="module"></script>
   </head>
   <body class="d-flex flex-column flex-fill min-vh-100 gap-4" id="createListing">
     <header></header>
@@ -17,6 +18,9 @@
       <div class="mt-5 mb-5" id="newListing" data-bs-backdrop="static" tabindex="-1">
         <div class="border">
           <!-- Waiting on API docs for validation requirements -->
+          <!-- To future developers:
+            Looking at the Figma board, this page should be converted into a modal on the Company profile page. 
+            We'll keep this code here for now, so you can easily copy/paste when ready -->
           <form class="m-2" id="createNewListing" data-auth="createForm">
             <div class="text-end">
               <button type="button" class="btn-close" style="border-radius: 0px" data-auth="createFormClose"></button>
@@ -53,7 +57,7 @@
           <div class="modal-dialog">
             <div class="modal-content text-center">
               <div class="modal-body">
-                <!-- <img src="/src/assets/icons/cancel.svg" alt="" />
+                <!-- <img src="/public/assets/icons/cancel.svg" alt="" />
                 <h3>Woops! Please try again.</h3> -->
               </div>
             </div>
@@ -62,9 +66,6 @@
       </div>
     </main>
     <footer></footer>
-    <!-- <script src="/index.js" type="module"></script> -->
-    <!-- Temporary script to call createListing function -->
-    <script src="/src/js/listeners/post/index.js" type="module"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>

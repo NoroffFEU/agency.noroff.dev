@@ -23,6 +23,7 @@ export function userDetailsTemplate(data) {
   const skillsList = document.querySelector('#skillsList');
   const descriptionHeader = document.querySelector('#descriptionHeader');
   const profileDescription = document.querySelector('#descriptionBody');
+  const profileEmail = document.querySelector('#profileEmail');
 
   renderProfileImage(data, profileImage);
   renderProfileName(data, profileName);
@@ -30,6 +31,7 @@ export function userDetailsTemplate(data) {
   renderProfileSkills(data, skillsList, skillContainer);
   renderDescriptionHeader(data, descriptionHeader);
   renderProfileDescription(data, profileDescription);
+  renderProfileEmail(data, profileEmail);
 }
 
 /**
@@ -52,6 +54,23 @@ export function renderProfileImage(data, element) {
 }
 
 /**
+ * Function for rendering profile email
+ * @param {*} data profile response
+ * @param {*} element container
+ * @returns returns html based on state
+ */
+export function renderProfileEmail(data, element) {
+  if (roleCompany) {
+    const { email } = data;
+    element.innerHTML = email;
+  } else {
+    const { email } = data;
+    element.innerHTML = email;
+  }
+  return element;
+}
+
+/**
  * Function to render profile name
  * @param {object} data
  * @param {element} element
@@ -59,11 +78,11 @@ export function renderProfileImage(data, element) {
  */
 export function renderProfileName(data, element) {
   if (roleCompany()) {
-    const { name } = data;
-    element.innerHTML = name;
+    const { firstName, lastName } = data;
+    element.innerHTML = firstName + ' ' + lastName;
   } else {
-    const { fullName } = data;
-    element.innerHTML = fullName;
+    const { firstName, lastName } = data;
+    element.innerHTML = firstName + ' ' + lastName;
   }
   return element;
 }
@@ -92,19 +111,22 @@ export function renderProfileRole(data, element) {
  * @param {element} element
  * @returns returns a list of skills to parent element.
  */
+// This needs to solved! The issue where the skills property in the users endpoint is a string and not an array.//
 export function renderProfileSkills(data, parent, element) {
   if (roleCompany()) {
     element.classList.add('d-none');
     return;
   } else {
     const { skills } = data;
-    skills.forEach(item, () => {
-      const renderSkill = document.createElement('li');
-      renderSkill.classList.add('fw-bolder', 'fs-6');
-      renderSkill.innerHTML = item;
+    if (Array.isArray(skills) && skills.length > 0) {
+      skills.forEach((item) => {
+        const renderSkill = document.createElement('li');
+        renderSkill.classList.add('fw-bolder', 'fs-6');
+        renderSkill.innerHTML = item.trim();
 
-      parent.append(renderSkill);
-    });
+        parent.append(renderSkill);
+      });
+    }
     return parent;
   }
 }

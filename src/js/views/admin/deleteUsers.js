@@ -1,48 +1,23 @@
-// Author: Linus Aakerberg
-// Team: FE-Offers
+// Author: Erlend Bergeng
+// Team: Elastic Meerkat
 
-const queryString = document.location.search;
-const params = new URLSearchParams(queryString);
-const id = params.get('id');
-
-// Import API url for fetch the data (dummy API for users data)
-import { dummyApiUrl } from '../../api/constants.js';
-
-export const deleteUserApi = dummyApiUrl + `users` + id;
-
-export async function deleteUser(url, data) {
-  try {
-    const reqOption = {
-      method: 'delete',
-    };
-    const response = await fetch(deleteUserApi, reqOption);
-
-    return await response.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-setTimeout(() => {
-  const btnDelete = document.querySelector('#deleteUserBtn');
-  console.log(btnDelete);
-  btnDelete.onclick = function () {
-    deleteUser();
-    window.location.replace('/pages/admin/offers/show-offers/index.html');
-  };
-}, 100);
+import { deleteUser } from '../../api/users/deleteUser.js';
 
 /**
- * This is a delete button that's will delete to post.
+ * Adds an event listener to a user delete button with a given ID.
+ * When the button is clicked, it prevents the default action and invokes the deleteUser function.
+ *
+ * @async
+ * @function
+ * @param {string|number} id - The unique identifier for the user.
+ * @example
+ * 
+ * addDeleteUserButtonEventListener(123); 
+ * // This will add an event listener to the button with id 'deleteBtn123'
  */
-/* btnDelete.onclick = function () {
-
-    setTimeout(() => {
-        const btnDelete = document.querySelector('#deleteUserBtn');
-        console.log(btnDelete);
-      }, 100);
-
-  deletePost(id);
-  deleteUser();
-  redirectDelete();
-}; */
+export async function addDeleteUserButtonEventListener(id) {
+  document.querySelector(`#deleteBtn${id}`).addEventListener("click", (event) => {
+    event.preventDefault();
+    deleteUser(id);
+  });
+};

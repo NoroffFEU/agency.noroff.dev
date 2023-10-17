@@ -28,7 +28,6 @@ import { apiPath } from '../constants.js';
    }
  */
 const action = 'users/login';
-/* const method = 'POST'; */
 const errorContainer = document.querySelector('#errorContainer');
 
 /**
@@ -41,32 +40,34 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  
-  
-  const loginURL = 'https://cors.noroff.dev/' + apiPath + action;
+  const loginURL = apiPath + action;
+  const body = JSON.stringify(credentials);
 
-  const data = JSON.stringify(credentials);
-  
   const options = {
-    method : 'POST',
-    body: data,
+    method: 'POST',
+    body,
     headers: {
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json',
     },
   };
 
+  console.log('access:', options);
+
   try {
     const response = await fetch(loginURL, options);
-    const { token, role, email, ...filteredProfile } = await response.json();
-    
+    const { token, role, email, id, ...filteredProfile } = await response.json();
+
     switch (response.status) {
       case 200:
         new Store('token', token, Boolean(remember !== 'on'));
         new Store('profile', filteredProfile, Boolean(remember !== 'on'));
         new Store('role', role, Boolean(remember !== 'on'));
         new Store('email', email, false);
-
-        if (profile.admin) {
+        new Store('id', id, Boolean(remember !== 'on'));
+        // add  chck for id :
+        if (id === id) { // spiderman.gif
+          window.location.replace('/pages/user/index');
+        } else if (profile.admin) {
           window.location.replace('#'); // TODO: Add admin page url
         } else {
           window.location.replace('/pages/user/index.html');
@@ -79,7 +80,7 @@ export async function login(profile) {
         throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch (error) {
-    errorContainer.innerHTML = 'Unknown error occured. Please try again later, if the problem persist contact customer support.';
+    errorContainer.innerHTML = 'Unknown error occurred. Please try again later, if the problem persist contact customer support.';
     console.error(error);
   }
 }
