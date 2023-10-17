@@ -1,7 +1,7 @@
 import { apiPath } from '../constants.js';
 
 const action = '/users';
-const method = 'post';
+const method = 'POST';
 
 /**
  * 
@@ -12,6 +12,7 @@ const method = 'post';
  * @returns {Promise<Object>} A Promise that resolves with the registration result if successful.
  * @throws {Error} Throws error if the registration request fails or returns error status.
  */
+let data, error;
 export async function register(profile) {
   const registerURL = apiPath + action;
 

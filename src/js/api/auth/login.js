@@ -28,6 +28,7 @@ import { apiPath } from '../constants.js';
    }
  */
 const action = 'users/login';
+const method = 'POST';
 const errorContainer = document.querySelector('#errorContainer');
 
 /**
@@ -44,7 +45,7 @@ export async function login(profile) {
   const body = JSON.stringify(credentials);
 
   const options = {
-    method: 'POST',
+    method,
     body,
     headers: {
       'Content-Type': 'application/json',
