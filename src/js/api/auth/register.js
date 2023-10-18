@@ -1,6 +1,6 @@
-import { apiUrl } from '../constants.js';
+import { apiPath } from '../constants.js';
 
-const action = 'users';
+const action = '/users';
 const method = 'POST';
 
 /**
@@ -12,38 +12,27 @@ const method = 'POST';
  * @returns {Promise<Object>} A Promise that resolves with the registration result if successful.
  * @throws {Error} Throws error if the registration request fails or returns error status.
  */
-
 export async function register(profile) {
   let data, error;
-  const registerURL = apiUrl + action;
-  try {
-    const response = await fetch(registerURL, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method,
-      mode: 'cors',
-      body: JSON.stringify(profile),
-    });
-    const json = await response.json();
-    
-    if (response.ok) {
-      data = json;
-    } else {
-      error = extractError(json);
-    }
-    /* switch (response.status) {
-      case 201:
-        const result = await response.json();
-        window.location.replace('/pages/auth/login/index.html');
-        return result;
-      default:
-        throw new Error(`${response.status} ${response.statusText}`);
-    } */
+  const registerURL = apiPath + action;
 
-  } catch (err) {
-    error = err.toString();
+  const response = await fetch(registerURL, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method,
+    mode: 'cors',
+    body: JSON.stringify(profile),
+  });
+
+  const json = await response.json();
+
+  if (response.ok) {
+    data = json;
+  } else {
+    error = extractError(json);
   }
+
   return { data, error };
 }
 

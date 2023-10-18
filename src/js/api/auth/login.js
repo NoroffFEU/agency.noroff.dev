@@ -1,7 +1,5 @@
-//import { data } from 'cypress/types/jquery/index.js';
 import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
-import { dummyApiUrl } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-Team: Frontend - User
@@ -43,9 +41,9 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  //const loginURL = dummyApiUrl + 'auth/login';
-  const loginURL = dummyApiUrl + action;
+  const loginURL = apiPath + action;
   const body = JSON.stringify(credentials);
+
   const options = {
     method,
     body,
@@ -58,11 +56,8 @@ export async function login(profile) {
 
   try {
     const response = await fetch(loginURL, options);
-
-    console.log('Respons:', response);
-
     const { token, role, email, id, ...filteredProfile } = await response.json();
-    // add  chck for id :
+
     switch (response.status) {
       case 200:
         new Store('token', token, Boolean(remember !== 'on'));
@@ -71,14 +66,12 @@ export async function login(profile) {
         new Store('email', email, false);
         new Store('id', id, Boolean(remember !== 'on'));
         // add  chck for id :
-        if (id === id) {
+        if (id === id) { // spiderman.gif
           window.location.replace('/pages/user/index');
         } else if (profile.admin) {
-          //window.location.replace(dummyApiUrl + '/pages/user/index.html');
           window.location.replace('#'); // TODO: Add admin page url
         } else {
           window.location.replace('/pages/user/index.html');
-          //window.location.replace(dummyApiUrl + 'pages/user/index.html');
         }
         break;
       case 403:
@@ -88,7 +81,7 @@ export async function login(profile) {
         throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch (error) {
-    errorContainer.innerHTML = 'Unknown error occured. Please try again later, if the problem persist contact customer support.';
+    errorContainer.innerHTML = 'Unknown error occurred. Please try again later, if the problem persist contact customer support.';
     console.error(error);
   }
 }
