@@ -4,7 +4,7 @@ import { headers } from '../../api/headers.js';
 import { dummyApiUrl } from '../../api/constants.js';
 
 // Import API url for fetch the data (userDetailsTemplate)
-import { userDetailsTemplate } from '../../templates/profile';
+import { userDetailsTemplate } from '../../templates/profile.js';
 
 export async function showUserDatails() {
   const userUrl = dummyApiUrl + `users/` + JSON.parse(localStorage.getItem('id'));
