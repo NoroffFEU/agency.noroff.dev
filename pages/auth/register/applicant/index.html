@@ -13,10 +13,10 @@
   </head>
   <body id="registerPageApplicant">
     <header></header>
-    <main class="px-3 bg-theme-dark">
-      <div class="container maxWidthContainer mb-3 mt-3 shadow bg-white p-3 rounded-1">
-        <h1>Register For Applicant</h1>
-        <!-- Register form -->
+    <main class="px-sm-3 py-5 bg-theme-dark">
+      <div class="container maxWidthContainer my-3 shadow bg-white p-3 rounded-1 w-50" style="min-width: 300px;">
+        <h1 class="fw-bold">Register For Applicant</h1>
+         <!-- Register form -->
         <form class="row g-3" id="registerForm-applicant">
           <div class="d-flex justify-content-center mb-3">
             <div class="d-flex justify-content-center align-items-center rounded-circle bg-theme-new-grey registerImg"><button type="button" class="btn text-decoration-underline" data-bs-toggle="modal" data-bs-target="#exampleModal">Add image</button></div>
@@ -28,12 +28,12 @@
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="emailStudent">Email*</label>
-            <input type="email" class="form-control" aria-label="Email" id="emailStudent" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="The email value must be a valid stud.noroff.no or noroff.no email address." required />
+            <input type="email" class="form-control" aria-label="Email" name="email" id="emailStudent" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="The email value must be a valid stud.noroff.no or noroff.no email address." required>
             <div class="error"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="passwordStudent">Password*</label>
-            <input type="password" class="form-control" aria-label="Password" id="passwordStudent" minlength="8" title="The password value must be at least 8 characters." required />
+            <input type="password" class="form-control" aria-label="Password" name="password" id="passwordStudent" minlength="8" title="The password value must be at least 8 characters." required>
             <div class="error"></div>
           </div>
           <div class="col-md-6">
