@@ -1,10 +1,10 @@
 // Author: Emilie Herrera Thomsen
 
-import { getListOfListings } from "../../api/posts/getListOfListings.js";
-import { searchListings } from "../../listeners/post/searchListing.js";
+import { getListOfListings } from '../../api/posts/getListOfListings.js';
+import { searchListings } from '../../listeners/post/searchListing.js';
 
 export async function renderListings() {
-    const listingsContainer = document.querySelector(".listingContainer");
+  const listingsContainer = document.querySelector('.listingContainer');
 
     const data = await getListOfListings();
     const listings = data.products;
@@ -35,8 +35,6 @@ export async function renderListings() {
            </div>
          </div>
        </div>
-       `                   
-    });
+       `;
+  });
 }
-
-
