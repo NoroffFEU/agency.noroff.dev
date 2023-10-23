@@ -2,9 +2,9 @@
 // Team: origin-bliss
 
 // Import API url to fetch the data (dummy API for users data)
-import { dummyApiUrl } from '../../api/constants.js';
+import { apiPath } from '../../api/constants.js';
 
-const userUrl = dummyApiUrl + `users`;
+const userUrl = apiPath + `users`;
 
 export async function showApplicants(url, data) {
   try {

@@ -4,14 +4,14 @@
 const fetchListings = document.querySelector('#jobListings');
 
 // Import API url for fetch the data (dummy API for users data)
-import { dummyApiUrl } from '../../api/constants.js';
+import { apiPath } from '../../api/constants.js';
 // import headers for the requestOption
 import { headers } from '../../api/headers.js';
 
 // import delete function
 import { setDeleteListingListener } from './deleteListing.js';
 
-const userUrl = dummyApiUrl + `users`;
+const userUrl = apiPath + `users`;
 
 export function showListings() {
   async function getListings(url, data) {
