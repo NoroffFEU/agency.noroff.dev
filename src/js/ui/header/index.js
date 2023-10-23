@@ -13,9 +13,9 @@ export const header = () => {
   headerElement.style.top = '0';
 
   return (headerElement.innerHTML = `<div class="container-fluid px-0 px-md-5">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary mx-0 mx-md-5 px-0 px-md-5 py-2 shadow">
-    <div class="mx-0 mx-md-5 px-0 px-md-3 container-fluid">
-      <a class="navbar-brand ms-5 me-0 p-0" href="/">
+  <nav class="navbar navbar-expand-lg mx-0 mx-md-5 px-0 px-md-5 py-2">
+      <div class="mx-0 mx-md-5 px-0 px-md-3 container-fluid">
+        <a class="navbar-brand ms-5 me-0 p-0" href="/">
         <div class="d-flex gap-2">
           <img src="/public/assets/icons/noroff-logo.svg" class="Logo-noroff my-auto" style="width: 40px;height: 56px" />
           <div class="d-flex flex-column">
