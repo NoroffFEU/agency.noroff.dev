@@ -2,7 +2,7 @@ export const footer = () => {
   const footerElement = document.querySelector('footer');
   footerElement.classList.add('bg-theme-dark', 'pt-5', 'p-2', 'mt-auto');
   footerElement.innerHTML = `<div class="container-fluid justify-content-center">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 justify-content-evenly">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 center-desktop">
      
       <div class="col mb-5 mb-md-0" data-footer-col>
         <h4 class="text-white mb-3 fw-bold">About Noroff Job Agency</h4>
