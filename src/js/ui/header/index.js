@@ -8,9 +8,7 @@
  */
 export const header = () => {
   const headerElement = document.querySelector('header');
-  headerElement.classList.add('bg-theme-dark');
-  headerElement.style.position = 'sticky';
-  headerElement.style.top = '0';
+  headerElement.classList.add('bg-theme-dark', 'sticky-top');
 
   return (headerElement.innerHTML = `<div class="container-fluid px-md-5">
   <nav class="navbar navbar-expand-lg mx-0 mx-md-5 px-0 px-md-5 py-2">
