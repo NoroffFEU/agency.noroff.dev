@@ -12,7 +12,7 @@ export const header = () => {
   headerElement.style.position = 'sticky';
   headerElement.style.top = '0';
 
-  return (headerElement.innerHTML = `<div class="container-fluid px-0 px-md-5">
+  return (headerElement.innerHTML = `<div class="container-fluid px-md-5">
   <nav class="navbar navbar-expand-lg mx-0 mx-md-5 px-0 px-md-5 py-2">
       <div class="mx-0 mx-md-5 px-0 px-md-3 container-fluid">
         <a class="navbar-brand ms-5 me-0 p-0" href="/">
@@ -33,7 +33,6 @@ export const header = () => {
     </div>
   </nav>
 </div>`);
-
 };
 
 // For testing states
