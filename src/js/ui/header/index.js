@@ -98,7 +98,7 @@ export const checkState = () => {
       <a class="nav-link text-white" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/user/index.html">Profile</a>
+      <a class="nav-link text-white fw-semibold" href="/pages/user/index.html" id="navItems">Profile</a>
     </li>
     <li class="nav-item">
     <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
@@ -107,7 +107,7 @@ export const checkState = () => {
       <a class="btn btn-outline-light text-white rounded-0 py-1 px-4 fw-semibold" href="/pages/auth/login/index.html" id="navItems">Log in</a>
     </li>
     <li class="nav-item my-auto">
-      <a class="btn btn-theme-secondary text-black rounded-0 py-1 px-4 fw-semibold" id="registerUser" href="/pages/auth/register/applicant/index.html">Register</a>
+      <a class="btn btn-theme-secondary text-black rounded-0 py-1 px-4 fw-semibold" id="registerUser" href="/pages/auth/register/applicant/index.html" >Register</a>
     </li>
   </ul>`);
   }
