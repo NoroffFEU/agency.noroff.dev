@@ -94,7 +94,7 @@ export const checkState = () => {
   
 
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html">Home</a>
     </li>
     <a class="nav-link text-white fw-semibold" href="/pages/user/index.html">Profile</a>
   </li>
