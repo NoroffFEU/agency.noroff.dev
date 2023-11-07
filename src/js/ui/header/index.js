@@ -56,17 +56,17 @@ export const checkState = () => {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
     <li class="nav-item">
 
-      <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
+      <a class="nav-link text-white" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="/pages/user/index.html" id="navItems">Profile</a>
 
     </li>
     <li class="nav-item">
       <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#" id="signOut">Log out</a>
+      <a class="btn btn-outline-light text-white" href="#" id="signOut navItems">Log out</a>
     </li>
   </ul>`);
   }
@@ -75,15 +75,16 @@ export const checkState = () => {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
+      <a class="nav-link text-white" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
-      <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
+    <li class="nav-item">
+      <a class="nav-link text-white" aria-current="page" href="#" id="navItems">Profile</a>
     </li>
     <li class="nav-item">
     <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
-    <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
+      <a class="btn btn-outline-light text-white" href="#" id="logOutUser navItems">Log out</a>
     </li>
   </ul>`);
   }
@@ -94,10 +95,11 @@ export const checkState = () => {
   
 
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
+      <a class="nav-link text-white" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
-    <a class="nav-link text-white fw-semibold" href="/pages/user/index.html">Profile</a>
-  </li>
+    <li class="nav-item">
+      <a class="nav-link text-white fw-semibold" href="/pages/user/index.html">Profile</a>
+    </li>
     <li class="nav-item">
     <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
