@@ -54,13 +54,12 @@ export const checkState = () => {
   const navBarNav = document.getElementById('navbarNav');
   if (role == 'user') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
-    <li class="nav-item">
 
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html">Home</a>
+    <li class="nav-item">
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/pages/user/index.html">Profile</a>
-
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/pages/user/index.html" id="navItems">Profile</a>
     </li>
     <li class="nav-item">
       <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
@@ -75,10 +74,10 @@ export const checkState = () => {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html">Home</a>
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="#">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="#" id="navItems">Profile</a>
     </li>
     <li class="nav-item">
       <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
@@ -95,10 +94,10 @@ export const checkState = () => {
   
 
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html">Home</a>
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/user/index.html">Profile</a>
+      <a class="nav-link text-white fw-semibold" href="/pages/user/index.html" id="navItems">Profile</a>
     </li>
     <li class="nav-item">
       <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
