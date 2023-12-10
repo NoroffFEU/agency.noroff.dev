@@ -6,8 +6,19 @@ Documentations: [Link](./documentation/)
 
 ## Installing and starting the project
 
-```md
+Installing
+```
 npm i
+```
+
+Build
+```
+npm run build
+```
+
+Run locally
+```
+npm run dev
 ```
 
 ## Dependencies
