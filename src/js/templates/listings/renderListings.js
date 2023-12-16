@@ -30,7 +30,7 @@ export async function renderListings() {
              <div class="d-flex flex-column flex-sm-row align-items-end justify-content-between w-100" style="font-size: .75rem">
                <span class="text-nowrap">(4) Applications</span>
                <span>dd.mm.yy</span>
-               <a href="#" class="bg-theme-primary text-theme-light px-3 text-decoration-none" style="font-size: 1rem">View</a>
+               <a href="#" class="bg-theme-primary text-theme-black px-3 text-decoration-none" style="font-size: 1rem">View</a>
              </div>
            </div>
          </div>
