@@ -1,12 +1,17 @@
-div[data-footer-col]{
-    max-width: 300px;
+div[data-footer-col] {
+  max-width: 300px;
 }
 
 .footerIcon {
-    width: 20px;
+  width: 20px;
 }
 
-#navlink-footer-id:hover{
-    color: black !important;
+#navlink-footer-id:hover {
+  color: black !important;
+}
 
+@media only screen and (min-width: 576px) {
+  .center-desktop {
+    justify-content: center;
+  }
 }
