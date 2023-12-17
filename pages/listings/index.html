@@ -17,7 +17,7 @@
     <header></header>
     <!--Main content on page-->
     <main class="bg-theme-new-grey shadow">
-      <div class="container w-75 d-flex flex-column gap-5 bg-theme-grey my-5 p-5">
+            <div class="container w-75 d-flex flex-column gap-5 bg-theme-grey my-5 p-5">
         <!--Top of listings container-->
         <section class="d-flex justify-content-center">
           <div class="mt-5">
@@ -28,10 +28,22 @@
                   <label for="searchListing"></label>
                   <input class="form-control" type="search" placeholder="Search Listings..." id="searchListing" data-search-listings />
                   <span class="input-group-append">
-                    <button class="btn ms-n5" type="button">
-                      <img src="/public/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
-                    </button>
-                  </span>
+                      <button class="btn ms-n5" type="button">
+                        <img src="/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
+                      </button>
+                    </span>
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">All</a></li>
+                    <li><a class="dropdown-item" href="#">Latest</a></li>
+                    <li><a class="dropdown-item" href="#">Last 14 days</a></li>
+                    <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                  </ul>
                 </div>
               </div>
               <div class="dropdown">
