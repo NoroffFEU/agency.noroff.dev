@@ -15,248 +15,285 @@
     -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Description -->
-    <meta name="description" content="the users profile page" />
-    <title>Noroff Jobs</title>
-    <!-- Links and scripts -->
-    <link href="/css/index.css" rel="stylesheet" />
-    <script defer src="/index.js" type="module"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </head>
-  <body id="profilePage" class="bg-theme-grey">
-    <header>
-      <!-- Header -->
-    </header>
-    <main class="container-sm my-5">
-      <div class="bg-theme-light shadow p-md-5 p-3 maxWidthLayout">
-        <!-- // Profile details goes here // -->
-        <div class="container-sm" id="profileContainer">
-          <div>
-            <img class="rounded-circle d-block mx-auto w-25" id="profileImage" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="" />
-            <h1 class="text-center mt-3 fw-bold" id="profileName">Peter Parker</h1>
-            <p id="profileRole" class="text-center fw-bold fs-2">Front-End Developer</p>
-            <p id="profileEmail" class="text-center fs-2 fw-lighter">profileEmail</p>
-          </div>
-          <div class="px-4 py-3 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75" id="skillsContainer">
-            <h2 class="fs-2 fw-bold" id="skillsHeader">Skills</h2>
-            <ul class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6" id="skillsList">
-              <!-- Array of skills goes here -->
-              <!-- Hard Coded Array of skills to try the style -->
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">HardCoded</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">Testing Wrap</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">HTML</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">CSS</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">javaScript</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">SCSS</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">Bootstrap</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">React</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">Wordpress</li>
-            </ul>
-          </div>
-          <div class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75" id="descriptionContainer">
-            <h2 class="fs-2 fw-bold" id="descriptionHeader">About Me</h2>
-            <p id="descriptionBody">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi rem ullam inventore tenetur delectus animi dolorum sit sequi totam suscipit doloribus nemo fuga, quam vel? Alias, repellendus, at aut inventore, obcaecati ipsa tenetur incidunt illo exercitationem dolor porro odit facilis pariatur. Rerum quam consequuntur consequatur velit molestiae minus reiciendis?</p>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Description -->
+  <meta name="description" content="the users profile page" />
+  <title>Noroff Jobs</title>
+  <!-- Links and scripts -->
+  <link href="/css/index.css" rel="stylesheet" />
+  <script defer src="/index.js" type="module"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</head>
+
+<body id="profilePage" class="bg-theme-grey">
+  <header>
+    <!-- Header -->
+  </header>
+  <main class="container-sm my-5">
+    <div class="bg-theme-light shadow p-md-5 p-3 maxWidthLayout">
+      <!-- // Profile details goes here // -->
+      <div class="container-sm" id="profileContainer">
+        <div>
+          <img class="rounded-circle d-block mx-auto w-25" id="profileImage"
+            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+            alt="Bearded man from a close side view" />
+          <h1 class="text-center mt-3 fw-bold" id="profileName">Peter Parker</h1>
+          <p id="profileRole" class="text-center fw-bold fs-2">Front-End Developer</p>
+          <p id="profileEmail" class="text-center fs-2 fw-lighter">profileEmail</p>
         </div>
-        <div class="d-flex justify-content-center">
-
-          <button id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editProfileModal" class="fw-semibold mt-4 m-1 btn btn-theme-dark w-25 text-theme-light p-1 fs-4 rounded-0">EDIT PROFILE</button>
-
+        <div class="px-4 py-3 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+          id="skillsContainer">
+          <h2 class="fs-2 fw-bold" id="skillsHeader">Skills</h2>
+          <ul class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6" id="skillsList">
+            <!-- Array of skills goes here -->
+            <!-- Hard Coded Array of skills to try the style -->
+            <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">HardCoded</li>
+            <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">Testing Wrap</li>
+            <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">HTML</li>
+            <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">CSS</li>
+            <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">javaScript</li>
+            <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">SCSS</li>
+            <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">Bootstrap</li>
+            <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">React</li>
+            <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">Wordpress</li>
+          </ul>
         </div>
-
-        <!-- // Profile Details ends // -->
-
-        <!-- // Edit Profile Modal // -->
-        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModal" aria-hidden="true">
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-              <!-- Modal header -->
-              <div class="modal-header">
-                <div>Edit Profile</div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <!-- Modal content -->
-              <div class="modal-body">
-                <!-- // Student form starts here // -->
-                <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm">
-                  <!-- avatar input -->
-                  <div class="mb-4 position-relative">
-                    <img type="button" id="avatarButton" class="imgSize img-fluid d-block mx-auto rounded-circle w-25" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
-                    <div class="position-absolute top-50 start-50 translate-middle d-block">
-                      <label type="button" id="avatarLabel" for="avatarInput" class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Avatar</label>
-                      <input class="form-control text-center" type="url" name="avatar" id="avatarInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
-                    </div>
-                  </div>
-                  <!-- // Name and email input group -->
-                  <div class="w-50 mx-auto">
-                    <div class="mb-2 col-md">
-                      <label for="nameStudent" class="form-label mb-0">Full Name*</label>
-                      <input type="text" name="fullName" id="nameStudent" class="form-control" />
-                    </div>
-                    <div class="mb-2 col-md">
-                      <label for="emailStudent" class="form-label mb-0">E-mail*</label>
-                      <input type="email" name="email" id="emailStudent" class="form-control" />
-                    </div>
-
-                    <!-- // Title and degree input group -->
-
-                    <div class="mb-2 col-md">
-                      <label for="titleStudent" class="form-label mb-0">Title</label>
-                      <input type="text" name="title" id="titleStudent" class="form-control" />
-                    </div>
-                    <div class="mb-2 col-md">
-                      <label for="degreeStudent" class="form-label mb-0">Degree(s)</label>
-                      <div class="position-relative">
-                        <input type="text" name="degree" id="degreeStudent" class="w-100 form-control" />
-                        <!-- Degree button -->
-                        <svg id="degreesButton" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" role="button" class="position-absolute top-50 start-100 translate-middle-y ms-2 bi bi-plus-lg" viewBox="0 0 16 16">
-                          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Container for additional degrees -->
-                  <div class="mt-2" id="degreesContainer"></div>
-                  <!-- student skills input -->
-                  <div class="mb-2">
-                    <label for="studentSkills" class="form-label mb-0 fw-bold fs-4">Skills</label> <span class="fw-lighter fs-6">(Comma Separated)</span>
-                    <textarea class="form-control bg-theme-new-grey" rows="5" name="skills" id="studentSkills"> </textarea>
-                  </div>
-                  <!-- Student description input -->
-                  <div class="mb-2">
-                    <label for="studentDescription" class="form-label mb-0 fw-bold fs-4">About Me</label> <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
-                    <textarea class="form-control bg-theme-new-grey" rows="5" name="description" id="studentDescription"> </textarea>
-                  </div>
-                  <!-- Submit button -->
-                  <div class="d-grid">
-                    <button type="submit" class="fw-semibold btn btn-dark mt-2 rounded-0 mx-auto px-5">SAVE</button>
-                  </div>
-                </form>
-                <!-- // Student form ends // -->
-
-                <!-- // company form starts -->
-                <form id="editCompanyProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
-                  <!-- Logo input -->
-                  <div class="mb-4 position-relative">
-                    <img type="button" class="imgSize img-fluid d-block mx-auto rounded-circle" src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg" alt="" />
-                    <div class="position-absolute top-50 start-50 translate-middle d-block">
-                      <label type="button" id="logoLabel" for="logoInput" class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Logo</label>
-                      <input class="form-control text-center d-none" type="url" name="logo" id="logoInput" aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
-                    </div>
-                  </div>
-                  <!-- Company name and email group -->
-                  <div class="row">
-                    <div class="mb-2 col-md">
-                      <label for="nameCompany" class="form-label mb-0">Company Name</label>
-                      <input type="text" name="companyName" id="nameCompany" class="form-control" />
-                    </div>
-                    <div class="mb-2 col-md">
-                      <label for="emailCompany" class="form-label mb-0">E-mail</label>
-                      <input type="email" name="email" id="emailCompany" class="form-control" />
-                    </div>
-                  </div>
-                  <!-- Contact person and contact number -->
-                  <div class="row">
-                    <div class="mb-2 col-md">
-                      <label for="contactPerson" class="form-label mb-0">Contact Person</label>
-                      <input type="text" name="contact" id="contactPerson" class="form-control" />
-                    </div>
-                    <div class="mb-2 col-md">
-                      <label for="contactNumber" class="form-label mb-0">Contact Number</label>
-                      <input type="number" name="contactNumber" id="contactNumber" class="form-control" />
-                    </div>
-                  </div>
-                  <!-- Company description -->
-                  <div class="mb-2">
-                    <label for="companyDescription" class="form-label mb-0 fw-bold fs-4">About Us</label> <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
-                    <textarea class="form-control" rows="5" name="description" id="companyDescription"> </textarea>
-                  </div>
-                  <!-- Submit button -->
-                  <div class="d-grid">
-                    <button type="submit" class="btn btn-dark mt-2">Save changes</button>
-                  </div>
-                </form>
-                <!-- // company form ends // -->
-              </div>
-            </div>
-          </div>
+        <div class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+          id="descriptionContainer">
+          <h2 class="fs-2 fw-bold" id="descriptionHeader">About Me</h2>
+          <p id="descriptionBody">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi rem ullam
+            inventore tenetur delectus animi dolorum sit sequi totam suscipit doloribus nemo fuga, quam vel? Alias,
+            repellendus, at aut inventore, obcaecati ipsa tenetur incidunt illo exercitationem dolor porro odit facilis
+            pariatur. Rerum quam consequuntur consequatur velit molestiae minus reiciendis?</p>
         </div>
-        <!-- // Edit Profile Modal Ends // -->
+      </div>
+      <div class="d-flex justify-content-center">
 
-        <!-- // Company view section goes here // -->
-        <div class="d-none" id="companyView">
-          <!-- Displayed if company is logged in -->
-          <div>
-            <!-- // Button for modal goes here // -->
-            <button id="companyModalButton" class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
-          </div>
+        <button id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editProfileModal"
+          class="fw-semibold mt-4 m-1 btn btn-theme-dark w-25 text-theme-light p-1 fs-4 rounded-0">EDIT PROFILE</button>
 
-          <div class="mt-5">
-            <!-- Tab navigation for app/offers -->
-            <nav class="nav nav-tabs container-sm" role="tablist" id="nav-tab">
-              <!-- Button for Application tab -->
-              <button class="nav-link active" data-bs-target="#companyApplications" type="button" role="tab" aria-controls="#companyApplications" data-bs-toggle="tab">All Applications</button>
-              <!-- Button for Offers tab -->
-              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#companyOffers" aria-controls="#companyOffers" aria-selected="true">Offers Sent</button>
-            </nav>
-            <!-- Tab content -->
-            <div class="tab-content bg-theme-dark rounded-bottom rounded-end p-5" id="nav-tabContent">
-              <div tabindex="0" class="tab-pane active" id="companyApplications" role="tabpanel">
-                <!-- Company applications goes here -->
-              </div>
-              <div class="tab-pane" id="companyOffers" role="tabpanel">
-                <!-- Company offers goes here -->
-              </div>
-            </div>
-            <div class="mt-5">
-              <!-- Company listings goes here -->
-              <h2 class="fw-bold">Listings</h2>
-              <div class="mt-3 p-5" id="companyListings"></div>
-            </div>
-          </div>
-        </div>
+      </div>
 
-        <!-- // Student view section goes here // -->
-        <div class="d-none" id="studentView">
-          <div>
-            <button id="studentModalButton" class="btn btn-dark d-block mx-auto" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
-            <!-- Modal could live here -->
-          </div>
-          <!-- Displayed if student is logged in -->
-          <div class="mt-5">
-            <!-- Tab navigation for app/offers -->
-            <nav class="nav nav-tabs border-0" role="tablist" id="nav-tab">
-              <!-- Button for Offers received tab -->
-              <button class="nav-link active tabWidth text-start fw-bolder" data-bs-target="#studentOffers" type="button" role="tab" aria-controls="#studentOffers" data-bs-toggle="tab">Offers</button>
-              <!-- Button for applications sent tab -->
-              <button class="nav-link tabWidth text-start fw-bolder" data-bs-toggle="tab" data-bs-target="#studentApplications" aria-controls="#studentApplications" aria-selected="true">Applications</button>
-            </nav>
-            <!-- Tab content -->
-            <div class="tab-content bg-theme-dark rounded-bottom rounded-end p-5 container" id="nav-tabContent">
-              <div tabindex="0" class="tab-pane active" id="studentOffers" role="tabpanel">
-                <!-- Student offers goes here -->
-              </div>
-              <div class="tab-pane" id="studentApplications" role="tabpanel">
-                <!-- Student applications goes here -->
-              </div>
+      <!-- // Profile Details ends // -->
+
+      <!-- // Edit Profile Modal // -->
+      <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <!-- Modal header -->
+            <div class="modal-header">
+              <div>Edit Profile</div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-          </div>
-          <div class="mt-5">
-            <h2 class="fw-bold">Saved Listings</h2>
-            <div class="mt-3 p-5" id="studentFavoriteListings">
-              <!-- Student favourite listings goes here -->
+            <!-- Modal content -->
+            <div class="modal-body">
+              <!-- // Student form starts here // -->
+              <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm">
+                <!-- avatar input -->
+                <div class="mb-4 position-relative">
+                  <img type="button" id="avatarButton" class="imgSize img-fluid d-block mx-auto rounded-circle w-25"
+                    src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg"
+                    alt="Lady with a hat, its a close side view" />
+                  <div class="position-absolute top-50 start-50 translate-middle d-block">
+                    <label type="button" id="avatarLabel" for="avatarInput"
+                      class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Avatar</label>
+                    <input class="form-control text-center" type="url" name="avatar" id="avatarInput"
+                      aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
+                  </div>
+                </div>
+                <!-- // Name and email input group -->
+                <div class="w-50 mx-auto">
+                  <div class="mb-2 col-md">
+                    <label for="nameStudent" class="form-label mb-0">Full Name*</label>
+                    <input type="text" name="fullName" id="nameStudent" class="form-control" />
+                  </div>
+                  <div class="mb-2 col-md">
+                    <label for="emailStudent" class="form-label mb-0">E-mail*</label>
+                    <input type="email" name="email" id="emailStudent" class="form-control" />
+                  </div>
+
+                  <!-- // Title and degree input group -->
+
+                  <div class="mb-2 col-md">
+                    <label for="titleStudent" class="form-label mb-0">Title</label>
+                    <input type="text" name="title" id="titleStudent" class="form-control" />
+                  </div>
+                  <div class="mb-2 col-md">
+                    <label for="degreeStudent" class="form-label mb-0">Degree(s)</label>
+                    <div class="position-relative">
+                      <input type="text" name="degree" id="degreeStudent" class="w-100 form-control" />
+                      <!-- Degree button -->
+                      <svg id="degreesButton" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" role="button"
+                        class="position-absolute top-50 start-100 translate-middle-y ms-2 bi bi-plus-lg"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Container for additional degrees -->
+                <div class="mt-2" id="degreesContainer"></div>
+                <!-- student skills input -->
+                <div class="mb-2">
+                  <label for="studentSkills" class="form-label mb-0 fw-bold fs-4">Skills</label> <span
+                    class="fw-lighter fs-6">(Comma Separated)</span>
+                  <textarea class="form-control bg-theme-new-grey" rows="5" name="skills"
+                    id="studentSkills"> </textarea>
+                </div>
+                <!-- Student description input -->
+                <div class="mb-2">
+                  <label for="studentDescription" class="form-label mb-0 fw-bold fs-4">About Me</label> <span
+                    class="fw-lighter fs-6">(Maximum 300 characters)</span>
+                  <textarea class="form-control bg-theme-new-grey" rows="5" name="description"
+                    id="studentDescription"> </textarea>
+                </div>
+                <!-- Submit button -->
+                <div class="d-grid">
+                  <button type="submit" class="fw-semibold btn btn-dark mt-2 rounded-0 mx-auto px-5">SAVE</button>
+                </div>
+              </form>
+              <!-- // Student form ends // -->
+
+              <!-- // company form starts -->
+              <form id="editCompanyProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
+                <!-- Logo input -->
+                <div class="mb-4 position-relative">
+                  <img type="button" class="imgSize img-fluid d-block mx-auto rounded-circle"
+                    src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg"
+                    alt="Lady with a hat, its a close side view" />
+                  <div class="position-absolute top-50 start-50 translate-middle d-block">
+                    <label type="button" id="logoLabel" for="logoInput"
+                      class="form-label text-center d-block mx-auto bg-white p-1 px-5 rounded-4">Update Logo</label>
+                    <input class="form-control text-center d-none" type="url" name="logo" id="logoInput"
+                      aria-label="enter url" title="Must be a valid image url" placeholder="Enter url" />
+                  </div>
+                </div>
+                <!-- Company name and email group -->
+                <div class="row">
+                  <div class="mb-2 col-md">
+                    <label for="nameCompany" class="form-label mb-0">Company Name</label>
+                    <input type="text" name="companyName" id="nameCompany" class="form-control" />
+                  </div>
+                  <div class="mb-2 col-md">
+                    <label for="emailCompany" class="form-label mb-0">E-mail</label>
+                    <input type="email" name="email" id="emailCompany" class="form-control" />
+                  </div>
+                </div>
+                <!-- Contact person and contact number -->
+                <div class="row">
+                  <div class="mb-2 col-md">
+                    <label for="contactPerson" class="form-label mb-0">Contact Person</label>
+                    <input type="text" name="contact" id="contactPerson" class="form-control" />
+                  </div>
+                  <div class="mb-2 col-md">
+                    <label for="contactNumber" class="form-label mb-0">Contact Number</label>
+                    <input type="number" name="contactNumber" id="contactNumber" class="form-control" />
+                  </div>
+                </div>
+                <!-- Company description -->
+                <div class="mb-2">
+                  <label for="companyDescription" class="form-label mb-0 fw-bold fs-4">About Us</label> <span
+                    class="fw-lighter fs-6">(Maximum 300 characters)</span>
+                  <textarea class="form-control" rows="5" name="description" id="companyDescription"> </textarea>
+                </div>
+                <!-- Submit button -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-dark mt-2">Save changes</button>
+                </div>
+              </form>
+              <!-- // company form ends // -->
             </div>
           </div>
         </div>
       </div>
-    </main>
-    <footer>
-      <!-- Footer -->
-    </footer>
-  </body>
+      <!-- // Edit Profile Modal Ends // -->
+
+      <!-- // Company view section goes here // -->
+      <div class="d-none" id="companyView">
+        <!-- Displayed if company is logged in -->
+        <div>
+          <!-- // Button for modal goes here // -->
+          <button id="companyModalButton" class="btn btn-dark d-block mx-auto" data-bs-toggle="modal"
+            data-bs-target="#editProfileModal">Edit Profile</button>
+        </div>
+
+        <div class="mt-5">
+          <!-- Tab navigation for app/offers -->
+          <nav class="nav nav-tabs container-sm" role="tablist" id="nav-tab">
+            <!-- Button for Application tab -->
+            <button class="nav-link active" data-bs-target="#companyApplications" type="button" role="tab"
+              aria-controls="#companyApplications" data-bs-toggle="tab">All Applications</button>
+            <!-- Button for Offers tab -->
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#companyOffers" aria-controls="#companyOffers"
+              aria-selected="true">Offers Sent</button>
+          </nav>
+          <!-- Tab content -->
+          <div class="tab-content bg-theme-dark rounded-bottom rounded-end p-5" id="nav-tabContent">
+            <div tabindex="0" class="tab-pane active" id="companyApplications" role="tabpanel">
+              <!-- Company applications goes here -->
+            </div>
+            <div class="tab-pane" id="companyOffers" role="tabpanel">
+              <!-- Company offers goes here -->
+            </div>
+          </div>
+          <div class="mt-5">
+            <!-- Company listings goes here -->
+            <h2 class="fw-bold">Listings</h2>
+            <div class="mt-3 p-5" id="companyListings"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- // Student view section goes here // -->
+      <div class="d-none" id="studentView">
+        <div>
+          <button id="studentModalButton" class="btn btn-dark d-block mx-auto" data-bs-toggle="modal"
+            data-bs-target="#editProfileModal">Edit Profile</button>
+          <!-- Modal could live here -->
+        </div>
+        <!-- Displayed if student is logged in -->
+        <div class="mt-5">
+          <!-- Tab navigation for app/offers -->
+          <nav class="nav nav-tabs border-0" role="tablist" id="nav-tab">
+            <!-- Button for Offers received tab -->
+            <button class="nav-link active tabWidth text-start fw-bolder" data-bs-target="#studentOffers" type="button"
+              role="tab" aria-controls="#studentOffers" data-bs-toggle="tab">Offers</button>
+            <!-- Button for applications sent tab -->
+            <button class="nav-link tabWidth text-start fw-bolder" data-bs-toggle="tab"
+              data-bs-target="#studentApplications" aria-controls="#studentApplications"
+              aria-selected="true">Applications</button>
+          </nav>
+          <!-- Tab content -->
+          <div class="tab-content bg-theme-dark rounded-bottom rounded-end p-5 container" id="nav-tabContent">
+            <div tabindex="0" class="tab-pane active" id="studentOffers" role="tabpanel">
+              <!-- Student offers goes here -->
+            </div>
+            <div class="tab-pane" id="studentApplications" role="tabpanel">
+              <!-- Student applications goes here -->
+            </div>
+          </div>
+        </div>
+        <div class="mt-5">
+          <h2 class="fw-bold">Saved Listings</h2>
+          <div class="mt-3 p-5" id="studentFavoriteListings">
+            <!-- Student favourite listings goes here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <!-- Footer -->
+  </footer>
+</body>
+
 </html>
