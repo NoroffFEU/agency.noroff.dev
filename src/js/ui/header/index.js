@@ -33,12 +33,6 @@ export const header = () => {
 </div>`);
 };
 
-// For testing states
-const stateValue = 'null';
-localStorage.setItem('Role', stateValue);
-let pageTitle = document.querySelector('title');
-pageTitle.innerText = 'Standard';
-
 /**
  *
  * This function is adding the navigation to the header element based on the state of thus user.
@@ -50,7 +44,7 @@ pageTitle.innerText = 'Standard';
  *
  */
 export const checkState = () => {
-  const role = localStorage.getItem('Role');
+  const role = localStorage.getItem('role');
   const navBarNav = document.getElementById('navbarNav');
   if (role == 'user') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
@@ -88,16 +82,29 @@ export const checkState = () => {
   </ul>`);
   }
 
-  // The profile button on here is for development reasons
-  if (role == 'null') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
-  
+  if (role.includes('Applicant')) {
+    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
       <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/user/index.html" id="navItems">Profile</a>
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/pages/user/index.html" id="navItems">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
+    </li>
+    <li class="nav-item">
+      <a class="btn btn-outline-light text-white fw-semibold" href="#" id="signOut">Log out</a>
+    </li>
+  </ul>`);
+  }
+
+  if (!role) {
+    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
+
+    <li class="nav-item">
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
