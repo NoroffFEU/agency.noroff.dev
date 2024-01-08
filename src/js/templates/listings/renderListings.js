@@ -8,7 +8,6 @@ export async function renderListings() {
 
     const data = await getListOfListings();
     const listings = data.products;
-    console.log(listings)
             
     listingsContainer.innerHTML = "";
     listings.forEach((listing, number) => {
