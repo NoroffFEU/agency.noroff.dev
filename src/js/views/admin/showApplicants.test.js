@@ -14,8 +14,7 @@ const TEST_APPLICATION = [
 ];
 
 describe('Applicants are showing in application table', () => {
-  // skipped for now, since it requires further refactoring of the applicantTemplate function
-  it.skip('Succeeds in displaying an application in the application table (Name, job title, company, id and delete btn)', async () => {
+  it('Succeeds in displaying an application in the application table (Name, job title, company, id and delete btn)', async () => {
     const applications = await applicantTemplate(TEST_APPLICATION);
     expect(applications).toMatch(/(<tr>)/i);
     expect(applications).toMatch(/(<th scope="row" class="applicant-modal")/i);
@@ -31,7 +30,7 @@ describe('Applicants are showing in application table', () => {
 });
 
 describe('Bootstrap modal that appears when clicking on an applicant', () => {
-  it.skip('HTML code for bootstrap modal to appear when clicking the applicant name', async () => {
+  it('HTML code for bootstrap modal to appear when clicking the applicant name', async () => {
     const applications = await applicantTemplate(TEST_APPLICATION);
     expect(applications).toMatch(/(data-bs-toggle="modal" data-bs-target="#applicantModal)/i);
     expect(applications).toMatch(/(<div class="modal fade applicant" id="applicantModal)/i);
@@ -46,7 +45,7 @@ describe('Bootstrap modal that appears when clicking on an applicant', () => {
 });
 
 describe('Application modal close when clicking the "X" in top right corner or outside of the modal', () => {
-  it.skip('HTML code for closing bootstrap modal', async () => {
+  it('HTML code for closing bootstrap modal', async () => {
     const applications = await applicantTemplate(TEST_APPLICATION);
     expect(applications).toMatch(/(data-bs-target="#applicantModal)/i);
     expect(applications).toMatch(/(<button type="button" class="btn-close btn-close-white rounded-0" data-bs-dismiss="modal" aria-label="Close">)/i);

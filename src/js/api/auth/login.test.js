@@ -46,7 +46,7 @@ const profile = {
   role: 'student',
 };
 
-describe.skip('login()', () => {
+describe('login()', () => {
   it('Returns and stores a token when provided with valid credentials', async () => {
     expect(new Store('token').state).toEqual(null);
     global.fetch = jest.fn(() => fetchSuccess());
