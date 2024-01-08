@@ -64,7 +64,11 @@ describe('login()', () => {
     expect(new Store('profile').state).toEqual(null);
     global.fetch = jest.fn(() => fetchSuccess());
     await login(valid_credentials);
-    expect(new Store('profile').state).toEqual({ firstName: 'John', lastName: 'Doe', userId: '321' });
+    expect(new Store('profile').state).toEqual({
+      firstName: 'John',
+      lastName: 'Doe',
+      userId: '321',
+    });
     new Store('profile').clear();
     new Store('role').clear();
     new Store('token').clear();

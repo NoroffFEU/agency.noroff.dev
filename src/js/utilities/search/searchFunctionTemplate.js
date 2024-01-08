@@ -2,11 +2,10 @@
 // The api is not available yet, so this is just a dummy search function that should work with proper api.
 
 // import * as search from "../index.js";
-import { getListOfListings } from "../../api/posts/getListOfListings.js";
-import { renderListings } from "../../templates/listings/renderListings.js";
-import { getSearchTermsListings } from "./getSearchTerms.js";
-import { listingNotFound } from "./searchNotFoundDisplay.js";
-
+import { getListOfListings } from '../../api/posts/getListOfListings.js';
+import { renderListings } from '../../templates/listings/renderListings.js';
+import { getSearchTermsListings } from './getSearchTerms.js';
+import { listingNotFound } from './searchNotFoundDisplay.js';
 
 /**
  * Adds an event listener to the search input field and filters the listings based on the user's input.
@@ -18,28 +17,25 @@ import { listingNotFound } from "./searchNotFoundDisplay.js";
  */
 
 export function searchFunction() {
-  const searchInput = document.querySelector("input#searchListing");
-  const container = document.querySelector(".listingContainer");
-    //
-    searchInput.addEventListener("input", (e) => {
+  const searchInput = document.querySelector('input#searchListing');
+  const container = document.querySelector('.listingContainer');
+  //
+  searchInput.addEventListener('input', (e) => {
     e.preventDefault();
     const searchTerm = e.target.value;
     const term = searchTerm.toLowerCase();
     //
     if (!term.length || term.length < 3) {
-      container.innerHTML = "";
+      container.innerHTML = '';
       return renderListings(getListOfListings, container);
     }
     //
     if (getSearchTermsListings(getListOfListings, term).length) {
-      container.innerHTML = "";
-      return renderListings(
-        getSearchTermsListings(getListOfListings, term),
-        container
-      );
+      container.innerHTML = '';
+      return renderListings(getSearchTermsListings(getListOfListings, term), container);
     } else {
-      container.innerHTML = "";
+      container.innerHTML = '';
       return listingNotFound(container);
     }
-    });
+  });
 }

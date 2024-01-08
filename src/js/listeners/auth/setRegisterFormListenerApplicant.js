@@ -30,7 +30,11 @@ export function setRegisterFormListenerApplicant() {
           return displayMessage('danger', error, '#confirm-message');
         }
         //show success message if there is no error
-        displayMessage('success', `Registration successfull! You can now <a href="/pages/auth/login/index.html">login</a>.`, '#confirm-message');
+        displayMessage(
+          'success',
+          `Registration successfull! You can now <a href="/pages/auth/login/index.html">login</a>.`,
+          '#confirm-message'
+        );
       }
     });
   }
