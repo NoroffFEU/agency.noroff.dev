@@ -8,8 +8,6 @@ export async function renderListings() {
 
     const data = await getListOfListings();
     const date2 = new Date('2023-12-26T12:19:48.625Z');
-    console.log(date2);
-    console.log(data);
     listingsContainer.innerHTML = "";
 
     data.forEach(function(data) {
@@ -29,8 +27,7 @@ export async function renderListings() {
              >${data.description}</div>
            <div class="d-flex flex-column flex-sm-row align-items-end justify-content-between w-100" style="font-size: .75rem">
              <span class="text-nowrap">(4) Applications</span>
-             <date type="datetime-local">${data.deadline}</date>
-             <span>${data.deadline}</span>
+             <span>${date2}</span>
              <a href="#" class="bg-theme-primary text-theme-black px-3 text-decoration-none" style="font-size: 1rem">View</a>
            </div>
          </div>
