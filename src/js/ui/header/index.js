@@ -82,7 +82,7 @@ export const checkState = () => {
   </ul>`);
   }
 
-  if (role.includes('Applicant')) {
+  if (role && role.includes('Applicant')) {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
