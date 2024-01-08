@@ -13,12 +13,13 @@ export function handleEditForms() {
       const formData = new FormData(form);
       const profile = Object.fromEntries(formData.entries());
 
+      console.log('hiiii', profile);
       return editStudent(profile);
     });
   }
 
   if (companyForm) {
-    studentForm.addEventListener('submit', (e) => {
+    companyForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const form = e.target;
