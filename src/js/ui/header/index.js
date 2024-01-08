@@ -63,7 +63,7 @@ export const checkState = () => {
       <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white fw-semibold" href="#" id="signOut">Log out</a>
+      <a class="btn btn-outline-light text-white fw-semibold" href="#" id="logOutUser">Log out</a>
     </li>
   </ul>`);
   }
@@ -87,6 +87,10 @@ export const checkState = () => {
   }
 
   if (getRole() == '"Applicant"') {
+    if (location.pathname === '/pages/auth/login/index.html' || location.pathname === '/pages/auth/register/applicant/index.html') {
+      location.href = '/pages/user/index.html';
+    }
+
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
@@ -105,6 +109,10 @@ export const checkState = () => {
   }
 
   if (!getRole()) {
+    if (location.pathname === '/pages/user/index.html') {
+      location.href = '/';
+    }
+
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
 
     <li class="nav-item">
