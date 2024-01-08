@@ -63,7 +63,7 @@ export async function login(profile) {
         new Store('token', token, Boolean(remember !== 'on'));
         new Store('profile', filteredProfile, Boolean(remember !== 'on'));
         new Store('role', role, Boolean(remember !== 'on'));
-        new Store('email', email, false);
+        new Store('email', email, Boolean(remember !== 'on'));
         new Store('id', id, Boolean(remember !== 'on'));
         // add  chck for id :
         if (id === id) { // spiderman.gif
