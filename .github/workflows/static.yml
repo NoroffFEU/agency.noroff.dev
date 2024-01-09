@@ -1,11 +1,14 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# Workflow for deploying static content to GitHub Pages using GitHub Actions
+# it will also run linting and unit tests before deploying
+# the BYOB package is used to update and create custom status badges
+name: Lint, Test & Deploy
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes targeting the main branch
   push:
     branches: ['main']
-    paths-ignore:
+    # Ignores changes in the .md, .env.example and .gitignore files
+    paths-ignore: 
       - '**/*.md'
       - '**/*.env.example'
       - '.gitignore'
@@ -22,7 +25,7 @@ env:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages & create status badges
 permissions:
   contents: write
   pages: write
@@ -39,6 +42,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Cache npm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
       - name: Install dependencies
         run: npm ci
 
@@ -63,7 +75,7 @@ jobs:
   
   unit-test:
     name: Unit Test
-    needs: lint
+    needs: [setup, lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -78,11 +90,11 @@ jobs:
           name: test
           status: ${{ job.status }}
           color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
-          label: 'Test Status'
+          label: 'Unit Test Status'
           github_token: ${{ secrets.GITHUB_TOKEN }}
       
   deploy:
-    needs: unit-test
+    needs: [unit-test, lint, setup]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -106,3 +118,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+      - name: Update deploy Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: deploy
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'Deployment Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
