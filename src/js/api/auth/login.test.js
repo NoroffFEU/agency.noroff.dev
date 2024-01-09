@@ -60,8 +60,12 @@ describe('login()', () => {
   it('Returns and stores a profile when provided with valid credentials', async () => {
     expect(new Store('profile').state).toEqual(null);
     global.fetch = jest.fn(() => fetchSuccess());
-    login(valid_credentials);
-    expect(new Store('profile').state).toEqual({ firstName: 'John', lastName: 'Doe', userId: '321' });
+    await login(valid_credentials);
+    expect(new Store('profile').state).toEqual({
+      firstName: 'John',
+      lastName: 'Doe',
+      userId: '321',
+    });
     new Store('profile').clear();
     new Store('role').clear();
     new Store('token').clear();
