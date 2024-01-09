@@ -15,7 +15,7 @@ export const header = () => {
       <div class="mx-0 mx-md-5 px-0 px-md-3 container-fluid">
         <a class="navbar-brand ms-5 me-0 p-0" href="/">
         <div class="d-flex gap-2">
-          <embed src="/assets/icons/noroff-logo.svg" class="Logo-noroff my-auto" style="width: 40px;height: 56px" />
+          <img src="../../../public/assets/icons/noroff-logo.svg" class="logo-noroff my-auto" />
           <div class="d-flex flex-column">
             <span class="company_name fs-4 fw-semibold text-white" style="height: 28px">Noroff</span>
             <span class="company_branch fs-6 text-white">Job Agency</span>
