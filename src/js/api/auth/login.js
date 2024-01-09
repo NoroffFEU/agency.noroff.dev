@@ -1,5 +1,6 @@
 import { Store } from '../../storage/storage.js';
 import { apiPath } from '../constants.js';
+import { isValidEmail } from '../../utilities/verification/emailVerification.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-Team: Frontend - User
@@ -40,6 +41,10 @@ const errorContainer = document.querySelector('#errorContainer');
  * @returns {void}
  */
 export async function login(profile) {
+  if (!isValidEmail(email)) {
+    errorContainer.innerHTML = 'Invalid email format.';
+    return;
+  }
   const { remember, ...credentials } = profile;
   const loginURL = apiPath + action;
   const body = JSON.stringify(credentials);
