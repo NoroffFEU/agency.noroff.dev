@@ -41,7 +41,7 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  const loginURL = apiPath + action;
+  const loginURL = "https://cors.noroff.dev/https://agency-api.noroff.dev/" + action;
   const body = JSON.stringify(credentials);
 
   const options = {
