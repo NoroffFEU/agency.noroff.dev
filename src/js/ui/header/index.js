@@ -33,9 +33,6 @@ export const header = () => {
 </div>`);
 };
 
-// For testing states
-const stateValue = 'null';
-localStorage.setItem('Role', stateValue);
 let pageTitle = document.querySelector('title');
 pageTitle.innerText = 'Standard';
 
@@ -89,7 +86,7 @@ export const checkState = () => {
   }
 
   // The profile button on here is for development reasons
-  if (role == 'null') {
+  if (!role || role === 'null') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
   
 
