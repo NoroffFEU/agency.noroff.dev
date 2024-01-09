@@ -15,96 +15,78 @@
     <script src="/index.js" defer type="module"></script>
   </head>
 
-  <body id="registerPageApplicant">
-    <header></header>
-    <main class="px-sm-3 py-5 bg-theme-dark">
-      <div
-        class="container maxWidthContainer my-3 shadow bg-white p-3 rounded-1 w-50"
-        style="min-width: 300px"
-      >
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <h1 class="fw-bold">Register For Applicant</h1>
-          <a
-            href="../company/index.html"
-            class="btn text-black text-center text-decoration-underline"
-            id="companyReg"
-            >Not an applicant? Register as company instead!</a
-          >
+<body id="registerPageApplicant">
+  <header></header>
+  <main class="px-sm-3 py-5 bg-theme-dark">
+    <div class="container maxWidthContainer my-3 shadow bg-white p-3 rounded-1 w-50" style="min-width: 300px;">
+      <h1 class="fw-bold">Register For Applicant</h1>
+      <!-- Register form -->
+      <form class="row g-3" id="registerForm-applicant">
+        <div class="d-flex justify-content-center mb-3">
+          <div class="d-flex justify-content-center align-items-center border border-dark  rounded-circle bg-theme-new-grey registerImg">
+            <button type="button" class="btn text-decoration-underline py-5 px-4" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">Add image</button></div>
         </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="fullName">Full Name*</label>
+          <input type="text" class="form-control" aria-label="Full name" id="fullName" required
+            pattern="^[a-zA-ZæøåÆØÅ]+( [a-zA-ZæøåÆØÅ]+)+$"
+            title="Full Name must only contain lowercase and uppercase letters. Example: John Johnson" />
+          <div class="error"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="emailStudent">Email*</label>
+          <input type="email" class="form-control" aria-label="Email" name="email" id="emailStudent"
+            pattern="^[\w\-.]+@(stud.)?noroff.no$"
+            title="The email value must be a valid stud.noroff.no or noroff.no email address." required>
+          <div class="error"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="passwordStudent">Password*</label>
+          <input type="password" class="form-control" aria-label="Password" name="password" id="passwordStudent"
+            minlength="8" title="The password value must be at least 8 characters." required>
+          <div class="error"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="repPasswordStud">Repeat password*</label>
+          <input type="password" class="form-control" aria-label="Repeat password" minlength="8"
+            title="The password value must be at least 8 characters." id="repPasswordStud" required />
+          <div class="error"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="degrees">Degree(s)</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected></option>
+            <option value="">Applied Machine Learning</option>
+            <option value="">Front-end Development</option>
+            <option value="">Back-end Development</option>
+            <option value="Full-stack Developer">Full-stack Developer</option>
+            <option value="">Data Analyst</option>
+            <option value="">UX/UI Design</option>
+            <option value="">Graphic Design</option>
+            <option value="">Music production</option>
+            <option value="">Film production</option>
+            <option value="">Digital marketing</option>
+            <option value="">Video marketing in social Media</option>
+            <option value="">3D art and game technology</option>
+            <option value="">Network and IT security</option>
+            <option value="">Network and System administration</option>
+            <option value="">Cyber security</option>
+            <option value="">Applied data science</option>
+            <option value="">Digital Forensics</option>
+            <option value="">Interactive Media - Animation</option>
+            <option value="">Interactive Media - Games</option>
+            <option value="">Modern project management</option>
+            <option value="">Other</option>
+          </select>
+        </div>
+        <div class="col-md-6 d-flex align-items-end">
+          <!-- this field not clear in design -->
+          <!-- <label for=""></label>
+            <input type="text" class="form-control" aria-label="" id=""> -->
 
-        <!-- Register form -->
-        <form class="row g-3" id="registerForm-applicant">
-          <div class="d-flex justify-content-center mb-3">
-            <div
-              class="d-flex justify-content-center align-items-center rounded-circle bg-theme-new-grey registerImg"
-            >
-              <button
-                type="button"
-                class="btn text-decoration-underline"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Add image
-              </button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <label class="mb-2" for="fullName">Full Name*</label>
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Full name"
-              id="fullName"
-              required
-              pattern="^[a-zA-ZæøåÆØÅ]+( [a-zA-ZæøåÆØÅ]+)+$"
-              title="Full Name must only contain lowercase and uppercase letters. Example: John Johnson"
-            />
-            <div class="error"></div>
-          </div>
-          <div class="col-md-6">
-            <label class="mb-2" for="emailStudent">Email*</label>
-            <input
-              type="email"
-              class="form-control"
-              aria-label="Email"
-              name="email"
-              id="emailStudent"
-              pattern="^[\w\-.]+@(stud.)?noroff.no$"
-              title="The email value must be a valid stud.noroff.no or noroff.no email address."
-              required
-            />
-            <div class="error"></div>
-          </div>
-          <div class="col-md-6">
-            <label class="mb-2" for="passwordStudent">Password*</label>
-            <input
-              type="password"
-              class="form-control"
-              aria-label="Password"
-              name="password"
-              id="passwordStudent"
-              minlength="8"
-              title="The password value must be at least 8 characters."
-              required
-            />
-            <div class="error"></div>
-          </div>
-          <div class="col-md-6">
-            <label class="mb-2" for="repPasswordStud">Repeat password*</label>
-            <input
-              type="password"
-              class="form-control"
-              aria-label="Repeat password"
-              minlength="8"
-              title="The password value must be at least 8 characters."
-              id="repPasswordStud"
-              required
-            />
-            <div class="error"></div>
-          </div>
-          <div class="col-md-6">
-            <label class="mb-2" for="degrees">Degree(s)</label>
-            <select class="form-select" aria-label="Default select example">
+          <div id="hiddenInput" class="collapse-horizontal collapse w-100 me-3">
+            <select class="form-select w-100 mt-4" aria-label="Default select example">
               <option selected></option>
               <option value="">Applied Machine Learning</option>
               <option value="">Front-end Development</option>
