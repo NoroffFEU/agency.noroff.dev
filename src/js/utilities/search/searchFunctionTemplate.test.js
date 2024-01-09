@@ -1,4 +1,4 @@
-import { getSearchTermsUsers, getSearchTermsListings } from "./getSearchTerms.js";
+import { getSearchTermsUsers, getSearchTermsListings } from './getSearchTerms.js';
 
 describe('getSearchTermsUsers', () => {
   const userData = [
@@ -9,16 +9,12 @@ describe('getSearchTermsUsers', () => {
 
   it('should return an array of users that match the search term in their name', () => {
     const result = getSearchTermsUsers(userData, 'doe');
-    expect(result).toEqual([
-      { name: 'John Doe', email: 'john.doe@example.com' },
-    ]);
+    expect(result).toEqual([{ name: 'John Doe', email: 'john.doe@example.com' }]);
   });
 
   it('should return an array of users that match the search term in their email', () => {
     const result = getSearchTermsUsers(userData, 'mith');
-    expect(result).toEqual([
-      { name: 'Jane Smith', email: 'jane.smith@example.com' },
-    ]);
+    expect(result).toEqual([{ name: 'Jane Smith', email: 'jane.smith@example.com' }]);
   });
 
   it('should return an array of users that match the search term in both their name and email', () => {
@@ -39,16 +35,12 @@ describe('getSearchTermsListings', () => {
 
   it('should return an array of listings that match the search term in their job title', () => {
     const result = getSearchTermsListings(listingData, 'engineer');
-    expect(result).toEqual([
-      { id: 1, name: 'Software Engineer', company: { name: 'Google' } },
-    ]);
+    expect(result).toEqual([{ id: 1, name: 'Software Engineer', company: { name: 'Google' } }]);
   });
 
   it('should return an array of listings that match the search term in their company name', () => {
     const result = getSearchTermsListings(listingData, 'google');
-    expect(result).toEqual([
-      { id: 1, name: 'Software Engineer', company: { name: 'Google' } },
-    ]);
+    expect(result).toEqual([{ id: 1, name: 'Software Engineer', company: { name: 'Google' } }]);
   });
 
   it('should return an object that match the searched ID', () => {

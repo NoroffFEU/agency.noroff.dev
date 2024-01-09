@@ -19,9 +19,8 @@ export async function postApplication() {
       const appFile = document.querySelector('#inputFile');
       const appLetter = document.querySelector('#inputLetter');
 
-      
-    //   await create(postData);
-    // Will make more responsive errors and elements when submitting, later tho :)
+      //   await create(postData);
+      // Will make more responsive errors and elements when submitting, later tho :)
     });
   }
 }
