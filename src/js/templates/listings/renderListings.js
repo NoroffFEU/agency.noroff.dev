@@ -9,19 +9,19 @@
 
 import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { createElement } from '../CreateHtml.js';
+import { parseDate } from '../../utilities/parse/parse.js';
 
 export const renderListings = async () => {
   const listingsContainer = document.querySelector('.listingContainer');
   listingsContainer.innerHTML = '';
-  const { products } = await getListOfListings();
-  console.log(products);
-  products.forEach((listing) => {
+  const listings = await getListOfListings();
+  listings.forEach((listing) => {
     const listingCards = createListings(listing);
     listingsContainer.append(listingCards);
   });
 };
 
-const createListings = ({ title, description, thumbnail }) => {
+const createListings = ({ title, description, company, deadline }) => {
   const element = createElement('div', ['col-12', 'col-lg-6']);
   const elementRow = createElement('div', [
     'row',
@@ -32,15 +32,15 @@ const createListings = ({ title, description, thumbnail }) => {
     'm-0',
     'shadow',
   ]);
-  const imgContainer = createImgContainer(thumbnail, title);
-  const cardBody = createCardBody(title, description);
+  const imgContainer = createImgContainer(company, title);
+  const cardBody = createCardBody(title, description, deadline);
   elementRow.append(imgContainer, cardBody);
   element.append(elementRow);
 
   return element;
 };
 
-const createImgContainer = (thumbnail, title) => {
+const createImgContainer = ({ logo, name }) => {
   const element = createElement('div', [
     'm-0',
     'p-3',
@@ -49,19 +49,11 @@ const createImgContainer = (thumbnail, title) => {
     'flex-column',
     'justify-content-center',
   ]);
-  const img = createElement(
-    'img',
-    ['img-fluid', 'rounded-start'],
-    null,
-    null,
-    null,
-    thumbnail,
-    title
-  );
+  const img = createElement('img', ['img-fluid', 'rounded-start'], null, null, null, logo, name);
   element.append(img);
   return element;
 };
-const createCardBody = (title, description) => {
+const createCardBody = (title, description, deadline) => {
   const element = createElement('div', [
     'm-0',
     'col-9',
@@ -76,11 +68,11 @@ const createCardBody = (title, description) => {
   cardText.style.cssText =
     '-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;';
   cardBody.append(cardTitle, cardText);
-  const cardFooter = createCardFooter();
+  const cardFooter = createCardFooter(deadline);
   element.append(cardBody, cardFooter);
   return element;
 };
-const createCardFooter = () => {
+const createCardFooter = (deadline) => {
   const element = createElement(
     'div',
     ['d-flex', 'flex-column', 'flex-sm-row', 'align-items-end', 'justify-content-between', 'w-100'],
@@ -90,15 +82,14 @@ const createCardFooter = () => {
     null,
     null
   );
-  const span1 = createElement('span', ['text-nowrap'], null, '(4) Applications');
-  const span2 = createElement('span', null, null, 'dd.mm.yy');
+  const span2 = createElement('span', null, null, `DeadLine:  ` + parseDate(deadline));
   const a = createElement(
     'a',
     ['bg-theme-primary', 'text-theme-black', 'px-3', 'text-decoration-none'],
     null,
     'View',
-    '../../../listings/listing/index.html'
+    '../../..//pages/listings/listing/index.html'
   );
-  element.append(span1, span2, a);
+  element.append(span2, a);
   return element;
 };
