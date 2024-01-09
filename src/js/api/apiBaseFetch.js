@@ -68,6 +68,5 @@ export async function apiBaseFetch(url, headers = null, offset = 0, limit = 100)
 export async function authBaseFetchOpen(url, options = {}) {
   return fetch(url, {
     ...options,
-  })
+  });
 }
-

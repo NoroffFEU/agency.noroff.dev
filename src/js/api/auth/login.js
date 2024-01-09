@@ -66,7 +66,8 @@ export async function login(profile) {
         new Store('email', email, false);
         new Store('id', id, Boolean(remember !== 'on'));
         // add  chck for id :
-        if (id === id) { // spiderman.gif
+        if (id === id) {
+          // spiderman.gif
           window.location.replace('/pages/user/index');
         } else if (profile.admin) {
           window.location.replace('#'); // TODO: Add admin page url
@@ -81,7 +82,8 @@ export async function login(profile) {
         throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch (error) {
-    errorContainer.innerHTML = 'Unknown error occurred. Please try again later, if the problem persist contact customer support.';
+    errorContainer.innerHTML =
+      'Unknown error occurred. Please try again later, if the problem persist contact customer support.';
     console.error(error);
   }
 }

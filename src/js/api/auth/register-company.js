@@ -4,9 +4,9 @@ const action = 'company';
 const method = 'POST';
 
 /**
- * Register a company by sending a POST request to the API 
- * 
- * 
+ * Register a company by sending a POST request to the API
+ *
+ *
  * @param {Object} profile - The profile data for the company to be registered.
  * @param {string} profile.name - The name of the company.
  * @param {string} profile.email - The email of the company.

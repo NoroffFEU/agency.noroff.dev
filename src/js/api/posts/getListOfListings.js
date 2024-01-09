@@ -1,6 +1,7 @@
 // Author: Emilie Herrera Thomsen
 // The Dummy json needs to be replaced with actual endpoint.
 
+
 import { authBaseFetchOpen} from "../apiBaseFetch.js";
 import { apiPath } from "../constants.js";
 import { headers } from "../headers.js";
@@ -17,11 +18,10 @@ export async function getListOfListings() {
       body: JSON.stringify(),
     }
     );
-    
-    return await data.json();
+     if (response.ok) {
+   return await data.json();
+  } else {
+    console.error(`Error: ${response.status} ${response.statusText}`);
   }
-
-
-
-
-
+    
+  }

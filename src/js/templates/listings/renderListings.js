@@ -10,6 +10,7 @@ import * as sort from './sort.js';
 export async function renderListings() {
   const listingsContainer = document.querySelector('.listingContainer');
 
+
     const data = await getListOfListings();
     const date2 = new Date('2023-12-26T12:19:48.625Z');
     listingsContainer.innerHTML = "";
@@ -32,7 +33,7 @@ export async function renderListings() {
            <div class="d-flex flex-column flex-sm-row align-items-end justify-content-between w-100" style="font-size: .75rem">
              <p>Deadline</></br>
              <span>${date2}</span>
-             <a href="#" class="bg-theme-primary text-theme-black px-3 text-decoration-none" style="font-size: 1rem">View</a>
+             <a href="#" class="bg-theme-primary text-theme-black px-3 text-decoration-none" style="font-size: 1rem">View</a
            </div>
          </div>
        </div>
