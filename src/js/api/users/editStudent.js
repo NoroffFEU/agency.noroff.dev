@@ -19,10 +19,8 @@ export async function editStudent(profile) {
 
   const profileURL = apiPath + action + newId;
 
-  console.log('hi', profile);
   const accessToken = getToken('token');
   const newAccessToken = accessToken.replace(/^"|"$/g, '');
-  console.log('accessToken', newAccessToken);
 
   const body = JSON.stringify(profile);
   const options = {
