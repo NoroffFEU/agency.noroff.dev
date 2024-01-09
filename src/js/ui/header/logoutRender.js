@@ -1,9 +1,9 @@
 import { getToken } from '../../api/getToken.js';
 
-const checkLoginStatus = function () {
-  const loggedIn = document.querySelectorAll(`data-visible="loggedIn"`);
-  const loggedOut = document.querySelectorAll(`data-visible="loggedOut"`);
-
+export const checkLoginStatus = function () {
+  const loggedIn = document.querySelector(`data-visible="loggedIn"`);
+  const loggedOut = document.querySelector(`data-visible="loggedOut"`);
+  console.log(loggedOut);
   const token = getToken();
 
   if (token) {
@@ -12,5 +12,3 @@ const checkLoginStatus = function () {
     loggedIn.forEach((item) => item.classList.add('d-block'));
   }
 };
-
-checkLoginStatus();
