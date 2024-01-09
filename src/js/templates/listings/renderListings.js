@@ -15,7 +15,7 @@ export async function renderListings() {
        <div class="col-12 col-lg-6">
          <div class="row p-2 px-3 g-3 bg-theme-light m-0 shadow">
            <div class="m-0 p-3 col-3 d-flex flex-column justify-content-center">
-             <img src="../../images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
+             <img src="/public/images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
            </div>
            <div class="m-0 col-9 d-flex flex-column gap-2 align-items-baseline">
              <div class="card-body d-flex flex-column gap-2 w-100">
