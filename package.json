@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/NoroffFEU/agency.noroff.dev#readme",
   "dependencies": {
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.2",
     "dotenv": "^16.0.3",
     "jsdoc": "^4.0.0",
     "run": "^1.4.0"
@@ -52,7 +52,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.2",
-    "sass": "^1.57.1",
+    "sass": "^1.69.7",
     "vite": "^4.0.4"
   }
 }
