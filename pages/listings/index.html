@@ -17,7 +17,7 @@
     <header></header>
     <!--Main content on page-->
     <main class="bg-theme-new-grey shadow">
-            <div class="container w-75 d-flex flex-column gap-5 bg-theme-grey my-5 p-5">
+            <div class="container w-75 d-flex flex-column gap-5 bg-theme-grey my-3 p-3">
         <!--Top of listings container-->
         <section class="d-flex justify-content-center">
           <div class="mt-5">
@@ -39,80 +39,21 @@
                     <img src="/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">All</a></li>
-                    <li><a class="dropdown-item" href="#">Latest</a></li>
-                    <li><a class="dropdown-item" href="#">Last 14 days</a></li>
-                    <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                      <li><a class="dropdown-item" href="#" id="ascending">All</a></li>
+                    <li><a class="dropdown-item" href="#" id="descending">Latest</a></li>
+                    <li><a class="dropdown-item" href="#" id="cheapest">Last 14 days</a></li>
+                    <li><a class="dropdown-item" href="#" id="expensive">Last 30 Days</a></li>
                   </ul>
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="/public/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">All</a></li>
-                  <li><a class="dropdown-item" href="#">Latest</a></li>
-                  <li><a class="dropdown-item" href="#">Last 14 days</a></li>
-                  <li><a class="dropdown-item" href="#">Last 30 days</a></li>
-                </ul>
-              </div>
+        
             </div>
           </div>
         </section>
         <!--Bootstrap grid cards-->
 
-        <div class="row g-4 listingContainer d-flex flex-wrap justify-content-center">
-          <!-- dummy-cards start -->
-          <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
-            <div class="mt-5 px-2">
-              <img src="../../public/images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque . . .</p>
-            </div>
-            <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50">View</a>
-            </div>
-          </div>
-          <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
-            <div class="mt-5 px-2">
-              <img src="../../public/images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque . . .</p>
-            </div>
-            <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50">View</a>
-            </div>
-          </div>
-          <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
-            <div class="mt-5 px-2">
-              <img src="../../public/images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque . . .</p>
-            </div>
-            <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50">View</a>
-            </div>
-          </div>
-          <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
-            <div class="mt-5 px-2">
-              <img src="../../public/images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque . . .</p>
-            </div>
-            <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50">View</a>
-            </div>
-          </div>
-          <!-- dummy cards ends -->
+        <div class="row g-4 listingContainer d-flex flex-wrap justify-content-center my-3">
+        
         </div>
       </div>
     </main>

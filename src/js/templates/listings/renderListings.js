@@ -2,6 +2,10 @@
 
 import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { searchListings } from '../../listeners/post/searchListing.js';
+import * as sort from './sort.js';
+
+
+
 
 export async function renderListings() {
   const listingsContainer = document.querySelector('.listingContainer');
@@ -26,7 +30,7 @@ export async function renderListings() {
                style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;"
              >${data.description}</div>
            <div class="d-flex flex-column flex-sm-row align-items-end justify-content-between w-100" style="font-size: .75rem">
-             <span class="text-nowrap">(4) Applications</span>
+             <p>Deadline</></br>
              <span>${date2}</span>
              <a href="#" class="bg-theme-primary text-theme-black px-3 text-decoration-none" style="font-size: 1rem">View</a>
            </div>
@@ -35,6 +39,12 @@ export async function renderListings() {
      </div>
      `;
     });
+
+  sort.renderSortedPostsTemplateOldtoNew()
+  sort.renderSortedPostsTemplateNewtoOld()
+
 }
+
+
 
 
