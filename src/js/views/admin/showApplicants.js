@@ -36,13 +36,21 @@ export async function applicantTemplate(applicantData) {
       // applicantEmail = get the applicant email
       const applicantEmail = applicantData[i].email;
       // applicantAddress = get the applicant Address
-      const applicantAddress = applicantData[i].address.address + `, ` + applicantData[i].address.city + ` ` + applicantData[i].address.state + ` ` + applicantData[i].address.postalCode;
+      const applicantAddress =
+        applicantData[i].address.address +
+        `, ` +
+        applicantData[i].address.city +
+        ` ` +
+        applicantData[i].address.state +
+        ` ` +
+        applicantData[i].address.postalCode;
       // applicantPhone = get the applicant phone number
       const applicantPhone = applicantData[i].phone;
       // applicationTitle = Title of application
       const applicationTitle = 'Lorem!';
       // applicationTitle = Text from application
-      const applicationText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum enim facilisis gravida neque convallis a cras. Ut faucibus pulvinar elementum integer enim neque. <br><br>Bibendum enim facilisis gravida neque convallis a cras. Ut faucibus pulvinar elementum integer enim neque.';
+      const applicationText =
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum enim facilisis gravida neque convallis a cras. Ut faucibus pulvinar elementum integer enim neque. <br><br>Bibendum enim facilisis gravida neque convallis a cras. Ut faucibus pulvinar elementum integer enim neque.';
       // applicationLink = get registered link
       const applicationLink = applicantData[i].image;
       // applicationLink = Registered file

@@ -4,11 +4,11 @@ const method = 'PUT';
 const action = 'users/';
 
 /**
- * This function sends a PUT request to the API to update the company profile 
- * 
+ * This function sends a PUT request to the API to update the company profile
+ *
  * @param {Object} profile The updated user profile data
  * @returns {Promise<Object>} A Promise that resolves with the updated user profile
- * @throws {Error} If the 'id' is missing, the API request fails, or if it returns an error status 
+ * @throws {Error} If the 'id' is missing, the API request fails, or if it returns an error status
  */
 
 export async function editStudent(profile) {
