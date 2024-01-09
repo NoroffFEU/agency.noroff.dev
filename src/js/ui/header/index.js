@@ -23,8 +23,11 @@ export const header = () => {
 
         </div>
       </a>
-      <button class="navbar-toggler shadow-none navbar-dark border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon navbar-dark"></span>
+      <button class="navbar-toggler shadow-none navbar-dark border-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger hamburger-top"></span>
+        <span class="hamburger hamburger-mid"></span>
+        <span class="hamburger hamburger-bottom"></span>
+
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       </div>
@@ -33,9 +36,6 @@ export const header = () => {
 </div>`);
 };
 
-// For testing states
-const stateValue = 'null';
-localStorage.setItem('Role', stateValue);
 let pageTitle = document.querySelector('title');
 pageTitle.innerText = 'Standard';
 
@@ -89,7 +89,7 @@ export const checkState = () => {
   }
 
   // The profile button on here is for development reasons
-  if (role == 'null') {
+  if (!role || role === 'null') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
   
 
