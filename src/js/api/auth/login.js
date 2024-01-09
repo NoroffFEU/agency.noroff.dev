@@ -67,7 +67,7 @@ export async function login(profile) {
         new Store('id', id, Boolean(remember !== 'on'));
         // add  chck for id :
         if (id === id) { // spiderman.gif
-          window.location.replace('/pages/user/index');
+          window.location.replace('/pages/user/index.html');
         } else if (profile.admin) {
           window.location.replace('#'); // TODO: Add admin page url
         } else {
