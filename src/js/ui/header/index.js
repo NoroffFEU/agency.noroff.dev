@@ -23,8 +23,11 @@ export const header = () => {
 
         </div>
       </a>
-      <button class="navbar-toggler shadow-none navbar-dark border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon navbar-dark"></span>
+      <button class="navbar-toggler shadow-none navbar-dark border-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger hamburger-top"></span>
+        <span class="hamburger hamburger-mid"></span>
+        <span class="hamburger hamburger-bottom"></span>
+
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       </div>

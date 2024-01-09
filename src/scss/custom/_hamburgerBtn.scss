@@ -1,0 +1,87 @@
+@import './themeColorVariables';
+
+
+.navbar-toggler-icon,
+.navbar-toggler-icon .navbar-dark {
+    background-image: none !important;
+}
+
+
+// The hamburger container. Changing height and width shouldn't affect the hamburger
+.navbar-toggler {
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: transparent !important;
+    width: 56px !important;
+    height: 56px !important;
+
+    &:hover {
+        .hamburger {
+            background-color: $theme-Secondary !important;
+
+        }
+    }
+}
+
+// Hamburger icon when the nav is closed
+.navbar-toggler.collapsed {
+
+    &:hover {
+        .hamburger {
+            width: 60% !important;
+        }
+    }
+
+    .hamburger {
+        width: 7% !important;
+    }
+
+    .hamburger-top {
+        top: 25% !important;
+        transform: rotate(0deg);
+    }
+
+    .hamburger-mid {
+        opacity: 1;
+    }
+
+    .hamburger-bottom {
+        bottom: 25% !important;
+        transform: rotate(0deg);
+    }
+}
+
+.hamburger {
+    display: flex !important;
+    position: absolute !important;
+    background-color: map-get($theme-colors, theme-new-light) !important;
+    height: 7% !important;
+    border-radius: 10px;
+    transition: .2s;
+}
+
+// Hamburger as an X
+.hamburger-top,
+.hamburger-bottom {
+    width: 75%;
+}
+
+.hamburger-top {
+    transform: rotate(45deg);
+}
+
+.hamburger-mid {
+    opacity: 0;
+}
+
+.hamburger-bottom {
+    transform: rotate(-45deg);
+}
+
+@media (min-width: 991px) {
+    .navbar-toggler {
+        display: none !important;
+    }
+}
