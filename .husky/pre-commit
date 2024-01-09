@@ -2,9 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 
-# These are commented out until 
-# https://github.com/NoroffFEU/agency.noroff.dev/issues/484 and https://github.com/NoroffFEU/agency.noroff.dev/issues/474 
-# are merged
-
 # npm test
-# npx lint-staged 
+npx lint-staged 
