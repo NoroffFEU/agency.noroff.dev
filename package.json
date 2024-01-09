@@ -2,7 +2,7 @@
   "name": "agency.noroff.dev",
   "version": "1.0.0",
   "description": "Frontend web application for the Noroff Agency API",
-  "main": "index.js", 
+  "main": "index.js",
   "scripts": {
     "test": "npm run test-unit && npm run test-e2e-cli",
     "test-unit": "jest",
