@@ -17,25 +17,13 @@
     width: 56px !important;
     height: 56px !important;
 
-    &:hover {
-        .hamburger {
-            background-color: $theme-Secondary !important;
-
-        }
-    }
 }
 
 // Hamburger icon when the nav is closed
 .navbar-toggler.collapsed {
 
-    &:hover {
-        .hamburger {
-            width: 60% !important;
-        }
-    }
-
     .hamburger {
-        width: 7% !important;
+        width: 60% !important;
     }
 
     .hamburger-top {
@@ -58,7 +46,6 @@
     position: absolute !important;
     background-color: map-get($theme-colors, theme-new-light) !important;
     height: 7% !important;
-    border-radius: 10px;
     transition: .2s;
 }
 

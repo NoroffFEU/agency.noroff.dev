@@ -118,15 +118,9 @@ input[type=password] {
   width: 56px !important;
   height: 56px !important;
 }
-.navbar-toggler:hover .hamburger {
-  background-color: #08f3b0 !important;
-}
 
-.navbar-toggler.collapsed:hover .hamburger {
-  width: 60% !important;
-}
 .navbar-toggler.collapsed .hamburger {
-  width: 7% !important;
+  width: 60% !important;
 }
 .navbar-toggler.collapsed .hamburger-top {
   top: 25% !important;
@@ -145,7 +139,6 @@ input[type=password] {
   position: absolute !important;
   background-color: #f2f2f2 !important;
   height: 7% !important;
-  border-radius: 10px;
   transition: 0.2s;
 }
 
