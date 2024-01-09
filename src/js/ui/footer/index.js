@@ -25,8 +25,8 @@ export const footer = () => {
           <li class="list-group-item text-white">4612 Kristiansand S</li>
         </ul>
         <div class="d-flex flex-column gap-1">
-          <a href="tel:38000000" class="nav-link text-white" id="navlink-footer-id"><img src="/assets/icons/phone.svg" class="footerIcon"/> 38000000</a>
-          <a href="mailto:utdanning@noroff.no" class="nav-link text-white" id="navlink-footer-id"><img src="/assets/icons/mail.svg" class="footerIcon" id="navlink-footer-id"/> utdanning@noroff.no</a>
+          <a href="tel:38000000" class="nav-link text-white" id="navlink-footer-id"><img src="../../../assets/icons/phone.svg" class="footerIcon" alt="phone icon for footer navigation"/> 38000000</a>
+          <a href="mailto:utdanning@noroff.no" class="nav-link text-white" id="navlink-footer-id"><img src="/assets/icons/mail.svg" class="footerIcon" alt="email icon for footer navigation" id="navlink-footer-id"/> utdanning@noroff.no</a>
         </div>
       </div>
       <div class="col" data-footer-col>
