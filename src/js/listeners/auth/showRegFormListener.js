@@ -1,18 +1,18 @@
-import { showRegForm } from "../../ui/user/register/registerUserUi.js";
+import { showRegForm } from '../../ui/user/register/registerUserUi.js';
 
 export const showRegFormListener = () => {
-    const companyReg = document.getElementById("companyReg")
-    const studentReg = document.getElementById("studentReg")
+  const companyReg = document.getElementById('companyReg');
+  const studentReg = document.getElementById('studentReg');
 
-    if(studentReg){
-        studentReg.addEventListener("click", event => {
-            showRegForm("studentReg")
-        })
-    }
+  if (studentReg) {
+    studentReg.addEventListener('click', (event) => {
+      showRegForm('studentReg');
+    });
+  }
 
-    if(companyReg){
-        companyReg.addEventListener("click", event => {
-            showRegForm("companyReg")
-        })
-    }
-}
+  if (companyReg) {
+    companyReg.addEventListener('click', (event) => {
+      showRegForm('companyReg');
+    });
+  }
+};
