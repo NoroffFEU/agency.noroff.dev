@@ -48,6 +48,8 @@ describe('Application modal close when clicking the "X" in top right corner or o
   it('HTML code for closing bootstrap modal', async () => {
     const applications = await applicantTemplate(TEST_APPLICATION);
     expect(applications).toMatch(/(data-bs-target="#applicantModal)/i);
-    expect(applications).toMatch(/(<button type="button" class="btn-close btn-close-white rounded-0" data-bs-dismiss="modal" aria-label="Close">)/i);
+    expect(applications).toMatch(
+      /(<button type="button" class="btn-close btn-close-white rounded-0" data-bs-dismiss="modal" aria-label="Close">)/i
+    );
   });
 });
