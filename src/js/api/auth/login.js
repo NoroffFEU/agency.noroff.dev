@@ -63,11 +63,11 @@ export async function login(profile) {
         new Store('token', token, Boolean(remember !== 'on'));
         new Store('profile', filteredProfile, Boolean(remember !== 'on'));
         new Store('role', role, Boolean(remember !== 'on'));
-        new Store('email', email, Boolean(remember !== 'on'));
+        new Store('email', email, true);
         new Store('id', id, Boolean(remember !== 'on'));
         // add  chck for id :
         if (id === id) { // spiderman.gif
-          window.location.replace('/pages/user/index');
+          window.location.replace('/pages/user/index.html');
         } else if (profile.admin) {
           window.location.replace('#'); // TODO: Add admin page url
         } else {
