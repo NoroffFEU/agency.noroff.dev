@@ -1,3 +1,4 @@
+
 import * as storage from '../../storage/storage.js';
 
 export function isUserLoggedIn() {
