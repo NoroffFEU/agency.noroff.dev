@@ -11,7 +11,7 @@ export async function getListOfListings() {
   if (response.ok) {
     return await response.json();
   } else {
-    alert('Something went wrong, please try again');
+    console.error(`Error: ${response.status} ${response.statusText}`);
   }
 }
 getListOfListings();

@@ -2,9 +2,6 @@ import { LocalStorageMock } from './storageMock.js';
 import { Store } from '../../storage/storage.js';
 import { login } from './login.js';
 
-// Author: Truls Haakenstad @Menubrea
-// Team: FE-User
-
 global.localStorage = new LocalStorageMock();
 global.window = jest.fn();
 errorContainer = jest.fn();
@@ -53,7 +50,7 @@ describe('login()', () => {
   it('Returns and stores a token when provided with valid credentials', async () => {
     expect(new Store('token').state).toEqual(null);
     global.fetch = jest.fn(() => fetchSuccess());
-    await login(valid_credentials);
+    login(valid_credentials);
     expect(new Store('token').state).toEqual('JWT');
     new Store('token').clear();
     new Store('profile').clear();
@@ -77,7 +74,7 @@ describe('login()', () => {
   it('Returns and stores a role when provided with valid credentials', async () => {
     expect(new Store('role').state).toEqual(null);
     global.fetch = jest.fn(() => fetchSuccess());
-    await login(valid_credentials);
+    login(valid_credentials);
     expect(new Store('role').state).toEqual('student');
     new Store('role').clear();
   });
@@ -85,7 +82,7 @@ describe('login()', () => {
   it('throws error 403 when provided with invalid credentials', async () => {
     global.fetch = jest.fn(() => fetchFailure());
     try {
-      await login(invalid_credentials);
+      login(invalid_credentials);
     } catch (e) {
       await expect(login).rejects.toThrow('Invalid email/password');
       expect(errorContainer.innerHTML).toEqual('Incorrect username/password');

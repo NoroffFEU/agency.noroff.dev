@@ -3,6 +3,16 @@
 
 import { getListOfListings } from './getListOfListings';
 
+global.fetch = jest.fn(() => {});
+
+const TEST_ITEM = [
+  {
+    title: 'Title',
+    location: 'Location',
+    deadline: 'Deadline',
+  },
+];
+
 function mockGetList() {
   return Promise.resolve({
     ok: true,
@@ -11,10 +21,7 @@ function mockGetList() {
 }
 
 function mockFailGetListing() {
-  return Promise.resolve({
-    ok: false,
-    statusText: 'Bad request',
-  });
+  return Promise.reject(new Error('Something went wrong, please try again'));
 }
 
 describe('getListOfListings', () => {
@@ -29,6 +36,6 @@ describe('getListOfListings', () => {
 
   it('Fails to display from the API', async () => {
     global.fetch = jest.fn(() => mockFailGetListing());
-    await expect(getListOfListings).rejects.toThrow('Get requires a listingID');
+    await expect(getListOfListings()).rejects.toThrow('Something went wrong, please try again');
   });
 });
