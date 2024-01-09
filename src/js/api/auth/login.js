@@ -68,11 +68,11 @@ export async function login(profile) {
         // add  chck for id :
         if (id === id) {
           // spiderman.gif
-          window.location.replace('/pages/user/index');
+          window.location.replace('../../../pages/user/index.html');
         } else if (profile.admin) {
           window.location.replace('#'); // TODO: Add admin page url
         } else {
-          window.location.replace('/pages/user/index.html');
+          window.location.replace('../../../pages/user/index.html');
         }
         break;
       case 403:

@@ -7,9 +7,9 @@ const checkLoginStatus = function () {
   const token = getToken();
 
   if (token) {
-    loggedOut.forEach((item) => item.classList.add('d-none'));
+    loggedOut.forEach((item) => item.classList.add('d-block'));
   } else {
-    loggedIn.forEach((item) => item.classList.add('d-none'));
+    loggedIn.forEach((item) => item.classList.add('d-block'));
   }
 };
 
