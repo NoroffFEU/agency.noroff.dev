@@ -32,7 +32,7 @@ const method = 'POST';
 const errorContainer = document.querySelector('#errorContainer');
 
 /**
- * Function for logging in an existing user in database by storing the returned token in session or localstorage
+ * Function for logging in an existing user in database by storing the returned token in session or localStorage
  * @param {object} profile Values from loginForm
  * @param {string} profile.email Email of the user
  * @param {string} profile.password Plain text password
@@ -65,11 +65,12 @@ export async function login(profile) {
         new Store('role', role, Boolean(remember !== 'on'));
         new Store('email', email, false);
         new Store('id', id, Boolean(remember !== 'on'));
-        // add  chck for id :
-        if (id === id) { // spiderman.gif
+        // add  check for id :
+        if (id) {
+          // spider-man.gif
           window.location.replace('/pages/user/index');
         } else if (profile.admin) {
-          window.location.replace('#'); // TODO: Add admin page url
+          window.location.replace('/pages/admin/index.html');
         } else {
           window.location.replace('/pages/user/index.html');
         }
