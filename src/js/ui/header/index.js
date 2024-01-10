@@ -97,9 +97,6 @@ export const checkState = () => {
       <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/user/index.html" id="navItems">Profile</a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item my-auto">
