@@ -1,4 +1,4 @@
-export const apiUrl = new URL('https://cors.noroff.dev/https://agency-api.noroff.dev/');
+export const apiUrl = new URL('https://cors.noroff.dev/https://agency-api.noroff.dev/listings/');
 export const apiPath = apiUrl.toString();
 
 /* This section is for Dummy API that is for testing purpose and development

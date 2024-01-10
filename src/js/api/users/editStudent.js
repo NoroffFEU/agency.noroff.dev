@@ -1,4 +1,5 @@
 import { apiPath } from '../constants.js';
+import { getToken } from '../getToken.js';
 
 const method = 'PUT';
 const action = 'users/';
@@ -12,18 +13,22 @@ const action = 'users/';
  */
 
 export async function editStudent(profile) {
+
+  
   const id = JSON.parse(localStorage.getItem('id'));
   console.log(id);
   const profileURL = apiPath + action + `${id}`;
+  const accessToken = getToken('token');
+  const newAccessToken = accessToken.replace(/^"|"$/g, '');
   const body = JSON.stringify(profile);
   const options = {
     method,
     body,
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${newAccessToken}`,
     },
   };
-
   try {
     const response = await fetch(profileURL, options);
     const profile = await response.json();
