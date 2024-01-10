@@ -1,5 +1,4 @@
 import { Store } from '../../storage/storage.js';
-import { apiPath } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-Team: Frontend - User
@@ -41,7 +40,7 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  const loginURL = apiPath + action;
+  const loginURL = 'https://cors.noroff.dev/https://agency-api.noroff.dev/' + action;
   const body = JSON.stringify(credentials);
 
   const options = {
@@ -58,6 +57,11 @@ export async function login(profile) {
     const response = await fetch(loginURL, options);
     const { token, role, email, id, ...filteredProfile } = await response.json();
 
+    // The following code handles the log in response. part of this handling is to set the Role entry in our storage solution.
+    // before starting the handling we therefore clear the existing value for the Role entry.
+    // It will be set to the correct values depending on the current log in response.
+    localStorage.setItem('Role', 'null');
+
     switch (response.status) {
       case 200:
         new Store('token', token, Boolean(remember !== 'on'));
@@ -66,17 +70,20 @@ export async function login(profile) {
         new Store('email', email, false);
         new Store('id', id, Boolean(remember !== 'on'));
         // add  chck for id :
+
         if (id === id) {
           // spiderman.gif
+          localStorage.setItem('Role', 'user');
           window.location.replace('/pages/user/index');
         } else if (profile.admin) {
+          localStorage.setItem('Role', 'admin');
           window.location.replace('#'); // TODO: Add admin page url
         } else {
           window.location.replace('/pages/user/index.html');
         }
         break;
       case 403:
-        errorContainer.innerHTML = 'Incorrect username/password';
+        errorContainer.innerHTML = 'Incorrect E-mail/password';
         break;
       default:
         throw new Error(`${response.status} ${response.statusText}`);

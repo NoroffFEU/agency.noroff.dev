@@ -23,8 +23,11 @@ export const header = () => {
 
         </div>
       </a>
-      <button class="navbar-toggler shadow-none navbar-dark border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon navbar-dark"></span>
+      <button class="navbar-toggler shadow-none navbar-dark border-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger hamburger-top"></span>
+        <span class="hamburger hamburger-mid"></span>
+        <span class="hamburger hamburger-bottom"></span>
+
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       </div>
@@ -32,6 +35,9 @@ export const header = () => {
   </nav>
 </div>`);
 };
+
+let pageTitle = document.querySelector('title');
+pageTitle.innerText = 'Standard';
 
 /**
  *
@@ -44,13 +50,9 @@ export const header = () => {
  *
  */
 export const checkState = () => {
-  const getRole = () => {
-    return localStorage.getItem('role') || sessionStorage.getItem('role');
-  };
-
+  const role = localStorage.getItem('Role');
   const navBarNav = document.getElementById('navbarNav');
-
-  if (getRole() == 'user') {
+  if (role == 'user') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
@@ -63,12 +65,12 @@ export const checkState = () => {
       <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white fw-semibold" href="#" id="logOutUser">Log out</a>
+      <a class="btn btn-outline-light text-white fw-semibold" href="#" id="signOut">Log out</a>
     </li>
   </ul>`);
   }
 
-  if (getRole == 'admin') {
+  if (role == 'admin') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
@@ -86,34 +88,10 @@ export const checkState = () => {
   </ul>`);
   }
 
-  if (getRole() == '"Applicant"') {
-    if (location.pathname === '/pages/auth/login/index.html' || location.pathname === '/pages/auth/register/applicant/index.html') {
-      location.href = '/pages/user/index.html';
-    }
-
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
-
-    <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/pages/user/index.html" id="navItems">Profile</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
-    </li>
-    <li class="nav-item">
-      <a class="btn btn-outline-light text-white fw-semibold" href="#" id="logOutUser">Log out</a>
-    </li>
-  </ul>`);
-  }
-
-  if (!getRole()) {
-    if (location.pathname === '/pages/user/index.html') {
-      location.href = '/';
-    }
-
+  // The profile button on here is for development reasons
+  if (!role || role === 'null') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
+  
 
     <li class="nav-item">
       <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>

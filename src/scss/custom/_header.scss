@@ -7,11 +7,16 @@
     height: 56px;
   }
 
+.login-button {
+    white-space: nowrap;
+}
+
 @media (max-width: 980px) {
 #navUl{
     align-items: center;
     padding-bottom: 2rem;
     padding-top: 1rem;
+    white-space: nowrap;
 }
 .navbar-toggler {
     width: 35px;
