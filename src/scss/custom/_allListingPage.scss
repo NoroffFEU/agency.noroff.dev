@@ -10,46 +10,42 @@
   .ms-n5 {
     margin-left: -40px;
   }
+  .search-input-group {
+    position: relative;
 
-  /*
-Author: Karen Bonilla
-Team: Vetakollen
-Page: listings/index.html
-*/
-
-@media (max-width: 1199px){
-  #container-listings {
-    width: 90% !important;
-  }
-
-  .card-listing {
-    display: grid !important; 
-    grid-template-columns: auto 1fr;
-    padding-left: 8px;
-    // padding-right: 5px;
+    img {
+      position: absolute;
+      top: 10px;
+      right: 30px;
+    }
   }
   
-  #img-thumbnail {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+  .input-group .search-listing-input {
+    background-color: var(--bs-white);
+    border: none;
+    width: 30rem;
+    height: 2.7rem;
+    margin-right: 0.8rem;
+    box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.2) inset;
+    -webkit-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.2) inset;
+    -moz-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.2) inset;
+
+    &:focus {
+      background-color: var(--bs-white);
+    }
   }
 
-  #listing-card-body {
-    padding-right: 8px !important;
+  @media (max-width: 34em) {
+
+    .input-group .search-listing-input {
+      width: 20rem;
+    }
   }
 
-  .card-title {
-    font-size: 1em !important;
+  @media (max-width: 25em) {
+
+    .input-group .search-listing-input {
+      width: 16rem;
+    }
   }
 
-  .card-body p {
-    font-size: 0.8em !important;
-  }
-}
-
-
-@media (max-width: 1199px) {
-  .search-container {
-    margin-left: 0 !important;
-  }
-}
