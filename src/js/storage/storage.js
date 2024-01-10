@@ -22,8 +22,8 @@ export class Store {
   set state(state) {
     if (state) {
       this.storage.setItem(this.key, JSON.stringify(state));
-     }
-   }
+    }
+  }
 
   clear() {
     this.storage.removeItem(this.key);

@@ -30,7 +30,8 @@ export function showListings() {
         /* API DUMMY - Fetch from user profiles and added company name + title */
         // Cleaning up name from the API call.
         // jobTitle = Company title and department
-        const jobTitle = listingData[i].company.title + ` ` + `[ ${listingData[i].company.department} ]`;
+        const jobTitle =
+          listingData[i].company.title + ` ` + `[ ${listingData[i].company.department} ]`;
         // jobCompany = Company name
         const jobCompany = listingData[i].company.name;
         // jobId = Fetching the postalCode from the company to symbolize an fake-ID number.
