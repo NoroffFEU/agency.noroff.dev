@@ -1,5 +1,4 @@
 import { Store } from '../../storage/storage.js';
-import { apiPath } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-Team: Frontend - User
@@ -41,7 +40,7 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  const loginURL = "https://cors.noroff.dev/https://agency-api.noroff.dev/" + action;
+  const loginURL = 'https://cors.noroff.dev/https://agency-api.noroff.dev/' + action;
   const body = JSON.stringify(credentials);
 
   const options = {
@@ -72,7 +71,7 @@ export async function login(profile) {
         // add  chck for id :
 
         if (id === id) {
-            // spiderman.gif
+          // spiderman.gif
           new Store('Role', 'user', Boolean(remember !== 'on'));
           window.location.replace('/pages/user/index');
         } else if (profile.admin) {
@@ -83,7 +82,7 @@ export async function login(profile) {
         }
         break;
       case 403:
-        errorContainer.innerHTML = 'Incorrect username/password';
+        errorContainer.innerHTML = 'Incorrect E-mail/password';
         break;
       default:
         throw new Error(`${response.status} ${response.statusText}`);
