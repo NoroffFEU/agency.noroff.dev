@@ -71,10 +71,10 @@ export async function login(profile) {
         new Store('id', id, Boolean(remember !== 'on'));
         // add  chck for id :
 
-        if (id === id) { // spiderman.gif
+        if (id === id) {
+          // spiderman.gif
           new Store('Role', 'user', Boolean(remember !== 'on'));
           window.location.replace('/pages/user/index.html');
-
         } else if (profile.admin) {
           localStorage.setItem('Role', 'admin');
           window.location.replace('#'); // TODO: Add admin page url
