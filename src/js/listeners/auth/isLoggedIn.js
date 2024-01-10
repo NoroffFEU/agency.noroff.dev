@@ -1,20 +1,20 @@
-import { Store } from "../../storage/storage.js";
+import { Store } from '../../storage/storage.js';
 
-const tokenStore = new Store("token");
+const tokenStore = new Store('token');
 
 export function isUserLoggedIn() {
-    return !!tokenStore.state;
+  return !!tokenStore.state;
 }
 
-const addEvent = setInterval( () => {
-    const viewListingsButton = document.getElementById('viewListingsButton');
+const addEvent = setInterval(() => {
+  const viewListingsButton = document.getElementById('viewListingsButton');
 
-    viewListingsButton?.addEventListener('click', function() {
-        if (isUserLoggedIn()) {
-            window.location.href = '/pages/listings/index.html';
-        } else {
-            window.location.href = '/pages/auth/login/index.html';
-        }
-        clearInterval(addEvent)
-    });
+  viewListingsButton?.addEventListener('click', function () {
+    if (isUserLoggedIn()) {
+      window.location.href = '/pages/listings/index.html';
+    } else {
+      window.location.href = '/pages/auth/login/index.html';
+    }
+    clearInterval(addEvent);
+  });
 }, 50);
