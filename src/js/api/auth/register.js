@@ -4,11 +4,11 @@ const action = '/users';
 const method = 'POST';
 
 /**
- * 
+ *
  * @param {Object} profile - The profile data for the user to be registered.
  * @param {string} profile.username - The username of the user.
  * @param {string} profile.email - The email of the user.
- * @param {string} profile.password - The password of the user. 
+ * @param {string} profile.password - The password of the user.
  * @returns {Promise<Object>} A Promise that resolves with the registration result if successful.
  * @throws {Error} Throws error if the registration request fails or returns error status.
  */
@@ -37,12 +37,8 @@ export async function register(profile) {
 }
 
 function extractError(responseData) {
-  if (
-    responseData &&
-    responseData.errors &&
-    Array.isArray(responseData.errors)
-  ) {
-    return responseData.errors.map((error) => error.message).join("\n");
+  if (responseData && responseData.errors && Array.isArray(responseData.errors)) {
+    return responseData.errors.map((error) => error.message).join('\n');
   }
-  return "There was an error processing the request.";
+  return 'There was an error processing the request.';
 }

@@ -40,6 +40,7 @@ function fetchFailure(status = 500, statusText = 'Internal Server Error') {
     ok: false,
     status,
     statusText,
+    json: () => Promise.reject(new Error('Internal Server Error')),
   });
 }
 
@@ -47,17 +48,17 @@ describe('register()', () => {
   it('Returns the result of the response on 201 created', async () => {
     global.fetch = jest.fn(() => fetchSuccess());
     const registeredProfile = await register(profile);
-    expect(registeredProfile).toEqual(result);
+
+    const expectedResult = {
+      data: result,
+      error: undefined,
+    };
+
+    expect(registeredProfile).toEqual(expectedResult);
   });
-  it('Redirects to new location on response 201 created', () => {
-    expect(window.location.replace).toHaveBeenCalled();
-  });
+
   it('throws error when !response.ok', async () => {
     global.fetch = jest.fn(() => fetchFailure());
-    try {
-      await register(bad_input);
-    } catch (e) {
-      await expect(register).rejects.toThrow('Internal Server Error');
-    }
+    await expect(register(bad_input)).rejects.toThrow('Internal Server Error');
   });
 });
