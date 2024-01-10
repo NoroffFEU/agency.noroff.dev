@@ -20,7 +20,7 @@ export default {
         edit: path.resolve(__dirname, 'pages/listings/listing/edit/index.html'),
         user: path.resolve(__dirname, 'pages/user/index.html'),
         //
-        // Not in use yet
+        // Not in use
         // tbd: path.resolve(__dirname, 'pages/TBD/index.html'),
         // apply: path.resolve(__dirname, 'pages/TBD/apply/index.html'),
         // client: path.resolve(__dirname, 'pages/TBD/client/application/index.html'),
