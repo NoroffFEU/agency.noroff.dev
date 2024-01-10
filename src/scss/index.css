@@ -164,7 +164,7 @@ input[type=password] {
     display: none !important;
   }
 }
-#navItems:hover {
+#navLink:hover {
   color: black !important;
 }
 
