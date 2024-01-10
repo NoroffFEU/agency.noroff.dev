@@ -85,7 +85,7 @@
             <div class="error"></div>
           </div>
           <div class="col-md-6">
-            <label class="mb-2" for="contactPerson">Contact person</label>
+            <label class="mb-2" for="contactPerson">Contact person*</label>
             <input
               type="text"
               class="form-control"
@@ -96,7 +96,7 @@
             <div class="error"></div>
           </div>
           <div class="col-md-6">
-            <label class="mb-2" for="contactNumber">Contact number</label>
+            <label class="mb-2" for="contactNumber">Contact number*</label>
             <input
               type="tel"
               class="form-control"
@@ -155,23 +155,14 @@
                 </div>
                 <div class="modal-footer border-0">
                   <!-- There are styles for a background img ready for JS.-->
-                  <button class="btn btn-theme-primary btn-lg text-light rounded-1 w-100">
+                  <button
+                    type="button"
+                    class="btn btn-theme-primary btn-lg text-light rounded-1 w-100"
+                    data-bs-dismiss="modal"
+                  >
                     Add image
                   </button>
                 </div>
-
-                <span
-                  >Generate a direct image url on
-                  <a class="link-theme-primary" href="https://postimages.org/"
-                    >https://postimages.org/</a
-                  ></span
-                >
-              </div>
-              <div class="modal-footer border-0">
-                <!-- There are styles for a background img ready for JS.-->
-                <button class="btn btn-theme-primary btn-lg text-light rounded-1 w-100">
-                  Add image
-                </button>
               </div>
             </div>
           </form>

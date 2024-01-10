@@ -21,10 +21,13 @@ export class Store {
 
   set state(state) {
     if (state) {
-      //Do not stringify value if value is already is a string ; to avoid adding "" around the string value
-      this.storage.setItem(this.key, typeof state === 'string' ? state : JSON.stringify(state));
-     }
-   }
+      if (typeof state === 'string') {
+        this.storage.setItem(this.key, state);
+      } else {
+        this.storage.setItem(this.key, JSON.stringify(state));
+      }
+    }
+  }
 
   clear() {
     this.storage.removeItem(this.key);
