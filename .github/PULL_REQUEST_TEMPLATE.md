@@ -26,7 +26,7 @@
 
 
 ## Additional information:
-<!-- What type of changes did you make? -->
+<!-- Fill in other information here -->
 
 ## Feedback
 
