@@ -1,9 +1,9 @@
+import { Store } from '../../storage/storage.js';
 
-import * as storage from '../../storage/storage.js';
+const tokenStore = new Store('token');
 
 export function isUserLoggedIn() {
-  const token = storage.state ? storage.state.token : null;
-  return !!token;
+  return !!tokenStore.state;
 }
 
 const addEvent = setInterval(() => {
@@ -15,7 +15,6 @@ const addEvent = setInterval(() => {
     } else {
       window.location.href = '/pages/auth/login/index.html';
     }
-
     clearInterval(addEvent);
   });
 }, 50);
