@@ -73,8 +73,8 @@ export async function login(profile) {
 
         if (id === id) {
           // spiderman.gif
-          localStorage.setItem('Role', 'user');
-          window.location.replace('/pages/user/index');
+          new Store('Role', 'user', Boolean(remember !== 'on'));
+          window.location.replace('/pages/user/index.html');
         } else if (profile.admin) {
           localStorage.setItem('Role', 'admin');
           window.location.replace('#'); // TODO: Add admin page url

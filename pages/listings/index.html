@@ -38,39 +38,33 @@
               <div class="col-md-5 w-100 col-10 ms-5 search-container">
                 <div class="input-group">
                   <label for="searchListing"></label>
-                  <input
-                    class="form-control bg-body border-top border-3 border-opacity-25 border-0"
-                    type="search"
-                    id="searchListing"
-                    data-search-listings
-                  />
-                  <span class="input-group-append">
-                    <button class="btn ms-n5" type="button">
-                      <img
-                        src="/public/assets/icons/search.svg"
-                        alt="Search icon"
-                        class="icon-sm"
-                      />
+                  <div class="search-input-group">
+                    <input
+                      class="form-control search-listing-input"
+                      type="search"
+                      id="searchListing"
+                      data-search-listings
+                    />
+                    <img src="/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
+                  </div>
+                  <div class="dropdown">
+                    <button
+                      class="btn"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <img src="/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
                     </button>
-                  </span>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">All</a></li>
+                      <li><a class="dropdown-item" href="#">Latest</a></li>
+                      <li><a class="dropdown-item" href="#">Last 14 days</a></li>
+                      <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-              <div class="dropdown col-2">
-                <button
-                  class="btn"
-                  type="button"
-                  id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img src="/public/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">All</a></li>
-                  <li><a class="dropdown-item" href="#">Latest</a></li>
-                  <li><a class="dropdown-item" href="#">Last 14 days</a></li>
-                  <li><a class="dropdown-item" href="#">Last 30 days</a></li>
-                </ul>
               </div>
             </div>
           </div>
