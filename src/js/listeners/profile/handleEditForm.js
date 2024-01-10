@@ -18,7 +18,7 @@ export function handleEditForms() {
   }
 
   if (companyForm) {
-    studentForm.addEventListener('submit', (e) => {
+    companyForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const form = e.target;

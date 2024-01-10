@@ -12,10 +12,7 @@ function mockCreateOffer() {
 }
 
 function mockFailCreateOffer() {
-  return Promise.resolve({
-    ok: false,
-    statusText: 'Bad Request',
-  });
+  return Promise.reject(new Error('something went wrong, please try again'));
 }
 
 describe('createOffer', () => {
@@ -27,6 +24,6 @@ describe('createOffer', () => {
 
   it('fails to create an offer', async () => {
     global.fetch = jest.fn(() => mockFailCreateOffer());
-    await expect(createOffer).rejects.toThrow('something went wrong, please try again');
+    await expect(createOffer(OFFER_DATA)).rejects.toThrow('something went wrong, please try again');
   });
 });
