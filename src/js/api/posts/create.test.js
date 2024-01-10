@@ -1,34 +1,37 @@
-// Author: Åke Ek
+import { create } from './create';
+import { apiBaseFetch } from '../apiBaseFetch';
+import { dummyApiCreatePost, dummyApiUrl } from '../constants';
 
-import { create } from "./create";
+jest.mock('../apiBaseFetch');
 
-const LIST_DATA = "Input information"
+const appData = { title: 'New Application', details: 'Some details' };
+const mockResponse = { id: 1, ...appData };
 
-const TEST_ITEM = LIST_DATA
-
-function mockCreatePost() {
-    return Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(TEST_ITEM),
-    });
-}
-
-function mockFailCreatePost() {
-    return Promise.resolve({
-        ok: false,
-        statusText: "Bad request",
-    });
-}
-
-describe("createPost", () => {
-    it("Creates a new item to the API", async () => {
-        global.fetch = jest.fn(() => mockCreatePost());
-        const newListing = await create(LIST_DATA);
-        expect(newListing).toEqual(TEST_ITEM);
+describe('create', () => {
+  it('successfully creates a new application', async () => {
+    apiBaseFetch.mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve(mockResponse),
     });
 
-    it("Fails to create a new item to the API", async () => {
-        global.fetch = jest.fn(() => mockFailCreatePost());
-        await expect(create).rejects.toThrow("Something went wrong, please try again");
+    const result = await create(appData);
+    expect(apiBaseFetch).toHaveBeenCalledWith(dummyApiUrl + dummyApiCreatePost, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(appData),
     });
+    expect(result).toEqual(mockResponse);
+  });
+
+  it('handles failure when creating a new application', async () => {
+    apiBaseFetch.mockResolvedValue({ ok: false });
+
+    const result = await create(appData);
+    expect(apiBaseFetch).toHaveBeenCalledWith(dummyApiUrl + dummyApiCreatePost, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(appData),
+    });
+    expect(result).toBeUndefined();
+  });
 });

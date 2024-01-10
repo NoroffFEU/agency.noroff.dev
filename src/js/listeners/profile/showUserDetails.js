@@ -1,7 +1,7 @@
 // import headers for the requestOption
 import { headers } from '../../api/headers.js';
 // Import API url for fetch the data (dummy API for users data)
-import { apiPath } from '../../api/constants.js';
+const apiPath = "https://cors.noroff.dev/https://agency-api.noroff.dev/"
 
 // Import API url for fetch the data (userDetailsTemplate)
 import { userDetailsTemplate } from '../../templates/profile/userDetailsTemplate.js';

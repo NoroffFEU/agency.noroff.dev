@@ -1,8 +1,8 @@
-const formContainer = document.getElementById("formContainer")
+const formContainer = document.getElementById('formContainer');
 
 export const showRegForm = (buttonId) => {
-    if (buttonId == "companyReg") {
-        formContainer.innerHTML = `<form class="container mb-3 mt-3 shadow bg-white p-3">
+  if (buttonId == 'companyReg') {
+    formContainer.innerHTML = `<form class="container mb-3 mt-3 shadow bg-white p-3">
         <h2>Register Company</h2>
         <div class="d-flex gap-3 mt-5">
           <div class="container d-flex flex-column gap-2">
@@ -33,12 +33,12 @@ export const showRegForm = (buttonId) => {
           <button class="btn btn-theme-secondary mx-auto btn-lg">Register</button>
           <button class="btn text-black align-self-center" id="companyReg" data-button-companyReg>Not an company? Register as applicant instead!</button>
         </div>
-      </form>`
-        return;
-    }
+      </form>`;
+    return;
+  }
 
-    if (buttonId == "studentReg") {
-        formContainer.innerHTML = `<form class="container mb-3 mt-3 shadow bg-white p-3">
+  if (buttonId == 'studentReg') {
+    formContainer.innerHTML = `<form class="container mb-3 mt-3 shadow bg-white p-3">
         <h2>Register Applicants</h2>
         <div class="d-flex gap-3 mt-5">
           <div class="container d-flex flex-column gap-2">
@@ -88,8 +88,7 @@ export const showRegForm = (buttonId) => {
           <button class="btn btn-theme-secondary mx-auto btn-lg">Register</button>
           <button class="btn text-black align-self-center" id="studentReg" data-button-studentReg>Not an applicant? Register as company instead!</button>
         </div>
-      </form>`
-        return;
-    }
-
-}
+      </form>`;
+    return;
+  }
+};
