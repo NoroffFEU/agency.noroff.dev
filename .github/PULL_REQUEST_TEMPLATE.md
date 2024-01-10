@@ -14,20 +14,25 @@
 * [ ] I moved the card to Quality Assurance after finish?
 
 ## Did you run into any issues?
-
-* [ ] No
-* [ ] Yes I will describe them below:
+<!-- Remove the line below that you don't need -->
+- No, issues encountered.
+- Yes, I encountered issues. (Please describe below).
 <!-- Description of the issues you run into -->
 
 ## Screenshots:
+<!-- Remove the line below that you don't need -->
+- No screenshots to include.
+- Yes, the screenshots are included in the table below.
+
 | Before | After |
 ---------|--------
 |        |       |
-
+<!-- Insert screenshot of code/UI before/after -->
 
 ## Additional information:
 <!-- Fill in other information here -->
 
 ## Feedback
-
-* [ ] I want feedback on this
+<!-- Remove the line below that you don't need -->
+- No, I don't want feedback.
+- Yes, I want feedback.
