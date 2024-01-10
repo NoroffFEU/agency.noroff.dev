@@ -41,15 +41,19 @@ export function userDetailsTemplate(data) {
  * @returns renders html based on state
  */
 export function renderProfileImage(data, element) {
+  let imageUrl;
+
   if (roleCompany()) {
     const { logo, name } = data;
-    element.src = logo;
-    element.alt = name + 'logo';
+    imageUrl = logo;
+    element.alt = name + ' logo';
   } else {
     const { avatar, fullName } = data;
-    element.src = avatar;
-    element.alt = fullName + 'avatar';
+    imageUrl = avatar || 'https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/user_account_profile-2-512.png';
+    element.alt = fullName + ' avatar';
   }
+
+  element.src = imageUrl;
   return element;
 }
 

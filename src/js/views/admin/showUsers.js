@@ -1,5 +1,5 @@
-// Author: Erlend Bergeng
-// Team: Elastic Meerkat
+// Author: Christian Grøtan
+// Team: Vettakollen
 
 import { getAllUsers } from '../../api/users/getAllUsers.js';
 import { addDeleteUserButtonEventListener } from './deleteUsers.js';
