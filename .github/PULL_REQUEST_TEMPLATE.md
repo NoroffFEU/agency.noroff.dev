@@ -9,9 +9,9 @@
 
 ## Checklist before requesting a review
 
-* [ ] Did you create a new branch before starting with this ticket?
-* [ ] Did you comment the issue after finish in the Frontend Team Board?
-* [ ] Did you move the card to Quality Assurance after finish?
+* [ ] I created a new branch before starting with this ticket?
+* [ ] I commented the issue after finish in the Frontend Team Board?
+* [ ] I moved the card to Quality Assurance after finish?
 
 ## Did you run into any issues?
 
