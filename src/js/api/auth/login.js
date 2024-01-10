@@ -1,5 +1,4 @@
 import { Store } from '../../storage/storage.js';
-import { apiPath } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-Team: Frontend - User
@@ -41,7 +40,7 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  const loginURL = "https://cors.noroff.dev/https://agency-api.noroff.dev/" + action;
+  const loginURL = 'https://cors.noroff.dev/https://agency-api.noroff.dev/' + action;
   const body = JSON.stringify(credentials);
 
   const options = {
@@ -59,8 +58,9 @@ export async function login(profile) {
     const { token, role, email, id, ...filteredProfile } = await response.json();
 
     // The following code handles the log in response. part of this handling is to set the Role entry in our storage solution.
-    // before starting the handling we therefore clear the existing value for the Role entry. It will be set to the correct values depending on the current log in response.
-    new Store('Role', 'null', Boolean(remember !== 'on')).clear();
+    // before starting the handling we therefore clear the existing value for the Role entry.
+    // It will be set to the correct values depending on the current log in response.
+    localStorage.setItem('Role', 'null');
 
     switch (response.status) {
       case 200:
@@ -72,11 +72,11 @@ export async function login(profile) {
         // add  chck for id :
 
         if (id === id) {
-            // spiderman.gif
-          new Store('Role', 'user', Boolean(remember !== 'on'));
+          // spiderman.gif
+          localStorage.setItem('Role', 'user');
           window.location.replace('/pages/user/index');
         } else if (profile.admin) {
-          new Store('Role', 'admin', Boolean(remember !== 'on'));
+          localStorage.setItem('Role', 'admin');
           window.location.replace('#'); // TODO: Add admin page url
         } else {
           window.location.replace('/pages/user/index.html');
