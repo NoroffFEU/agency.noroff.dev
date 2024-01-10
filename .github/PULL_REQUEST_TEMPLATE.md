@@ -7,23 +7,27 @@
 ## Type of changes:
 <!-- What type of changes did you make? -->
 
-### Checklist before requesting a review
+## Checklist before requesting a review
 
 * [ ] Did you create a new branch before starting with this ticket?
 * [ ] Did you comment the issue after finish in the Frontend Team Board?
 * [ ] Did you move the card to Quality Assurance after finish?
 
-### Did you run into any issues?
+## Did you run into any issues?
 
 * [ ] No
 * [ ] Yes I will describe them below:
 <!-- Description of the issues you run into -->
 
-### Screenshots:
+## Screenshots:
 | Before | After |
 ---------|--------
 |        |       |
 
 
-### Additional information:
+## Additional information:
 <!-- What type of changes did you make? -->
+
+## Feedback
+
+* [ ] I want feedback on this
