@@ -83,7 +83,7 @@ export async function login(profile) {
         }
         break;
       case 403:
-        errorContainer.innerHTML = 'Incorrect username/password';
+        errorContainer.innerHTML = 'Incorrect E-mail/password';
         break;
       default:
         throw new Error(`${response.status} ${response.statusText}`);
