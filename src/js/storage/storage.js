@@ -21,7 +21,11 @@ export class Store {
 
   set state(state) {
     if (state) {
-      this.storage.setItem(this.key, JSON.stringify(state));
+      if (typeof state === 'string') {
+        this.storage.setItem(this.key, state);
+      } else {
+        this.storage.setItem(this.key, JSON.stringify(state));
+      }
     }
   }
 
