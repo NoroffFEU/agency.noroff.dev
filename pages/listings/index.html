@@ -26,25 +26,24 @@
               <div class="col-md-5 w-100">
                 <div class="input-group">
                   <label for="searchListing"></label>
-                  <input class="form-control search-listing-input" type="search" id="searchListing" data-search-listings />
-                  <span class="input-group-append">
-                      <button class="btn ms-n5" type="button">
-                        <img src="/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
-                      </button>
-                    </span>
+                  <div class="search-input-group">
+                    <input class="form-control search-listing-input" type="search" id="searchListing" data-search-listings />
+                    <img src="/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
+                  </div>
+                  <div class="dropdown">
+                    <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">All</a></li>
+                      <li><a class="dropdown-item" href="#">Latest</a></li>
+                      <li><a class="dropdown-item" href="#">Last 14 days</a></li>
+                      <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                    </ul>
                   </div>
                 </div>
-                <div class="dropdown">
-                  <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">All</a></li>
-                    <li><a class="dropdown-item" href="#">Latest</a></li>
-                    <li><a class="dropdown-item" href="#">Last 14 days</a></li>
-                    <li><a class="dropdown-item" href="#">Last 30 days</a></li>
-                  </ul>
                 </div>
+
               </div>
             </div>
           </div>
