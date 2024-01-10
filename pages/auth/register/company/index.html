@@ -23,12 +23,6 @@
       >
         <div class="d-flex flex-column justify-content-center align-items-center">
           <h1 class="fw-bold">Register For companies</h1>
-          <a
-            href="../applicant/index.html"
-            class="btn text-black align-self-center text-decoration-underline"
-            id="companyReg"
-            >Not a company? Register as a applicant</a
-          >
         </div>
         <!-- Register form -->
         <form class="row g-3" id="registerForm-company">
@@ -112,10 +106,17 @@
             />
             <div class="error"></div>
           </div>
+
           <div class="d-grid gap-2 col-md-6 mx-auto">
             <button class="btn btn-theme-primary btn-lg text-black rounded-1 mt-3" type="submit">
               Register
             </button>
+            <div class="text-center my-2 text-dark">Not a company?</div>
+            <div class="d-flex flex-column flex-md-row justify-content-center text-center">
+              <a class="text-dark px-3 fs-6" href="/pages/auth/register/applicant/index.html"
+                >Register as a applicant</a
+              >
+            </div>
           </div>
         </form>
         <!-- image modal -->
