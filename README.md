@@ -6,7 +6,7 @@ Documentations: [Link](./documentation/)
 
 ## Installing and starting the project
 
-### Update! Configuring Vite. To simplify the changes made, some scripts have been removed and the already-used scripts have been changed to run Vite. This was done so developers already using this won't have to adapt to new scripts. Running "npm run build" will run vite-build and "npm run watch" will run Vite preview. "npm run dev" and "npm run start" both start Vite. - Hans M. Andreassen, Aug22FT
+### Update! Configuring Vite. To simplify the changes made, some scripts have been removed and the already-used scripts have been changed to run Vite. This was done so developers already using this won't have to adapt to new scripts. Running "npm run build" will run vite-build and "npm run watch" will run Vite preview. "npm run dev" and "npm run start" both start Vite. _NB! New HTML files must be added to the `vite.config.js` rollupOptions inputs!_ - Hans M. Andreassen, Aug22FT
 
 - Installation: `npm i`
 
