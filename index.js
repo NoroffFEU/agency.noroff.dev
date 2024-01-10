@@ -12,6 +12,7 @@ import { setRegisterFormListenerCompany } from './src/js/listeners/auth/index.js
 import { createListing } from './src/js/listeners/post/createListing.js';
 import { postApplication } from './src/js/listeners/post/postApplication.js';
 import { showListings } from './src/js/views/admin/showListings.js';
+import { setCreateOfferListener } from './src/js/api/offers/createOffer.js';
 
 displayBaseLayout();
 
@@ -51,19 +52,13 @@ const routerSwitch = () => {
       break;
 
     // Listing UI settings
-    case 'listing':
+    case 'listings':
       document.querySelector('title').innerText = defaultTitle + ` || Listings`;
       renderListings();
       break;
 
-    // Listings UI settings
-    case 'listings':
-      document.querySelector('title').innerText = defaultTitle + ` || Job Listings`;
-      showListings();
-      break;
-
     // TBD Listings UI settings
-    case 'listingsPage':
+    case 'listingsPageTBD':
       document.querySelector('title').innerText = defaultTitle + ` || Job Listings`;
       showListings();
       break;

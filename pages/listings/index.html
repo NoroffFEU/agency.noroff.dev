@@ -5,20 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Description -->
-    <meta name="description" content="This page provides an overview of all the job listings that are posted on the website." />
+    <meta
+      name="description"
+      content="This page provides an overview of all the job listings that are posted on the website."
+    />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
     <link href="/src/scss/custom/_allListingPage.scss" rel="stylesheet" />
     <link href="/css/index.css" rel="stylesheet" />
     <script defer src="/index.js" type="module"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body id="listing">
+  <body id="listings">
     <!--Header is created trough JS script-->
     <header></header>
     <!--Main content on page-->
     <main class="bg-theme-new-grey py-5">
-      <div class="container w-75 d-flex flex-column gap-5 bg-theme-light mt-5 mb-3 pb-3 shadow" id="container-listings">
+      <div
+        class="container w-75 d-flex flex-column gap-5 bg-theme-light mt-5 mb-3 pb-3 shadow"
+        id="container-listings"
+      >
         <!--Top of listings container-->
         <section class="d-flex justify-content-center">
           <div class="mt-5 col-6">
@@ -28,11 +39,22 @@
                 <div class="input-group">
                   <label for="searchListing"></label>
                   <div class="search-input-group">
-                    <input class="form-control search-listing-input" type="search" id="searchListing" data-search-listings />
+                    <input
+                      class="form-control search-listing-input"
+                      type="search"
+                      id="searchListing"
+                      data-search-listings
+                    />
                     <img src="/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
                   </div>
                   <div class="dropdown">
-                    <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button
+                      class="btn"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
                       <img src="/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -43,14 +65,14 @@
                     </ul>
                   </div>
                 </div>
-                </div>
-              </div>
               </div>
             </div>
           </div>
         </section>
         <!--Bootstrap grid cards-->
-        <div class="row g-4 listingContainer d-flex flex-wrap justify-content-center row-cols-1 row-cols-lg-2 row-cols-xl-3 px-5">
+        <div
+          class="row g-4 listingContainer d-flex flex-wrap justify-content-center row-cols-1 row-cols-lg-2 row-cols-xl-3 px-5"
+        >
           <!-- dummy-cards start -->
           <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
             <div class="mt-5 px-2 thumbnail-img card-img-top img-fluid img-thumbnail">
@@ -58,46 +80,78 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque . . .</p>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
+                tempore! Reiciendis soluta doloremque . . .
+              </p>
             </div>
             <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50">View</a>
+              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+                >View</a
+              >
             </div>
           </div>
           <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
             <div class="mt-5 px-2">
-              <img src="../../public/images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
+              <img
+                src="../../public/images/logoipsum-287.svg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
             </div>
             <div class="card-body">
               <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque . . .</p>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
+                tempore! Reiciendis soluta doloremque . . .
+              </p>
             </div>
             <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50">View</a>
+              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+                >View</a
+              >
             </div>
           </div>
           <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
             <div class="mt-5 px-2">
-              <img src="../../public/images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
+              <img
+                src="../../public/images/logoipsum-287.svg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
             </div>
             <div class="card-body">
               <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque . . .</p>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
+                tempore! Reiciendis soluta doloremque . . .
+              </p>
             </div>
             <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50">View</a>
+              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+                >View</a
+              >
             </div>
           </div>
           <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
             <div class="mt-5 px-2">
-              <img src="../../public/images/logoipsum-287.svg" class="img-fluid rounded-start" alt="..." />
+              <img
+                src="../../public/images/logoipsum-287.svg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
             </div>
             <div class="card-body">
               <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam tempore! Reiciendis soluta doloremque . . .</p>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
+                tempore! Reiciendis soluta doloremque . . .
+              </p>
             </div>
             <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50">View</a>
+              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+                >View</a
+              >
             </div>
           </div>
           <!-- dummy cards ends -->
