@@ -1,6 +1,6 @@
 export const footer = () => {
   const footerElement = document.querySelector('footer');
-  footerElement.classList.add('bg-theme-dark', 'pt-5', 'p-2', 'mt-auto');
+  footerElement.classList.add('bg-theme-dark', 'pt-5', 'p-2', 'mt-auto', 'pb-5');
   footerElement.innerHTML = `<div class="container-fluid justify-content-center">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 center-desktop">
      
@@ -24,9 +24,9 @@ export const footer = () => {
           <li class="list-group-item text-white">Tordenskjoldsgate 9</li>
           <li class="list-group-item text-white">4612 Kristiansand S</li>
         </ul>
-        <div class="d-flex flex-column gap-1">
-          <a href="tel:38000000" class="nav-link text-white" id="navlink-footer-id"><img src="../../../public/assets/icons/phone.svg" class="footerIcon" alt="phone icon for footer navigation"/> 38000000</a>
-          <a href="mailto:utdanning@noroff.no" class="nav-link text-white" id="navlink-footer-id"><img src="../../../public/assets/icons/mail.svg" class="footerIcon" alt="email icon for footer navigation" id="navlink-footer-id"/> utdanning@noroff.no</a>
+        <div class="d-flex flex-column gap-1 mt-5">
+          <a href="tel:38000000" class="nav-link text-white" id="navlink-footer-id"><img src="../../../public/assets/icons/phone.svg" class="footerIcon me-3 ms-sm-2 ms-md-0" alt="phone icon for footer navigation"/> 38000000</a>
+          <a href="mailto:utdanning@noroff.no" class="nav-link text-white" id="navlink-footer-id"><img src="../../../public/assets/icons/mail.svg" class="footerIcon me-3 ms-2 ms-md-0" alt="email icon for footer navigation" id="navlink-footer-id"/> utdanning@noroff.no</a>
         </div>
       </div>
       <div class="col" data-footer-col>
