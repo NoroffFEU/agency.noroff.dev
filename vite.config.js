@@ -1,4 +1,7 @@
-/* eslint-disable no-undef */
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import * as path from 'path';
 
 /** @type {import('vite').UserConfig} */
