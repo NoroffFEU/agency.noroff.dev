@@ -1,4 +1,5 @@
 import { Store } from '../../storage/storage.js';
+import { message } from '../../utilities/message/message.js';
 import { callLoginApi } from './handleAuthServices.js';
 
 /**
@@ -61,13 +62,12 @@ function getRedirectUrl(role) {
 export async function login(profile) {
   const { remember, email, password } = profile;
   const rememberLogin = remember === 'on';
-  const errorContainer = document.querySelector('#errorContainer');
 
   try {
     const response = await callLoginApi(email, password);
 
     if (response.error) {
-      errorContainer.innerHTML = response.error?.message;
+      message('danger', 'Invalid login credentials. Please try again', '#errorContainer');
       return;
     }
 
@@ -78,8 +78,7 @@ export async function login(profile) {
     const redirectUrl = getRedirectUrl(userData.role);
     handleLoginRedirect(redirectUrl);
   } catch (error) {
-    errorContainer.innerHTML =
-      'Unknown error occurred. Please try again later. If the problem persists, contact customer support.';
+    message('danger', `An unknown error occured, please try again later`, '#errorContainer');
     console.error(error);
   }
 }
