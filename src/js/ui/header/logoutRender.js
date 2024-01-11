@@ -4,6 +4,8 @@ const checkLoginStatus = function () {
   const loggedIn = document.querySelectorAll(`data-visible="loggedIn"`);
   const loggedOut = document.querySelectorAll(`data-visible="loggedOut"`);
 
+  console.log(loggedIn, loggedOut);
+
   const token = getToken();
 
   if (token) {

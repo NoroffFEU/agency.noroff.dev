@@ -34,8 +34,8 @@ export const header = () => {
 };
 
 // For testing states
-const stateValue = 'null';
-localStorage.setItem('Role', stateValue);
+/* const stateValue = 'Applicant';
+localStorage.setItem('role', stateValue); */
 let pageTitle = document.querySelector('title');
 pageTitle.innerText = 'Standard';
 
@@ -50,19 +50,27 @@ pageTitle.innerText = 'Standard';
  *
  */
 export const checkState = () => {
-  const role = localStorage.getItem('Role');
+  let role = localStorage.getItem('role');
+  if (role === null) {
+    const standardRole = 'visitor';
+    localStorage.setItem('role', standardRole);
+  }
+
+  role = removeQuotes(role);
+
   const navBarNav = document.getElementById('navbarNav');
-  if (role == 'user') {
+
+  if (role == 'Applicant') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" ">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/pages/user/index.html" id="navItems">Profile</a>
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/pages/user/index.html"">Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
+      <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" ">Listings</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-outline-light text-white fw-semibold" href="#" id="signOut">Log out</a>
@@ -74,13 +82,13 @@ export const checkState = () => {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" ">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="#" id="navItems">Profile</a>
+      <a class="nav-link text-white" aria-current="page" href="#" ">Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
+      <a class="nav-link text-white" href="/pages/listings/index.html" ">Listings</a>
     </li>
     <li class="nav-item">
       <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
@@ -88,22 +96,19 @@ export const checkState = () => {
   </ul>`);
   }
 
-  // The profile button on here is for development reasons
-  if (role == 'null') {
+  if (role == 'visitor') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
-  
-
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
+      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" >Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/user/index.html" id="navItems">Profile</a>
+      <a class="nav-link text-white fw-semibold" href="/pages/user/index.html" >Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
+      <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" >Listings</a>
     </li>
     <li class="nav-item my-auto">
-      <a class="btn btn-outline-light text-white rounded-0 py-1 px-4 fw-semibold" href="/pages/auth/login/index.html" id="navItems">Log in</a>
+      <a class="btn btn-outline-light text-white rounded-0 py-1 px-4 fw-semibold" href="/pages/auth/login/index.html">Log in</a>
     </li>
     <li class="nav-item my-auto">
       <a class="btn btn-theme-secondary text-black rounded-0 py-1 px-4 fw-semibold" id="registerUser" href="/pages/auth/register/applicant/index.html">Register</a>
@@ -111,3 +116,10 @@ export const checkState = () => {
   </ul>`);
   }
 };
+
+function removeQuotes(string) {
+  if (string.startsWith('"') && string.endsWith('"')) {
+    return string.slice(1, -1);
+  }
+  return string;
+}
