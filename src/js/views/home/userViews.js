@@ -7,7 +7,7 @@ export const applicantView = `
 <div class="imgContainer">
 <img class="" src="
 https://i.postimg.cc/8Pb4Lrkf/homepage-applicant-update-profile.jpg
-" alt="" />
+" alt="Image of a woman holding a curriculum vitae" />
 </div>
 </div>
 <div class="col-12 col-md-6 ms-md-5 row col-xxl-4">
@@ -33,7 +33,7 @@ https://i.postimg.cc/8Pb4Lrkf/homepage-applicant-update-profile.jpg
 <div class="imgContainer">
 <img class="img-fluid" src="
 https://i.postimg.cc/MZ9XR62K/applicant-homepage-vew-applications.jpg
-" alt="" />
+" alt="Image of two hands holding pencils" />
 </div>
 </div>
 </div>
