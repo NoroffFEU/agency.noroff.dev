@@ -1,4 +1,3 @@
-// frontpage script
 import { applicantView } from './views/home/userViews.js';
 const defaultContentContainer = document.querySelector('#default-homepage-content');
 const applicantContentContainer = document.querySelector('#applicant-homepage-view');
@@ -12,5 +11,7 @@ function displayHtmlByUserRole() {
     defaultContentContainer.style.display = 'none';
     applicantContentContainer.innerHTML = applicantView;
   }
+
+  // TODO: Present HTML for company here when ready.
 }
 displayHtmlByUserRole();
