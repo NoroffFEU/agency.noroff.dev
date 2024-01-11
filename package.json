@@ -11,7 +11,7 @@
     "format": "prettier --write 'src/**/*.js'",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --cache --fix",
-    "build": "vite build",
+    "build": "sass src/scss:css",
     "watch": "vite",
     "build-preview": "vite preview",
     "prepare": "husky install",
