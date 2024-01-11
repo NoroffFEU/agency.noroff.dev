@@ -1,6 +1,6 @@
 import { Store } from '../../storage/storage.js';
 
-const tokenStore = new Store('token');
+const tokenStore = new Store('token', undefined, true);
 
 export function isUserLoggedIn() {
   return !!tokenStore.state;
