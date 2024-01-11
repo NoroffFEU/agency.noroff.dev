@@ -1,4 +1,5 @@
 import { apiPath } from '../constants.js';
+import { message } from '../../utilities/message/message.js';
 
 const method = 'PUT';
 const action = 'company/';
@@ -36,6 +37,11 @@ export async function editCompany(profile) {
         throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch (err) {
-    console.log(err);
+    message(
+      'danger',
+      'An error occured when attempting to edit company details',
+      '#editCompanyErrorContainer'
+    );
+    console.error(err);
   }
 }

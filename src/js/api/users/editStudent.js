@@ -47,7 +47,7 @@ export async function editStudent(profile) {
   } catch (err) {
     message(
       'danger',
-      'An error occured when attempting to edit profile',
+      'An error occured when attempting to edit user details',
       '#editUserErrorContainer'
     );
     console.error(err);
