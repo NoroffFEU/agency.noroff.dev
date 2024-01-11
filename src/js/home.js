@@ -3,7 +3,6 @@ import { Store } from './storage/storage.js';
 
 const homeContentContainer = document.querySelector('#homepage-content');
 const userRoleStore = new Store('role', undefined, true);
-console.log(userRoleStore);
 
 function displayHtmlByUserRole() {
   if (userRoleStore.state === 'Applicant') {
