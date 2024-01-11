@@ -15,7 +15,9 @@ $theme-new-light: #f2f2f2;
 $theme-new-grey: #dde3ea;
 
 // Changing bootstrap colors
-$primary: #00ff4c;
+// Primary variable is being used on active inputs, this was a green color #00ff4c,
+//and green colors usualy indicates success, thats why i have changed this to a more nuetral color
+$primary: #0140d1;
 $secondary: #505059;
 $success: #0c8410;
 $info: #0dcaf0;
