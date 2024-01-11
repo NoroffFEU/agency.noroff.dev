@@ -1,5 +1,5 @@
 import { Store } from '../../storage/storage.js';
-import { apiPath } from '../constants.js';
+import { message } from '../../utilities/message/message.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-Team: Frontend - User
@@ -29,7 +29,6 @@ import { apiPath } from '../constants.js';
  */
 const action = 'users/login';
 const method = 'POST';
-const errorContainer = document.querySelector('#errorContainer');
 
 /**
  * Function for logging in an existing user in database by storing the returned token in session or localstorage
@@ -41,7 +40,7 @@ const errorContainer = document.querySelector('#errorContainer');
  */
 export async function login(profile) {
   const { remember, ...credentials } = profile;
-  const loginURL = "https://cors.noroff.dev/https://agency-api.noroff.dev/" + action;
+  const loginURL = 'https://cors.noroff.dev/https://agency-api.noroff.dev/' + action;
   const body = JSON.stringify(credentials);
 
   const options = {
@@ -51,8 +50,6 @@ export async function login(profile) {
       'Content-Type': 'application/json',
     },
   };
-
-  console.log('access:', options);
 
   try {
     const response = await fetch(loginURL, options);
@@ -72,7 +69,7 @@ export async function login(profile) {
         // add  chck for id :
 
         if (id === id) {
-            // spiderman.gif
+          // spiderman.gif
           new Store('Role', 'user', Boolean(remember !== 'on'));
           window.location.replace('/pages/user/index');
         } else if (profile.admin) {
@@ -83,14 +80,14 @@ export async function login(profile) {
         }
         break;
       case 403:
-        errorContainer.innerHTML = 'Incorrect username/password';
+        message('danger', 'Incorrect e-mail/password', '#errorContainer');
         break;
       default:
-        throw new Error(`${response.status} ${response.statusText}`);
+        message('danger', 'Invalid login credentials. Please try again', '#errorContainer');
+        break;
     }
   } catch (error) {
-    errorContainer.innerHTML =
-      'Unknown error occurred. Please try again later, if the problem persist contact customer support.';
+    message('danger', `An unknown error occured, please try again later`, '#errorContainer');
     console.error(error);
   }
 }
