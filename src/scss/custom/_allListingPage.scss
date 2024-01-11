@@ -1,55 +1,70 @@
-
 .icon {
-    width: 50px;
-  }
-  
-  .icon-sm {
-    width: 25px;
-  }
-  
-  .ms-n5 {
-    margin-left: -40px;
+  width: 50px;
+}
+
+.icon-sm {
+  width: 25px;
+}
+
+.ms-n5 {
+  margin-left: -40px;
+}
+
+.search-listig-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  align-self: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    margin: 4rem 0 3rem;
   }
 
-  /*
-Author: Karen Bonilla
-Team: Vetakollen
-Page: listings/index.html
-*/
+  .search-input-flex-group {
+    display: flex;
+    width: 62%;
 
-@media (max-width: 1199px){
-  #container-listings {
-    width: 90% !important;
-  }
+    .search-input-icon-group {
+      position: relative;
+      width: 100%;
 
-  .card-listing {
-    display: grid !important; 
-    grid-template-columns: auto 1fr;
-    padding-left: 8px;
-    // padding-right: 5px;
-  }
-  
-  #img-thumbnail {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
+      .search-listing-input {
+        background-color: var(--bs-white);
+        border: none;
+        width: 100%;
+        height: 2.7rem;
+        margin-right: 0.8rem;
+        box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.2) inset;
+        -webkit-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.2) inset;
+        -moz-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.2) inset;
 
-  #listing-card-body {
-    padding-right: 8px !important;
-  }
+        &:focus {
+          background-color: var(--bs-white);
+        }
+      }
 
-  .card-title {
-    font-size: 1em !important;
-  }
-
-  .card-body p {
-    font-size: 0.8em !important;
+      img {
+        position: absolute;
+        top: 10px;
+        right: 30px;
+      }
+    }
   }
 }
 
-
-@media (max-width: 1199px) {
-  .search-container {
-    margin-left: 0 !important;
+@media (max-width: 34em) {
+  .search-listig-section {
+    .search-input-flex-group {
+      flex-direction: column;
+      width: 80%;
+      .search-input-icon-group {
+        img {
+          right: 8px;
+        }
+      }
+    }
   }
 }

@@ -1,37 +1,52 @@
 import { Store } from '../../storage/storage.js';
 import { message } from '../../utilities/message/message.js';
-
-// Author: Truls Haakenstad @Menubrea
-// Dev-Team: Frontend - User
-
-// Author: Joakim Tveter
-// Dev-Team: origin-bliss
-
-/* To future Developer
-  At the point of writing this, none of this code has been run on client to the API as its not up and running. The login response is still a bit up in the air, so its possible you will have to change some of the variables created from the response, as well as updating logic. What should and shouldn't be added to local storage is also up for contention, our frontend team discussed other options than local storage for security sensitive data, but priority has been more geared towards creating a structure more so than a final product.
-
-  What server responses to target is also something that could be discussed. At the moment it only checks for 200 and 401 and throws an error if neither. 
-  
-  Any questions can be forwarded to Truls H. Haugen on Discord or @Menubrea on github.
- */
-
-/* To future Developer part 2
-   The response from the server should be this at the moment of writing:
-   {
-      id: Unknown, // TODO: Check type of value
-      firstName: String,
-      lastName: String,
-      email: String,
-      avatar: String,
-      token: String,
-      role: Unknown, // TODO: Check type of value
-   }
- */
-const action = 'users/login';
-const method = 'POST';
+import { callLoginApi } from './handleAuthServices.js';
 
 /**
- * Function for logging in an existing user in database by storing the returned token in session or localstorage
+ * @param {UserData} userData - The user data to store.
+ * @param {boolean} rememberLogin - Whether or not to remember the login
+ * @param {Store} Store - The store class.
+ */
+function storeProfileData(userData, rememberLogin, Store) {
+  const { token, role, id, email } = userData;
+
+  new Store('token', token, rememberLogin);
+  new Store('role', role, rememberLogin);
+  new Store('email', email, rememberLogin);
+  new Store('id', id, rememberLogin);
+}
+
+
+
+/**
+ * @param {Store} Store - The store class.
+ */
+function clearProfileData(Store) {
+  new Store('token').clear();
+  new Store('role').clear();
+  new Store('email').clear();
+  new Store('id').clear();
+}
+
+function handleLoginRedirect(url) {
+  window.location.replace(url);
+}
+
+function getRedirectUrl(role) {
+  switch (role) {
+    case 'Applicant':
+      return '/pages/user/index.html';
+    case 'Admin':
+      return '#'; // TODO: Add admin page url
+    case 'Client':
+      return '#'; // TODO: Add client page url
+    default:
+      return '/pages/user/index.html';
+  }
+}
+
+/**
+ * Function for logging in an existing user in database and storing the returned token in session or localstorage
  * @param {object} profile Values from loginForm
  * @param {string} profile.email Email of the user
  * @param {string} profile.password Plain text password
@@ -39,44 +54,29 @@ const method = 'POST';
  * @returns {void}
  */
 export async function login(profile) {
-  const { remember, ...credentials } = profile;
-  const loginURL = 'https://cors.noroff.dev/https://agency-api.noroff.dev/' + action;
-  const body = JSON.stringify(credentials);
-
-  const options = {
-    method,
-    body,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
+  const { remember, email, password } = profile;
+  const rememberLogin = remember === 'on';
 
   try {
-    const response = await fetch(loginURL, options);
-    const { token, role, email, id, ...filteredProfile } = await response.json();
+    const { userData, error } = await callLoginApi(email, password);
 
-    // The following code handles the log in response. part of this handling is to set the Role entry in our storage solution.
-    // before starting the handling we therefore clear the existing value for the Role entry. It will be set to the correct values depending on the current log in response.
-    new Store('Role', 'null', Boolean(remember !== 'on')).clear();
+    if (error) {
+      return (errorContainer.innerHTML = error?.message);
+    }
 
-    switch (response.status) {
-      case 200:
-        new Store('token', token, Boolean(remember !== 'on'));
-        new Store('profile', filteredProfile, Boolean(remember !== 'on'));
-        new Store('role', role, Boolean(remember !== 'on'));
-        new Store('email', email, false);
-        new Store('id', id, Boolean(remember !== 'on'));
-        // add  chck for id :
+    const { role } = userData;
+
 
         if (id === id) {
           // spiderman.gif
           new Store('Role', 'user', Boolean(remember !== 'on'));
-          window.location.replace('/pages/user/index');
+         window.location.replace('../../../pages/user/index.html');
+
         } else if (profile.admin) {
           new Store('Role', 'admin', Boolean(remember !== 'on'));
           window.location.replace('#'); // TODO: Add admin page url
         } else {
-          window.location.replace('/pages/user/index.html');
+          window.location.replace('../../../pages/user/index.html');
         }
         break;
       case 403:
@@ -86,8 +86,16 @@ export async function login(profile) {
         message('danger', 'Invalid login credentials. Please try again', '#errorContainer');
         break;
     }
+
+    clearProfileData(Store); // Clear any previous data
+    storeProfileData(userData, rememberLogin, Store);
+
+    const redirectUrl = getRedirectUrl(role);
+    handleLoginRedirect(redirectUrl);
+
   } catch (error) {
     message('danger', `An unknown error occured, please try again later`, '#errorContainer');
     console.error(error);
   }
 }
+

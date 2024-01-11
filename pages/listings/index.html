@@ -11,8 +11,6 @@
     />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    <link href="/src/scss/custom/_allListingPage.scss" rel="stylesheet" />
-    <link href="/css/index.css" rel="stylesheet" />
     <script defer src="/index.js" type="module"></script>
     <script
       defer
@@ -26,12 +24,14 @@
     <!--Header is created trough JS script-->
     <header></header>
     <!--Main content on page-->
+
     <main class="bg-theme-new-grey py-5">
       <div
         class="container w-75 d-flex flex-column gap-5 bg-theme-light mt-5 mb-3 pb-3 shadow"
         id="container-listings"
       >
         <!--Top of listings container-->
+
         <section class="d-flex justify-content-center">
           <div class="mt-5 col-6">
             <h1 class="mt-2 py-1 text-center fw-bold">Job Listings</h1>
@@ -40,15 +40,16 @@
                 <div class="input-group">
                   <label for="searchListing"></label>
                   <input
-                    class="form-control bg-body border-top border-3 border-opacity-25 border-0"
+                    class="form-control"
                     type="search"
+                    placeholder="Search Listings..."
                     id="searchListing"
                     data-search-listings
                   />
                   <span class="input-group-append">
                     <button class="btn ms-n5" type="button">
                       <img
-                        src="/public/assets/icons/search.svg"
+                        src="../../public/assets/icons/search.svg"
                         alt="Search icon"
                         class="icon-sm"
                       />
@@ -56,7 +57,7 @@
                   </span>
                 </div>
               </div>
-              <div class="dropdown col-2">
+              <div class="dropdown">
                 <button
                   class="btn"
                   type="button"
@@ -64,7 +65,11 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img src="/public/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
+                  <img
+                    src="../../public/assets/icons/filter.svg"
+                    alt="Search icon"
+                    class="icon-sm"
+                  />
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li><a class="dropdown-item" href="#">All</a></li>
@@ -76,94 +81,92 @@
             </div>
           </div>
         </section>
-      </div>
-      <div id="listingsErrorContainer" class="container"></div>
-      <!--Bootstrap grid cards-->
-      <div
-        class="row g-4 listingContainer d-flex flex-wrap justify-content-center row-cols-1 row-cols-lg-2 row-cols-xl-3 px-5"
-      >
-        <!-- dummy-cards start -->
-        <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
-          <div class="mt-5 px-2 thumbnail-img card-img-top img-fluid img-thumbnail">
-            <img src="../../public/images/logoipsum-287.svg" class="rounded-start" alt="..." />
+        <div id="listingsErrorContainer" class="container"></div>
+        <!--Bootstrap grid cards-->
+        <div class="row g-4 listingContainer justify-content-center px-5">
+          <!-- dummy-cards start -->
+          <div class="card bg-theme-light shadow col-12 col-md-5 m-2">
+            <div class="mt-5 px-2 thumbnail-img card-img-top img-fluid img-thumbnail">
+              <img src="../../public/images/logoipsum-287.svg" class="rounded-start" alt="..." />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
+                tempore! Reiciendis soluta doloremque . . .
+              </p>
+            </div>
+            <div>
+              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+                >View</a
+              >
+            </div>
           </div>
-          <div class="card-body">
-            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
-              tempore! Reiciendis soluta doloremque . . .
-            </p>
+          <div class="card bg-theme-light shadow col-12 col-md-5 m-2">
+            <div class="mt-5 px-2">
+              <img
+                src="../../public/images/logoipsum-287.svg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
+                tempore! Reiciendis soluta doloremque . . .
+              </p>
+            </div>
+            <div>
+              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+                >View</a
+              >
+            </div>
           </div>
-          <div>
-            <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
-              >View</a
-            >
+          <div class="card bg-theme-light shadow col-12 col-md-5 m-2">
+            <div class="mt-5 px-2">
+              <img
+                src="../../public/images/logoipsum-287.svg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
+                tempore! Reiciendis soluta doloremque . . .
+              </p>
+            </div>
+            <div>
+              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+                >View</a
+              >
+            </div>
           </div>
-        </div>
-        <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
-          <div class="mt-5 px-2">
-            <img
-              src="../../public/images/logoipsum-287.svg"
-              class="img-fluid rounded-start"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
-              tempore! Reiciendis soluta doloremque . . .
-            </p>
-          </div>
-          <div>
-            <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
-              >View</a
-            >
-          </div>
-        </div>
-        <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
-          <div class="mt-5 px-2">
-            <img
-              src="../../public/images/logoipsum-287.svg"
-              class="img-fluid rounded-start"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
-              tempore! Reiciendis soluta doloremque . . .
-            </p>
-          </div>
-          <div>
-            <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
-              >View</a
-            >
-          </div>
-        </div>
-        <div class="card bg-theme-light shadow col-md-5 col-sm-12 m-2">
-          <div class="mt-5 px-2">
-            <img
-              src="../../public/images/logoipsum-287.svg"
-              class="img-fluid rounded-start"
-              alt="..."
-            />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
-              tempore! Reiciendis soluta doloremque . . .
-            </p>
-          </div>
-          <div>
-            <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
-              >View</a
-            >
+          <div class="card bg-theme-light shadow col-12 col-md-5 m-2">
+            <div class="mt-5 px-2">
+              <img
+                src="../../public/images/logoipsum-287.svg"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
+                tempore! Reiciendis soluta doloremque . . .
+              </p>
+            </div>
+            <div>
+              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+                >View</a
+              >
+            </div>
           </div>
         </div>
-        <!-- dummy cards ends -->
+
       </div>
     </main>
     <!--Footer is created trough JS script-->

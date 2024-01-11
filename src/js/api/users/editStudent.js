@@ -14,15 +14,13 @@ const action = 'users/';
  */
 
 export async function editStudent(profile) {
-  // const { id } = profile;
-  const id = localStorage.getItem('id');
-  const newId = id.replace(/^"|"$/g, '');
 
-  const profileURL = apiPath + action + newId;
-
+  
+  const id = JSON.parse(localStorage.getItem('id'));
+  console.log(id);
+  const profileURL = apiPath + action + `${id}`;
   const accessToken = getToken('token');
   const newAccessToken = accessToken.replace(/^"|"$/g, '');
-
   const body = JSON.stringify(profile);
   const options = {
     method,
