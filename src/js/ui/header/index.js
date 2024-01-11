@@ -90,7 +90,7 @@ export const checkState = () => {
       <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
+      <a class="btn btn-outline-light text-white" href="#" id="signOut">Log out</a>
     </li>
   </ul>`);
   }
