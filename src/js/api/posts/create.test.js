@@ -1,6 +1,6 @@
 import { create } from './create';
 import { apiBaseFetch } from '../apiBaseFetch';
-import { dummyApiCreatePost, dummyApiUrl } from '../constants';
+import { apiUrl, applicationUrl } from '../constants';
 
 jest.mock('../apiBaseFetch');
 
@@ -15,7 +15,7 @@ describe('create', () => {
     });
 
     const result = await create(appData);
-    expect(apiBaseFetch).toHaveBeenCalledWith(dummyApiUrl + dummyApiCreatePost, {
+    expect(apiBaseFetch).toHaveBeenCalledWith(apiUrl.toString() + applicationUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(appData),
@@ -26,12 +26,12 @@ describe('create', () => {
   it('handles failure when creating a new application', async () => {
     apiBaseFetch.mockResolvedValue({ ok: false });
 
-    const result = await create(appData);
-    expect(apiBaseFetch).toHaveBeenCalledWith(dummyApiUrl + dummyApiCreatePost, {
+    await expect(create(appData)).rejects.toThrow();
+
+    expect(apiBaseFetch).toHaveBeenCalledWith(apiUrl.toString() + applicationUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(appData),
     });
-    expect(result).toBeUndefined();
   });
 });
