@@ -41,8 +41,9 @@ export function setRegisterFormListenerApplicant() {
       const formData = new FormData(form);
       const profile = Object.fromEntries(formData.entries());
       const imageUrl = document.querySelector('#imageUrl').value;
-      profile.firstName = fullName[0];
-      profile.lastName = fullName.slice(1).join(' ');
+      const fullNameSplit = fullName.value.split(' ');
+      profile.firstName = fullNameSplit[0];
+      profile.lastName = fullNameSplit.slice(1).join(' ');
       const data = { ...profile, imageUrl };
 
       const { error } = await registerUser(data);
