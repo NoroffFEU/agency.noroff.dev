@@ -20,12 +20,6 @@ export default {
         create: path.resolve(__dirname, 'pages/listings/listing/create/index.html'),
         edit: path.resolve(__dirname, 'pages/listings/listing/edit/index.html'),
         user: path.resolve(__dirname, 'pages/user/index.html'),
-        //
-        // Not in use
-        // tbd: path.resolve(__dirname, 'pages/TBD/index.html'),
-        // apply: path.resolve(__dirname, 'pages/TBD/apply/index.html'),
-        // client: path.resolve(__dirname, 'pages/TBD/client/application/index.html'),
-        // offer: path.resolve(__dirname, 'pages/TBD/offer-views/index.html'),
       },
     },
   },
