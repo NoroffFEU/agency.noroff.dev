@@ -2,42 +2,6 @@ import { Store } from '../../storage/storage.js';
 import { callLoginApi } from './handleAuthServices.js';
 
 /**
- * Function for logging in an existing user in database and storing the returned token in session or localstorage
- * @param {object} profile Values from loginForm
- * @param {string} profile.email Email of the user
- * @param {string} profile.password Plain text password
- * @param {string} [profile.remember] If the user checkbox is checked it will equal to the string 'on'
- * @returns {void}
- */
-export async function login(profile) {
-  const { remember, email, password } = profile;
-
-  const rememberLogin = remember === 'on';
-
-  const errorContainer = document.querySelector('#errorContainer');
-
-  try {
-    const { userData, error } = await callLoginApi(email, password);
-
-    if (error) {
-      return (errorContainer.innerHTML = error?.message);
-    }
-
-    const { role } = userData;
-
-    clearProfileData(Store); // Clear any previous data
-    storeProfileData(userData, rememberLogin, Store);
-
-    const redirectUrl = getRedirectUrl(role);
-    handleLoginRedirect(redirectUrl);
-  } catch (error) {
-    errorContainer.innerHTML =
-      'Unknown error occurred. Please try again later, if the problem persist contact customer support.';
-    console.error(error);
-  }
-}
-
-/**
  * @param {UserData} userData - The user data to store.
  * @param {boolean} rememberLogin - Whether or not to remember the login
  * @param {Store} Store - The store class.
@@ -50,6 +14,8 @@ function storeProfileData(userData, rememberLogin, Store) {
   new Store('email', email, rememberLogin);
   new Store('id', id, rememberLogin);
 }
+
+
 
 /**
  * @param {Store} Store - The store class.
@@ -77,3 +43,62 @@ function getRedirectUrl(role) {
       return '/pages/user/index.html';
   }
 }
+
+
+/**
+ * Function for logging in an existing user in database and storing the returned token in session or localstorage
+ * @param {object} profile Values from loginForm
+ * @param {string} profile.email Email of the user
+ * @param {string} profile.password Plain text password
+ * @param {string} [profile.remember] If the user checkbox is checked it will equal to the string 'on'
+ * @returns {void}
+ */
+export async function login(profile) {
+  const { remember, email, password } = profile;
+
+  const rememberLogin = remember === 'on';
+
+  const errorContainer = document.querySelector('#errorContainer');
+
+  try {
+    const { userData, error } = await callLoginApi(email, password);
+
+    if (error) {
+      return (errorContainer.innerHTML = error?.message);
+    }
+
+    const { role } = userData;
+
+
+        if (id === id) {
+            // spiderman.gif
+          new Store('Role', 'user', Boolean(remember !== 'on'));
+         window.location.replace('../../../pages/user/index.html');
+
+        } else if (profile.admin) {
+          new Store('Role', 'admin', Boolean(remember !== 'on'));
+          window.location.replace('#'); // TODO: Add admin page url
+        } else {
+          window.location.replace('../../../pages/user/index.html');
+        }
+        break;
+      case 403:
+        errorContainer.innerHTML = 'Incorrect username/password';
+        break;
+      default:
+        throw new Error(`${response.status} ${response.statusText}`);
+    }
+
+    clearProfileData(Store); // Clear any previous data
+    storeProfileData(userData, rememberLogin, Store);
+
+    const redirectUrl = getRedirectUrl(role);
+    handleLoginRedirect(redirectUrl);
+
+  } catch (error) {
+    errorContainer.innerHTML =
+      'Unknown error occurred. Please try again later, if the problem persist contact customer support.';
+    console.error(error);
+  }
+}
+
