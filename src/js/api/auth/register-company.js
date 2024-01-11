@@ -1,4 +1,5 @@
 import { apiUrl } from '../constants.js';
+import { getToken } from '../getToken.js';
 
 const action = 'company';
 const method = 'POST';
@@ -18,12 +19,15 @@ const method = 'POST';
  */
 
 export async function registerCompany(profile) {
+  const accessToken = getToken('token');
+  const newAccessToken = accessToken.replace(/^"|"$/g, '');
   const registerURL = apiUrl + action;
 
   try {
     const response = await fetch(registerURL, {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${newAccessToken}`,
       },
       method,
       body: JSON.stringify(profile),
