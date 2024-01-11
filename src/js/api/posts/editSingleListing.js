@@ -1,37 +1,29 @@
+// Author: Gonzalo Longe
+
 import { apiBaseFetch } from '../apiBaseFetch.js';
-import { apiUrl, listingsUrl } from '../constants.js';
+/*import { apiUrl } from '../constants.js';*/
 
 /**
- * Edits a single listing by its ID.
- * Sends a PUT request to the API to update a listing with the specific ID.
  *
- * @param {string} id - The unique identifier of the listing to be edited.
- * @param {Object} updatedData - The updated data for the listing.
- * @returns {Promise<Response>} - A promise that resolves with the response from the API.
- * @throws {Error} If the 'id' parameter is missing or the request fails.
+ * @param {string} id - The unique identifier of the product listing to be retrieved.
+ * @returns {Promise<Response>} - A promise that resolves with with the response from the API
+ * @throws {Error} If the 'id' parameter is missing
  */
-export async function editSingleListing(id, updatedData) {
+
+export async function editSingleListing(id) {
   if (!id) {
-    throw new Error('Edit requires a listing ID');
+    throw new Error('Get requires a listingID');
   }
 
-  const editListingURL = apiUrl.toString() + listingsUrl + id;
-  const headers = { 'Content-Type': 'application/json' };
+  const headers = {
+    'Content-Type': 'application/json',
+  };
 
-  try {
-    const response = await apiBaseFetch(editListingURL, {
-      method: 'PUT',
-      headers: headers,
-      body: JSON.stringify(updatedData),
-    });
+  const url = `https://dummyjson.com/products/${id}`;
 
-    if (!response.ok) {
-      throw new Error(`Error editing listing: ${response.statusText}`);
-    }
+  const response = await apiBaseFetch(url, headers);
 
-    return response.json();
-  } catch (error) {
-    console.error('Edit listing failed:', error);
-    throw error;
+  if (!response.ok) {
+    return await response;
   }
 }
