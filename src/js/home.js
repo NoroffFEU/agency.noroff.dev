@@ -1,17 +1,17 @@
-import { applicantView } from './views/home/userViews.js';
-const defaultContentContainer = document.querySelector('#default-homepage-content');
-const applicantContentContainer = document.querySelector('#applicant-homepage-view');
+import { applicantView, loggedOutView } from './views/home/userViews.js';
+const homeContentContainer = document.querySelector('#homepage-content');
 
 const userRole = localStorage.getItem('Role');
-console.log(userRole);
 
 function displayHtmlByUserRole() {
-  console.log(userRole);
   if (userRole === 'user') {
-    defaultContentContainer.style.display = 'none';
-    applicantContentContainer.innerHTML = applicantView;
+    homeContentContainer.innerHTML = applicantView;
+  } else if (userRole === 'company') {
+    // TODO: Present HTML for company here when role is ready.
+    // I don't know if the role is named 'company' or something else.
+  } else {
+    homeContentContainer.innerHTML = loggedOutView;
   }
-
-  // TODO: Present HTML for company here when ready.
 }
+
 displayHtmlByUserRole();
