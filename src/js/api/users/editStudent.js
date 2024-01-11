@@ -1,5 +1,6 @@
 import { apiPath } from '../constants.js';
 import { getToken } from '../getToken.js';
+import { message } from '../../utilities/message/message.js';
 
 const method = 'PUT';
 const action = 'users/';
@@ -44,6 +45,11 @@ export async function editStudent(profile) {
         throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch (err) {
-    console.log(err);
+    message(
+      'danger',
+      'An error occured when attempting to edit profile',
+      '#editUserErrorContainer'
+    );
+    console.error(err);
   }
 }
