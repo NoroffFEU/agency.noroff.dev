@@ -1,4 +1,7 @@
-import { apiUrl, companyUrl } from '../constants.js';
+import { apiUrl } from '../constants.js';
+
+const action = 'company';
+const method = 'POST';
 
 /**
  * Register a company by sending a POST request to the API
@@ -15,33 +18,26 @@ import { apiUrl, companyUrl } from '../constants.js';
  */
 
 export async function registerCompany(profile) {
-  const registerURL = apiUrl.toString() + companyUrl;
+  const registerURL = apiUrl + action;
 
   try {
     const response = await fetch(registerURL, {
       headers: {
         'Content-Type': 'application/json',
-        // Include authentication headers if needed
       },
-      method: 'POST',
+      method,
       body: JSON.stringify(profile),
     });
 
-    let result; // Declare the variable outside of the switch block
-
     switch (response.status) {
-      case 201: // Status code for successful creation
-        result = await response.json(); // Assign the value here
-        // Redirect to login page after successful registration
+      case 201:
+        const result = await response.json();
         window.location.replace('/pages/auth/login/index.html');
         return result;
       default:
-        // Handle API-specific errors
-        throw new Error(`Error ${response.status}: ${response.statusText}`);
+        throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch (error) {
-    // Handle network or unexpected errors
-    console.error('Registration error:', error);
-    throw error; // Rethrow to allow error handling by the caller
+    console.log(error);
   }
 }
