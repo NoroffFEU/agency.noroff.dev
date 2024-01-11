@@ -2,13 +2,11 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-import * as path from 'path';
 
 /** @type {import('vite').UserConfig} */
 export default {
-  // base: '/',
   build: {
-    outDir: path.resolve(__dirname, '/dist'),
+    outDir: path.resolve(__dirname, './dist'),
     rollupOptions: {
       input: {
         index: path.resolve(__dirname, 'index.html'),
@@ -35,6 +33,7 @@ export default {
     port: 5173,
     hot: true,
     host: '127.0.0.1',
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
