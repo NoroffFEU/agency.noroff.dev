@@ -49,63 +49,62 @@ pageTitle.innerText = 'Standard';
  * @returns navigation option based on the user's status.
  *
  */
+function navTemplate(status) {
+  const navBarNav = document.getElementById('navbarNav');
+  const unOrderedListNav = document.createElement('ul');
+  unOrderedListNav.className = 'navbar-nav gap-2';
+  unOrderedListNav.id = 'navItems';
+  const navLists1 = document.createElement('li');
+  navLists1.classList.add('nav-item');
+  const navLink1 = document.createElement('a');
+  navLink1.className = 'nav-link text-white fw-semibold';
+  navLink1.ariaCurrent = 'page';
+  navLink1.href = '/index.html';
+  navLink1.id = 'navItems';
+  navLink1.innerText = 'Home';
+  navLists1.append(navLink1);
+  const navLists2 = document.createElement('li');
+  navLists2.classList.add('nav-item');
+  const navLink2 = document.createElement('a');
+  navLink2.className = 'nav-link text-white fw-semibold';
+  navLink2.ariaCurrent = 'page';
+  navLink2.href = '/pages/user/index.html';
+  navLink2.id = 'navItems';
+  navLink2.innerText = 'Profile';
+  navLists2.append(navLink2);
+  const navLists3 = document.createElement('li');
+  navLists3.classList.add('nav-item');
+  const navLink3 = document.createElement('a');
+  navLink3.className = 'nav-link text-white fw-semibold';
+  navLink3.ariaCurrent = 'page';
+  navLink3.href = '/pages/listings/index.html';
+  navLink3.id = 'navItems';
+  navLink3.innerText = 'Listings';
+  navLists3.append(navLink3);
+  const navLists4 = document.createElement('li');
+  navLists3.classList.add('nav-item');
+  const navLink4 = document.createElement('a');
+  navLink4.className = 'nav-link text-white fw-semibold';
+  navLink4.ariaCurrent = 'page';
+  navLink4.href = '#';
+  navLink4.id = 'navItems';
+  navLink4.innerText = status;
+  navLists4.append(navLink4);
+  unOrderedListNav.append(navLists1, navLists2, navLists3, navLists4);
+  navBarNav.append(unOrderedListNav);
+}
+
 export const checkState = () => {
   const role = JSON.parse(localStorage.getItem('role'));
-  console.log(role);
-  const navBarNav = document.getElementById('navbarNav');
+
   if (role == 'Applicant') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
-
-    <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/pages/user/index.html" id="navItems">Profile</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
-    </li>
-    <li class="nav-item">
-      <a class="btn btn-outline-light text-white fw-semibold" href="#" id="signOut">Log out</a>
-    </li>
-  </ul>`);
-  }
-
-  if (role == 'admin') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
-
-    <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white" aria-current="page" href="#" id="navItems">Profile</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
-    </li>
-    <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
-    </li>
-  </ul>`);
+    const status = 'Log out';
+    return navTemplate(status);
   }
 
   // The profile button on here is for development reasons
   if (!role || role === 'null') {
-    return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
-  
-
-    <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
-    </li>
-    <li class="nav-item my-auto">
-      <a class="btn btn-outline-light text-white rounded-0 py-1 px-4 fw-semibold" href="/pages/auth/login/index.html" id="navItems">Log in</a>
-    </li>
-    <li class="nav-item my-auto">
-      <a class="btn btn-theme-secondary text-black rounded-0 py-1 px-4 fw-semibold" id="registerUser" href="/pages/auth/register/applicant/index.html">Register</a>
-    </li>
-  </ul>`);
+    const status = 'Log in';
+    return navTemplate(status);
   }
 };
