@@ -1,3 +1,5 @@
+import { headers } from "./headers.js";
+
 /**
 * @async
 * @function fetch

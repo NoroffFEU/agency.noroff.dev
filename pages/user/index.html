@@ -45,7 +45,7 @@
               class="rounded-circle d-block mx-auto w-25"
               id="profileImage"
               src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
-              alt=""
+              alt="Profile User Avatar"
             />
             <h1 class="text-center mt-3 fw-bold" id="profileName">Peter Parker</h1>
             <p id="profileRole" class="text-center fw-bold fs-2">Front-End Developer</p>
@@ -92,7 +92,7 @@
             id="editProfileBtn"
             data-bs-toggle="modal"
             data-bs-target="#editProfileModal"
-            class="fw-semibold mt-4 m-1 btn btn-theme-dark w-25 text-theme-light p-1 fs-4 rounded-0"
+            class="fw-semibold mt-4 m-1 btn btn-theme-dark text-theme-light fs-4 rounded-0"
           >
             EDIT PROFILE
           </button>
@@ -131,7 +131,7 @@
                       id="avatarButton"
                       class="imgSize img-fluid d-block mx-auto rounded-circle w-25"
                       src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg"
-                      alt=""
+                      alt="Profile User Avatar"
                     />
                     <div class="position-absolute top-50 start-50 translate-middle d-block">
                       <label
@@ -152,15 +152,25 @@
                       />
                     </div>
                   </div>
-                  <!-- // Name and email input group -->
+                  <!-- // Name input group -->
                   <div class="w-50 mx-auto">
                     <div class="mb-2 col-md">
-                      <label for="nameStudent" class="form-label mb-0">Full Name*</label>
-                      <input type="text" name="fullName" id="nameStudent" class="form-control" />
+                      <label for="firstNameStudent" class="form-label mb-0">First Name*</label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        id="firstNameStudent"
+                        class="form-control"
+                      />
                     </div>
                     <div class="mb-2 col-md">
-                      <label for="emailStudent" class="form-label mb-0">E-mail*</label>
-                      <input type="email" name="email" id="emailStudent" class="form-control" />
+                      <label for="lastNameStudent" class="form-label mb-0">Last Name*</label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        id="lastNameStudent"
+                        class="form-control"
+                      />
                     </div>
 
                     <!-- // Title and degree input group -->
@@ -221,7 +231,7 @@
                     <textarea
                       class="form-control bg-theme-new-grey"
                       rows="5"
-                      name="description"
+                      name="about"
                       id="studentDescription"
                     >
                     </textarea>
@@ -246,7 +256,7 @@
                       type="button"
                       class="imgSize img-fluid d-block mx-auto rounded-circle"
                       src="https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvay01Ni1kc2MyOTY1NDU2NjQ1MzQ1NjM5LmpwZw.jpg"
-                      alt=""
+                      alt="Company Avatar"
                     />
                     <div class="position-absolute top-50 start-50 translate-middle d-block">
                       <label
