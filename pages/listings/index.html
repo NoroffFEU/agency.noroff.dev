@@ -32,39 +32,53 @@
       >
         <!--Top of listings container-->
         <section class="d-flex justify-content-center">
-          <div class="mt-5 col-6">
+          <div class="mt-5">
             <h1 class="mt-2 py-1 text-center fw-bold">Job Listings</h1>
-            <div class="container d-flex justify-content-center mt-3 col-12 ms-3">
-              <div class="col-md-5 w-100 col-10 ms-5 search-container">
-                <div class="input-group">
-                  <label for="searchListing"></label>
-                  <div class="search-input-group">
+            <div class="container-fluid d-flex justify-content-center mt-3 col-12 ms-3">
+              <div class="row">
+                <form class="form-inline d-flex my-4">
+                  <!-- Search Input -->
+                  <div class="form-group mr-2">
                     <input
-                      class="form-control search-listing-input"
-                      type="search"
-                      id="searchListing"
-                      data-search-listings
+                      type="text"
+                      class="form-control bg-white"
+                      id="searchInput"
+                      placeholder="Search..."
+                      required
                     />
-                    <img src="/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
                   </div>
-                  <div class="dropdown">
+
+                  <!-- Search Button with Custom Icon -->
+                  <button type="submit" class="btn">
+                    <img src="/public/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
+                  </button>
+
+                  <!-- Filter Button with Dropdown Options -->
+                  <div class="dropdown ml-2">
                     <button
                       class="btn"
                       type="button"
-                      id="dropdownMenuButton1"
+                      id="filterDropdown"
                       data-bs-toggle="dropdown"
+                      aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <img src="/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
+                      <img
+                        src="/public/assets/icons/filter.svg"
+                        alt="Filter content"
+                        class="icon-sm"
+                      />
+                      <!-- Replace with your own filter icon -->
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <li><a class="dropdown-item" href="#">All</a></li>
-                      <li><a class="dropdown-item" href="#">Latest</a></li>
-                      <li><a class="dropdown-item" href="#">Last 14 days</a></li>
-                      <li><a class="dropdown-item" href="#">Last 30 days</a></li>
-                    </ul>
+                    <div class="dropdown-menu" aria-labelledby="filterDropdown">
+                      <a class="dropdown-item" href="#">All</a>
+                      <a class="dropdown-item" href="#">Latest</a>
+                      <a class="dropdown-item" href="#">Last 14 days</a>
+                      <a class="dropdown-item" href="#">Last 30 days</a>
+                      <!-- Add more dropdown options as needed -->
+                    </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
