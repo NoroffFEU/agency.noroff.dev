@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Description -->
-    <meta name="description" content="This page lets companies who are looking for talent to create and publish listings." />
+    <meta
+      name="description"
+      content="This page lets companies who are looking for talent to create and publish listings."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="create job listings" />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    <link href="/css/index.css" rel="stylesheet" />
+
     <script src="/index.js" defer type="module"></script>
   </head>
   <body class="d-flex flex-column flex-fill min-vh-100 gap-4" id="createListing">
@@ -23,37 +26,103 @@
             We'll keep this code here for now, so you can easily copy/paste when ready -->
           <form class="m-2" id="createNewListing" data-auth="createForm">
             <div class="text-end">
-              <button type="button" class="btn-close" style="border-radius: 0px" data-auth="createFormClose"></button>
+              <button
+                type="button"
+                class="btn-close"
+                style="border-radius: 0px"
+                data-auth="createFormClose"
+              ></button>
             </div>
             <h1 class="text-center mt-4">Create New Listing</h1>
             <div class="m-4 mt-5">
               <div class="form mb-3">
                 <label for="createTitle">Job Title/Position</label>
-                <input class="form-control bg-theme-light" style="border-radius: 0px" type="text" name="title" id="createTitle" data-auth="createFormTitle" required minlength="3" max="20" />
+                <input
+                  class="form-control bg-theme-light"
+                  style="border-radius: 0px"
+                  type="text"
+                  name="title"
+                  id="createTitle"
+                  data-auth="createFormTitle"
+                  required
+                  minlength="3"
+                  max="20"
+                />
               </div>
               <div class="form mb-3">
                 <label for="location">Location</label>
-                <input class="form-control bg-theme-light" style="border-radius: 0px" type="text" name="location" id="createLocation" data-auth="createFormLocation" required minlength="3" maxlength="20" />
+                <input
+                  class="form-control bg-theme-light"
+                  style="border-radius: 0px"
+                  type="text"
+                  name="location"
+                  id="createLocation"
+                  data-auth="createFormLocation"
+                  required
+                  minlength="3"
+                  maxlength="20"
+                />
               </div>
               <div class="form mb-3">
                 <label for="deadline">Application Deadline</label>
-                <input class="form-control bg-theme-light" style="border-radius: 0px" type="datetime-local" name="deadline" id="createDeadline" data-auth="createFormLocation" required title="Enter a valid date" />
+                <input
+                  class="form-control bg-theme-light"
+                  style="border-radius: 0px"
+                  type="datetime-local"
+                  name="deadline"
+                  id="createDeadline"
+                  data-auth="createFormLocation"
+                  required
+                  title="Enter a valid date"
+                />
               </div>
               <div class="input-group mt-5 mb-3">
-                <span class="input-group-text" style="border-radius: 0px">Upload Cover Picture</span>
-                <input type="text" class="form-control bg-theme-light" style="border-radius: 0px" id="pictureUrl" data-auth="createFormPicture" />
+                <span class="input-group-text" style="border-radius: 0px"
+                  >Upload Cover Picture</span
+                >
+                <input
+                  type="text"
+                  class="form-control bg-theme-light"
+                  style="border-radius: 0px"
+                  id="pictureUrl"
+                  data-auth="createFormPicture"
+                />
               </div>
               <div class="form mb-3">
                 <label for="jobDescription" class="">Job Description</label>
-                <textarea class="form-control bg-theme-light" style="border-radius: 0px" rows="10" type="text" name="jobDescription" id="createDescription" data-auth="createFormDescription"></textarea>
+                <textarea
+                  class="form-control bg-theme-light"
+                  style="border-radius: 0px"
+                  rows="10"
+                  type="text"
+                  name="jobDescription"
+                  id="createDescription"
+                  data-auth="createFormDescription"
+                ></textarea>
               </div>
             </div>
             <div class="ms-4 mb-4">
-              <button id="createListingBtn" class="btn btn-theme-secondary ps-4 pe-4 me-4" style="border-radius: 0px; width: 250px" type="submit" data-auth="createFormSubmitButton" data-bs-toggle="modal" data-bs-target="#createModal">CREATE NEW LISTING</button>
+              <button
+                id="createListingBtn"
+                class="btn btn-theme-secondary ps-4 pe-4 me-4"
+                style="border-radius: 0px; width: 250px"
+                type="submit"
+                data-auth="createFormSubmitButton"
+                data-bs-toggle="modal"
+                data-bs-target="#createModal"
+              >
+                CREATE NEW LISTING
+              </button>
             </div>
           </form>
         </div>
-        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
+        <div
+          class="modal fade"
+          id="createModal"
+          tabindex="-1"
+          aria-labelledby="createModal"
+          aria-hidden="true"
+        >
           <div class="modal-dialog">
             <div class="modal-content text-center">
               <div class="modal-body">
@@ -66,6 +135,10 @@
       </div>
     </main>
     <footer></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
