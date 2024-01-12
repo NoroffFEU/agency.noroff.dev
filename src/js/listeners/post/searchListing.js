@@ -1,7 +1,6 @@
 // Author: Emilie Herrera Thomsen
 // This is just the skeleton for a search functionality, not finished.
 
-import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { renderListings } from '../../templates/listings/renderListings.js';
 
 export function searchListings(arrayOfListings) {

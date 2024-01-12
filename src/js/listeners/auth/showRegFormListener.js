@@ -5,13 +5,13 @@ export const showRegFormListener = () => {
   const studentReg = document.getElementById('studentReg');
 
   if (studentReg) {
-    studentReg.addEventListener('click', (event) => {
+    studentReg.addEventListener('click', () => {
       showRegForm('studentReg');
     });
   }
 
   if (companyReg) {
-    companyReg.addEventListener('click', (event) => {
+    companyReg.addEventListener('click', () => {
       showRegForm('companyReg');
     });
   }

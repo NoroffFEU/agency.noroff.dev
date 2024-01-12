@@ -19,6 +19,7 @@ export async function deleteItem(url) {
     };
     const response = await fetch(url, itemData);
     const result = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
   }
