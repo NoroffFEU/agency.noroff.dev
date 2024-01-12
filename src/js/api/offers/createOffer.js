@@ -1,46 +1,56 @@
-// Example of where I get the api call and headers for token
+import { apiUrl, offerUrl } from '../constants.js';
 import { headers } from '../headers.js';
-// import { apiPath } from '../../api/constants';
-import { dummyApiUrl, dummyApiCreateProduct } from '../constants.js';
-
-// Temp files until URL endpoint is made
-const method = 'POST';
-// const path = '';
 
 /**
  * Function that based on input data creates an offer.
- * @param {*} postData
- * @returns the data filled into the form in json format.
+ * @param {*} postData - The data for the offer to be created.
+ * @returns The response data from the API.
+ * @throws {Error} Throws an error if the API request fails.
  */
 export async function createOffer(postData) {
-  const createOfferURL = dummyApiUrl + dummyApiCreateProduct;
+  const createOfferURL = apiUrl.toString() + offerUrl;
 
   const body = JSON.stringify(postData);
   const options = {
-    method,
+    method: 'POST',
     headers: headers(),
     body,
   };
 
-  const response = await fetch(createOfferURL, options);
-  return await response.json();
+  try {
+    const response = await fetch(createOfferURL, options);
+
+    if (!response.ok) {
+      throw new Error(`Error creating offer: ${response.statusText}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Create offer failed:', error);
+    throw error;
+  }
 }
+
 /**
- * Listens for the form to be filled in,
- * if filled in properly, POST the Offer.
+ * Listens for the form to be filled in and submits the offer data.
  */
 export async function setCreateOfferListener() {
   const form = document.querySelector('#offerForm');
 
   if (form) {
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const form = event.target;
-      const formData = new FormData(form);
+      const formData = new FormData(event.target);
       const offerData = Object.fromEntries(formData.entries());
 
-      // Send to API
-      createOffer(offerData);
+      try {
+        const result = await createOffer(offerData);
+        console.log(result); // or display it in the UI
+        // Additional actions after successful creation
+      } catch (error) {
+        console.error('Submit offer failed:', error);
+        // Handle error in the UI
+      }
     });
   }
 }

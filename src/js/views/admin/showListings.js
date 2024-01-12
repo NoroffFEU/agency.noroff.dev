@@ -30,7 +30,8 @@ export function showListings() {
         /* API DUMMY - Fetch from user profiles and added company name + title */
         // Cleaning up name from the API call.
         // jobTitle = Company title and department
-        const jobTitle = listingData[i].company.title + ` ` + `[ ${listingData[i].company.department} ]`;
+        const jobTitle =
+          listingData[i].company.title + ` ` + `[ ${listingData[i].company.department} ]`;
         // jobCompany = Company name
         const jobCompany = listingData[i].company.name;
         // jobId = Fetching the postalCode from the company to symbolize an fake-ID number.
@@ -47,7 +48,7 @@ export function showListings() {
             <div class="d-flex gap-2 align-content-center align-items-center">
               <p>() Applications</p>
               <p>Ends at:</p>
-              <button class="btn btn-info">View</button>
+              <button class="btn btn-info text-white">View</button>
               <button class="btn btn-sm btn${jobId}" id="deleteUserBtn">
                 <img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" />
               </button>

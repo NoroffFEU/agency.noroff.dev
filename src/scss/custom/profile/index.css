@@ -1,0 +1,32 @@
+/*
+Author: Truls Haakenstad - @Menubrea
+Team: User
+Page: Profile
+Version: 1.0.0
+*/
+.maxWidthProfileContainer {
+  max-width: 750px;
+}
+
+.maxWidthLayout {
+  max-width: 1420px;
+}
+
+.tabWidth {
+  width: clamp(80px, 25vw, 326px);
+}
+
+.imgSize {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+/*
+Author: Truls Haakenstad - @Menubrea
+Team: User
+Page: Profile
+Version: 1.0.0
+*/
+/* To Future developer
+  There aren't a whole lot of custom classes, and in reality they should probably be more globally applied through a consolidated team effort. For now I've applied my classes and variables locally to avoid any sort of conflict with other team's work.
+*//*# sourceMappingURL=index.css.map */

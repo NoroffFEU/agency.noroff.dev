@@ -7,8 +7,8 @@
  */
 
 export function userNotFound(container) {
-    //
-    return container.innerHTML = `
+  //
+  return (container.innerHTML = `
     <div class="container vh-100">
         <div class="row text-center my-3">
             <div>
@@ -17,12 +17,12 @@ export function userNotFound(container) {
             <h3 class="">Something went wrong</h3>
             <p>The listing/user you are looking for was not found in our database, please try again.</p>
         </div>
-    </div>`;
-  }
+    </div>`);
+}
 
 export function listingNotFound(container) {
-    //
-    return container.innerHTML = `
+  //
+  return (container.innerHTML = `
     <div class="container vh-100">
         <div class="row text-center my-3">
             <div>
@@ -31,5 +31,5 @@ export function listingNotFound(container) {
             <h3 class="">Something went wrong</h3>
             <p>The listing/user you are looking for was not found in our database, please try again.</p>
         </div>
-    </div>`;
-  }
+    </div>`);
+}

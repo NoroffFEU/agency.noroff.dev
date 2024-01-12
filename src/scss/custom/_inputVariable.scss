@@ -3,7 +3,10 @@
 $input-border-radius: 0.625rem;
 
 input[type='text'],
-input[type='password'] {
+input[type='email'],
+input[type='password'],
+.form-select,
+#contactNumber {
   border-radius: $input-border-radius !important;
 }
 

@@ -6,9 +6,21 @@ Documentations: [Link](./documentation/)
 
 ## Installing and starting the project
 
-```md
-npm i
-```
+### Update! (by Hans M. Andreassen - Aug22FT)
+
+Vite configured.
+To simplify the changes made, some scripts have been removed and the already-used scripts have been changed to run Vite.
+This was done so developers already using this won't have to adapt to new scripts and commands.
+
+**NB! New HTML files must be added to the `vite.config.js` rollupOptions inputs!**
+
+- Installation: `npm i`
+
+- Local server: `npm run dev` or `npm run watch`
+
+- Production build: `npm run build` (creates the dist folder and compiles)
+
+- Production build preview: `npm run build-preview` (launches a local server that shows the project as it will show when deployed)
 
 ## Dependencies
 

@@ -1,14 +1,15 @@
 import { apiPath } from '../constants.js';
+import { message } from '../../utilities/message/message.js';
 
 const method = 'PUT';
 const action = 'company/';
 
 /**
- * This function sends a PUT request to the API to update the company profile 
- * 
+ * This function sends a PUT request to the API to update the company profile
+ *
  * @param {Object} profile The updated company profile data
  * @returns {Promise<Object>} A Promise that resolves with the updated company profile
- * @throws {Error} If the 'id' is missing, the API request fails, or if it returns an error status 
+ * @throws {Error} If the 'id' is missing, the API request fails, or if it returns an error status
  */
 
 export async function editCompany(profile) {
@@ -36,6 +37,11 @@ export async function editCompany(profile) {
         throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch (err) {
-    console.log(err);
+    message(
+      'danger',
+      'An error occured when attempting to edit company details',
+      '#editCompanyErrorContainer'
+    );
+    console.error(err);
   }
 }

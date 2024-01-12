@@ -1,34 +1,39 @@
-// Author: Åke Ek
+import { create } from './create.js';
+import { apiBaseFetch } from '../apiBaseFetch.js';
 
-import { create } from "./create";
+jest.mock('../apiBaseFetch.js');
 
-const LIST_DATA = "Input information"
+describe('create', () => {
+  it('should return data on successful application creation', async () => {
+    const mockAppData = { name: 'New Application', description: 'Test Description' };
+    const mockApiResponse = { id: '123', ...mockAppData };
 
-const TEST_ITEM = LIST_DATA
-
-function mockCreatePost() {
-    return Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(TEST_ITEM),
-    });
-}
-
-function mockFailCreatePost() {
-    return Promise.resolve({
-        ok: false,
-        statusText: "Bad request",
-    });
-}
-
-describe("createPost", () => {
-    it("Creates a new item to the API", async () => {
-        global.fetch = jest.fn(() => mockCreatePost());
-        const newListing = await create(LIST_DATA);
-        expect(newListing).toEqual(TEST_ITEM);
+    apiBaseFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockApiResponse,
+      statusText: 'OK',
     });
 
-    it("Fails to create a new item to the API", async () => {
-        global.fetch = jest.fn(() => mockFailCreatePost());
-        await expect(create).rejects.toThrow("Something went wrong, please try again");
+    const result = await create(mockAppData);
+
+    expect(result).toEqual(mockApiResponse);
+    expect(apiBaseFetch).toHaveBeenCalledWith(expect.any(String), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(mockAppData),
     });
+  });
+
+  it('should throw an error on API failure', async () => {
+    apiBaseFetch.mockResolvedValueOnce({
+      ok: false,
+      statusText: 'Internal Server Error',
+    });
+
+    const mockAppData = { name: 'New Application', description: 'Test Description' };
+
+    await expect(create(mockAppData)).rejects.toThrow(
+      'Error creating application: Internal Server Error'
+    );
+  });
 });

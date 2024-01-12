@@ -3,12 +3,12 @@
  * @param {Array} userData - An array of user data objects.
  * @param userName - The name of the user.
  * @param userEmail - The email of the user.
- * 
+ *
  * @param {Array} listingData - An array of listing data objects.
  * @param id - The id of the listing.
  * @param jobTitle - The job title of the listing.
  * @param companyName - The company name of the listing.
- * 
+ *
  * @param {string} term - The search term to filter by.
  * @returns {Array} - An array of user/listing data objects that match the search term.
  */

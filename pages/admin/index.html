@@ -7,9 +7,12 @@
     <meta name="author" content="Linus_Aakerberg, Stian Kornbakk, @Menubrea" />
     <meta name="team" content=" FE_Offer  " />
     <!-- Description -->
-    <meta name="description" content="The Admin page provides an overview of the currently available users, listings, offers and applications." />
+    <meta
+      name="description"
+      content="The Admin page provides an overview of the currently available users, listings, offers and applications."
+    />
     <title>Noroff Jobs</title>
-    <link href="/css/index.css" rel="stylesheet" />
+
     <script src="/index.js" defer type="module"></script>
   </head>
   <body id="adminPage" class="bg-theme-new-grey">
@@ -21,33 +24,93 @@
         <nav>
           <ul class="nav nav-tabs nav-fill rounded-top bg-theme-new-light">
             <li class="nav-item text-start">
-              <a id="tabsUser" class="nav-link border-end active" aria-current="page" data-bs-target="#adminUsers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminUsers">Users</a>
+              <a
+                id="tabsUser"
+                class="nav-link border-end active"
+                aria-current="page"
+                data-bs-target="#adminUsers"
+                type="button"
+                role="tab"
+                data-bs-toggle="tab"
+                aria-controls="#adminUsers"
+                >Users</a
+              >
             </li>
             <li class="nav-item text-start">
-              <a id="tabsListing" class="nav-link border-end" data-bs-target="#adminListings" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminListings">Listing</a>
+              <a
+                id="tabsListing"
+                class="nav-link border-end"
+                data-bs-target="#adminListings"
+                type="button"
+                role="tab"
+                data-bs-toggle="tab"
+                aria-controls="#adminListings"
+                >Listing</a
+              >
             </li>
             <li class="nav-item text-start">
-              <a id="tabsOffers" class="nav-link border-end" data-bs-target="#adminOffers" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminOffers">Offers</a>
+              <a
+                id="tabsOffers"
+                class="nav-link border-end"
+                data-bs-target="#adminOffers"
+                type="button"
+                role="tab"
+                data-bs-toggle="tab"
+                aria-controls="#adminOffers"
+                >Offers</a
+              >
             </li>
             <li class="nav-item text-start">
-              <a id="tabsApplication" class="nav-link border-0" data-bs-target="#adminApplications" type="button" role="tab" data-bs-toggle="tab" aria-controls="#adminApplications">Applications</a>
+              <a
+                id="tabsApplication"
+                class="nav-link border-0"
+                data-bs-target="#adminApplications"
+                type="button"
+                role="tab"
+                data-bs-toggle="tab"
+                aria-controls="#adminApplications"
+                >Applications</a
+              >
             </li>
           </ul>
         </nav>
         <!-- Tab Content -->
         <div class="tab-content bg-white pt-5">
           <!-- Users -->
-          <div tabindex="0" class="tab-pane active container-sm p-2" id="adminUsers" role="tabpanel">
+          <div
+            tabindex="0"
+            class="tab-pane active container-sm p-2"
+            id="adminUsers"
+            role="tabpanel"
+          >
             <!-- Users search -->
             <div class="row container-sm pb-5">
               <div class="col d-flex justify-content-end">
-                <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
+                <form
+                  id="usersSearchForm"
+                  class="d-flex"
+                  role="search"
+                  aria-label="search"
+                  data-auth="search"
+                >
                   <div class="form-floating">
-                    <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
-                    <label class="form-label py-1"><img src="/public/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                    <input
+                      type="search"
+                      placeholder="Search.."
+                      minlength="3"
+                      name="term"
+                      class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light"
+                      aria-label="Search"
+                    />
+                    <label class="form-label py-1"
+                      ><img src="/assets/icons/search.svg" class="searchIcon ps-1"
+                    /></label>
+
                   </div>
                 </form>
-                <label class="d-flex justify-content-center ms-1"><img src="/public/assets/icons/sliders.svg" /></label>
+                <label class="d-flex justify-content-center ms-1"
+                  ><img src="/assets/icons/sliders.svg"
+                /></label>
               </div>
             </div>
             <!-- Users goes here -->
@@ -69,13 +132,30 @@
             <!-- Listings search -->
             <div class="row container-sm pb-5">
               <div class="col d-flex justify-content-end">
-                <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
+                <form
+                  id="listingsSearchForm"
+                  class="d-flex"
+                  role="search"
+                  aria-label="search"
+                  data-auth="search"
+                >
                   <div class="form-floating">
-                    <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
-                    <label class="form-label py-1"><img src="/public/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                    <input
+                      type="search"
+                      placeholder="Search.."
+                      minlength="3"
+                      name="term"
+                      class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light"
+                      aria-label="Search"
+                    />
+                    <label class="form-label py-1"
+                      ><img src="/assets/icons/search.svg" class="searchIcon ps-1"
+                    /></label>
                   </div>
                 </form>
-                <label class="d-flex justify-content-center ms-1"><img src="/public/assets/icons/sliders.svg" /></label>
+                <label class="d-flex justify-content-center ms-1"
+                  ><img src="/assets/icons/sliders.svg"
+                /></label>
               </div>
             </div>
             <!-- Listings goes here -->
@@ -98,13 +178,30 @@
             <!-- Offers search -->
             <div class="row container-sm pb-5">
               <div class="col d-flex justify-content-end">
-                <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
+                <form
+                  id="offersSearchForm"
+                  class="d-flex"
+                  role="search"
+                  aria-label="search"
+                  data-auth="search"
+                >
                   <div class="form-floating">
-                    <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
-                    <label class="form-label py-1"><img src="/public/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                    <input
+                      type="search"
+                      placeholder="Search.."
+                      minlength="3"
+                      name="term"
+                      class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light"
+                      aria-label="Search"
+                    />
+                    <label class="form-label py-1"
+                      ><img src="/assets/icons/search.svg" class="searchIcon ps-1"
+                    /></label>
                   </div>
                 </form>
-                <label class="d-flex justify-content-center ms-1"><img src="/public/assets/icons/sliders.svg" /></label>
+                <label class="d-flex justify-content-center ms-1"
+                  ><img src="/assets/icons/sliders.svg"
+                /></label>
               </div>
             </div>
             <!-- Offers goes here -->
@@ -123,7 +220,13 @@
                   <td>Lenovo AS</td>
                   <td>#-123456</td>
                   <td>
-                    <button class="btn btn-sm"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+                    <button class="btn btn-sm">
+                      <img
+                        src="/assets/icons/delete-black.svg"
+                        alt="Delete button"
+                        class="footerIcon"
+                      />
+                    </button>
                   </td>
                 </tr>
                 <tr>
@@ -131,7 +234,13 @@
                   <td>Lenovo AS</td>
                   <td>#-457811</td>
                   <td>
-                    <button class="btn btn-sm"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+                    <button class="btn btn-sm">
+                      <img
+                        src="/assets/icons/delete-black.svg"
+                        alt="Delete button"
+                        class="footerIcon"
+                      />
+                    </button>
                   </td>
                 </tr>
                 <tr>
@@ -139,24 +248,52 @@
                   <td>Lenovo AS</td>
                   <td>#-457812</td>
                   <td>
-                    <button class="btn btn-sm"><img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" /></button>
+                    <button class="btn btn-sm">
+                      <img
+                        src="/assets/icons/delete-black.svg"
+                        alt="Delete button"
+                        class="footerIcon"
+                      />
+                    </button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <!-- Applications -->
-          <div tabindex="0" class="tab-pane container-sm p-2" id="adminApplications" role="tabpanel">
+          <div
+            tabindex="0"
+            class="tab-pane container-sm p-2"
+            id="adminApplications"
+            role="tabpanel"
+          >
             <!-- Application search -->
             <div class="row container-sm pb-5">
               <div class="col d-flex justify-content-end">
-                <form id="usersSearchForm" class="d-flex" role="search" aria-label="search" data-auth="search">
+                <form
+                  id="applicationSearchForm"
+                  class="d-flex"
+                  role="search"
+                  aria-label="search"
+                  data-auth="search"
+                >
                   <div class="form-floating">
-                    <input type="search" placeholder="Search.." minlength="3" name="term" class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light" />
-                    <label class="form-label py-1"><img src="/public/assets/icons/search.svg" class="searchIcon ps-1" /></label>
+                    <input
+                      type="search"
+                      placeholder="Search.."
+                      minlength="3"
+                      name="term"
+                      class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light"
+                      aria-label="Search"
+                    />
+                    <label class="form-label py-1"
+                      ><img src="/assets/icons/search.svg" class="searchIcon ps-1"
+                    /></label>
                   </div>
                 </form>
-                <label class="d-flex justify-content-center ms-1"><img src="/public/assets/icons/sliders.svg" /></label>
+                <label class="d-flex justify-content-center ms-1"
+                  ><img src="/assets/icons/sliders.svg"
+                /></label>
               </div>
             </div>
             <!-- Applications goes here -->
@@ -179,6 +316,10 @@
       </div>
     </main>
     <footer></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,37 +1,55 @@
-// Author: Åke Ek
+import { editSingleListing } from './editSingleListing'; // Adjust the path as necessary
+import { apiBaseFetch } from '../apiBaseFetch.js';
 
-import { editSingleListing } from "./editSingleListing";
+jest.mock('../apiBaseFetch.js');
 
-const ID = "1";
-const INVALID_ID = "";
+describe('editSingleListing', () => {
+  beforeEach(() => {
+    apiBaseFetch.mockClear();
+  });
 
-const TEST_ITEM = {
-    id: ID
-};
+  it('should return updated data on successful edit', async () => {
+    const mockListingId = '123';
+    const mockUpdatedData = { name: 'Updated Listing', description: 'Updated Description' };
+    const mockApiResponse = { ...mockUpdatedData, id: mockListingId };
 
-function mockUpdateListing() {
-    return Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(TEST_ITEM),
-    });
-}
-
-function mockFailUpdateListing() {
-    return Promise.resolve({
-        ok: false,
-        statusText: "Get requires a listingID",
-    });
-}
-
-describe("updateListing", () => {
-    it("Updates existing listing to the API", async () => {
-        global.fetch = jest.fn(() => mockUpdateListing());
-        const updatedListing = await editSingleListing(ID);
-        expect(updatedListing).toEqual(TEST_ITEM);
+    apiBaseFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockApiResponse,
     });
 
-    it("Fails to update listing to the API", async () => {
-        global.fetch = jest.fn(() => mockFailUpdateListing());
-        await expect(editSingleListing(INVALID_ID)).rejects.toThrow("Get requires a listingID");
+    const result = await editSingleListing(mockListingId, mockUpdatedData);
+
+    expect(result).toEqual(mockApiResponse);
+    expect(apiBaseFetch).toHaveBeenCalledWith(
+      expect.stringContaining(mockListingId),
+      expect.objectContaining({
+        method: 'PUT',
+        headers: expect.anything(),
+        body: JSON.stringify(mockUpdatedData),
+      })
+    );
+  });
+
+  it('should throw an error if the listing ID is not provided', async () => {
+    const mockUpdatedData = { name: 'Updated Listing', description: 'Updated Description' };
+
+    await expect(editSingleListing(undefined, mockUpdatedData)).rejects.toThrow(
+      'Edit requires a listing ID'
+    );
+  });
+
+  it('should throw an error on API failure', async () => {
+    const mockListingId = '123';
+    const mockUpdatedData = { name: 'Updated Listing', description: 'Updated Description' };
+
+    apiBaseFetch.mockResolvedValueOnce({
+      ok: false,
+      statusText: 'Not Found',
     });
+
+    await expect(editSingleListing(mockListingId, mockUpdatedData)).rejects.toThrow(
+      'Error editing listing: Not Found'
+    );
+  });
 });

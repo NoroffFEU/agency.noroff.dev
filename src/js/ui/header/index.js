@@ -1,3 +1,5 @@
+// import { checkLoginStatus } from '../../ui/header/logoutRender.js';
+
 /**
  *
  * This function is creating the content inside the header tag on each page
@@ -10,21 +12,24 @@ export const header = () => {
   const headerElement = document.querySelector('header');
   headerElement.classList.add('bg-theme-dark', 'sticky-top');
 
-  return (headerElement.innerHTML = `<div class="container-fluid px-md-5">
+  return (headerElement.innerHTML = `<div id="nav-container" class="container-fluid px-md-5">
   <nav class="navbar navbar-expand-lg mx-0 mx-md-5 px-0 px-md-5 py-2">
-      <div class="mx-0 mx-md-5 px-0 px-md-3 container-fluid">
+      <div id="nav-elements" class="mx-0 mx-md-5 px-0 px-md-3 container-fluid">
         <a class="navbar-brand ms-5 me-0 p-0" href="/">
         <div class="d-flex gap-2">
-          <img src="/public/assets/icons/noroff-logo.svg" class="Logo-noroff my-auto" style="width: 40px;height: 56px" />
-          <div class="d-flex flex-column">
+        <img src="/assets/icons/noroff-logo.svg" class="logo-noroff my-auto" alt="Noroff Logo" />
+        <div class="d-flex flex-column">
             <span class="company_name fs-4 fw-semibold text-white" style="height: 28px">Noroff</span>
             <span class="company_branch fs-6 text-white">Job Agency</span>
           </div>
 
         </div>
       </a>
-      <button class="navbar-toggler shadow-none navbar-dark border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon navbar-dark"></span>
+      <button class="navbar-toggler shadow-none navbar-dark border-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger hamburger-top"></span>
+        <span class="hamburger hamburger-mid"></span>
+        <span class="hamburger hamburger-bottom"></span>
+
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       </div>
@@ -32,7 +37,6 @@ export const header = () => {
   </nav>
 </div>`);
 };
-
 
 let pageTitle = document.querySelector('title');
 pageTitle.innerText = 'Standard';
@@ -48,6 +52,7 @@ pageTitle.innerText = 'Standard';
  *
  */
 export const checkState = () => {
+
   let role = localStorage.getItem('role');
   if (role === null) {
     const standardRole = 'visitor';
@@ -59,6 +64,13 @@ export const checkState = () => {
   const navBarNav = document.getElementById('navbarNav');
 
   if (role == 'Applicant') {
+
+  const role = JSON.parse(localStorage.getItem('role'));
+  console.log(role);
+  const navBarNav = document.getElementById('navbarNav');
+
+  if (role === 'Applicant') {
+
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
@@ -89,12 +101,14 @@ export const checkState = () => {
       <a class="nav-link text-white" href="/pages/listings/index.html" ">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
+      <a class="btn btn-outline-light text-white" href="#" id="signOut">Log out</a>
     </li>
   </ul>`);
   }
 
+
   if (role == 'visitor') {
+
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
     <li class="nav-item">
       <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" >Home</a>
@@ -104,6 +118,7 @@ export const checkState = () => {
     </li>
     <li class="nav-item">
       <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" >Listings</a>
+      <a class="nav-link text-white fw-semibold" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item my-auto">
       <a class="btn btn-outline-light text-white rounded-0 py-1 px-4 fw-semibold" href="/pages/auth/login/index.html">Log in</a>
