@@ -11,7 +11,7 @@
     />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    <link href="/css/index.css" rel="stylesheet" />
+
     <script src="/index.js" defer type="module"></script>
   </head>
   <body id="registerPageCompany">
@@ -23,11 +23,6 @@
       >
         <div class="d-flex flex-column justify-content-center align-items-center">
           <h1 class="fw-bold">Register For companies</h1>
-          <a
-            href="../applicant/index.html"
-            class="btn text-black align-self-center text-decoration-underline"
-            id="companyReg"
-          >Not a company? Register as a applicant</a>
         </div>
         <!-- Register form -->
         <form class="row g-3" id="registerForm-company">
@@ -90,7 +85,7 @@
             <div class="error"></div>
           </div>
           <div class="col-md-6">
-            <label class="mb-2" for="contactPerson">Contact person</label>
+            <label class="mb-2" for="contactPerson">Contact person*</label>
             <input
               type="text"
               class="form-control"
@@ -101,7 +96,7 @@
             <div class="error"></div>
           </div>
           <div class="col-md-6">
-            <label class="mb-2" for="contactNumber">Contact number</label>
+            <label class="mb-2" for="contactNumber">Contact number*</label>
             <input
               type="tel"
               class="form-control"
@@ -111,10 +106,17 @@
             />
             <div class="error"></div>
           </div>
+
           <div class="d-grid gap-2 col-md-6 mx-auto">
             <button class="btn btn-theme-primary btn-lg text-black rounded-1 mt-3" type="submit">
               Register
             </button>
+            <div class="text-center my-2 text-dark">Not a company?</div>
+            <div class="d-flex flex-column flex-md-row justify-content-center text-center">
+              <a class="text-dark px-3 fs-6" href="/pages/auth/register/applicant/index.html"
+                >Register as a applicant</a
+              >
+            </div>
           </div>
         </form>
         <!-- image modal -->
@@ -153,23 +155,14 @@
                 </div>
                 <div class="modal-footer border-0">
                   <!-- There are styles for a background img ready for JS.-->
-                  <button class="btn btn-theme-primary btn-lg text-light rounded-1 w-100">
+                  <button
+                    type="button"
+                    class="btn btn-theme-primary btn-lg text-light rounded-1 w-100"
+                    data-bs-dismiss="modal"
+                  >
                     Add image
                   </button>
                 </div>
-
-                <span
-                  >Generate a direct image url on
-                  <a class="link-theme-primary" href="https://postimages.org/"
-                    >https://postimages.org/</a
-                  ></span
-                >
-              </div>
-              <div class="modal-footer border-0">
-                <!-- There are styles for a background img ready for JS.-->
-                <button class="btn btn-theme-primary btn-lg text-light rounded-1 w-100">
-                  Add image
-                </button>
               </div>
             </div>
           </form>

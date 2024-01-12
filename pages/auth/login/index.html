@@ -16,9 +16,10 @@
     <meta name="description" content="Noroff Jobs User login page." />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    <link href="/css/index.css" rel="stylesheet" />
+
     <script src="/index.js" defer type="module"></script>
   </head>
+
   <body id="signIn">
     <header></header>
 
@@ -40,7 +41,6 @@
             <label for="email" class="form-label mb-2">E-mail</label>
             <input
               data-auth="login"
-              type="email"
               class="form-control p-3"
               id="email"
               name="email"
@@ -64,7 +64,7 @@
             />
           </div>
           <!-- Error Container for UX -->
-          <div id="errorContainer" class="text-theme-primary text-center"></div>
+          <div id="errorContainer" class="text-theme-primary"></div>
 
           <!-- Remember me form check -->
           <div class="form-check">
