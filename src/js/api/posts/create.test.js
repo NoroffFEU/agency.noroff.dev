@@ -1,37 +1,39 @@
-import { create } from './create';
-import { apiBaseFetch } from '../apiBaseFetch';
-import { dummyApiCreatePost, dummyApiUrl } from '../constants';
+import { create } from './create.js';
+import { apiBaseFetch } from '../apiBaseFetch.js';
 
-jest.mock('../apiBaseFetch');
-
-const appData = { title: 'New Application', details: 'Some details' };
-const mockResponse = { id: 1, ...appData };
+jest.mock('../apiBaseFetch.js');
 
 describe('create', () => {
-  it('successfully creates a new application', async () => {
-    apiBaseFetch.mockResolvedValue({
+  it('should return data on successful application creation', async () => {
+    const mockAppData = { name: 'New Application', description: 'Test Description' };
+    const mockApiResponse = { id: '123', ...mockAppData };
+
+    apiBaseFetch.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve(mockResponse),
+      json: async () => mockApiResponse,
+      statusText: 'OK',
     });
 
-    const result = await create(appData);
-    expect(apiBaseFetch).toHaveBeenCalledWith(dummyApiUrl + dummyApiCreatePost, {
+    const result = await create(mockAppData);
+
+    expect(result).toEqual(mockApiResponse);
+    expect(apiBaseFetch).toHaveBeenCalledWith(expect.any(String), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(appData),
+      body: JSON.stringify(mockAppData),
     });
-    expect(result).toEqual(mockResponse);
   });
 
-  it('handles failure when creating a new application', async () => {
-    apiBaseFetch.mockResolvedValue({ ok: false });
-
-    const result = await create(appData);
-    expect(apiBaseFetch).toHaveBeenCalledWith(dummyApiUrl + dummyApiCreatePost, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(appData),
+  it('should throw an error on API failure', async () => {
+    apiBaseFetch.mockResolvedValueOnce({
+      ok: false,
+      statusText: 'Internal Server Error',
     });
-    expect(result).toBeUndefined();
+
+    const mockAppData = { name: 'New Application', description: 'Test Description' };
+
+    await expect(create(mockAppData)).rejects.toThrow(
+      'Error creating application: Internal Server Error'
+    );
   });
 });

@@ -1,4 +1,5 @@
 import { displayAllApplications } from '../../ui/application/allApplications.js';
+import { apiBaseFetch } from '../apiBaseFetch.js';
 
 /**
  * Gets all applications sent by student

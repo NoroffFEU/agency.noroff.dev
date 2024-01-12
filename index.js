@@ -12,6 +12,8 @@ import { setRegisterFormListenerCompany } from './src/js/listeners/auth/index.js
 import { createListing } from './src/js/listeners/post/createListing.js';
 import { postApplication } from './src/js/listeners/post/postApplication.js';
 import { showListings } from './src/js/views/admin/showListings.js';
+import '/src/scss/index.scss';
+
 displayBaseLayout();
 
 /**
