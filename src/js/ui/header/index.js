@@ -33,9 +33,7 @@ export const header = () => {
 </div>`);
 };
 
-// For testing states
-/* const stateValue = 'Applicant';
-localStorage.setItem('role', stateValue); */
+
 let pageTitle = document.querySelector('title');
 pageTitle.innerText = 'Standard';
 
