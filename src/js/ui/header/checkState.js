@@ -1,4 +1,4 @@
-import { createLoginLogoutButton } from './createLoginLogoutButton';
+import { displayLoginLogoutButton } from './displayLoginLogoutButton.js';
 
 let pageTitle = document.querySelector('title');
 pageTitle.innerText = 'Standard';
@@ -32,7 +32,7 @@ export const checkState = () => {
       li.append(a);
       ul.append(li);
     });
-    ul.append(createLoginLogoutButton(role));
+    ul.append(displayLoginLogoutButton(role));
   } else if (role === 'admin') {
     const links = [
       { href: '/index.html', text: 'Home' },
@@ -53,7 +53,7 @@ export const checkState = () => {
       li.append(a);
       ul.append(li);
     });
-    ul.append(createLoginLogoutButton(role));
+    ul.append(displayLoginLogoutButton(role));
   } else if (role === null) {
     const links = [
       { href: '/index.html', text: 'Home' },
@@ -74,7 +74,7 @@ export const checkState = () => {
       li.append(a);
       ul.append(li);
     });
-    ul.append(createLoginLogoutButton(role));
+    ul.append(displayLoginLogoutButton(role));
 
     const registerLi = document.createElement('li');
     registerLi.classList.add('nav-item');

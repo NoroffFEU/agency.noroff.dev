@@ -3,7 +3,7 @@
  * @param {string} role
  * @returns Login / Logout button
  */
-export function createLoginLogoutButton(role) {
+export function displayLoginLogoutButton(role) {
   console.log(role);
   if (role != null) {
     const logoutLi = document.createElement('li');
