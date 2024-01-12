@@ -1,6 +1,7 @@
 import { Store } from '../../storage/storage.js';
 import { callLoginApi } from './handleAuthServices.js';
 
+
 /**
  * Function for logging in an existing user in database and storing the returned token in session or localstorage
  * @param {object} profile Values from loginForm
