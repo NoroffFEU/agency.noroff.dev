@@ -11,8 +11,7 @@
     />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    <link href="/src/scss/custom/_allListingPage.scss" rel="stylesheet" />
-    <link href="/css/index.css" rel="stylesheet" />
+
     <script defer src="/index.js" type="module"></script>
     <script
       defer
@@ -21,48 +20,72 @@
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body id="listing">
     <!--Header is created trough JS script-->
     <header></header>
     <!--Main content on page-->
+
     <main class="bg-theme-new-grey py-5">
       <div
         class="container w-75 d-flex flex-column gap-5 bg-theme-light mt-5 mb-3 pb-3 shadow"
         id="container-listings"
       >
         <!--Top of listings container-->
-        <section class="search-listig-section">
-          <h1 class="text-center fw-bold">Job Listings</h1>
-          <div class="search-input-flex-group">
-            <label for="searchListing"></label>
-            <div class="search-input-icon-group">
-              <input
-                class="search-listing-input"
-                type="search"
-                id="searchListing"
-                data-search-listings
-              />
-              <img src="../../public/assets/icons/search.svg" alt="Search icon" class="icon-sm" />
-            </div>
-            <div class="dropdown">
-              <button
-                class="btn"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img src="../../public/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">All</a></li>
-                <li><a class="dropdown-item" href="#">Latest</a></li>
-                <li><a class="dropdown-item" href="#">Last 14 days</a></li>
-                <li><a class="dropdown-item" href="#">Last 30 days</a></li>
-              </ul>
+
+        <section class="d-flex justify-content-center">
+          <div class="mt-5 col-6">
+            <h1 class="mt-2 py-1 text-center fw-bold">Job Listings</h1>
+            <div class="container d-flex justify-content-center mt-3 col-12 ms-3">
+              <div class="col-md-5 w-100 col-10 ms-5 search-container">
+                <div class="input-group">
+                  <label for="searchListing"></label>
+
+
+                  <input
+                    class="form-control"
+                    type="search"
+                    placeholder="Search Listings..."
+                    id="searchListing"
+                    data-search-listings
+                  />
+                  <span class="input-group-append">
+                    <button class="btn ms-n5" type="button">
+                      <img
+                        src="../../public/assets/icons/search.svg"
+
+                        alt="Search icon"
+                        class="icon-sm"
+                      />
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button
+                  class="btn"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="../../public/assets/icons/filter.svg"
+                    alt="Search icon"
+                    class="icon-sm"
+                  />
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">All</a></li>
+                  <li><a class="dropdown-item" href="#">Latest</a></li>
+                  <li><a class="dropdown-item" href="#">Last 14 days</a></li>
+                  <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
+        <div id="listingsErrorContainer" class="container"></div>
         <!--Bootstrap grid cards-->
         <div class="row g-4 listingContainer justify-content-center px-5">
           <!-- dummy-cards start -->
@@ -78,7 +101,7 @@
               </p>
             </div>
             <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+              <a href="#" class="btn btn-theme-primary text-theme-light fw-semibold p-3 m-2 w-50"
                 >View</a
               >
             </div>
@@ -99,7 +122,7 @@
               </p>
             </div>
             <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+              <a href="#" class="btn btn-theme-primary text-theme-light fw-semibold p-3 m-2 w-50"
                 >View</a
               >
             </div>
@@ -120,7 +143,7 @@
               </p>
             </div>
             <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+              <a href="#" class="btn btn-theme-primary text-theme-light fw-semibold p-3 m-2 w-50"
                 >View</a
               >
             </div>
@@ -141,13 +164,13 @@
               </p>
             </div>
             <div>
-              <a href="#" class="btn btn-theme-primary text-theme-black fw-semibold p-3 m-2 w-50"
+              <a href="#" class="btn btn-theme-primary text-theme-light fw-semibold p-3 m-2 w-50"
                 >View</a
               >
             </div>
           </div>
-          <!-- dummy cards ends -->
         </div>
+
       </div>
     </main>
     <!--Footer is created trough JS script-->

@@ -1,3 +1,5 @@
+// import { checkLoginStatus } from '../../ui/header/logoutRender.js';
+
 /**
  *
  * This function is creating the content inside the header tag on each page
@@ -50,9 +52,12 @@ pageTitle.innerText = 'Standard';
  *
  */
 export const checkState = () => {
-  const role = localStorage.getItem('Role');
+  const role = JSON.parse(localStorage.getItem('role'));
+  console.log(role);
   const navBarNav = document.getElementById('navbarNav');
-  if (role == 'user') {
+
+  if (role === 'Applicant') {
+    // checkLoginStatus();
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-2" id="navUl">
 
     <li class="nav-item">
@@ -83,7 +88,7 @@ export const checkState = () => {
       <a class="nav-link text-white" href="/pages/listings/index.html" id="navItems">Listings</a>
     </li>
     <li class="nav-item">
-      <a class="btn btn-outline-light text-white" href="#" id="logOutUser">Log out</a>
+      <a class="btn btn-outline-light text-white" href="#" id="signOut">Log out</a>
     </li>
   </ul>`);
   }
@@ -91,8 +96,6 @@ export const checkState = () => {
   // The profile button on here is for development reasons
   if (!role || role === 'null') {
     return (navBarNav.innerHTML = `<ul class="navbar-nav gap-5 me-0 me-xl-5" id="navUl">
-  
-
     <li class="nav-item">
       <a class="nav-link text-white fw-semibold" aria-current="page" href="/index.html" id="navItems">Home</a>
     </li>

@@ -1,23 +1,17 @@
 // Author: Emilie Herrera Thomsen
 
 import { getListOfListings } from '../../api/posts/getListOfListings.js';
-import { searchListings } from '../../listeners/post/searchListing.js';
-import * as sort from './sort.js';
-
-
-
 
 export async function renderListings() {
   const listingsContainer = document.querySelector('.listingContainer');
 
+  const data = await getListOfListings();
 
-    const data = await getListOfListings();
-    const date2 = new Date('2023-12-26T12:19:48.625Z');
-    listingsContainer.innerHTML = "";
+  listingsContainer.innerHTML = '';
 
-    data.forEach(function(data) {
-      listingsContainer.innerHTML += 
-       `
+  data.forEach(function (data) {
+    const date2 = new Date(data.deadline);
+    listingsContainer.innerHTML += `
        <div class="col-12 col-lg-6">
          <div class="row g-3 bg-theme-light m-0 shadow card card-listing rounded-0 bg-white">
            <div class="m-0 col-3 d-flex flex-column justify-content-center img-fluid img-thumbnail card-img-top border-0 py-4 px-5" id="img-thumbnail">
@@ -41,13 +35,5 @@ export async function renderListings() {
        </div>
      </div>
      `;
-    });
-
-  sort.renderSortedPostsTemplateOldtoNew()
-  sort.renderSortedPostsTemplateNewtoOld()
-
+  });
 }
-
-
-
-

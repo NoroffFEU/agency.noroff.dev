@@ -24,6 +24,7 @@ export const footer = () => {
           <li class="list-group-item text-white">Tordenskjoldsgate 9</li>
           <li class="list-group-item text-white">4612 Kristiansand S</li>
         </ul>
+
         <div class="d-flex flex-column gap-1 mt-5">
           <a href="tel:38000000" class="nav-link text-white" id="navlink-footer-id"><img src="../../../public/assets/icons/phone.svg" class="footerIcon me-3 ms-2 ms-md-0" alt="phone icon for footer navigation"/> 38000000</a>
           <a href="mailto:utdanning@noroff.no" class="nav-link text-white" id="navlink-footer-id"><img src="../../../public/assets/icons/mail.svg" class="footerIcon me-3 ms-2 ms-md-0" alt="email icon for footer navigation" id="navlink-footer-id"/> utdanning@noroff.no</a>

@@ -23,7 +23,7 @@
     <meta name="description" content="the users profile page" />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    <link href="/css/index.css" rel="stylesheet" />
+
     <script defer src="/index.js" type="module"></script>
     <script
       defer
@@ -32,6 +32,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body id="profilePage" class="bg-theme-grey">
     <header>
       <!-- Header -->
@@ -219,8 +220,7 @@
                       rows="5"
                       name="skills"
                       id="studentSkills"
-                    >
-                    </textarea>
+                    ></textarea>
                   </div>
                   <!-- Student description input -->
                   <div class="mb-2">
@@ -233,9 +233,9 @@
                       rows="5"
                       name="about"
                       id="studentDescription"
-                    >
-                    </textarea>
+                    ></textarea>
                   </div>
+                  <div id="editUserErrorContainer"></div>
                   <!-- Submit button -->
                   <div class="d-grid">
                     <button
@@ -318,6 +318,7 @@
                     >
                     </textarea>
                   </div>
+                  <div id="editCompanyErrorContainer"></div>
                   <!-- Submit button -->
                   <div class="d-grid">
                     <button type="submit" class="btn btn-dark mt-2">Save changes</button>

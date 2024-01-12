@@ -11,7 +11,6 @@
     />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    <link href="/css/index.css" rel="stylesheet" />
     <script src="/index.js" defer type="module"></script>
   </head>
 
@@ -25,16 +24,15 @@
         <div class="d-flex flex-column justify-content-center align-items-center">
           <h1 class="fw-bold">Register For Applicant</h1>
         </div>
-
         <!-- Register form -->
         <form class="row g-3" id="registerForm-applicant">
           <div class="d-flex justify-content-center mb-3">
             <div
-              class="d-flex justify-content-center align-items-center rounded-circle bg-theme-new-grey registerImg"
+              class="d-flex justify-content-center align-items-center border border-dark rounded-circle bg-theme-new-grey registerImg"
             >
               <button
                 type="button"
-                class="btn text-decoration-underline"
+                class="btn text-decoration-underline py-5 px-4"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
@@ -166,7 +164,7 @@
             <div class="error"></div>
           </div>
           <div class="d-grid gap-2 col-md-6 mx-auto">
-            <button class="btn btn-theme-primary btn-lg text-black rounded-1 mt-3" type="submit">
+            <button class="btn btn-theme-primary btn-lg text-white rounded-1 mt-3" type="submit">
               Register
             </button>
 
@@ -176,6 +174,27 @@
                 >Register as a company</a
               >
             </div>
+            <button
+              id="showMore"
+              class="btn border-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#hiddenInput"
+            >
+              <img class="icon-sm" src="/assets/icons/plus.svg" alt="" />
+            </button>
+            <div class="error"></div>
+          </div>
+          <div class="d-grid gap-2 col-md-6 mx-auto">
+            <button class="btn btn-theme-primary btn-lg text-black rounded-1 mt-3" type="submit">
+              Register
+            </button>
+            <a
+              href="../company/index.html"
+              class="btn text-black align-self-center text-decoration-underline"
+              id="companyReg"
+              >Not an applicant? Register as company instead!</a
+            >
           </div>
         </form>
         <!-- image modal -->
