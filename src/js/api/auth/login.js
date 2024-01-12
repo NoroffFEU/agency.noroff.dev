@@ -41,10 +41,10 @@ export async function login(profile) {
 function storeProfileData(userData, rememberLogin) {
   const { token, role, id, email } = userData;
 
-  new Store('token', token, rememberLogin).save();
-  new Store('role', role, rememberLogin).save();
-  new Store('email', email, rememberLogin).save();
-  new Store('id', id, rememberLogin).save();
+  new Store('token', token, rememberLogin);
+  new Store('role', role, rememberLogin);
+  new Store('email', email, rememberLogin);
+  new Store('id', id, rememberLogin);
 }
 
 /**
