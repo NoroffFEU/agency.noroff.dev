@@ -1,6 +1,6 @@
 import { Store } from '../../storage/storage.js';
-import { callLoginApi } from './handleAuthServices.js';
-
+import { callLoginApi } from './callLoginApi.js';
+import { message } from '../../utilities/message/message.js';
 
 /**
  * Function for logging in an existing user in database and storing the returned token in session or localstorage
@@ -15,13 +15,12 @@ export async function login(profile) {
 
   const rememberLogin = remember === 'on';
 
-  const errorContainer = document.querySelector('#errorContainer');
-
   try {
     const { userData, error } = await callLoginApi(email, password);
 
     if (error) {
-      return (errorContainer.innerHTML = error?.message);
+      message('danger', 'Invalid login credentials. Please try again', '#errorContainer');
+      return;
     }
 
     const { role } = userData;
@@ -32,8 +31,7 @@ export async function login(profile) {
     const redirectUrl = getRedirectUrl(role);
     handleLoginRedirect(redirectUrl);
   } catch (error) {
-    errorContainer.innerHTML =
-      'Unknown error occurred. Please try again later, if the problem persist contact customer support.';
+    message('danger', 'An unknown error occured. Please try again later', '#errorContainer');
     console.error(error);
   }
 }
