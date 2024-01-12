@@ -4,17 +4,16 @@
  */
 export const header = () => {
   const header = document.querySelector('header');
-  header.classList.add(
-    'bg-theme-dark',
-    'fixed-top',
-    'd-flex',
-    'align-items-center',
-    'p-2',
-    'shadow-lg'
-  );
+  header.classList.add('bg-theme-dark', 'fixed-top', 'align-items-center', 'shadow-lg', 'p-2');
+
+  const nav = document.createElement('nav');
+  nav.classList.add('navbar', 'navbar-expand-lg', 'me-lg-3', 'p-0', 'bg-theme-dark');
+
+  const container = document.createElement('div');
+  container.classList.add('container-fluid');
 
   const logoContainer = document.createElement('a');
-  logoContainer.classList.add('d-flex', 'navbarBrand', 'ms-3', 'gap-2');
+  logoContainer.classList.add('navbar-brand', 'd-flex', 'ms-3', 'gap-2');
   logoContainer.href = '/';
 
   const img = document.createElement('img');
@@ -27,35 +26,22 @@ export const header = () => {
   logoText.classList.add('d-flex', 'flex-column', 'text-white');
 
   const logoTextTop = document.createElement('span');
-  logoTextTop.classList.add('fs-4', 'fw-semibold', 'bg-secondary');
+  logoTextTop.classList.add('fs-4', 'fw-semibold');
   logoTextTop.textContent = 'Noroff';
 
   const logoTextBottom = document.createElement('span');
-  logoTextBottom.classList.add('fs-6', 'bg-warning');
+  logoTextBottom.classList.add('fs-6');
   logoTextBottom.textContent = 'Job Agency';
 
   logoText.append(logoTextTop, logoTextBottom);
   logoContainer.append(img, logoText);
 
-  const nav = document.createElement('nav');
-  nav.classList.add('navbar', 'navbar-expand-lg', 'ms-auto', 'me-3');
-
-  const navbarCollapse = document.createElement('div');
-  navbarCollapse.classList.add('collapse', 'navbar-collapse', 'justify-content-end');
-  navbarCollapse.id = 'navbarNav';
-
-  const ul = document.createElement('ul');
-  ul.classList.add('navbar-nav', 'd-flex', 'flex-column', 'flex-lg-row', 'gap-2', 'gap-lg-5');
-  ul.id = 'navUl';
-
-  navbarCollapse.append(ul);
-
   const button = document.createElement('button');
-  button.classList.add('navbar-toggler', 'navbar-dark', 'border-0', 'd-lg-none', 'ms-auto');
+  button.classList.add('navbar-toggler', 'navbar-dark', 'border-0', 'ms-auto');
   button.setAttribute('type', 'button');
   button.setAttribute('data-bs-toggle', 'collapse');
-  button.setAttribute('data-bs-target', '#navbarNav');
-  button.setAttribute('aria-controls', 'navbarNav');
+  button.setAttribute('data-bs-target', '#navbarNavDropdown');
+  button.setAttribute('aria-controls', '#navbarNavDropdown');
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-label', 'Toggle navigation');
 
@@ -63,9 +49,27 @@ export const header = () => {
   span.classList.add('navbar-toggler-icon', 'navbar-dark');
   button.append(span);
 
-  nav.append(navbarCollapse);
+  const navbarCollapse = document.createElement('div');
+  navbarCollapse.classList.add('collapse', 'navbar-collapse');
+  navbarCollapse.id = 'navbarNavDropdown';
 
-  header.append(logoContainer, nav, button);
+  const ul = document.createElement('ul');
+  ul.classList.add(
+    'navbar-nav',
+    'ms-auto',
+    'align-items-center',
+    'text-center',
+    'gap-4',
+    'p-5',
+    'p-lg-0'
+  );
+  ul.id = 'navUl';
+
+  navbarCollapse.append(ul);
+
+  container.append(logoContainer, button, navbarCollapse);
+  nav.append(container);
+  header.append(nav);
 
   return header;
 };

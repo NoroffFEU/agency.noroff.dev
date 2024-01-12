@@ -10,7 +10,3 @@ export const displayBaseLayout = () => {
   }
   footer();
 };
-
-// document.addEventListener('DOMContentLoaded', (event) => {
-//   checkState();
-// });

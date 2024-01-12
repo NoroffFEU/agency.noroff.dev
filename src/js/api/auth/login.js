@@ -1,5 +1,4 @@
 import { Store } from '../../storage/storage.js';
-import { checkState } from '../../ui/header/checkState.js';
 import { apiPath } from '../constants.js';
 
 // Author: Truls Haakenstad @Menubrea
@@ -69,7 +68,6 @@ export async function login(profile) {
         // add  chck for id :
 
         if (id === id) {
-          // checkState(); - // Can't load nav atm during login (Bjørnar Langved)
           // spiderman.gif
           window.location.replace('/pages/user/index');
         } else if (profile.admin) {
