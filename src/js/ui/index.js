@@ -7,13 +7,6 @@ export const displayBaseLayout = () => {
   const headerSection = header();
   if (headerSection) {
     checkState();
-    const logOutBtn = document.querySelector('#signOut');
-    if (logOutBtn) {
-      logOutBtn.addEventListener('click', () => {
-        logout();
-        checkState();
-      });
-    }
   }
   footer();
 };

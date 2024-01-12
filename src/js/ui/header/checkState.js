@@ -21,7 +21,16 @@ export const checkState = () => {
     const lis = iterateLinks(links);
     lis.forEach((li) => ul.append(li));
     ul.append(displayLoginLogoutButton(role));
-  } else if (role === 'admin') {
+  } else if (role === 'Admin') {
+    const links = [
+      { href: '/index.html', text: 'Home' },
+      { href: '#', text: 'Profile' },
+      { href: '/pages/listings/index.html', text: 'Listings' },
+    ];
+    const lis = iterateLinks(links);
+    lis.forEach((li) => ul.append(li));
+    ul.append(displayLoginLogoutButton(role));
+  } else if (role === 'Client') {
     const links = [
       { href: '/index.html', text: 'Home' },
       { href: '#', text: 'Profile' },

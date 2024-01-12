@@ -7,7 +7,7 @@ export const header = () => {
   header.classList.add('bg-theme-dark', 'fixed-top', 'align-items-center', 'shadow-lg', 'p-2');
 
   const nav = document.createElement('nav');
-  nav.classList.add('navbar', 'navbar-expand-lg', 'me-lg-3', 'p-0', 'bg-theme-dark');
+  nav.classList.add('navbar', 'navbar-expand-md', 'me-lg-3', 'p-0', 'bg-theme-dark');
 
   const container = document.createElement('div');
   container.classList.add('container-fluid');
