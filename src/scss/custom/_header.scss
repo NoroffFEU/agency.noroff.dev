@@ -1,14 +1,33 @@
 header {
-  div {
+  height: 80px;
+  .navbarBrand {
     img {
-      width: 40px;
-      height: 56px;
+      width: 33px;
+      height: 50px;
+    }
+    .logoText {
+      text-decoration: none;
+      span {
+        text-decoration: none;
+      }
     }
   }
-}
-
-#navItems:hover {
-  color: black !important;
+  nav {
+    ul {
+      li {
+        width: 6em;
+        a {
+          &:hover {
+            color: black !important;
+          }
+        }
+      }
+    }
+  }
+  button {
+    span {
+    }
+  }
 }
 
 @media (max-width: 980px) {

@@ -4,10 +4,17 @@
  */
 export const header = () => {
   const header = document.querySelector('header');
-  header.classList.add('bg-theme-dark', 'shadow-lg', 'fixed-top', 'd-flex', 'align-items-center');
+  header.classList.add(
+    'bg-theme-dark',
+    'fixed-top',
+    'd-flex',
+    'align-items-center',
+    'p-2',
+    'shadow-lg'
+  );
 
   const logoContainer = document.createElement('a');
-  logoContainer.classList.add('d-flex', 'navbar-brand', 'ms-3', 'p-2', 'gap-2');
+  logoContainer.classList.add('d-flex', 'navbarBrand', 'ms-3', 'gap-2');
   logoContainer.href = '/';
 
   const img = document.createElement('img');
@@ -20,22 +27,28 @@ export const header = () => {
   logoText.classList.add('d-flex', 'flex-column', 'text-white');
 
   const logoTextTop = document.createElement('span');
-  logoTextTop.classList.add('company_name', 'fs-4', 'fw-semibold', 'bg-secondary');
+  logoTextTop.classList.add('fs-4', 'fw-semibold', 'bg-secondary');
   logoTextTop.textContent = 'Noroff';
 
   const logoTextBottom = document.createElement('span');
-  logoTextBottom.classList.add('company_branch', 'fs-6', 'bg-warning');
+  logoTextBottom.classList.add('fs-6', 'bg-warning');
   logoTextBottom.textContent = 'Job Agency';
 
   logoText.append(logoTextTop, logoTextBottom);
   logoContainer.append(img, logoText);
 
   const nav = document.createElement('nav');
-  nav.classList.add('navbar', 'navbar-expand-lg', 'mx-0', 'mx-md-5', 'px-0', 'px-md-5', 'py-2');
+  nav.classList.add('navbar', 'navbar-expand-lg', 'ms-auto', 'me-3');
 
   const navbarCollapse = document.createElement('div');
   navbarCollapse.classList.add('collapse', 'navbar-collapse', 'justify-content-end');
   navbarCollapse.id = 'navbarNav';
+
+  const ul = document.createElement('ul');
+  ul.classList.add('navbar-nav', 'd-flex', 'flex-column', 'flex-lg-row', 'gap-2', 'gap-lg-5');
+  ul.id = 'navUl';
+
+  navbarCollapse.append(ul);
 
   const button = document.createElement('button');
   button.classList.add('navbar-toggler', 'navbar-dark', 'border-0', 'd-lg-none', 'ms-auto');

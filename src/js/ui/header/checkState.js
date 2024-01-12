@@ -1,6 +1,5 @@
-// For testing states
-const stateValue = 'null';
-localStorage.setItem('role', stateValue);
+import { createLoginLogoutButton } from './createLoginLogoutButton';
+
 let pageTitle = document.querySelector('title');
 pageTitle.innerText = 'Standard';
 
@@ -10,14 +9,10 @@ pageTitle.innerText = 'Standard';
  */
 export const checkState = () => {
   const role = localStorage.getItem('role');
-  const navBarNav = document.querySelector('#navbarNav');
+  console.log('role:', role);
+  const ul = document.querySelector('#navUl');
 
-  // User needs to be "Applicant"
   if (role === 'Applicant') {
-    const ul = document.createElement('ul');
-    ul.classList.add('navbar-nav', 'gap-2');
-    ul.id = 'navUl';
-
     const links = [
       { href: '/index.html', text: 'Home' },
       { href: '/pages/user/index.html', text: 'Profile' },
@@ -29,7 +24,7 @@ export const checkState = () => {
       li.classList.add('nav-item');
 
       const a = document.createElement('a');
-      a.classList.add('nav-link', 'text-white', 'fw-semibold');
+      a.classList.add('nav-link', 'text-white');
       a.href = link.href;
       a.textContent = link.text;
       a.setAttribute('aria-current', 'page');
@@ -37,29 +32,10 @@ export const checkState = () => {
       li.append(a);
       ul.append(li);
     });
-
-    const logoutLi = document.createElement('li');
-    logoutLi.classList.add('nav-item');
-
-    const logoutBtn = document.createElement('a');
-    logoutBtn.classList.add('btn', 'btn-outline-light', 'text-white', 'fw-semibold');
-    logoutBtn.href = '#';
-    logoutBtn.id = 'signOut';
-    logoutBtn.textContent = 'Log out';
-
-    logoutLi.append(logoutBtn);
-    ul.append(logoutLi);
-
-    navBarNav.append(ul);
+    ul.append(createLoginLogoutButton(role));
   } else if (role === 'admin') {
-    const navBarNav = document.querySelector('#navbarNav');
-
-    const ul = document.createElement('ul');
-    ul.classList.add('navbar-nav', 'gap-2');
-    ul.id = 'navUl';
-
     const links = [
-      { href: '/index.html', text: 'Home', extraClass: 'fw-semibold' },
+      { href: '/index.html', text: 'Home' },
       { href: '#', text: 'Profile' },
       { href: '/pages/listings/index.html', text: 'Listings' },
     ];
@@ -70,40 +46,19 @@ export const checkState = () => {
 
       const a = document.createElement('a');
       a.classList.add('nav-link', 'text-white');
-      if (link.extraClass) a.classList.add(link.extraClass);
       a.href = link.href;
       a.textContent = link.text;
       a.setAttribute('aria-current', 'page');
-      a.id = 'navItems'; // Note: Reusing the same ID on multiple elements is invalid HTML
 
       li.append(a);
       ul.append(li);
     });
-
-    const logoutLi = document.createElement('li');
-    logoutLi.classList.add('nav-item');
-
-    const logoutBtn = document.createElement('a');
-    logoutBtn.classList.add('btn', 'btn-outline-light', 'text-white');
-    logoutBtn.href = '#';
-    logoutBtn.id = 'logOutUser';
-    logoutBtn.textContent = 'Log out';
-
-    logoutLi.append(logoutBtn);
-    ul.append(logoutLi);
-
-    navBarNav.append(ul);
-  } else if (role === 'null') {
-    const navBarNav = document.querySelector('#navbarNav');
-
-    const ul = document.createElement('ul');
-    ul.classList.add('navbar-nav', 'gap-5', 'me-0', 'me-xl-5');
-    ul.id = 'navUl';
-
+    ul.append(createLoginLogoutButton(role));
+  } else if (role === null) {
     const links = [
-      { href: '/index.html', text: 'Home', extraClass: 'fw-semibold' },
-      { href: '/pages/user/index.html', text: 'Profile', extraClass: 'fw-semibold' },
-      { href: '/pages/listings/index.html', text: 'Listings', extraClass: 'fw-semibold' },
+      { href: '/index.html', text: 'Home' },
+      { href: '/pages/user/index.html', text: 'Profile' },
+      { href: '/pages/listings/index.html', text: 'Listings' },
     ];
 
     links.forEach((link) => {
@@ -112,56 +67,25 @@ export const checkState = () => {
 
       const a = document.createElement('a');
       a.classList.add('nav-link', 'text-white');
-      if (link.extraClass) a.classList.add(link.extraClass);
       a.href = link.href;
       a.textContent = link.text;
       a.setAttribute('aria-current', 'page');
-      a.id = 'navItems'; // Note: Reusing the same ID on multiple elements is invalid HTML
 
       li.append(a);
       ul.append(li);
     });
-
-    const loginLi = document.createElement('li');
-    loginLi.classList.add('nav-item', 'my-auto');
-
-    const loginBtn = document.createElement('a');
-    loginBtn.classList.add(
-      'btn',
-      'btn-outline-light',
-      'text-white',
-      'rounded-0',
-      'py-1',
-      'px-4',
-      'fw-semibold'
-    );
-    loginBtn.href = '/pages/auth/login/index.html';
-    loginBtn.textContent = 'Log in';
-    loginBtn.id = 'navItems'; // Note about ID uniqueness
-
-    loginLi.append(loginBtn);
-    ul.append(loginLi);
+    ul.append(createLoginLogoutButton(role));
 
     const registerLi = document.createElement('li');
-    registerLi.classList.add('nav-item', 'my-auto');
+    registerLi.classList.add('nav-item');
 
     const registerBtn = document.createElement('a');
-    registerBtn.classList.add(
-      'btn',
-      'btn-theme-secondary',
-      'text-black',
-      'rounded-0',
-      'py-1',
-      'px-4',
-      'fw-semibold'
-    );
+    registerBtn.classList.add('btn', 'btn-theme-secondary', 'text-black', 'fw-semibold');
     registerBtn.href = '/pages/auth/register/applicant/index.html';
     registerBtn.textContent = 'Register';
     registerBtn.id = 'registerUser';
 
     registerLi.append(registerBtn);
     ul.append(registerLi);
-
-    navBarNav.append(ul);
   }
 };
