@@ -86,7 +86,7 @@ jobs:
         uses: RubbaBoy/BYOB@v1.3.0
         if: ${{ always() }}
         with:
-          name: test
+          name: unit-test
           status: ${{ job.status }}
           color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
           label: 'Unit Test Status'
