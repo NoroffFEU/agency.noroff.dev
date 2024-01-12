@@ -16,14 +16,17 @@
     <meta name="description" content="Noroff Jobs User login page." />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    <link href="/css/index.css" rel="stylesheet" />
+
     <script src="/index.js" defer type="module"></script>
   </head>
+
   <body id="signIn">
     <header></header>
 
     <main class="px-3 bg-theme-dark">
-      <div class="bg-theme-light shadow-lg mx-auto p-3 py-5 maxWidthContainer rounded-1 mt-5 col-lg-4">
+      <div
+        class="bg-theme-light shadow-lg mx-auto p-3 py-5 maxWidthContainer rounded-1 mt-5 col-lg-4"
+      >
         <!-- login form -->
         <!--
           {
@@ -36,38 +39,76 @@
           <!-- Email input -->
           <div class="mb-3">
             <label for="email" class="form-label mb-2">E-mail</label>
-            <input data-auth="login" type="text" class="form-control p-3" id="email" name="email" required title="Must be a valid email" />
+            <input
+              data-auth="login"
+              class="form-control p-3"
+              id="email"
+              name="email"
+              required
+              title="Must be a valid email"
+            />
           </div>
           <!-- Password input -->
           <div class="mb-3">
             <label for="email" class="form-label mb-2">Password</label>
-            <input data-auth="login" type="password" class="form-control p-3" id="password" name="password" required minlength="5" maxlength="20" title="Password must be minimum 5 characters long" />
+            <input
+              data-auth="login"
+              type="password"
+              class="form-control p-3"
+              id="password"
+              name="password"
+              required
+              minlength="5"
+              maxlength="20"
+              title="Password must be minimum 5 characters long"
+              aria-label=" Enter Password"
+            />
           </div>
           <!-- Error Container for UX -->
-          <div id="errorContainer" class="text-theme-primary text-center"></div>
+          <div id="errorContainer" class="text-theme-primary"></div>
 
           <!-- Remember me form check -->
           <div class="form-check">
             <!-- See comment at top -->
 
-            <input class="form-check-input border-theme-dark rounded-0 bg-theme-dark border-theme-dark" type="checkbox" name="remember" id="rememberMe" checked />
+            <input
+              class="form-check-input border-theme-dark rounded-0 bg-theme-dark border-theme-dark"
+              type="checkbox"
+              name="remember"
+              id="rememberMe"
+              checked
+            />
 
             <label class="form-check-label" for="rememberMe">Remember me</label>
           </div>
           <!-- Submit button -->
           <div class="d-grid my-4">
-            <button data-auth="login" type="submit" class="btn btn-theme-primary btn-lg text-black rounded-1">Log in</button>
+            <button
+              data-auth="login"
+              type="submit"
+              class="btn btn-theme-primary btn-lg text-white rounded-1"
+            >
+              Log in
+            </button>
           </div>
           <!-- links -->
           <div class="text-center my-2 text-dark">Don't have a user?</div>
           <div class="d-flex flex-column flex-md-row justify-content-center text-center">
-            <a class="text-dark px-3 ps-6" href="/pages/auth/register/applicant/index.html">Register for applicants</a>
-            <a class="text-dark px-3 fs-6" href="/pages/auth/register/company/index.html">Register for companies</a>
+            <a class="text-dark px-3 ps-6" href="/pages/auth/register/applicant/index.html"
+              >Register for applicants</a
+            >
+            <a class="text-dark px-3 fs-6" href="/pages/auth/register/company/index.html"
+              >Register for companies</a
+            >
           </div>
         </form>
       </div>
     </main>
     <footer></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

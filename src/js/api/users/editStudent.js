@@ -1,4 +1,6 @@
 import { apiPath } from '../constants.js';
+import { getToken } from '../getToken.js';
+import { message } from '../../utilities/message/message.js';
 
 const method = 'PUT';
 const action = 'users/';
@@ -12,17 +14,22 @@ const action = 'users/';
  */
 
 export async function editStudent(profile) {
-  const { id } = profile;
+
+  
+  const id = JSON.parse(localStorage.getItem('id'));
+  console.log(id);
   const profileURL = apiPath + action + `${id}`;
+  const accessToken = getToken('token');
+  const newAccessToken = accessToken.replace(/^"|"$/g, '');
   const body = JSON.stringify(profile);
   const options = {
     method,
     body,
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${newAccessToken}`,
     },
   };
-
   try {
     const response = await fetch(profileURL, options);
     const profile = await response.json();
@@ -36,6 +43,11 @@ export async function editStudent(profile) {
         throw new Error(`${response.status} ${response.statusText}`);
     }
   } catch (err) {
-    console.log(err);
+    message(
+      'danger',
+      'An error occured when attempting to edit user details',
+      '#editUserErrorContainer'
+    );
+    console.error(err);
   }
 }

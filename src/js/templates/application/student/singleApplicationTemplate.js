@@ -1,24 +1,29 @@
 import { authBaseFetchOpen } from '../../../api/apiBaseFetch.js';
-import { apiPath, dummyApiGetSingel } from '../../../api/constants.js';
+import { apiUrl, applicationUrl } from '../../../api/constants.js';
 
 /**
  * Creates the HTML for a single application
- * @param {object} data - The single application data fetched from the API
+ * @param {string} id - The unique identifier of the application to be retrieved.
  * @returns - The HTML for a single application
  */
-export async function singleApplicationTemplate() {
-  const url = apiPath + dummyApiGetSingel;
+export async function singleApplicationTemplate(id) {
+  if (!id) {
+    throw new Error('Get requires an application ID');
+  }
+
+  const url = apiUrl.toString() + applicationUrl + id;
   const options = {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(),
   };
 
-  const req = await authBaseFetchOpen(url, options);
-  const res = await req.json();
-  const data = res;
+  const response = await authBaseFetchOpen(url, options);
+  if (!response.ok) {
+    throw new Error(`Error fetching application: ${response.statusText}`);
+  }
+  const data = await response.json();
   console.log(data);
 
   const {
@@ -38,7 +43,6 @@ export async function singleApplicationTemplate() {
     body: applicationText,
     link,
     file,
-    id,
   } = data;
 
   const applicationData = document.getElementById('applicationData');

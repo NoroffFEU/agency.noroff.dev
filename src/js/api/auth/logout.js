@@ -1,4 +1,3 @@
-import { Store } from '../../storage/storage.js';
 /**
  * I removed the use of the Store class from the logout function because the token can now be stored in either local storage or session storage.
  * Joakim Tveter - joakimtveter
@@ -17,6 +16,7 @@ export const logout = function () {
   localStorage.removeItem('profile');
   sessionStorage.removeItem('role');
   localStorage.removeItem('role');
+  localStorage.removeItem('Role');
 
   window.location.replace('/');
 };

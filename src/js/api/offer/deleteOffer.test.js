@@ -1,40 +1,41 @@
-import { deleteOffer } from './deleteOffer.js';
-import { LocalStorageMock } from '../auth/storageMock';
+import { deleteOffer } from './deleteOffer';
 
-const ID = '2';
-const INVALID_ID = '';
-
-const TEST_OFFER = {
-  id: ID,
-};
-
-function mockDeleteOffer() {
-  return Promise.resolve({
-    ok: true,
-    json: () => Promise.resolve(TEST_OFFER),
-  });
-}
-
-function mockFailDeleteOffer() {
-  return Promise.resolve({
-    ok: false,
-    statusText: 'Missing Offer ID',
-  });
-}
+global.fetch = jest.fn();
 
 describe('deleteOffer', () => {
-  it('Delete an offer from the API', async () => {
-    global.fetch = jest.fn(() => mockDeleteOffer());
-    global.localStorage = new LocalStorageMock();
-    const deletedOffer = await deleteOffer(ID);
-    expect(fetch).toHaveBeenCalledTimes(1);
-    expect(deletedOffer).toEqual(TEST_OFFER);
+  beforeEach(() => {
+    fetch.mockClear();
   });
 
-  it('Fails to delete offer from API', async () => {
-    global.fetch = jest.fn(() => mockFailDeleteOffer());
-    global.localStorage = new LocalStorageMock();
-    await expect(deleteOffer(INVALID_ID)).rejects.toThrow('Deleting an offer requires an offerID');
-    expect(fetch).toHaveBeenCalledTimes(0);
+  it('should confirm deletion when successful', async () => {
+    const mockOfferId = 123;
+    fetch.mockResolvedValueOnce({
+      ok: true,
+    });
+
+    const result = await deleteOffer(mockOfferId);
+
+    expect(result).toBe('Offer deleted successfully');
+    expect(fetch).toHaveBeenCalledWith(
+      expect.stringContaining(mockOfferId.toString()),
+      expect.objectContaining({
+        method: 'DELETE',
+        headers: expect.anything(),
+      })
+    );
+  });
+
+  it('should throw an error if no offer ID is provided', async () => {
+    await expect(deleteOffer()).rejects.toThrow('Deleting an offer requires an offer ID');
+  });
+
+  it('should throw an error on API failure', async () => {
+    const mockOfferId = 123;
+    fetch.mockResolvedValueOnce({
+      ok: false,
+      statusText: 'Not Found',
+    });
+
+    await expect(deleteOffer(mockOfferId)).rejects.toThrow('Error deleting offer: Not Found');
   });
 });
