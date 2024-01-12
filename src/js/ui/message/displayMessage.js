@@ -16,7 +16,7 @@ export function displayMessage(type, message, target) {
 
   const displayError = message.replace(/\n/g, '<br>');
 
-  container.innerHTML = `<div class="alert alert-${type}">
+  container.innerHTML = `<div class="alert alert-${type} text-primary">
                          ${displayError}
                          </div>`;
 }
