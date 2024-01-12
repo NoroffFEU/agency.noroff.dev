@@ -1,44 +1,49 @@
 import { Store } from '../../storage/storage.js';
-import { message } from '../../utilities/message/message.js';
-import { callLoginApi } from './callLoginApi.js';
+import { callLoginApi } from './handleAuthServices.js';
+
 
 /**
- * Logs in an existing user and stores the returned token.
- * @param {object} profile - User login information.
- * @param {string} profile.email - Email of the user.
- * @param {string} profile.password - Password of the user.
- * @param {string} [profile.remember] - If the user checkbox is checked, equals 'on'.
+ * Function for logging in an existing user in database and storing the returned token in session or localstorage
+ * @param {object} profile Values from loginForm
+ * @param {string} profile.email Email of the user
+ * @param {string} profile.password Plain text password
+ * @param {string} [profile.remember] If the user checkbox is checked it will equal to the string 'on'
+ * @returns {void}
  */
 export async function login(profile) {
   const { remember, email, password } = profile;
+
   const rememberLogin = remember === 'on';
 
-  try {
-    const response = await callLoginApi(email, password);
+  const errorContainer = document.querySelector('#errorContainer');
 
-    if (response.error) {
-      message('danger', 'Invalid login credentials. Please try again', '#errorContainer');
-      return;
+  try {
+    const { userData, error } = await callLoginApi(email, password);
+
+    if (error) {
+      return (errorContainer.innerHTML = error?.message);
     }
 
-    const { userData } = response;
-    clearProfileData(); // Clear any previous data
-    storeProfileData(userData, rememberLogin);
+    const { role } = userData;
 
-    const redirectUrl = getRedirectUrl(userData.role);
+    clearProfileData(Store); // Clear any previous data
+    storeProfileData(userData, rememberLogin, Store);
+
+    const redirectUrl = getRedirectUrl(role);
     handleLoginRedirect(redirectUrl);
   } catch (error) {
-    message('danger', `An unknown error occurred, please try again later`, '#errorContainer');
+    errorContainer.innerHTML =
+      'Unknown error occurred. Please try again later, if the problem persist contact customer support.';
     console.error(error);
   }
 }
 
 /**
- * Stores the user data in local or session storage.
  * @param {UserData} userData - The user data to store.
- * @param {boolean} rememberLogin - Whether to remember the login.
+ * @param {boolean} rememberLogin - Whether or not to remember the login
+ * @param {Store} Store - The store class.
  */
-function storeProfileData(userData, rememberLogin) {
+function storeProfileData(userData, rememberLogin, Store) {
   const { token, role, id, email } = userData;
 
   new Store('token', token, rememberLogin);
@@ -48,28 +53,19 @@ function storeProfileData(userData, rememberLogin) {
 }
 
 /**
- * Clears the user data from storage.
+ * @param {Store} Store - The store class.
  */
-function clearProfileData() {
+function clearProfileData(Store) {
   new Store('token').clear();
   new Store('role').clear();
   new Store('email').clear();
   new Store('id').clear();
 }
 
-/**
- * Redirects the user to a specified URL.
- * @param {string} url - The URL to redirect to.
- */
 function handleLoginRedirect(url) {
   window.location.replace(url);
 }
 
-/**
- * Determines the redirect URL based on the user role.
- * @param {string} role - The user's role.
- * @returns {string} The redirect URL.
- */
 function getRedirectUrl(role) {
   switch (role) {
     case 'Applicant':
