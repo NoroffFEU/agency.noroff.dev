@@ -18,7 +18,7 @@
   width: 100%;
   align-self: center;
   margin-bottom: 2rem;
-
+}
 
 .input-group .search-listing-input {
   background-color: var(--bs-white);
@@ -32,10 +32,10 @@
 
   &:focus {
     background-color: var(--bs-white);
+  }
 
   h1 {
     margin: 4rem 0 3rem;
-
   }
 
   .search-input-flex-group {
