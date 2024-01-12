@@ -1,21 +1,25 @@
 // Author: Emilie Herrera Thomsen
 // The Dummy json needs to be replaced with actual endpoint.
 
-import { apiPath } from '../constants.js';
+
+import { apiPath, listingsUrl } from '../constants.js';
 import { headers } from '../headers.js';
+import { message } from '../../utilities/message/message.js';
 
 export async function getListOfListings() {
-  const getListingsUrl = apiPath;
-  const data = await fetch(getListingsUrl, {
-    method: 'GET',
+  const response = await fetch(`${apiPath}${listingsUrl}`, {
     headers: headers(),
     body: JSON.stringify(),
   });
-
-  const dataListings = await data.json();
-  if (data.ok) {
-    return dataListings;
+  if (response.ok) {
+    return await response.json();
   } else {
-    console.error(`Error: ${data.status} ${data.statusText}`);
+    message(
+      'danger',
+      'An error occured when attempting to get job listings',
+      '#listingsErrorContainer'
+    );
+    console.error(`Error: ${response.status} ${response.statusText}`);
+
   }
 }

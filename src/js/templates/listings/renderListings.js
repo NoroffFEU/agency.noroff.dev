@@ -7,10 +7,10 @@ export async function renderListings() {
 
   const data = await getListOfListings();
 
-  const date2 = new Date('2023-12-26T12:19:48.625Z');
   listingsContainer.innerHTML = '';
 
   data.forEach(function (data) {
+    const date2 = new Date(data.deadline);
     listingsContainer.innerHTML += `
        <div class="col-12 col-lg-6">
          <div class="row g-3 bg-theme-light m-0 shadow card card-listing rounded-0 bg-white">
