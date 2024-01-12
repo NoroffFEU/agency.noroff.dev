@@ -4,19 +4,29 @@ Frontend web application for the Noroff Agency API
 
 Documentations: [Link](./documentation/)
 
+## Status
+
+![](https://byob.yarr.is/NoroffFEU/agency.noroff.dev/lint)
+![](https://byob.yarr.is/NoroffFEU/agency.noroff.dev/unit-test)
+![](https://byob.yarr.is/NoroffFEU/agency.noroff.dev/build)
+![](https://byob.yarr.is/NoroffFEU/agency.noroff.dev/deploy)
+
 ## Installing and starting the project
 
 Installing
+
 ```
 npm i
 ```
 
 Build
+
 ```
 npm run build
 ```
 
 Run locally
+
 ```
 npm run dev
 ```
