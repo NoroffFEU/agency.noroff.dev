@@ -19,23 +19,8 @@
   align-self: center;
   margin-bottom: 2rem;
 
-
-.input-group .search-listing-input {
-  background-color: var(--bs-white);
-  border: none;
-  width: auto;
-  height: 2.7rem;
-  margin-right: 0.8rem;
-  box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.2) inset;
-  -webkit-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.2) inset;
-
-  &:focus {
-    background-color: var(--bs-white);
-
   h1 {
     margin: 4rem 0 3rem;
-
   }
 
   .search-input-flex-group {
