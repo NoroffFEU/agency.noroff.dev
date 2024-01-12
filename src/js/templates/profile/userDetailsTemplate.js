@@ -115,22 +115,28 @@ export function renderProfileRole(data, element) {
  * @param {element} element
  * @returns returns a list of skills to parent element.
  */
-// This needs to solved! The issue where the skills property in the users endpoint is a string and not an array.//
+
 export function renderProfileSkills(data, parent, element) {
   if (roleCompany()) {
     element.classList.add('d-none');
     return;
   } else {
-    const { skills } = data;
-    if (Array.isArray(skills) && skills.length > 0) {
-      skills.forEach((item) => {
-        const renderSkill = document.createElement('li');
-        renderSkill.classList.add('fw-bolder', 'fs-6');
-        renderSkill.innerHTML = item.trim();
+    const skillsString = data.skills;
 
-        parent.append(renderSkill);
-      });
+    if (skillsString && typeof skillsString === 'string') {
+      const skillsArray = skillsString.split(',').map(item => item.trim());
+
+      if (skillsArray.length > 0) {
+        skillsArray.forEach((item) => {
+          const renderSkill = document.createElement('li');
+          renderSkill.classList.add('fw-bolder', 'fs-6');
+          renderSkill.innerHTML = item;
+
+          parent.append(renderSkill);
+        });
+      }
     }
+
     return parent;
   }
 }
