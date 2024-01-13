@@ -1,6 +1,12 @@
 import { Store } from '../../storage/storage.js';
 import { callLoginApi } from './callLoginApi.js';
 import { message } from '../../utilities/message/message.js';
+import {
+  clearProfileData,
+  getRedirectUrl,
+  handleLoginRedirect,
+  storeProfileData,
+} from './utils.js';
 
 /**
  * Function for logging in an existing user in database and storing the returned token in session or localstorage
@@ -8,7 +14,7 @@ import { message } from '../../utilities/message/message.js';
  * @param {string} profile.email Email of the user
  * @param {string} profile.password Plain text password
  * @param {string} [profile.remember] If the user checkbox is checked it will equal to the string 'on'
- * @returns {void}
+ * @returns {Promise<void>}
  */
 export async function login(profile) {
   const { remember, email, password } = profile;
@@ -31,48 +37,7 @@ export async function login(profile) {
     const redirectUrl = getRedirectUrl(role);
     handleLoginRedirect(redirectUrl);
   } catch (error) {
-    message('danger', 'An unknown error occured. Please try again later', '#errorContainer');
+    message('danger', 'An unknown error occurred. Please try again later', '#errorContainer');
     console.error(error);
-  }
-}
-
-/**
- * @param {UserData} userData - The user data to store.
- * @param {boolean} rememberLogin - Whether or not to remember the login
- * @param {Store} Store - The store class.
- */
-function storeProfileData(userData, rememberLogin, Store) {
-  const { token, role, id, email } = userData;
-
-  new Store('token', token, rememberLogin);
-  new Store('role', role, rememberLogin);
-  new Store('email', email, rememberLogin);
-  new Store('id', id, rememberLogin);
-}
-
-/**
- * @param {Store} Store - The store class.
- */
-function clearProfileData(Store) {
-  new Store('token').clear();
-  new Store('role').clear();
-  new Store('email').clear();
-  new Store('id').clear();
-}
-
-function handleLoginRedirect(url) {
-  window.location.replace(url);
-}
-
-function getRedirectUrl(role) {
-  switch (role) {
-    case 'Applicant':
-      return '/pages/user/index.html';
-    case 'Admin':
-      return '#'; // TODO: Add admin page url
-    case 'Client':
-      return '#'; // TODO: Add client page url
-    default:
-      return '/pages/user/index.html';
   }
 }
