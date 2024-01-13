@@ -1,15 +1,12 @@
 // Author: Linus Aakerberg
 // Team: FE-Offers
 
-const fetchListings = document.querySelector('#jobListings');
-
 // Import API url for fetch the data (dummy API for users data)
 import { apiPath } from '../../api/constants.js';
 // import headers for the requestOption
 import { headers } from '../../api/headers.js';
 
 // import delete function
-import { setDeleteListingListener } from './deleteListing.js';
 
 const userUrl = apiPath + `users`;
 
@@ -38,6 +35,7 @@ export function showListings() {
         const jobId = listingData[i].company.address.postalCode;
 
         /* The styling of these elements are not consistent as the placeholders are to small to fit the information needed so a decition has to be made as to how big the listings should be */
+        // eslint-disable-next-line no-undef
         jobListings.innerHTML += `
         <div class="card flex-row p-0 gap-4 w-auto">
           <img src="https://via.placeholder.com/150 " alt="" class="" />

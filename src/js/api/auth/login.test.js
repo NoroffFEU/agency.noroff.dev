@@ -1,17 +1,27 @@
 import { login } from './login.js';
-import { Store } from '../../storage/storage.js';
 import { message } from '../../utilities/message/message.js';
 import { callLoginApi } from './callLoginApi.js';
+import * as utils from './utils.js';
+
+jest.mock('./utils.js', () => ({
+  clearProfileData: jest.fn(),
+  getRedirectUrl: jest.fn().mockReturnValue('/some-url'),
+  handleLoginRedirect: jest.fn(),
+  storeProfileData: jest.fn(),
+}));
 
 jest.mock('../../storage/storage.js');
 jest.mock('../../utilities/message/message.js');
 jest.mock('./callLoginApi.js');
 
-describe('login', () => {
-  const originalLocation = window.location;
-  delete window.location;
-  window.location = { replace: jest.fn() };
+const mockUserData = {
+  token: 'token123',
+  role: 'Applicant',
+  id: '1',
+  email: 'user@example.com',
+};
 
+describe('login', () => {
   beforeEach(() => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
   });
@@ -21,23 +31,41 @@ describe('login', () => {
     jest.clearAllMocks();
   });
 
-  afterAll(() => {
-    window.location = originalLocation;
-  });
-
   it('should store user data and redirect on successful login', async () => {
     callLoginApi.mockResolvedValue({
-      userData: { token: 'token123', role: 'Applicant', id: '1', email: 'user@example.com' },
+      userData: { ...mockUserData },
       error: null,
     });
-    Store.prototype.save = jest.fn();
-    Store.prototype.clear = jest.fn();
 
     const profile = { email: 'user@example.com', password: 'password123', remember: 'on' };
     await login(profile);
+    expect(utils.storeProfileData).toHaveBeenCalledWith(
+      expect.objectContaining({
+        ...mockUserData,
+      }),
+      true,
+      expect.anything() // The store class
+    );
 
-    expect(Store.prototype.save).toHaveBeenCalledTimes(4);
-    expect(window.location.replace).toHaveBeenCalledWith('/pages/user/index.html');
+    expect(utils.handleLoginRedirect).toHaveBeenCalledWith('/some-url');
+  });
+
+  it('should not remember login if remember is not checked', async () => {
+    callLoginApi.mockResolvedValue({
+      userData: { ...mockUserData },
+      error: null,
+    });
+
+    const profile = { email: 'user@example.com', password: 'password123', remember: 'off' };
+    await login(profile);
+    // The second argument is the persist argument, which saves to session storage if false
+    expect(utils.storeProfileData).toHaveBeenCalledWith(
+      expect.objectContaining({
+        ...mockUserData,
+      }),
+      false,
+      expect.anything() // The store class
+    );
   });
 
   it('should show error message on invalid credentials', async () => {
@@ -51,7 +79,8 @@ describe('login', () => {
       'Invalid login credentials. Please try again',
       '#errorContainer'
     );
-    expect(Store.prototype.save).not.toHaveBeenCalled();
+
+    expect(utils.storeProfileData).not.toHaveBeenCalled();
   });
 
   it('should handle unknown errors', async () => {
@@ -63,7 +92,7 @@ describe('login', () => {
 
     expect(message).toHaveBeenCalledWith(
       'danger',
-      `An unknown error occurred, please try again later`,
+      `An unknown error occurred. Please try again later`,
       '#errorContainer'
     );
 
