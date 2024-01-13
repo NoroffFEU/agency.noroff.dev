@@ -20,6 +20,8 @@ export default {
         create: path.resolve(__dirname, 'pages/listings/listing/create/index.html'),
         edit: path.resolve(__dirname, 'pages/listings/listing/edit/index.html'),
         user: path.resolve(__dirname, 'pages/user/index.html'),
+        privacy: path.resolve(__dirname, 'privacy_policy.html'),
+        terms: path.resolve(__dirname, 'terms_of_use.html'),
       },
     },
   },
