@@ -1,4 +1,7 @@
 import { apiUrl, companyUrl } from '../constants.js';
+import { getToken } from '../getToken.js';
+const method = 'POST';
+
 
 /**
  * Register a company by sending a POST request to the API
@@ -15,13 +18,17 @@ import { apiUrl, companyUrl } from '../constants.js';
  */
 
 export async function registerCompany(profile) {
+  const accessToken = getToken('token');
+  const newAccessToken = accessToken.replace(/^"|"$/g, '');
   const registerURL = apiUrl.toString() + companyUrl;
+
 
   try {
     const response = await fetch(registerURL, {
       headers: {
         'Content-Type': 'application/json',
-        // Include authentication headers if needed
+        Authorization: `Bearer ${newAccessToken}`,
+
       },
       method: 'POST',
       body: JSON.stringify(profile),

@@ -109,3 +109,6 @@ dist
 
 # DS_Store
 .DS_Store
+
+# IntelliJ project folder
+.idea

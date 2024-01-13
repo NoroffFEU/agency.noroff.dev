@@ -12,11 +12,13 @@
 export const logout = function () {
   localStorage.removeItem('token');
   sessionStorage.removeItem('token');
-  sessionStorage.removeItem('profile');
   localStorage.removeItem('profile');
-  sessionStorage.removeItem('role');
+  sessionStorage.removeItem('profile');
   localStorage.removeItem('role');
-  localStorage.removeItem('Role');
-
+  sessionStorage.removeItem('role');
+  localStorage.removeItem('id');
+  sessionStorage.removeItem('id');
+  localStorage.removeItem('email');
+  sessionStorage.removeItem('email');
   window.location.replace('/');
 };

@@ -15,7 +15,7 @@ export function setLoginFormListener() {
   const form = document.querySelector('#loginForm');
 
   if (storedEmail && emailInput) {
-    emailInput.value = storedEmail;
+    emailInput.value = JSON.parse(storedEmail);
   }
 
   if (form) {
