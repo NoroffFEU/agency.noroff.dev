@@ -1,6 +1,4 @@
 import { logout } from './logout.js';
-import { LocalStorageMock } from './storageMock.js';
-import { Store } from '../../storage/storage.js';
 
 describe('logout function', () => {
   const originalLocation = window.location;
