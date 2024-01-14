@@ -15,7 +15,6 @@ export function options() {
   editBtn.href = '/pages/listings/listing/editListing.html';
   editBtn.id = 'editListingBtn';
   editBtn.innerText = 'Edit';
-  // editBtn.addEventListener('click', editListing);
 
   // Delete button
   const deleteBtn = document.createElement('button');

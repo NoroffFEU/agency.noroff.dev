@@ -118,13 +118,11 @@ const routerSwitch = () => {
     // Create offer UI settings
     case 'offerPage':
       document.querySelector('title').innerText = defaultTitle + ` || Create Offer`;
-      // setCreateOfferListener();
       break;
 
     // Apply UI settings
     case 'applyPage':
       document.querySelector('title').innerText = defaultTitle + ` || Apply`;
-      // postApplication();
       break;
 
     // Single application UI settings

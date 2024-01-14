@@ -22,7 +22,9 @@ The workflow consists of the following jobs:
 
 - **Unit Test:** This job also depends on the `setup` job. It runs unit tests using `npm run test-unit` and updates the unit test status badge.
 
-- Deploy: This job depends on the `setup`, `lint`, and `unit-test` jobs. It only runs if the previous jobs are successful and the event is a push to the `main` branch. The job performs the following steps:
+- **Build:** This job builds the project using vite with `npm run build` and updates the build status badge. This ensure that the project compiles successfully.
+
+- **Deploy:** This job depends on the `setup`, `lint`, and `unit-test` jobs. It only runs if the previous jobs are successful and the event is a push to the `main` branch. The job performs the following steps:
 
 1. Checks out the repository.
 2. Installs project dependencies using `npm ci`.
