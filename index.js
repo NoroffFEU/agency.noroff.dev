@@ -10,7 +10,6 @@ import { adminRouter } from './src/js/views/admin/adminRouter.js';
 import { setRegisterFormListenerApplicant } from './src/js/listeners/auth/index.js'; // for applicant
 import { setRegisterFormListenerCompany } from './src/js/listeners/auth/index.js'; // for company
 import { createListing } from './src/js/listeners/post/createListing.js';
-import { postApplication } from './src/js/listeners/post/postApplication.js';
 import { showListings } from './src/js/views/admin/showListings.js';
 import '/src/scss/index.scss';
 
@@ -119,13 +118,13 @@ const routerSwitch = () => {
     // Create offer UI settings
     case 'offerPage':
       document.querySelector('title').innerText = defaultTitle + ` || Create Offer`;
-      setCreateOfferListener();
+      // setCreateOfferListener();
       break;
 
     // Apply UI settings
     case 'applyPage':
       document.querySelector('title').innerText = defaultTitle + ` || Apply`;
-      postApplication();
+      // postApplication();
       break;
 
     // Single application UI settings

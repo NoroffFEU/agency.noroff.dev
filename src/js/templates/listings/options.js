@@ -1,5 +1,5 @@
 // Author: May-Tove Hovdal
-import { deleteListing, editListing } from './optionEvents.js';
+import { deleteListing } from './optionEvents.js';
 
 export function options() {
   const cardBody = document.querySelector('.card-body');
@@ -15,7 +15,7 @@ export function options() {
   editBtn.href = '/pages/listings/listing/editListing.html';
   editBtn.id = 'editListingBtn';
   editBtn.innerText = 'Edit';
-  editBtn.addEventListener('click', editListing);
+  // editBtn.addEventListener('click', editListing);
 
   // Delete button
   const deleteBtn = document.createElement('button');
