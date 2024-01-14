@@ -21,3 +21,9 @@ Version: 1.0.0
   max-width: 300px;
   max-height: 300px;
 }
+#skillsList {
+  li {
+    width: fit-content;
+    margin: 0 0.5rem 0 0.5rem;
+  }
+}
