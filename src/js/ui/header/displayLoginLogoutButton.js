@@ -10,9 +10,8 @@ export function displayLoginLogoutButton(role) {
     const logoutLi = document.createElement('li');
     logoutLi.classList.add('nav-item');
 
-    const logoutBtn = document.createElement('a');
-    logoutBtn.classList.add('btn', 'btn-outline-light', 'text-white', 'fw-semibold');
-    logoutBtn.href = '/';
+    const logoutBtn = document.createElement('button');
+    logoutBtn.classList.add('btn', 'btn-theme-secondary', 'fw-semibold');
     logoutBtn.id = 'signOut';
     logoutBtn.textContent = 'Log out';
 
