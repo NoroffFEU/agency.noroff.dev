@@ -7,7 +7,7 @@ export const header = () => {
   header.classList.add('bg-theme-dark', 'fixed-top', 'align-items-center', 'shadow-lg', 'p-2');
 
   const nav = document.createElement('nav');
-  nav.classList.add('navbar', 'navbar-expand-md', 'me-lg-3', 'p-0', 'bg-theme-dark');
+  nav.classList.add('navbar', 'navbar-dark', 'navbar-expand-md', 'me-lg-3', 'p-0');
 
   const container = document.createElement('div');
   container.classList.add('container-fluid');
@@ -37,7 +37,7 @@ export const header = () => {
   logoContainer.append(img, logoText);
 
   const button = document.createElement('button');
-  button.classList.add('navbar-toggler', 'navbar-dark', 'border-0', 'ms-auto');
+  button.classList.add('navbar-toggler', 'border-0', 'ms-auto', 'p-0');
   button.setAttribute('type', 'button');
   button.setAttribute('data-bs-toggle', 'collapse');
   button.setAttribute('data-bs-target', '#navbarNavDropdown');
@@ -46,7 +46,7 @@ export const header = () => {
   button.setAttribute('aria-label', 'Toggle navigation');
 
   const span = document.createElement('span');
-  span.classList.add('navbar-toggler-icon', 'navbar-dark');
+  span.classList.add('navbar-toggler-icon');
   button.append(span);
 
   const navbarCollapse = document.createElement('div');
@@ -60,8 +60,6 @@ export const header = () => {
     'align-items-center',
     'text-center',
     'gap-4',
-    'p-5',
-    'p-lg-0'
   );
   ul.id = 'navUl';
 
