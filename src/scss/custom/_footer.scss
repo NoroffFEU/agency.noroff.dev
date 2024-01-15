@@ -6,10 +6,13 @@ div[data-footer-col] {
   width: 20px;
 }
 
+#navlink-footer-id {
+  transition: 0.3s ease-in-out;
+}
+
 #navlink-footer-id:hover {
   color: black !important;
   padding-left: 10px;
-  transition: 400ms ease-in-out;
 }
 
 @media only screen and (min-width: 576px) {
