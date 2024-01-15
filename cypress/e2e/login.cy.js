@@ -78,10 +78,7 @@ describe('Login page', () => {
     cy.get('#skillsHeader').should('contain', 'Skills');
 
     // profile view is currently broken when using session storage, e.g "don't remember me"
-
-    // cy.get('#profileName').should('contain', 'cypress test');
-    // cy.get('#profileRole').should('contain', 'Applicant');
-    // cy.get('#profileEmail').should('contain', 'cypress-test@noroff.no');
+    // when this is fixed, add profile assertion here
 
     cy.checkLocalStorage('email', null);
     cy.checkLocalStorage('id', null);
