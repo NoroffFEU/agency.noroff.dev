@@ -1,4 +1,4 @@
-import { viewSingleListing } from './src/js/views/listings/index.js';
+import { viewSingleListing } from './src/js/views/listings/viewSingleListing.js';
 import { displayBaseLayout } from './src/js/ui/index.js';
 import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
 import { setLoginFormListener } from './src/js/listeners/auth/index.js';
@@ -46,8 +46,8 @@ const routerSwitch = () => {
 
     // Single listing page UI (PAGE DOESNT EXIST YET)
     case 'singleListing':
-      document.querySelector('title').innerText = defaultTitle + ` || Listing`;
-      viewSingleListing();
+      document.querySelector('title').innerText = defaultTitle + ` || listing`;
+      viewSingleListing()
       break;
 
     // Listing UI settings

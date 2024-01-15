@@ -1,22 +1,20 @@
 // Author: May-Tove Hovdal
-
+//Updated by Fredrik Tokle
 import { getSingleListing } from '../../api/posts/getSingleListing.js';
 import * as template from '../../templates/listings/index.js';
 
 export async function viewSingleListing() {
-  /*const url = new URL(location.href);
- const id = url.searchParams.get('id');*/
+const url = new URL(location.href);
+ const id = url.searchParams.get('id');
 
-  // id from dummy API, will have to be replaced when backend is ready
-  const id = 1;
-
+ console.log(document)
   const metaDescription = document.querySelector('#metaDescription');
   const pageTitle = document.querySelector('#singleListingPageTitle');
   const container = document.querySelector('#singleListingContainer');
 
   if (id) {
     const result = await getSingleListing(id);
-
+   console.log(result)
     metaDescription.content = result.description;
     pageTitle.innerHTML = `${result.title} | Noroff Job Agency`;
 
