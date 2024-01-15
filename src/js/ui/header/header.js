@@ -17,10 +17,10 @@ export const header = () => {
   logoContainer.href = '/';
 
   const img = document.createElement('img');
-  img.classList.add('Logo-noroff', 'my-auto', 'text-body');
+  img.classList.add('my-auto');
   img.src = '/assets/icons/noroff-logo.svg';
-  img.setAttribute('width', '150');
-  img.setAttribute('height', '50');
+  img.setAttribute('width', '200');
+  img.setAttribute('height', '100');
   img.alt = 'Noroff Job Agency Logo';
 
   logoContainer.append(img);
