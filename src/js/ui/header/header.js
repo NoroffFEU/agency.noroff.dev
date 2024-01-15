@@ -1,6 +1,8 @@
+import { indexKeyNavigation } from './indexKeyNavigation';
+
 /**
  * @description Creates content inside header
- * @returns Dynamic header content based on user status
+ * @returns logo and navigation
  */
 export const header = () => {
   const header = document.querySelector('header');
@@ -8,6 +10,8 @@ export const header = () => {
 
   const nav = document.createElement('nav');
   nav.classList.add('navbar', 'navbar-dark', 'navbar-expand-md', 'me-lg-3', 'p-0');
+  nav.setAttribute('role', 'navigation');
+  nav.setAttribute('aria-label', 'Main navigation');
 
   const container = document.createElement('div');
   container.classList.add('container-fluid');
@@ -15,10 +19,12 @@ export const header = () => {
   const logoContainer = document.createElement('a');
   logoContainer.classList.add('navbar-brand', 'd-flex', 'ms-3', 'gap-2');
   logoContainer.href = '/';
+  logoContainer.setAttribute('aria-label', 'Noroff Job Agency home page');
 
   const img = document.createElement('img');
   img.classList.add('Logo-noroff', 'my-auto');
   img.src = '/assets/icons/noroff-logo.svg';
+  img.alt = 'Noroff logo';
   img.setAttribute('width', '33');
   img.setAttribute('height', '50');
 
@@ -41,7 +47,7 @@ export const header = () => {
   button.setAttribute('type', 'button');
   button.setAttribute('data-bs-toggle', 'collapse');
   button.setAttribute('data-bs-target', '#navbarNavDropdown');
-  button.setAttribute('aria-controls', '#navbarNavDropdown');
+  button.setAttribute('aria-controls', 'navbarNavDropdown');
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-label', 'Toggle navigation');
 
@@ -54,14 +60,10 @@ export const header = () => {
   navbarCollapse.id = 'navbarNavDropdown';
 
   const ul = document.createElement('ul');
-  ul.classList.add(
-    'navbar-nav',
-    'ms-auto',
-    'align-items-center',
-    'text-center',
-    'gap-4',
-  );
+  ul.classList.add('navbar-nav', 'ms-auto', 'align-items-center', 'text-center', 'gap-4');
   ul.id = 'navUl';
+  ul.setAttribute('role', 'menubar');
+  ul.setAttribute('aria-labelledby', 'navUl');
 
   navbarCollapse.append(ul);
 

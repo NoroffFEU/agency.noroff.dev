@@ -1,4 +1,5 @@
 import { displayLoginLogoutButton } from './displayLoginLogoutButton.js';
+import { indexKeyNavigation } from './indexKeyNavigation.js';
 
 let pageTitle = document.querySelector('title');
 pageTitle.innerText = 'Standard';
@@ -14,36 +15,36 @@ export const checkState = () => {
 
   if (role === 'Applicant') {
     const links = [
-      { href: '/index.html', text: 'Home' },
-      { href: '/pages/user/index.html', text: 'Profile' },
-      { href: '/pages/listings/index.html', text: 'Listings' },
+      { href: '/', text: 'Home' },
+      { href: '/pages/user/', text: 'Profile' },
+      { href: '/pages/listings/', text: 'Listings' },
     ];
     const lis = iterateLinks(links);
     lis.forEach((li) => ul.append(li));
     ul.append(displayLoginLogoutButton(role));
   } else if (role === 'Admin') {
     const links = [
-      { href: '/index.html', text: 'Home' },
-      { href: '#', text: 'Profile' },
-      { href: '/pages/listings/index.html', text: 'Listings' },
+      { href: '/', text: 'Home' },
+      { href: '/pages/admin/', text: 'Profile' },
+      { href: '/pages/listings/', text: 'Listings' },
     ];
     const lis = iterateLinks(links);
     lis.forEach((li) => ul.append(li));
     ul.append(displayLoginLogoutButton(role));
   } else if (role === 'Client') {
     const links = [
-      { href: '/index.html', text: 'Home' },
-      { href: '#', text: 'Profile' },
-      { href: '/pages/listings/index.html', text: 'Listings' },
+      { href: '/', text: 'Home' },
+      { href: '/pages/client/', text: 'Profile' },
+      { href: '/pages/listings/', text: 'Listings' },
     ];
     const lis = iterateLinks(links);
     lis.forEach((li) => ul.append(li));
     ul.append(displayLoginLogoutButton(role));
   } else if (role === null) {
     const links = [
-      { href: '/index.html', text: 'Home' },
-      { href: '/pages/user/index.html', text: 'Profile' },
-      { href: '/pages/listings/index.html', text: 'Listings' },
+      { href: '/', text: 'Home' },
+      { href: '/pages/user/', text: 'Profile' },
+      { href: '/pages/listings/', text: 'Listings' },
     ];
     const lis = iterateLinks(links);
     lis.forEach((li) => ul.append(li));
@@ -53,15 +54,23 @@ export const checkState = () => {
     registerLi.classList.add('nav-item');
     const registerBtn = document.createElement('a');
     registerBtn.classList.add('btn', 'btn-theme-secondary', 'text-black', 'fw-semibold');
-    registerBtn.href = '/pages/auth/register/applicant/index.html';
+    registerBtn.href = '/pages/auth/register/applicant/';
     registerBtn.textContent = 'Register';
     registerBtn.id = 'registerUser';
+    indexKeyNavigation(registerLi, registerBtn);
     registerLi.append(registerBtn);
     ul.append(registerLi);
   }
 };
 
+/**
+ * @description Checks user role/state, and creates a dynamic ul based on that role
+ * @param {Array} links
+ * @returns list elements
+ */
 function iterateLinks(links) {
+  const currentPage = window.location.pathname;
+
   return links.map((link) => {
     const li = document.createElement('li');
     li.classList.add('nav-item');
@@ -69,7 +78,14 @@ function iterateLinks(links) {
     a.classList.add('nav-link', 'text-white');
     a.href = link.href;
     a.textContent = link.text;
-    a.setAttribute('aria-current', 'page');
+
+    indexKeyNavigation(li, a);
+
+    if (currentPage === link.href) {
+      a.setAttribute('aria-current', 'page');
+    } else if (a.setAttribute('aria-label', `${link.text} page`)) {
+    }
+
     li.append(a);
     return li;
   });
