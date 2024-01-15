@@ -9,7 +9,7 @@ export const header = () => {
   header.classList.add('bg-theme-dark', 'fixed-top', 'align-items-center', 'shadow-lg', 'p-2');
 
   const nav = document.createElement('nav');
-  nav.classList.add('navbar', 'navbar-expand-md', 'me-lg-3', 'p-0', 'bg-theme-dark');
+  nav.classList.add('navbar', 'navbar-dark', 'navbar-expand-md', 'me-lg-3', 'p-0');
   nav.setAttribute('role', 'navigation');
   nav.setAttribute('aria-label', 'Main navigation');
 
@@ -43,7 +43,7 @@ export const header = () => {
   logoContainer.append(img, logoText);
 
   const button = document.createElement('button');
-  button.classList.add('navbar-toggler', 'navbar-dark', 'border-0', 'ms-auto');
+  button.classList.add('navbar-toggler', 'border-0', 'ms-auto', 'p-0');
   button.setAttribute('type', 'button');
   button.setAttribute('data-bs-toggle', 'collapse');
   button.setAttribute('data-bs-target', '#navbarNavDropdown');
@@ -52,7 +52,7 @@ export const header = () => {
   button.setAttribute('aria-label', 'Toggle navigation');
 
   const span = document.createElement('span');
-  span.classList.add('navbar-toggler-icon', 'navbar-dark');
+  span.classList.add('navbar-toggler-icon');
   button.append(span);
 
   const navbarCollapse = document.createElement('div');
