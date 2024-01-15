@@ -15,7 +15,9 @@ $theme-new-light: #f2f2f2;
 $theme-new-grey: #dde3ea;
 
 // Changing bootstrap colors
-$primary: #00ff4c;
+
+//changed color to blue on the $primary variable because it is affecting the active input and the links. changed from green to blue
+$primary: #053c93;
 $secondary: #505059;
 $success: #0c8410;
 $info: #0dcaf0;
@@ -48,3 +50,5 @@ $theme-colors: (
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
+
+$input-focus-box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);

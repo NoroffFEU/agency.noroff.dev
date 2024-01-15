@@ -1,0 +1,60 @@
+.applicant-modal:hover {
+  cursor: pointer;
+}
+
+.applicant .close-btn {
+  height: 36px;
+  width: 36px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.applicant .close-btn button {
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+.applicant span,
+.applicant .time-date {
+  font-size: 0.9rem;
+}
+.applicant .modal-footer button {
+  color: black;
+  font-weight: bold;
+  background-color: #FD2E07;
+  width: 150px;
+}
+
+/*Phone and smaller device styles*/
+@media only screen and (max-width: 800px) {
+  .job-title {
+    display: none;
+  }
+  .modal-backdrop.show {
+    width: 100%;
+    height: 100%;
+  }
+}
+.stripes:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.stripes:nth-child(even) {
+  background-color: white;
+}
+
+.active {
+  font-weight: 600 !important;
+}
+
+.nav-link:hover {
+  background-color: #f8f8f8 !important;
+}
+
+.active:hover {
+  background-color: white !important;
+}
+
+.adminSearchField {
+  height: 38px !important;
+}/*# sourceMappingURL=index.css.map */

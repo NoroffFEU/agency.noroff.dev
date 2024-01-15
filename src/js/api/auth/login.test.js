@@ -1,90 +1,101 @@
-import { LocalStorageMock } from './storageMock.js';
-import { Store } from '../../storage/storage.js';
 import { login } from './login.js';
+import { message } from '../../utilities/message/message.js';
+import { callLoginApi } from './callLoginApi.js';
+import * as utils from './utils.js';
 
-// Author: Truls Haakenstad @Menubrea
-// Team: FE-User
+jest.mock('./utils.js', () => ({
+  clearProfileData: jest.fn(),
+  getRedirectUrl: jest.fn().mockReturnValue('/some-url'),
+  handleLoginRedirect: jest.fn(),
+  storeProfileData: jest.fn(),
+}));
 
-global.localStorage = new LocalStorageMock();
-global.window = jest.fn();
-errorContainer = jest.fn();
+jest.mock('../../storage/storage.js');
+jest.mock('../../utilities/message/message.js');
+jest.mock('./callLoginApi.js');
 
-window.location = Object.assign(new URL('https://example.org'), {
-  replace: jest.fn(),
-});
-
-function fetchSuccess() {
-  return Promise.resolve({
-    ok: true,
-    status: 200,
-    statusText: 'OK',
-    json: () => Promise.resolve(profile),
-  });
-}
-
-function fetchFailure(status = 403, statusText = 'Invalid email/password') {
-  return Promise.resolve({
-    ok: false,
-    status,
-    statusText,
-  });
-}
-
-const valid_credentials = {
-  email: 'test@stud.noroff.no',
-  password: '12345678',
+const mockUserData = {
+  token: 'token123',
+  role: 'Applicant',
+  id: '1',
+  email: 'user@example.com',
 };
 
-const invalid_credentials = {
-  email: 'test@test.no',
-  password: '123',
-};
-
-const profile = {
-  userId: '321',
-  firstName: 'John',
-  lastName: 'Doe',
-  email: 'test@test.no',
-  token: 'JWT',
-  role: 'student',
-};
-
-describe('login()', () => {
-  it('Returns and stores a token when provided with valid credentials', async () => {
-    expect(new Store('token').state).toEqual(null);
-    global.fetch = jest.fn(() => fetchSuccess());
-    await login(valid_credentials);
-    expect(new Store('token').state).toEqual('JWT');
-    new Store('token').clear();
-    new Store('profile').clear();
-    new Store('role').clear();
+describe('login', () => {
+  beforeEach(() => {
+    jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
-  it('Returns and stores a profile when provided with valid credentials', async () => {
-    expect(new Store('profile').state).toEqual(null);
-    global.fetch = jest.fn(() => fetchSuccess());
-    await login(valid_credentials);
-    expect(new Store('profile').state).toEqual({ firstName: 'John', lastName: 'Doe', userId: '321' });
-    new Store('profile').clear();
-    new Store('role').clear();
-    new Store('token').clear();
+  afterEach(() => {
+    console.error.mockRestore();
+    jest.clearAllMocks();
   });
 
-  it('Returns and stores a role when provided with valid credentials', async () => {
-    expect(new Store('role').state).toEqual(null);
-    global.fetch = jest.fn(() => fetchSuccess());
-    await login(valid_credentials);
-    expect(new Store('role').state).toEqual('student');
-    new Store('role').clear();
+  it('should store user data and redirect on successful login', async () => {
+    callLoginApi.mockResolvedValue({
+      userData: { ...mockUserData },
+      error: null,
+    });
+
+    const profile = { email: 'user@example.com', password: 'password123', remember: 'on' };
+    await login(profile);
+    expect(utils.storeProfileData).toHaveBeenCalledWith(
+      expect.objectContaining({
+        ...mockUserData,
+      }),
+      true,
+      expect.anything() // The store class
+    );
+
+    expect(utils.handleLoginRedirect).toHaveBeenCalledWith('/some-url');
   });
 
-  it('throws error 403 when provided with invalid credentials', async () => {
-    global.fetch = jest.fn(() => fetchFailure());
-    try {
-      await login(invalid_credentials);
-    } catch (e) {
-      await expect(login).rejects.toThrow('Invalid email/password');
-      expect(errorContainer.innerHTML).toEqual('Incorrect username/password');
-    }
+  it('should not remember login if remember is not checked', async () => {
+    callLoginApi.mockResolvedValue({
+      userData: { ...mockUserData },
+      error: null,
+    });
+
+    const profile = { email: 'user@example.com', password: 'password123', remember: 'off' };
+    await login(profile);
+    // The second argument is the persist argument, which saves to session storage if false
+    expect(utils.storeProfileData).toHaveBeenCalledWith(
+      expect.objectContaining({
+        ...mockUserData,
+      }),
+      false,
+      expect.anything() // The store class
+    );
+  });
+
+  it('should show error message on invalid credentials', async () => {
+    callLoginApi.mockResolvedValue({ userData: null, error: 'Invalid credentials' });
+
+    const profile = { email: 'user@example.com', password: 'wrongpassword' };
+    await login(profile);
+
+    expect(message).toHaveBeenCalledWith(
+      'danger',
+      'Invalid login credentials. Please try again',
+      '#errorContainer'
+    );
+
+    expect(utils.storeProfileData).not.toHaveBeenCalled();
+  });
+
+  it('should handle unknown errors', async () => {
+    const testError = new Error('Network error');
+    callLoginApi.mockRejectedValue(testError);
+    const profile = { email: 'user@example.com', password: 'password123' };
+
+    await login(profile);
+
+    expect(message).toHaveBeenCalledWith(
+      'danger',
+      `An unknown error occurred. Please try again later`,
+      '#errorContainer'
+    );
+
+    expect(console.error).toHaveBeenCalledWith(testError);
   });
 });

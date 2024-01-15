@@ -3,6 +3,7 @@
 @import './custom/typography';
 @import './custom/inputVariable';
 @import './custom/buttonClose';
+@import './custom/hamburgerBtn';
 
 // Header and footer
 @import './custom/header';
@@ -29,4 +30,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+main {
+  padding-top: 86px;
 }

@@ -1,27 +1,49 @@
 import { authBaseFetchOpen } from '../../../api/apiBaseFetch.js';
-import { apiPath, dummyApiGetSingel } from '../../../api/constants.js';
+import { apiUrl, applicationUrl } from '../../../api/constants.js';
 
 /**
  * Creates the HTML for a single application
- * @param {object} data - The single application data fetched from the API
+ * @param {string} id - The unique identifier of the application to be retrieved.
  * @returns - The HTML for a single application
  */
-export async function singleApplicationTemplate() {
-  const url = apiPath + dummyApiGetSingel;
+export async function singleApplicationTemplate(id) {
+  if (!id) {
+    throw new Error('Get requires an application ID');
+  }
+
+  const url = apiUrl.toString() + applicationUrl + id;
   const options = {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(),
   };
 
-  const req = await authBaseFetchOpen(url, options);
-  const res = await req.json();
-  const data = res;
+  const response = await authBaseFetchOpen(url, options);
+  if (!response.ok) {
+    throw new Error(`Error fetching application: ${response.statusText}`);
+  }
+  const data = await response.json();
   console.log(data);
 
-  const { media, title: listingTitle, jobTitle, companyName, location, listingCreated, deadline, applicantsCount, applicantsName, applicationCreated, email, address, phone, body: applicationText, link, file, id } = data;
+  const {
+    media,
+    title: listingTitle,
+    jobTitle,
+    companyName,
+    location,
+    listingCreated,
+    deadline,
+    applicantsCount,
+    applicantsName,
+    applicationCreated,
+    email,
+    address,
+    phone,
+    body: applicationText,
+    link,
+    file,
+  } = data;
 
   const applicationData = document.getElementById('applicationData');
 
@@ -87,10 +109,28 @@ export async function singleApplicationTemplate() {
   /// Class and id
   modal.classList.add('modal');
   modalDialog.classList.add('modal-dialog', 'modal-lg');
-  application.classList.add('modal-content', 'container-md', 'border-0', 'rounded-0', 'p-0', 'bg-light', 'text-capitalize', 'm-auto');
+  application.classList.add(
+    'modal-content',
+    'container-md',
+    'border-0',
+    'rounded-0',
+    'p-0',
+    'bg-light',
+    'text-capitalize',
+    'm-auto'
+  );
   header.classList.add('position-relative');
   img.classList.add('card-img-top', 'rounded-0', 'img-responsive');
-  exitBtn.classList.add('btn', 'position-absolute', 'end-0', 'fs-4', 'bg-black', 'text-white', 'rounded-0', 'py-0');
+  exitBtn.classList.add(
+    'btn',
+    'position-absolute',
+    'end-0',
+    'fs-4',
+    'bg-black',
+    'text-white',
+    'rounded-0',
+    'py-0'
+  );
   body.classList.add('card-body', 'p-4');
   footer.classList.add('d-grid', 'd-sm-block', 'p-4');
   deleteBtn.classList.add('btn', 'btn-dark', 'px-5', 'rounded-1', 'text-uppercase');

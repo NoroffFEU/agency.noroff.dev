@@ -1,31 +1,42 @@
 /**
- * Class to store items in localstorage.
- * This code I got from Oliver
- * Joakim Tveter changed the third parameter nameing for clarity
+ * @class Store
+ * @classdesc A class for storing data in the browser.
+ * @param {string} key - The key to store the data under.
+ * @param {object} state - The data to store.
+ * @param {boolean} [persist=false] - Whether or not to persist the data. Changes the storage from session to local.
  */
 export class Store {
-  constructor(key, state, session = false) {
-    this.storage = session ? sessionStorage : localStorage;
-
+  constructor(key, state, persist = false) {
     if (!key) {
       throw new Error('Key is required');
     }
 
+    this.storage = persist ? localStorage : sessionStorage;
     this.key = key;
     this.state = state;
   }
 
   get state() {
-    return JSON.parse(this.storage.getItem(this.key));
+    try {
+      return JSON.parse(this.storage.getItem(this.key));
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
   }
 
-  set state(state) {
-    if (state) {
-      this.storage.setItem(this.key, JSON.stringify(state));
-     }
-   }
+  set state(newState) {
+    if (newState !== undefined) {
+      this.storage.setItem(this.key, JSON.stringify(newState));
+    }
+  }
 
   clear() {
-    this.storage.removeItem(this.key);
+    if (localStorage.getItem(this.key)) {
+      localStorage.removeItem(this.key);
+    }
+    if (sessionStorage.getItem(this.key)) {
+      sessionStorage.removeItem(this.key);
+    }
   }
 }

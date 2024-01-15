@@ -76,13 +76,15 @@
 
 **_Example Value_**
 
-    data: {
-      userId: String,
-      firstName: String,
-      lastName: String,
-      email: email,
-      token: string,
-    }
+data: {
+    avatar: null
+    email: email,
+    firstName: string,
+    id: string,
+    lastName: string,
+    role: 'Applicant' | 'Admin'
+    token: string,
+}
 
 ## `GET` /users <a id="get-all-users"></a>
 
