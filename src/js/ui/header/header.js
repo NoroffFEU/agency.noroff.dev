@@ -60,7 +60,6 @@ export const header = () => {
     'align-items-center',
     'text-center',
     'gap-4',
-    'p-5',
     'p-lg-0'
   );
   ul.id = 'navUl';
