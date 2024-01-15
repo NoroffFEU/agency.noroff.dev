@@ -17,24 +17,13 @@ export const header = () => {
   logoContainer.href = '/';
 
   const img = document.createElement('img');
-  img.classList.add('Logo-noroff', 'my-auto');
+  img.classList.add('Logo-noroff', 'my-auto', 'text-body');
   img.src = '/assets/icons/noroff-logo.svg';
-  img.setAttribute('width', '33');
+  img.setAttribute('width', '150');
   img.setAttribute('height', '50');
+  img.alt = 'Noroff Job Agency Logo';
 
-  const logoText = document.createElement('div');
-  logoText.classList.add('d-flex', 'flex-column', 'text-white');
-
-  const logoTextTop = document.createElement('span');
-  logoTextTop.classList.add('fs-4', 'fw-semibold');
-  logoTextTop.textContent = 'Noroff';
-
-  const logoTextBottom = document.createElement('span');
-  logoTextBottom.classList.add('fs-6');
-  logoTextBottom.textContent = 'Job Agency';
-
-  logoText.append(logoTextTop, logoTextBottom);
-  logoContainer.append(img, logoText);
+  logoContainer.append(img);
 
   const button = document.createElement('button');
   button.classList.add('navbar-toggler', 'navbar-dark', 'border-0', 'ms-auto');
