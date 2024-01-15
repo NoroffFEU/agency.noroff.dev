@@ -30,9 +30,13 @@ Version: 1.0.0
     max-width: 300px;
   }
 
+  .text-wrap-sm {
+    white-space: nowrap;
+  }
+
   @media (max-width: 305px) {
     .text-wrap-sm {
-      white-space: normal !important;
+      white-space: normal;
     }
   }
 }
