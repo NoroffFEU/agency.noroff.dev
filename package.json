@@ -38,6 +38,7 @@
     "@babel/core": "^7.19.3",
     "@babel/plugin-transform-runtime": "^7.23.7",
     "@babel/preset-env": "^7.19.4",
+    "@testing-library/cypress": "^10.0.1",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.2.0",
     "babel-jest": "^29.7.0",
