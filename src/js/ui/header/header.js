@@ -20,7 +20,7 @@ export const header = () => {
   img.classList.add('my-auto');
   img.src = '/assets/icons/noroff-logo.svg';
   img.setAttribute('width', '200');
-  img.setAttribute('height', '100');
+  img.setAttribute('height', '70');
   img.alt = 'Noroff Job Agency Logo';
 
   logoContainer.append(img);
