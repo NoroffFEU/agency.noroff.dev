@@ -29,6 +29,12 @@ Version: 1.0.0
   #viewListingsButton {
     max-width: 300px;
   }
+
+  @media (max-width: 305px) {
+    .text-wrap-sm {
+      white-space: normal !important;
+    }
+  }
 }
 
 .section1::after {
