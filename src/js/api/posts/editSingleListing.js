@@ -1,4 +1,3 @@
-import { error } from 'console';
 import { apiUrl, listingsUrl } from '../constants.js';
 import { getToken } from '../getToken.js';
 
