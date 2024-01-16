@@ -1,3 +1,4 @@
+import { error } from 'console';
 import { apiUrl, listingsUrl } from '../constants.js';
 import { getToken } from '../getToken.js';
 
@@ -20,6 +21,9 @@ export async function editSingleListing(id, updatedData) {
 
   try {
     const accessToken = getToken('token');
+    if (!accessToken) {
+      throw new Error(`Access token is not available`);
+    }
     const newAccessToken = accessToken.replace(/^"|"$/g, '');
 
     const editData = {
