@@ -1,7 +1,7 @@
 // Before running this test:
 //1. npm run build
 //2. npm run build-preview
-//3. Replace line 15 with your local vite url
+//3. Replace line 16 with your local vite url
 //4. npx cypress run --spec cypress/e2e/header-change.cy.js
 
 // Cypress test file
