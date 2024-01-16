@@ -31,7 +31,7 @@ export const header = () => {
   logoContainer.append(img);
 
   const button = document.createElement('button');
-  button.classList.add('navbar-toggler', 'border-0', 'ms-auto', 'p-0');
+  button.classList.add('navbar-toggler', 'collapsed', 'border-0', 'ms-auto', 'p-0');
   button.setAttribute('type', 'button');
   button.setAttribute('data-bs-toggle', 'collapse');
   button.setAttribute('data-bs-target', '#navbarNavDropdown');
