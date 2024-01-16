@@ -34,19 +34,17 @@ export async function registerCompany(profile) {
       body: JSON.stringify(profile),
     });
 
-    let result; // Declare the variable outside of the switch block
+    let result;
 
     switch (response.status) {
-      case 201: // Status code for successful creation
-        result = await response.json(); // Assign the value here        
+      case 201: 
+        result = await response.json(); 
         return result;
-      default:
-        // Handle API-specific errors
+      default:        
         throw new Error(`Error ${response.status}: ${response.statusText}`);
     }
-  } catch (error) {
-    // Handle network or unexpected errors
+  } catch (error) {    
     console.error('Registration error:', error);
-    throw error; // Rethrow to allow error handling by the caller
+    throw error;
   }
 }
