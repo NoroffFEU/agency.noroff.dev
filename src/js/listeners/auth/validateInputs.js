@@ -67,7 +67,6 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
   return isValidRepeatPassword;
 }
 
-
 /**
  * Validates the full name input against a specified pattern.
  *
