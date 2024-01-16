@@ -43,12 +43,12 @@ export function userDetailsTemplate(data) {
 export function renderProfileImage(data, element) {
   if (roleCompany()) {
     const { logo, name } = data;
-    element.src = logo;
-    element.alt = name + 'logo';
+    element.src = logo || 'https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg';
+    element.alt = (name || 'Unknown') + 'logo';
   } else {
     const { avatar, fullName } = data;
-    element.src = avatar;
-    element.alt = fullName + 'avatar';
+    element.src = avatar || 'https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
+    element.alt = (fullName || 'Unknown') + 'avatar';
   }
   return element;
 }
