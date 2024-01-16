@@ -10,14 +10,15 @@ function validatePassword(input, isTyping) {
   const isValidPassword = input.value.length >= 8;
 
   errorDiv.textContent = isValidPassword ? '' : 'Password must be at least 8 characters.';
-
   input.classList.remove('is-invalid', 'is-valid');
   errorDiv.classList.remove('invalid-feedback', 'valid-feedback');
 
   if (!isValidPassword && !isTyping) {
     input.classList.add('is-invalid');
     errorDiv.classList.add('invalid-feedback');
-  } else if (isValidPassword && isTyping) {
+
+
+  } else if (isValidPassword) {
     input.classList.add('is-valid');
     errorDiv.classList.add('valid-feedback');
   } else if (!isValidPassword && isTyping) {
@@ -39,6 +40,14 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
   const errorDiv = repeatPasswordInput.nextElementSibling;
   const isValidRepeatPassword = repeatPasswordInput.value === passwordInput.value;
 
+  if (repeatPasswordInput.value.trim() === '') {
+    errorDiv.textContent = "Please fill out this field.";
+    errorDiv.classList.add('invalid-feedback');
+    repeatPasswordInput.classList.add('is-invalid');
+    repeatPasswordInput.classList.remove('is-valid');
+    return false;
+  }
+
   errorDiv.textContent = isValidRepeatPassword ? '' : "Passwords don't match.";
 
   repeatPasswordInput.classList.remove('is-invalid', 'is-valid');
@@ -47,7 +56,8 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
   if (!isValidRepeatPassword && !isTyping) {
     repeatPasswordInput.classList.add('is-invalid');
     errorDiv.classList.add('invalid-feedback');
-  } else if (isValidRepeatPassword && isTyping) {
+
+  } else if (isValidRepeatPassword) {
     repeatPasswordInput.classList.add('is-valid');
     errorDiv.classList.add('valid-feedback');
   } else if (!isValidRepeatPassword && isTyping) {
@@ -57,7 +67,6 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
   return isValidRepeatPassword;
 }
 
-
 /**
  * Validates the full name input against a specified pattern.
  *
@@ -66,12 +75,12 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
  */
 function validateFullName(input, isTyping) {
   const errorDiv = input.nextElementSibling;
-  const pattern = /^[a-zA-ZæøåÆØÅ]+( [a-zA-ZæøåÆØÅ]+)+$/;
+  const pattern = /^[a-zA-ZæøåÆØÅ-]+ [a-zA-ZæøåÆØÅ-]+$/;
   const isValidFullName = pattern.test(input.value);
 
   errorDiv.textContent = isValidFullName
     ? ''
-    : 'Full Name must be in the format: First Last';
+    : 'Full Name must be in the format: Firstname Lastname';
 
   input.classList.remove('is-invalid', 'is-valid');
   errorDiv.classList.remove('invalid-feedback', 'valid-feedback');
@@ -79,7 +88,8 @@ function validateFullName(input, isTyping) {
   if (!isValidFullName && !isTyping) {
     input.classList.add('is-invalid');
     errorDiv.classList.add('invalid-feedback');
-  } else if (isValidFullName && isTyping) {
+
+  } else if (isValidFullName) {
     input.classList.add('is-valid');
     errorDiv.classList.add('valid-feedback');
   }
@@ -111,7 +121,8 @@ function validateEmail(input, isTyping) {
   if (!isValidEmail && !isTyping) {
     input.classList.add('is-invalid');
     errorDiv.classList.add('invalid-feedback');
-  } else if (isValidEmail && isTyping) {
+
+  } else if (isValidEmail) {
     input.classList.add('is-valid');
     errorDiv.classList.add('valid-feedback');
   } else if (!isValidEmail && isTyping) {
