@@ -38,7 +38,7 @@ export function displayLoginLogoutButton(role) {
     loginLi.classList.add('nav-item');
 
     const loginBtn = document.createElement('a');
-    loginBtn.classList.add('btn', 'btn', 'btn-outline-light', 'text-white', 'fw-semibold');
+    loginBtn.classList.add('btn', 'btn', 'btn-outline-light', 'text-white', 'fw-semibold','navBtnCustomWidth');
     loginBtn.href = '/pages/auth/login/';
     loginBtn.id = 'navItems';
     loginBtn.textContent = 'Log in';
