@@ -22,7 +22,6 @@ export async function registerCompany(profile) {
     token = accessToken.replace(/^"|"$/g, '');
   }
   
-  console.log(profile);
   const registerURL = apiUrl.toString() + companyUrl;
 
   try {
@@ -39,9 +38,7 @@ export async function registerCompany(profile) {
 
     switch (response.status) {
       case 201: // Status code for successful creation
-        result = await response.json(); // Assign the value here
-        // Redirect to login page after successful registration
-        window.location.replace('/pages/auth/login/index.html');
+        result = await response.json(); // Assign the value here        
         return result;
       default:
         // Handle API-specific errors
