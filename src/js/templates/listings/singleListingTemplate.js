@@ -9,8 +9,7 @@ export function singleListingTemplate(listing) {
   card.className = 'card bg-theme-light border-0 rounded-0';
 
   const img = document.createElement('img');
-  img.className = 'card-img-top rounded-0';
-  img.style = 'max-height: 250px; object-fit: cover;';
+  img.className = 'card-img-top rounded-0 imgStyling';
   img.src = listing.thumbnail;
 
   const cardBody = document.createElement('div');
@@ -39,7 +38,7 @@ export function singleListingTemplate(listing) {
   favBtn.className = 'btn btn-theme-light';
 
   const favIcon = document.createElement('img');
-  favIcon.style = 'width: 30px';
+  favIcon.className = 'favIconStyling';
   favIcon.src = '/public/assets/icons/heart-fav.svg';
 
   column.append(card);

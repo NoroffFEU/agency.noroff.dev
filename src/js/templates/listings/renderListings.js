@@ -21,14 +21,14 @@ export async function renderListings() {
              <div class="card-body d-flex flex-column gap-2 w-100 pt-1 p-0">
                <h5 class="card-title fw-bold text-truncate mb-0">${data.title}</h5>
                <p 
-                 class="card-text overflow-hidden" 
+                 class="c overflow-hidden" 
                  style="-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;"
                >${data.description}</p>
              </div>
-             <div class="d-flex flex-column flex-sm-row align-items-end justify-content-between w-100 pb-1" style="font-size: .75rem">
+             <div class="d-flex flex-column flex-sm-row align-items-end justify-content-between w-100 pb-1 smallText">
                <span class="text-nowrap">Deadline</span>
                <span>${date2}</span>
-               <a href="#" class="bg-theme-primary text-white px-3 text-decoration-none" style="font-size: 1rem">View</a>
+               <a href="#" class="bg-theme-primary text-white px-3 text-decoration-none viewBtn">View</a>
              </div>
            </div>
          </div>

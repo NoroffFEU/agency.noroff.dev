@@ -52,7 +52,7 @@ export const organisationView = `
 
 <div class="col">
 <div class="shadow-sm d-flex p-3">
-  <div style="width: 200px">
+  <div class="logoStyle">
     <img src="https://www.seekpng.com/png/detail/246-2468199_logo-placeholder-png-white.png" alt="logo" />
   </div>
   <div class="ms-3">
