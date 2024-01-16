@@ -1,14 +1,11 @@
 @import './themeColorVariables';
 
 header {
+  min-height: 86px;
   .navbarBrand {
     img {
       width: 33px;
       height: 50px;
-    }
-    .logoText {
-      span {
-      }
     }
   }
   nav {
