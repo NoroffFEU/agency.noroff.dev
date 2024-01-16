@@ -11,16 +11,24 @@ import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
 
-export const renderListings = async () => {
+export const renderListings = async (listings) => {
   const listingsContainer = document.querySelector('.listingContainer');
 
   listingsContainer.innerHTML = '';
 
-  const listings = await getListOfListings();
+  if (!listings) {
+      listings = await getListOfListings();
+  }
+
   listings.forEach((listing) => {
     const listingCards = createListings(listing);
     listingsContainer.append(listingCards);
   });
+};
+
+export const renderNoListings = async () => {
+  const listingsContainer = document.querySelector('.listingContainer');
+  listingsContainer.innerHTML = 'Sorry, no listings found';
 };
 
 const createListings = ({ title, description, company, deadline }) => {
