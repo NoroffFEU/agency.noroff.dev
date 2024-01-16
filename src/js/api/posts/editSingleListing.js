@@ -1,4 +1,3 @@
-import { apiBaseFetch } from '../apiBaseFetch.js';
 import { apiUrl, listingsUrl } from '../constants.js';
 import { getToken } from '../getToken.js';
 
@@ -24,20 +23,21 @@ export async function editSingleListing(id, updatedData) {
     const accessToken = getToken('token');
     const newAccessToken = accessToken.replace(/^"|"$/g, '');
 
-    const response = await apiBaseFetch(editListingURL, {
+    const editData = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${newAccessToken}` },
       body: JSON.stringify(updatedData),
-    });
+    };
 
-    if (!response.ok) {
-      alert(`Error editing listing: ${response.message}`);
-      throw new Error(`Error editing listing: ${response.statusText}`);
+    const response = await fetch(editListingURL, editData);
+
+    const editResponse = await response.json();
+    if (!editResponse.ok) {
+      alert(`Error editing listing: ${editResponse.message}`);
+      throw new Error(`Error editing listing: ${editResponse.statusText}`);
     } else {
       new bootstrap.Modal(document.querySelector('#success-modal')).show();
     }
-
-    return response.json();
   } catch (error) {
     console.error('Edit listing failed:', error);
     throw error;
