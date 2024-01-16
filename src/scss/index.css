@@ -239,7 +239,7 @@ div[data-footer-col] {
   width: 20px;
 }
 
-.navlink-footer-id:hover {
+.navlink-footer:hover {
   color: black !important;
   padding-left: 10px;
   transition: 400ms ease-in-out;

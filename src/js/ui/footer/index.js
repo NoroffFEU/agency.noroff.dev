@@ -12,9 +12,9 @@ export const footer = () => {
       <div class="col mb-5 mb-md-0" data-footer-col>
         <h4 class="text-white mb-3 fw-bold">For Companies</h4>
         <ul class="p-0 d-flex flex-column gap-1">
-        <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer-id" target="_blanc" >About Noroff Jobs</a></li>
-        <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer-id" target="_blanc" >Company User Guide</a></li>
-        <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer-id" target="_blanc" >FAQ</a></li>
+        <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer" target="_blank" >About Noroff Jobs</a></li>
+        <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer" target="_blank" >Company User Guide</a></li>
+        <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer" target="_blank" >FAQ</a></li>
         </ul>
       </div>
       <div class="col mb-5 mb-md-0" data-footer-col>
@@ -26,17 +26,17 @@ export const footer = () => {
         </ul>
 
         <div class="d-flex flex-column gap-1 mt-5">
-          <a href="tel:38000000" class="nav-link text-white navlink-footer-id" ><img src="../../../public/assets/icons/phone.svg" class="footerIcon me-3 ms-2 ms-md-0" alt="phone icon for footer navigation"/> 38000000</a>
-          <a href="mailto:utdanning@noroff.no" class="nav-link text-white navlink-footer-id" ><img src="../../../public/assets/icons/mail.svg" class="footerIcon me-3 ms-2 ms-md-0" alt="email icon for footer navigation" id="navlink-footer-id"/> utdanning@noroff.no</a>
+          <a href="tel:38000000" class="nav-link text-white navlink-footer" ><img src="../../../public/assets/icons/phone.svg" class="footerIcon me-3 ms-2 ms-md-0" alt="phone icon for footer navigation"/> 38000000</a>
+          <a href="mailto:utdanning@noroff.no" class="nav-link text-white navlink-footer" ><img src="../../../public/assets/icons/mail.svg" class="footerIcon me-3 ms-2 ms-md-0" alt="email icon for footer navigation" id="navlink-footer-id"/> utdanning@noroff.no</a>
         </div>
       </div>
       <div class="col" data-footer-col>
         <h4 class="text-white mb-3 fw-bold">Help</h4>
         <ul class="p-0 d-flex flex-column gap-1">
-       <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer-id" >Customer Service</a></li>
+       <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer" >Customer Service</a></li>
        <li class="list-group-item"><a href="/privacy_policy.html" class="nav-link text-white navlink-footer-id" >Privacy Policy</a></li>
        <li class="list-group-item"><a href="/terms_of_use.html" class="nav-link text-white navlink-footer-id" >Terms of use</a></li>
-       <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer-id" >Ad policies</a></li>
+       <li class="list-group-item"><a href="#" class="nav-link text-white navlink-footer" >Ad policies</a></li>
        </ul>
       </div>
     </div>
