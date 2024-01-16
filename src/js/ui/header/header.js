@@ -9,7 +9,7 @@ export const header = () => {
   header.classList.add('bg-theme-dark', 'fixed-top', 'align-items-center', 'shadow-lg', 'p-2');
 
   const nav = document.createElement('nav');
-  nav.classList.add('navbar', 'navbar-dark', 'navbar-expand-md', 'me-lg-3', 'p-0');
+  nav.classList.add('navbar', 'navbar-dark', 'navbar-expand-md',  'p-0');
   nav.setAttribute('role', 'navigation');
   nav.setAttribute('aria-label', 'Main navigation');
 
@@ -17,12 +17,11 @@ export const header = () => {
   container.classList.add('container-fluid');
 
   const logoContainer = document.createElement('a');
-  logoContainer.classList.add('navbar-brand', 'd-flex', 'gap-2');
+  logoContainer.classList.add('navbar-brand', 'm-0', 'p-0');
   logoContainer.href = '/';
   logoContainer.setAttribute('aria-label', 'Noroff Job Agency home page');
 
   const img = document.createElement('img');
-  img.classList.add('my-auto');
   img.src = '/assets/icons/noroff-logo.svg';
   img.setAttribute('width', '200');
   img.setAttribute('height', '70');
