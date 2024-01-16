@@ -20,6 +20,9 @@ header {
     }
   }
 }
+.navBtnCustomWidth {
+  min-width: 88px;
+}
 
 //Customize the hamburger menu icon
 $navbar-toggler-font-size: 2rem;
