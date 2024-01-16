@@ -5,18 +5,18 @@ import * as template from '../../templates/listings/index.js';
 
 export async function viewSingleListing() {
 const url = new URL(location.href);
- const id = url.searchParams.get('id');
+const id = url.searchParams.get('id');
 
- console.log(document)
-  const metaDescription = document.querySelector('#metaDescription');
-  const pageTitle = document.querySelector('#singleListingPageTitle');
+
+  const metaDescription = document.head.children[4]
+
+
   const container = document.querySelector('#singleListingContainer');
 
   if (id) {
     const result = await getSingleListing(id);
    console.log(result)
-    metaDescription.content = result.description;
-    pageTitle.innerHTML = `${result.title} | Noroff Job Agency`;
+    metaDescription.content = "hello"
 
     container.append(template.singleListingTemplate(result));
 
