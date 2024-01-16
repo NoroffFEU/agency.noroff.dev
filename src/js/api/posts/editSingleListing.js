@@ -14,9 +14,9 @@ import { getToken } from '../getToken.js';
 
 export async function editSingleListing(id, updatedData) {
   event.preventDefault();
-  // if (!id) {
-  //   throw new Error('Edit requires a listing ID');
-  // }
+  if (!id) {
+    throw new Error('Edit requires a listing ID');
+  }
 
   const editListingURL = apiUrl.toString() + listingsUrl + id;
 
@@ -33,6 +33,8 @@ export async function editSingleListing(id, updatedData) {
     if (!response.ok) {
       alert(`Error editing listing: ${response.message}`);
       throw new Error(`Error editing listing: ${response.statusText}`);
+    } else {
+      new bootstrap.Modal(document.querySelector('#success-modal')).show();
     }
 
     return response.json();
