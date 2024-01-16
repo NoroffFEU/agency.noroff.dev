@@ -4,6 +4,8 @@
 name: Lint, Test & Deploy
 
 on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
   # Runs on pushes targeting the main branch
   push:
     branches: ['main']
@@ -14,6 +16,7 @@ on:
       - '.gitignore'
   pull_request:
     branches: ['main']
+    types: [opened, synchronize, reopened, ready_for_review]
     paths-ignore:
       - '**/*.md'
       - '**/*.env.example'
@@ -22,19 +25,11 @@ on:
 env:
   CI: true
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages & create status badges
 permissions:
   contents: write
   pages: write
   id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
 
 jobs:
   setup:
@@ -116,9 +111,16 @@ jobs:
   deploy:
     needs: [setup, lint, unit-test, build]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    # Allow one concurrent deployment
+    concurrency:
+      group: 'deploy-${{ github.ref }}'
+      cancel-in-progress: true
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
