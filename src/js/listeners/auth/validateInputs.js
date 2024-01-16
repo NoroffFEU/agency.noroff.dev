@@ -76,7 +76,8 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
 function validateFullName(input, isTyping) {
   const errorDiv = input.nextElementSibling;
   const pattern = /^[a-zA-ZæøåÆØÅ-]+ [a-zA-ZæøåÆØÅ-]+$/;
-  const isValidFullName = pattern.test(input.value);
+  const inputValue = input.value.trim().replace(/\s+/g, ' ');
+  const isValidFullName = pattern.test(inputValue);
 
   errorDiv.textContent = isValidFullName
     ? ''
