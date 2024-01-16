@@ -1,5 +1,5 @@
 import { getSingleListing } from '../../api/posts/getSingleListing.js';
-import { Store } from '../../storage/storage.js';
+
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
 import { findDaysAgo } from '../../utilities/dateConverter/dateConverter.js';
@@ -23,21 +23,23 @@ export const renderListing = async () => {
       const listing = createListing(result);
       container.append(listing);
       
-      const profile = new Store('id').state;
-      console.log(profile)
+      //Have used userName and UserRole because i could not get the Store to work
+      /* This could should call user name and role as profile from the class Store that handles local storage*/
+      const userName = localStorage.getItem('email');
+      const userRole = localStorage.getItem('role');
       const btnContainer = listing.querySelector('.buttonContainer');
       
-      if(profile) {
-        if (profile.name === company.name) {
-          btnContainer.innerHtml = "";
-          const editBtn = createElement("a", ["btn", "btn-theme-secondary", "text-uppercase", "w-100", "rounded-0", "applyBtn"], null , "Edit listing")
-          const deleteBtn = createElement("button", ["btn", "btn-theme-light"], null, "Delete listing")
+     /*The if statements should use profile username and role, but is using userName and userRole instead because of the issue written above */
+        if (userName === company.name) {
+          btnContainer.innerHTML = '';
+          const editBtn = createElement("a", ["btn", "btn-theme-secondary", "text-uppercase", "rounded-0", "applyBtn"], null , "Edit listing")
+          const deleteBtn = createElement("button", ["btn", "btn-theme-dark"], null, "Delete listing")
           btnContainer.append(editBtn, deleteBtn) ;
-        } else if (profile.role !== 'Company') {
-          // Remove "apply to job" button for all company users
+        } else if (userRole === 'Company') {
+      
           btnContainer.classList.add('d-none');
         }
-      }
+ 
     
     
     }
@@ -73,7 +75,8 @@ const createCardBody = (title, description, deadline, company, created, requirem
 }
 const createDetailsContainer = (title, company, deadline, created) => {
   const element = createElement("div")
-  const jobDetails  = createElement("p", null, null, `${title} / ${company.sector} / ${company.name}/`)
+  const {sector, name} = company;
+  const jobDetails  = createElement("p", null, null, `${title}  /  ${sector}  /  ${name}`)
   const deadlineDetails = createElement("p", null, null, `Created: ${findDaysAgo(created)} days ago / Deadline: ${parseDate(deadline)}`)
   element.append(jobDetails, deadlineDetails)
   return element
