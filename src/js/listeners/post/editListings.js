@@ -10,9 +10,12 @@ const listingUrl = apiUrl.toString() + listingsUrl + id;
 async function getListingData(listingUrl) {
   const listingData = await apiBaseFetch(listingUrl);
 
+  const deadline = new Date(listingData.deadline);
+  const newDeadline = deadline.toISOString().split('T')[0];
+
   document.getElementById('editTitle').value = `${listingData.title}`;
   document.getElementById('editTags').value = `${listingData.tags}`;
-  document.getElementById('editDeadline').value = `${listingData.deadline}`;
+  document.getElementById('editDeadline').value = `${newDeadline}`;
   document.getElementById('editRequirements').value = `${listingData.requirements}`;
   document.getElementById('editDescription').value = `${listingData.description}`;
 }
