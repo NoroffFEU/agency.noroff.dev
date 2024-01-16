@@ -13,7 +13,7 @@ export const header = () => {
   container.classList.add('container-fluid');
 
   const logoContainer = document.createElement('a');
-  logoContainer.classList.add('navbar-brand', 'd-flex', 'ms-3', 'gap-2');
+  logoContainer.classList.add('navbar-brand', 'd-flex', 'gap-2');
   logoContainer.href = '/';
 
   const img = document.createElement('img');
