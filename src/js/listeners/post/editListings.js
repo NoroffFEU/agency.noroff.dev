@@ -26,7 +26,7 @@ export function editListingListener() {
   form.addEventListener('submit', editListingListenerForm);
 }
 
-async function editListingListenerForm() {
+async function editListingListenerForm(event) {
   event.preventDefault();
 
   const form = event.target;

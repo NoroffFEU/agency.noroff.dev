@@ -12,7 +12,6 @@ import { getToken } from '../getToken.js';
  */
 
 export async function editSingleListing(id, updatedData) {
-  event.preventDefault();
   if (!id) {
     throw new Error('Edit requires a listing ID');
   }
