@@ -4,9 +4,8 @@
  */
 export const header = () => {
   const header = document.querySelector('header');
+  header.setAttribute('data-testid', 'header')
 
-
-  header.dataset.testid = 'header';
   header.classList.add('bg-theme-dark', 'fixed-top', 'align-items-center', 'shadow-lg', 'p-2');
 
   const nav = document.createElement('nav');
