@@ -33,7 +33,6 @@ async function editListingListenerForm() {
   const formData = new FormData(form);
   const listing = Object.fromEntries(formData.entries());
 
-  console.log(listing);
   //send it to API
   editSingleListing(id, listing);
 }
