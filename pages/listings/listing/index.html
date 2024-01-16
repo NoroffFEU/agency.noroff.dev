@@ -58,12 +58,12 @@
                       <h2 class="modal-title text-center mt-4">Edit Listing</h2>
                       <div class="m-4 mt-5">
                         <div class="form mb-3">
-                          <label for="createTitle">Job Title/Position</label>
+                          <label for="title">Job Title/Position</label>
                           <input
                             class="form-control bg-theme-light"
                             type="text"
                             name="title"
-                            id="createTitle"
+                            id="editTitle"
                             required
                           />
                         </div>
@@ -84,7 +84,7 @@
                             class="form-control bg-theme-light"
                             type="date"
                             name="deadline"
-                            id="createDeadline"
+                            id="editDeadline"
                             required
                             title="Enter a valid date"
                             aria-label="Application deadline"
@@ -96,7 +96,7 @@
                             class="form-control bg-theme-light"
                             type="text"
                             name="requirements"
-                            id="pictureUrl"
+                            id="editRequirements"
                             aria-label="Enter URL for cover picture"
                           />
                         </div>
@@ -107,7 +107,7 @@
                             rows="10"
                             type="text"
                             name="description"
-                            id="createDescription"
+                            id="editDescription"
                           ></textarea>
                         </div>
                       </div>
@@ -117,6 +117,38 @@
                         </button>
                       </div>
                     </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Success Modal -->
+            <div
+              class="modal fade"
+              id="success-modal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="Success edit Listing Modal"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="text-center mt-4">
+                    <img src="../../../public/assets/icons/checkmark.svg" alt="" />
+                    <h2 class="modal-title text-center">Listing has been </br> updated</h2>
+                    <div class="modal-footer justify-content-center pb-4">
+                      <a
+                        href="/pages/user/index.html"
+                        class="btn btn-theme-dark text-theme-light ps-4 pe-4 me-4"
+                        >GO TO PROFILE</a
+                      >
+                      <a
+                        href="/pages/listings/listing/index.html"
+                        class="btn btn-theme-secondary ps-4 pe-4 me-4"
+                        type="button"
+                      >
+                        VIEW LISTING
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
