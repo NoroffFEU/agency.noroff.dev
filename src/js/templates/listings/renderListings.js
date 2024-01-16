@@ -16,7 +16,7 @@ export const renderListings = async () => {
 
   listingsContainer.innerHTML = '';
 
-  data.forEach(function (data) {
+  data.forEach(async function (data) {
     const date2 = new Date(data.deadline);
     listingsContainer.innerHTML += `
        <div class="col-12 col-lg-6">
@@ -47,8 +47,7 @@ export const renderListings = async () => {
     const listingCards = createListings(listing);
     listingsContainer.append(listingCards);
   });
-}
-  );
+});
 
 const createListings = ({ title, description, company, deadline }) => {
   const element = createElement('div', ['col-12', 'col-lg-6']);
@@ -121,4 +120,4 @@ const createCardFooter = (deadline) => {
   );
   element.append(span2, a);
   return element;
-};
+}};
