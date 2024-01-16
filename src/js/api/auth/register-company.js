@@ -16,15 +16,20 @@ import { getToken } from '../getToken.js';
  */
 
 export async function registerCompany(profile) {
-  const accessToken = getToken('token');
-  const newAccessToken = accessToken.replace(/^"|"$/g, '');
+  let token = profile.registerToken;
+  if (!token) {
+    const accessToken = getToken();
+    token = accessToken.replace(/^"|"$/g, '');
+  }
+  
+  console.log(profile);
   const registerURL = apiUrl.toString() + companyUrl;
 
   try {
     const response = await fetch(registerURL, {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${newAccessToken}`,
+        Authorization: `Bearer ${token}`,
       },
       method: 'POST',
       body: JSON.stringify(profile),
