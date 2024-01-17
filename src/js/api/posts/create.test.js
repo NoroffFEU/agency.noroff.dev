@@ -1,14 +1,10 @@
 import { create } from './create.js';
 
-
+global.fetch = jest.fn(() => {});
 describe('create', () => {
-  
-  global.fetch = jest.fn(() => {});
-
   beforeEach(() => {
     jest.clearAllMocks();
   });
-
 
   it('should return data on successful application creation', async () => {
     const mockAppData = { name: 'New Application', description: 'Test Description' };
