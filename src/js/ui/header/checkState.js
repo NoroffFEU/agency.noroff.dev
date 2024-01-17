@@ -82,7 +82,7 @@ function iterateLinks(links) {
 
     if (currentPage === link.href) {
       a.setAttribute('aria-current', 'page');
-    } else if (a.setAttribute('aria-label', `${link.text} page`)) {
+    } else {a.setAttribute('aria-label', `${link.text} page`);
     }
 
     li.append(a);

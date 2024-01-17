@@ -1,4 +1,3 @@
-import { indexKeyNavigation } from './indexKeyNavigation';
 
 /**
  * @description Creates content inside header
