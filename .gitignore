@@ -115,3 +115,6 @@ dist
 
 # vscode settings folder
 .vscode
+
+#.history folder
+.history
