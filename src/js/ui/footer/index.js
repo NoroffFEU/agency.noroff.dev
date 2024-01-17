@@ -115,7 +115,7 @@ export const footer = () => {
   contactInfoDiv.append(emailLink);
 
   const helpCol = createColumn(innerRow);
-  createTextElement(helpCol, 'h4', 'text-white mb-3 fw-bold', 'Help');
+  createTextElement(helpCol, 'h4', 'text-white mb-3 fw-bold', 'Resources');
 
   const helpList = document.createElement('ul');
   helpList.className = 'p-0 d-flex flex-column gap-1';
