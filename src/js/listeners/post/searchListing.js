@@ -57,9 +57,11 @@ export async function filterListings() {
     const btnFourteen = document.querySelector('#fourteenDaysListings');
     const btnThirty = document.querySelector('#thirtyDaysListings');
 
-    const fourDays = 4 * 24 * 60 * 60 * 1000;
-    const fourteenDays = 14 * 24 * 60 * 60 * 1000;
-    const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+    const day = 24 * 60 * 60 * 1000;
+    const fourDays = 4 * day;
+    const fourteenDays = 14 * day;
+    const thirtyDays = 30 * day;
+    
 
     btnAll.addEventListener('click', () => {
     renderListings(arrayOfListings);
