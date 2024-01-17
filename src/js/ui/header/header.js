@@ -47,7 +47,7 @@ export const header = () => {
   navbarCollapse.id = 'navbarNavDropdown';
 
   const ul = document.createElement('ul');
-  ul.classList.add('navbar-nav', 'ms-auto', 'align-items-center', 'text-center', 'gap-4');
+  ul.classList.add('navbar-nav', 'ms-auto', 'align-items-center', 'text-center', 'gap-4', 'p-3', 'p-md-0');
   ul.id = 'navUl';
   ul.setAttribute('role', 'menubar');
   ul.setAttribute('aria-labelledby', 'navUl');
