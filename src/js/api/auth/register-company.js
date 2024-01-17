@@ -1,6 +1,7 @@
 import { apiUrl, companyUrl } from '../constants.js';
 import { getToken } from '../getToken.js';
 
+
 /**
  * Register a company by sending a POST request to the API
  *
@@ -33,5 +34,11 @@ export async function registerCompany(data) {
     body: JSON.stringify(data),
   });
 
-  return await response.json();
+  const json = await response.json();
+
+  if (!response.ok) {    
+    throw new Error(json.message);
+  }
+
+  return json;
 }
