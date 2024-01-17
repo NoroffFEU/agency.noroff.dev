@@ -13,7 +13,7 @@ import { createListing } from './src/js/listeners/post/createListing.js';
 import { showListings } from './src/js/views/admin/showListings.js';
 import { searchListings, filterListings } from './src/js/listeners/post/searchListing.js'
 import '/src/scss/index.scss';
-import { adjustH2FontSize } from './listingTemplate.js';
+import { adjustH2FontSize } from '.src/js/templates/listings/listingTemplate.js'
 
 adjustH2FontSize();
 
