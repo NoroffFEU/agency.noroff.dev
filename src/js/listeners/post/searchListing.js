@@ -1,10 +1,10 @@
 // Author: Emilie Herrera Thomsen
 // This is just the skeleton for a search functionality, not finished.
 
-import { doc } from 'prettier';
+
 import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { renderListings, renderNoListings } from '../../templates/listings/renderListings.js';
-import { renderProfileRole } from '../../templates/profile/userDetailsTemplate.js';
+
 
 export async function searchListings() {
 
