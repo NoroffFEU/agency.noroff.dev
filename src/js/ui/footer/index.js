@@ -1,46 +1,134 @@
+import { handleActiveLinks } from "../../listeners/footer/handleActiveLinks";
+
 export const footer = () => {
   const footerElement = document.querySelector('footer');
   footerElement.classList.add('bg-theme-dark', 'pt-5', 'p-2', 'mt-auto', 'pb-5');
-  footerElement.innerHTML = `<div class="container-fluid justify-content-center">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 center-desktop">
-     
-      <div class="col mb-5 mb-md-0" data-footer-col>
-        <h4 class="text-white mb-3 fw-bold">About Noroff Job Agency</h4>
-        <p class="text-white">Noroff Jobs is a student-built and student-run employment agency designed to link Industry Partners with skilled candidates.</p> 
-        <p class="text-white">Noroff Jobs is a non-profit organisation dedicated to placing students into their ideal workplace.</p>
-      </div>
-      <div class="col mb-5 mb-md-0" data-footer-col>
-        <h4 class="text-white mb-3 fw-bold">For Companies</h4>
-        <ul class="p-0 d-flex flex-column gap-1">
-        <li class="list-group-item"><a href="#" class="nav-link text-white" target="_blanc" id="navlink-footer-id">About Noroff Jobs</a></li>
-        <li class="list-group-item"><a href="#" class="nav-link text-white" target="_blanc" id="navlink-footer-id">Company User Guide</a></li>
-        <li class="list-group-item"><a href="#" class="nav-link text-white" target="_blanc" id="navlink-footer-id">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="col mb-5 mb-md-0" data-footer-col>
-        <h4 class="text-white mb-3 fw-bold">Contact us</h4>
-        <ul class="p-0 d-flex flex-column gap-1">
-          <li class="list-group-item text-white">Noroff Education AS</li>
-          <li class="list-group-item text-white">Tordenskjoldsgate 9</li>
-          <li class="list-group-item text-white">4612 Kristiansand S</li>
-        </ul>
 
-        <div class="d-flex flex-column gap-1 mt-5">
-          <a href="tel:38000000" class="nav-link text-white" id="navlink-footer-id"><img src="../../../public/assets/icons/phone.svg" class="footerIcon me-3 ms-2 ms-md-0" alt="phone icon for footer navigation"/> 38000000</a>
-          <a href="mailto:utdanning@noroff.no" class="nav-link text-white" id="navlink-footer-id"><img src="../../../public/assets/icons/mail.svg" class="footerIcon me-3 ms-2 ms-md-0" alt="email icon for footer navigation" id="navlink-footer-id"/> utdanning@noroff.no</a>
-        </div>
-      </div>
-      <div class="col" data-footer-col>
-        <h4 class="text-white mb-3 fw-bold">Help</h4>
-        <ul class="p-0 d-flex flex-column gap-1">
-       <li class="list-group-item"><a href="#" class="nav-link text-white" id="navlink-footer-id">Customer Service</a></li>
-       <li class="list-group-item"><a href="/privacy_policy.html" class="nav-link text-white" id="navlink-footer-id">Privacy Policy</a></li>
-       <li class="list-group-item"><a href="/terms_of_use.html" class="nav-link text-white" id="navlink-footer-id">Terms of use</a></li>
-       <li class="list-group-item"><a href="#" class="nav-link text-white" id="navlink-footer-id">Ad policies</a></li>
-       </ul>
-      </div>
-    </div>
-  </div>
-    
-    `;
+  const container = document.createElement('div');
+  container.className = 'container-fluid justify-content-center';
+  footerElement.append(container);
+
+  const containerRow = document.createElement('div');
+  containerRow.className = 'row center-desktop';
+  container.append(containerRow);
+
+  const leftSpacer = document.createElement('div');
+  leftSpacer.className = 'col-xl-1 col-xxl-2 d-none d-lg-block';
+  containerRow.append(leftSpacer);
+
+  const mainContentCol = document.createElement('div');
+  mainContentCol.className = 'col-12 col-xl-10 col-xxl-8';
+  containerRow.append(mainContentCol);
+
+  const innerRow = document.createElement('div');
+  innerRow.className = 'row row-cols-1 row-cols-sm-2 row-cols-md-4';
+  mainContentCol.append(innerRow);
+
+  const createTextElement = (parent, tag, className, text) => {
+    const element = document.createElement(tag);
+    element.className = className;
+    element.textContent = text;
+    parent.append(element);
+  };
+
+  const createColumn = (parent) => {
+    const col = document.createElement('div');
+    col.className = 'col mb-5 mb-md-0';
+
+    const innerCol = document.createElement('div');
+    innerCol.className = 'col-12 col-md-10 col-lg-9';
+    col.append(innerCol);
+
+    parent.append(col);
+    return innerCol;
+  };
+
+  const aboutNoroffCol = createColumn(innerRow);
+  createTextElement(aboutNoroffCol, 'h4', 'text-white mb-3 fw-bold', 'About Noroff Job Agency');
+  createTextElement(
+    aboutNoroffCol,
+    'p',
+    'text-white',
+    'Noroff Jobs is a student-built and student-run employment agency designed to link Industry Partners with skilled candidates.'
+  );
+  createTextElement(
+    aboutNoroffCol,
+    'p',
+    'text-white',
+    'Noroff Jobs is a non-profit organisation dedicated to placing students into their ideal workplace.'
+  );
+
+  const forCompaniesCol = createColumn(innerRow);
+  createTextElement(forCompaniesCol, 'h4', 'text-white mb-3 fw-bold', 'For Companies');
+
+  const forCompaniesList = document.createElement('ul');
+  forCompaniesList.className = 'p-0 d-flex flex-column gap-1';
+  forCompaniesCol.append(forCompaniesList);
+
+  const createListItem = (parent, href, text) => {
+    const li = document.createElement('li');
+    li.className = 'list-group-item';
+
+    const a = document.createElement('a');
+    a.href = href;
+    a.className = 'nav-link text-white footer-nav-link';
+    a.target = '_blanc';
+    a.id = 'navlink-footer-id';
+    a.textContent = text;
+    li.append(a);
+
+    parent.append(li);
+  };
+
+  createListItem(forCompaniesList, '#', 'About Noroff Jobs');
+  createListItem(forCompaniesList, '#', 'Company User Guide');
+  createListItem(forCompaniesList, '#', 'FAQ');
+
+  const contactUsCol = createColumn(innerRow);
+  createTextElement(contactUsCol, 'h4', 'text-white mb-3 fw-bold', 'Contact us');
+  createTextElement(contactUsCol, 'p', 'text-white', 'Noroff Education AS');
+  createTextElement(contactUsCol, 'p', 'text-white', 'Tordenskjoldsgate 9');
+  createTextElement(contactUsCol, 'p', 'text-white', '4612 Kristiansand S');
+
+  const contactInfoDiv = document.createElement('div');
+  contactInfoDiv.className = 'd-flex flex-column gap-1';
+  contactUsCol.append(contactInfoDiv);
+
+  const phoneLink = document.createElement('a');
+  phoneLink.href = 'tel:38000000';
+  phoneLink.className = 'nav-link text-white';
+  phoneLink.id = 'navlink-footer-id';
+  const phoneIcon = document.createElement('img');
+  phoneIcon.src = '/assets/icons/phone.svg';
+  phoneIcon.className = 'footerIcon';
+  phoneLink.append(phoneIcon);
+  phoneLink.append(' 38000000');
+  contactInfoDiv.append(phoneLink);
+
+  const emailLink = document.createElement('a');
+  emailLink.href = 'mailto:utdanning@noroff.no';
+  emailLink.className = 'nav-link text-white';
+  emailLink.id = 'navlink-footer-id';
+  const emailIcon = document.createElement('img');
+  emailIcon.src = '/assets/icons/mail.svg';
+  emailIcon.className = 'footerIcon';
+  emailLink.append(emailIcon);
+  emailLink.append(' utdanning@noroff.no');
+  contactInfoDiv.append(emailLink);
+
+  const helpCol = createColumn(innerRow);
+  createTextElement(helpCol, 'h4', 'text-white mb-3 fw-bold', 'Resources');
+
+  const helpList = document.createElement('ul');
+  helpList.className = 'p-0 d-flex flex-column gap-1';
+  helpCol.append(helpList);
+
+  createListItem(helpList, '/privacy_policy.html', 'Privacy Policy');
+  createListItem(helpList, '/terms_of_use.html', 'Terms of use');
+
+  const rightSpacer = document.createElement('div');
+  rightSpacer.classList.add('col-xl-1', 'col-xxl-2', 'd-none', 'd-lg-block');
+  containerRow.append(rightSpacer);
+
+  handleActiveLinks();
 };

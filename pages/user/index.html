@@ -45,47 +45,30 @@
             <img
               class="rounded-circle d-block mx-auto w-25"
               id="profileImage"
-              src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+              src="https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png"
               alt="Profile User Avatar"
             />
-            <h1 class="text-center mt-3 fw-bold" id="profileName">Peter Parker</h1>
-            <p id="profileRole" class="text-center fw-bold fs-2">Front-End Developer</p>
-            <p id="profileEmail" class="text-center fs-2 fw-lighter">profileEmail</p>
+            <h1 class="text-center mt-3 fw-bold" id="profileName"></h1>
+            <p id="profileRole" class="text-center fw-bold fs-2"></p>
           </div>
           <div
-            class="px-4 py-3 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+            class="px-4 py-3 bg-theme-new-grey mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
             id="skillsContainer"
           >
             <h2 class="fs-2 fw-bold" id="skillsHeader">Skills</h2>
             <ul
               class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6"
-              id="skillsList"
-            >
-              <!-- Array of skills goes here -->
-              <!-- Hard Coded Array of skills to try the style -->
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">HardCoded</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">Testing Wrap</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">HTML</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">CSS</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">javaScript</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">SCSS</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">Bootstrap</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">React</li>
-              <li class="col-4 col-sm-4 col-md-3 col-lg-2 mb-3">Wordpress</li>
+              id="skillsList">
+             
+              
             </ul>
           </div>
           <div
-            class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+            class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
             id="descriptionContainer"
           >
             <h2 class="fs-2 fw-bold" id="descriptionHeader">About Me</h2>
-            <p id="descriptionBody">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi rem ullam
-              inventore tenetur delectus animi dolorum sit sequi totam suscipit doloribus nemo fuga,
-              quam vel? Alias, repellendus, at aut inventore, obcaecati ipsa tenetur incidunt illo
-              exercitationem dolor porro odit facilis pariatur. Rerum quam consequuntur consequatur
-              velit molestiae minus reiciendis?
-            </p>
+            <p id="descriptionBody"></p>
           </div>
         </div>
         <div class="d-flex justify-content-center">
@@ -348,7 +331,7 @@
 
           <div class="mt-5">
             <!-- Tab navigation for app/offers -->
-            <nav class="nav nav-tabs container-sm" role="tablist" id="nav-tab">
+            <nav class="nav nav-tabs container-sm" role="tablist" id="companyNavTab">
               <!-- Button for Application tab -->
               <button
                 class="nav-link active"
@@ -374,7 +357,7 @@
             <!-- Tab content -->
             <div
               class="tab-content bg-theme-dark rounded-bottom rounded-end p-5"
-              id="nav-tabContent"
+              id="companyNavTabContent"
             >
               <div tabindex="0" class="tab-pane active" id="companyApplications" role="tabpanel">
                 <!-- Company applications goes here -->
@@ -407,7 +390,7 @@
           <!-- Displayed if student is logged in -->
           <div class="mt-5">
             <!-- Tab navigation for app/offers -->
-            <nav class="nav nav-tabs border-0" role="tablist" id="nav-tab">
+            <nav class="nav nav-tabs border-0" role="tablist" id="studentNavTab">
               <!-- Button for Offers received tab -->
               <button
                 class="nav-link active tabWidth text-start fw-bolder"
@@ -433,7 +416,7 @@
             <!-- Tab content -->
             <div
               class="tab-content bg-theme-dark rounded-bottom rounded-end p-5 container"
-              id="nav-tabContent"
+              id="studentNavTabContent"
             >
               <div tabindex="0" class="tab-pane active" id="studentOffers" role="tabpanel">
                 <!-- Student offers goes here -->
