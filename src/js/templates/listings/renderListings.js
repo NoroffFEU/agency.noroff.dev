@@ -91,7 +91,7 @@ const createCardFooter = (deadline, id) => {
     ['bg-theme-primary', 'text-theme-black', 'px-3', 'text-decoration-none'],
     null,
     'View',
-    '../../..//pages/listings/listing/index.html?id=' + id ,
+    '/pages/listings/listing/index.html?id=' + id ,
   );
   element.append(span2, a);
   return element;
