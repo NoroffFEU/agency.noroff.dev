@@ -121,10 +121,8 @@ export const footer = () => {
   helpList.className = 'p-0 d-flex flex-column gap-1';
   helpCol.append(helpList);
 
-  createListItem(helpList, '#', 'Customer Service');
   createListItem(helpList, '/privacy_policy.html', 'Privacy Policy');
   createListItem(helpList, '/terms_of_use.html', 'Terms of use');
-  createListItem(helpList, '#', 'Ad policies');
 
   const rightSpacer = document.createElement('div');
   rightSpacer.classList.add('col-xl-1', 'col-xxl-2', 'd-none', 'd-lg-block');
