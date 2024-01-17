@@ -7,7 +7,7 @@
     <!-- Description -->
     <meta
       name="description"
-      content="This page provides an overview of all the job listings that are posted on the website."
+      content="This page presents a detailed compilation of the latest job listings posted on our website, tailored for companies seeking exceptional talent. Here, employers can explore a diverse array of opportunities to connect with skilled professionals across various industries and specializations, streamlining the recruitment process to efficiently find the ideal candidate for your team."
     />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
@@ -41,7 +41,8 @@
             <div class="container d-flex justify-content-center mt-3 col-12 ms-3">
               <div class="col-md-5 w-100 col-10 ms-5 search-container">
                 <div class="input-group">
-                  <label for="searchListing"></label>
+                  <label for="searchListing"><span class="invisible">Searchbar</span></label>
+
                   <input
                     class="form-control rounded bg-white shadow-sm"
                     type="search"
@@ -53,7 +54,7 @@
                     <button class="btn ms-n5 ps-1" type="button">
                       <img
                         src="/assets/icons/search.svg"
-                        alt="Search icon"
+                        alt="illustration of search icon"
                         class="icon-sm"
                       />
                     </button>
@@ -66,20 +67,25 @@
                   type="button"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <img
-                    src="/assets/icons/filter.svg"
-                    alt="Filter icon"
-                    class="icon-sm"/>
+               
             <div class="dropdown">
                 <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src="/assets/icons/filter.svg" alt="Search icon" class="icon-sm" />
+
+                  aria-expanded="false"
+                >
+                  <img
+                    src="/assets/icons/filter.svg"
+                    alt="Illustration of filter icon"
+                    class="icon-sm"
+                  />
+
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">All</a></li>
-                  <li><a class="dropdown-item" href="#">Latest</a></li>
-                  <li><a class="dropdown-item" href="#">Last 14 days</a></li>
-                  <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                  <li><a class="dropdown-item" href="#" id="allListings">All</a></li>
+                  <li><a class="dropdown-item" href="#" id="latestListings">Latest</a></li>
+                  <li><a class="dropdown-item" href="#" id="fourteenDaysListings">Last 14 days</a></li>
+                  <li><a class="dropdown-item" href="#" id="thirtyDaysListings">Last 30 days</a></li>
                 </ul>
               </div>
             </div>
@@ -91,10 +97,10 @@
           <!-- dummy-cards start -->
           <div class="card bg-theme-light shadow col-12 col-md-5 m-2">
             <div class="mt-5 px-2 thumbnail-img card-img-top img-fluid img-thumbnail">
-              <img src="/images/logoipsum-287.svg" class="rounded-start" alt="Logo" />
+              <img src="/images/logoipsum-287.svg" class="rounded-start" alt="Illustration of the logo." />
             </div>
             <div class="card-body">
-              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+              <h2 class="card-title">Lorem ipsum dolor sit amet.</h2>
               <p class="card-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
                 tempore! Reiciendis soluta doloremque . . .
@@ -110,11 +116,11 @@
               <img
                 src="/images/logoipsum-287.svg"
                 class="img-fluid rounded-start"
-                alt="..."
+                alt="Illustration of the logo"
               />
             </div>
             <div class="card-body">
-              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+              <h2 class="card-title">Lorem ipsum dolor sit amet.</h2>
               <p class="card-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
                 tempore! Reiciendis soluta doloremque . . .
@@ -131,11 +137,11 @@
               <img
                 src="/images/logoipsum-287.svg"
                 class="img-fluid rounded-start"
-                alt="..."
+                alt="Illustration of the logo"
               />
             </div>
             <div class="card-body">
-              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+              <h2 class="card-title">Lorem ipsum dolor sit amet.</h2>
               <p class="card-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
                 tempore! Reiciendis soluta doloremque . . .
@@ -152,11 +158,11 @@
               <img
                 src="/images/logoipsum-287.svg"
                 class="img-fluid rounded-start"
-                alt="Logo"
+                alt="Illustration of the logo"
               />
             </div>
             <div class="card-body">
-              <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+              <h2 class="card-title">Lorem ipsum dolor sit amet.</h2>
               <p class="card-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
                 tempore! Reiciendis soluta doloremque . . .
