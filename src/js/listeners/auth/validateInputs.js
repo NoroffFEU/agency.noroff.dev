@@ -11,11 +11,11 @@ function validatePassword(input, isTyping) {
 
   errorDiv.textContent = isValidPassword ? '' : 'Password must be at least 8 characters.';
   input.classList.remove('is-invalid', 'is-valid');
-  errorDiv.classList.remove('invalid-feedback', 'valid-feedback');
+  errorDiv.classList.remove('alert','alert-danger', 'valid-feedback');
 
   if (!isValidPassword && !isTyping) {
     input.classList.add('is-invalid');
-    errorDiv.classList.add('invalid-feedback');
+    errorDiv.classList.add('alert','alert-danger');
 
 
   } else if (isValidPassword) {
@@ -23,6 +23,7 @@ function validatePassword(input, isTyping) {
     errorDiv.classList.add('valid-feedback');
   } else if (!isValidPassword && isTyping) {
     errorDiv.textContent = '';
+    errorDiv.classList.remove('alert','alert-danger');
   }
 
   return isValidPassword;
@@ -41,8 +42,8 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
   const isValidRepeatPassword = repeatPasswordInput.value === passwordInput.value;
 
   if (repeatPasswordInput.value.trim() === '') {
-    errorDiv.textContent = "Please fill out this field.";
-    errorDiv.classList.add('invalid-feedback');
+    errorDiv.textContent = "Please repeat the password.";
+    errorDiv.classList.add('alert','alert-danger');
     repeatPasswordInput.classList.add('is-invalid');
     repeatPasswordInput.classList.remove('is-valid');
     return false;
@@ -51,17 +52,18 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
   errorDiv.textContent = isValidRepeatPassword ? '' : "Passwords don't match.";
 
   repeatPasswordInput.classList.remove('is-invalid', 'is-valid');
-  errorDiv.classList.remove('invalid-feedback', 'valid-feedback');
+  errorDiv.classList.remove('alert','alert-danger', 'valid-feedback');
 
   if (!isValidRepeatPassword && !isTyping) {
     repeatPasswordInput.classList.add('is-invalid');
-    errorDiv.classList.add('invalid-feedback');
+    errorDiv.classList.add('alert','alert-danger');
 
   } else if (isValidRepeatPassword) {
     repeatPasswordInput.classList.add('is-valid');
     errorDiv.classList.add('valid-feedback');
   } else if (!isValidRepeatPassword && isTyping) {
     errorDiv.textContent = '';
+    errorDiv.classList.remove('alert','alert-danger');
   }
 
   return isValidRepeatPassword;
@@ -84,11 +86,11 @@ function validateFullName(input, isTyping) {
     : 'Full Name must be in the format: Firstname Lastname';
 
   input.classList.remove('is-invalid', 'is-valid');
-  errorDiv.classList.remove('invalid-feedback', 'valid-feedback');
+  errorDiv.classList.remove('invalid-feedback','alert','alert-danger', 'valid-feedback');
 
   if (!isValidFullName && !isTyping) {
     input.classList.add('is-invalid');
-    errorDiv.classList.add('invalid-feedback');
+    errorDiv.classList.add('alert','alert-danger');
 
   } else if (isValidFullName) {
     input.classList.add('is-valid');
@@ -96,6 +98,7 @@ function validateFullName(input, isTyping) {
   }
   else if (!isValidFullName && isTyping) {
     errorDiv.textContent = "";
+    errorDiv.classList.remove('alert','alert-danger')
   }
   return isValidFullName;
 }
@@ -117,17 +120,18 @@ function validateEmail(input, isTyping) {
     : 'Invalid email address. Use a valid noroff.no or stud.noroff.no email.';
 
   input.classList.remove('is-invalid', 'is-valid');
-  errorDiv.classList.remove('invalid-feedback', 'valid-feedback');
+  errorDiv.classList.remove('alert','alert-danger', 'valid-feedback');
 
   if (!isValidEmail && !isTyping) {
     input.classList.add('is-invalid');
-    errorDiv.classList.add('invalid-feedback');
+    errorDiv.classList.add('alert','alert-danger');
 
   } else if (isValidEmail) {
     input.classList.add('is-valid');
     errorDiv.classList.add('valid-feedback');
   } else if (!isValidEmail && isTyping) {
     errorDiv.textContent = '';
+    errorDiv.classList.remove('alert','alert-danger')
   }
   return isValidEmail;
 }
