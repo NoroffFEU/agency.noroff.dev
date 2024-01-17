@@ -1,14 +1,20 @@
 import { create } from './create.js';
-import { apiBaseFetch } from '../apiBaseFetch.js';
 
-jest.mock('../apiBaseFetch.js');
 
 describe('create', () => {
+  
+  global.fetch = jest.fn(() => {});
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+
   it('should return data on successful application creation', async () => {
     const mockAppData = { name: 'New Application', description: 'Test Description' };
     const mockApiResponse = { id: '123', ...mockAppData };
 
-    apiBaseFetch.mockResolvedValueOnce({
+    fetch.mockResolvedValueOnce({
       ok: true,
       json: async () => mockApiResponse,
       statusText: 'OK',
@@ -17,7 +23,7 @@ describe('create', () => {
     const result = await create(mockAppData);
 
     expect(result).toEqual(mockApiResponse);
-    expect(apiBaseFetch).toHaveBeenCalledWith(expect.any(String), {
+    expect(fetch).toHaveBeenCalledWith(expect.any(String), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(mockAppData),
@@ -25,7 +31,7 @@ describe('create', () => {
   });
 
   it('should throw an error on API failure', async () => {
-    apiBaseFetch.mockResolvedValueOnce({
+    fetch.mockResolvedValueOnce({
       ok: false,
       statusText: 'Internal Server Error',
     });
