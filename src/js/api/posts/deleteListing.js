@@ -1,9 +1,6 @@
 // Author: Margrethe By
 // Team: Enigma Bullet
-
 import { apiUrl, listingsUrl } from '../constants.js';
-
-const modal = new bootstrap.Modal(document.getElementById('deleteListingModal'));
 
 export async function deleteItem() {
   const form = document.querySelector('#deleteThisListing');
@@ -42,7 +39,7 @@ export async function deleteListing() {
         alert(`Error editing listing: ${result.message}`);
         throw new Error(`Error editing listing: ${result.statusText}`);
       } else {
-          modal.hide();
+          document.getElementById("hide-delete-modal").click();
           new bootstrap.Modal(document.querySelector('#success-delete-modal')).show();
       }
 
