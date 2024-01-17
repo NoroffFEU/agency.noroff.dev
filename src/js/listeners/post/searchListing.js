@@ -1,6 +1,8 @@
 // Author: Emilie Herrera Thomsen
 // This is just the skeleton for a search functionality, not finished.
 
+// Author of the working version: Ekaterina Nattrass
+
 
 import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { renderListings, renderNoListings } from '../../templates/listings/renderListings.js';
