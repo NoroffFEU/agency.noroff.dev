@@ -33,3 +33,20 @@ Version: 1.0.0
   height: 100%;
   margin-right: 10px;
 }
+
+.card-img-left {
+  max-width: 150px;
+  min-width: 100px;
+}
+
+.card-title {
+  font-size: max(13px, min(4vw, 20px));
+}
+
+.card-text {
+  font-size: max(10px, min(4vw, 15px));
+}
+
+.card-bottom {
+  font-size: max(8px, min(4vw, 13px));
+}
