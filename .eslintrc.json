@@ -1,6 +1,6 @@
 {
   "globals": {
-    "bootstrap": "readonly",
+    "bootstrap": "readonly"
   },
   "env": {
     "browser": true,
