@@ -122,7 +122,7 @@ export const footer = () => {
   helpCol.append(helpList);
 
   createListItem(helpList, '#', 'Customer Service');
-  createListItem(helpList, '/privacy_policy.html', 'Privacy Policy');
+  createListItem(helpList, '../../../../pages/footer/privacypolicy.html', 'Privacy Policy');
   createListItem(helpList, '/terms_of_use.html', 'Terms of use');
   createListItem(helpList, '#', 'Ad policies');
 
