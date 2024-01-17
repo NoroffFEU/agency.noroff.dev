@@ -48,12 +48,11 @@
               src="https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png"
               alt="Profile User Avatar"
             />
-            <h1 class="text-center mt-3 fw-bold" id="profileName">Peter Parker</h1>
-            <p id="profileRole" class="text-center fw-bold fs-2">Front-End Developer</p>
-            <p id="profileEmail" class="text-center fs-2 fw-lighter">profileEmail</p>
+            <h1 class="text-center mt-3 fw-bold" id="profileName"></h1>
+            <p id="profileRole" class="text-center fw-bold fs-2"></p>
           </div>
           <div
-            class="px-4 py-3 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+            class="px-4 py-3 bg-theme-new-grey mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
             id="skillsContainer"
           >
             <h2 class="fs-2 fw-bold" id="skillsHeader">Skills</h2>
@@ -65,17 +64,11 @@
             </ul>
           </div>
           <div
-            class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+            class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
             id="descriptionContainer"
           >
             <h2 class="fs-2 fw-bold" id="descriptionHeader">About Me</h2>
-            <p id="descriptionBody">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi rem ullam
-              inventore tenetur delectus animi dolorum sit sequi totam suscipit doloribus nemo fuga,
-              quam vel? Alias, repellendus, at aut inventore, obcaecati ipsa tenetur incidunt illo
-              exercitationem dolor porro odit facilis pariatur. Rerum quam consequuntur consequatur
-              velit molestiae minus reiciendis?
-            </p>
+            <p id="descriptionBody"></p>
           </div>
         </div>
         <div class="d-flex justify-content-center">
@@ -338,7 +331,7 @@
 
           <div class="mt-5">
             <!-- Tab navigation for app/offers -->
-            <nav class="nav nav-tabs container-sm" role="tablist" id="nav-tab">
+            <nav class="nav nav-tabs container-sm" role="tablist" id="companyNavTab">
               <!-- Button for Application tab -->
               <button
                 class="nav-link active"
@@ -364,7 +357,7 @@
             <!-- Tab content -->
             <div
               class="tab-content bg-theme-dark rounded-bottom rounded-end p-5"
-              id="nav-tabContent"
+              id="companyNavTabContent"
             >
               <div tabindex="0" class="tab-pane active" id="companyApplications" role="tabpanel">
                 <!-- Company applications goes here -->
@@ -397,7 +390,7 @@
           <!-- Displayed if student is logged in -->
           <div class="mt-5">
             <!-- Tab navigation for app/offers -->
-            <nav class="nav nav-tabs border-0" role="tablist" id="nav-tab">
+            <nav class="nav nav-tabs border-0" role="tablist" id="studentNavTab">
               <!-- Button for Offers received tab -->
               <button
                 class="nav-link active tabWidth text-start fw-bolder"
@@ -423,7 +416,7 @@
             <!-- Tab content -->
             <div
               class="tab-content bg-theme-dark rounded-bottom rounded-end p-5 container"
-              id="nav-tabContent"
+              id="studentNavTabContent"
             >
               <div tabindex="0" class="tab-pane active" id="studentOffers" role="tabpanel">
                 <!-- Student offers goes here -->
