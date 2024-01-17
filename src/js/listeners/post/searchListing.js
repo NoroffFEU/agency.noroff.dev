@@ -57,19 +57,23 @@ export async function filterListings() {
     const btnFourteen = document.querySelector('#fourteenDaysListings');
     const btnThirty = document.querySelector('#thirtyDaysListings');
 
+    const fourDays = 4 * 24 * 60 * 60 * 1000;
+    const fourteenDays = 14 * 24 * 60 * 60 * 1000;
+    const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+
     btnAll.addEventListener('click', () => {
     renderListings(arrayOfListings);
-    } );
+    });
 
     btnLatest.addEventListener('click', () => {
-      filter(4 * 24 * 60 * 60 * 1000)
+      filter(fourDays)
     });
 
     btnFourteen.addEventListener('click', () => {
-     filter(14 * 24 * 60 * 60 * 1000)
+     filter(fourteenDays)
     });
 
-  btnThirty.addEventListener('click', () => {
-    filter(30 * 24 * 60 * 60 * 1000)
-  });
+    btnThirty.addEventListener('click', () => {
+    filter(thirtyDays)
+    });
 } 
