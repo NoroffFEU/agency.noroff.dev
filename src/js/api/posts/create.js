@@ -1,4 +1,3 @@
-import { apiBaseFetch } from '../apiBaseFetch.js';
 import { apiUrl, applicationUrl } from '../constants.js';
 
 /**
@@ -12,7 +11,7 @@ export async function create(appData) {
   const createAppURL = apiUrl.toString() + applicationUrl;
 
   try {
-    const response = await apiBaseFetch(createAppURL, {
+    const response = await fetch(createAppURL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(appData),

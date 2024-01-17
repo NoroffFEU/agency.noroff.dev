@@ -1,3 +1,5 @@
+import { handleActiveLinks } from "../../listeners/footer/handleActiveLinks";
+
 export const footer = () => {
   const footerElement = document.querySelector('footer');
   footerElement.classList.add('bg-theme-dark', 'pt-5', 'p-2', 'mt-auto', 'pb-5');
@@ -69,9 +71,11 @@ export const footer = () => {
 
     const a = document.createElement('a');
     a.href = href;
+
     a.className = 'nav-link text-white';
     a.target = '_blank';
     a.id = 'navlink-footer';
+
     a.textContent = text;
     li.append(a);
 
@@ -117,18 +121,18 @@ export const footer = () => {
   contactInfoDiv.append(emailLink);
 
   const helpCol = createColumn(innerRow);
-  createTextElement(helpCol, 'h4', 'text-white mb-3 fw-bold', 'Help');
+  createTextElement(helpCol, 'h4', 'text-white mb-3 fw-bold', 'Resources');
 
   const helpList = document.createElement('ul');
   helpList.className = 'p-0 d-flex flex-column gap-1';
   helpCol.append(helpList);
 
-  createListItem(helpList, '#', 'Customer Service');
   createListItem(helpList, '/privacy_policy.html', 'Privacy Policy');
   createListItem(helpList, '/terms_of_use.html', 'Terms of use');
-  createListItem(helpList, '#', 'Ad policies');
 
   const rightSpacer = document.createElement('div');
   rightSpacer.classList.add('col-xl-1', 'col-xxl-2', 'd-none', 'd-lg-block');
   containerRow.append(rightSpacer);
+
+  handleActiveLinks();
 };
