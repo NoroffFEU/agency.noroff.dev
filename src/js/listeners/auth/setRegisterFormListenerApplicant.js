@@ -1,5 +1,5 @@
 import { registerUser } from '../../api/auth/index.js';
-import { displayMessage } from '../../ui/message/displayMessage.js';
+import { message } from '../../utilities/message/message.js';
 import { inputs } from './validateInputs.js';
 
 export function setRegisterFormListenerApplicant() {
@@ -35,6 +35,7 @@ export function setRegisterFormListenerApplicant() {
       const isEmailValid = inputs.validateEmail(email);
 
       if (!isPasswordValid || !isRepeatPasswordValid || !isFullNameValid || !isEmailValid) {
+        message("danger", "Invalid registration credentials. Please try again", "#errorMessage");
         return;
       }
 
@@ -48,14 +49,10 @@ export function setRegisterFormListenerApplicant() {
 
       const { error } = await registerUser(data);
       if (error) {
-        return displayMessage('danger', error, '#confirm-message');
+        message("danger", "An error occured when attempting to register user. Please try again", "#errorMessage");
+        return;
       }
-
-      displayMessage(
-        'success',
-        `Registration successful! You can now <a href="/pages/auth/login/index.html">login</a>.`,
-        '#confirm-message'
-      );
+      message("success", "Registration successful! You can now login.", "#errorMessage");
     });
   }
 }
