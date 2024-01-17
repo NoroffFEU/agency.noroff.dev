@@ -1,3 +1,5 @@
+import { handleActiveLinks } from "../../listeners/footer/handleActiveLinks";
+
 export const footer = () => {
   const footerElement = document.querySelector('footer');
   footerElement.classList.add('bg-theme-dark', 'pt-5', 'p-2', 'mt-auto', 'pb-5');
@@ -69,7 +71,7 @@ export const footer = () => {
 
     const a = document.createElement('a');
     a.href = href;
-    a.className = 'nav-link text-white';
+    a.className = 'nav-link text-white footer-nav-link';
     a.target = '_blanc';
     a.id = 'navlink-footer-id';
     a.textContent = text;
@@ -127,4 +129,6 @@ export const footer = () => {
   const rightSpacer = document.createElement('div');
   rightSpacer.classList.add('col-xl-1', 'col-xxl-2', 'd-none', 'd-lg-block');
   containerRow.append(rightSpacer);
+
+  handleActiveLinks();
 };
