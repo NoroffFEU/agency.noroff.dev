@@ -123,7 +123,7 @@ export const footer = () => {
 
   createListItem(helpList, '#', 'Customer Service');
   createListItem(helpList, '../../../../pages/footer/privacypolicy.html', 'Privacy Policy');
-  createListItem(helpList, '/terms_of_use.html', 'Terms of use');
+  createListItem(helpList, '../../../../pages/footer/termsofuse.html', 'Terms of use');
   createListItem(helpList, '#', 'Ad policies');
 
   const rightSpacer = document.createElement('div');
