@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Livvic:ital,wght@0,400;0,600;1,100;1,300&display=swap');
+@import url('https://use.typekit.net/iin8mdc.css');
 
-$theme-font-family: 'Livvic', sans-serif;
+$theme-font-family: 'Halcom', sans-serif;
 
 // Headings //
 h1,
@@ -22,5 +23,3 @@ h6,
 body {
   font-family: $theme-font-family !important;
 }
-
-

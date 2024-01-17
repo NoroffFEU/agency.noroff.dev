@@ -1,75 +1,44 @@
-// @import './themeColorVariables';
+@import './themeColorVariables';
 
-// .navbar-toggler-icon,
-// .navbar-toggler-icon .navbar-dark {
-//   // background-image: none !important;
-// }
+.navbar-toggler .navbar-toggler-icon {
+  display: block;
+  width: 1.2em;
+  height: 4px;
+  background-color: #{map-get($theme-colors, theme-new-light)};
+  position: relative;
+  transition: all 0.3s;
+}
 
-// // The hamburger container. Changing height and width shouldn't affect the hamburger
-// .navbar-toggler {
-//   position: relative !important;
-//   align-items: center !important;
-//   justify-content: center !important;
-//   background-color: transparent !important;
-//   width: 56px !important;
-//   height: 56px !important;
-// }
+.navbar-toggler .navbar-toggler-icon::before,
+.navbar-toggler .navbar-toggler-icon::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #{map-get($theme-colors, theme-new-light)};
+  position: absolute;
+  transition: all 0.3s;
+}
 
-// // Hamburger icon when the nav is closed
-// .navbar-toggler.collapsed {
-//   .hamburger {
-//     width: 60% !important;
-//   }
+.navbar-toggler .navbar-toggler-icon::before {
+  top: -12px;
+}
 
-//   .hamburger-top {
-//     top: 25% !important;
-//     transform: rotate(0deg);
-//   }
+.navbar-toggler .navbar-toggler-icon::after {
+  bottom: -12px;
+}
 
-//   .hamburger-mid {
-//     opacity: 1;
-//   }
+/* Transform the toggler into X */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+  transform: rotate(45deg);
+}
 
-//   .hamburger-bottom {
-//     bottom: 25% !important;
-//     transform: rotate(0deg);
-//   }
-// }
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+  top: 0;
+  transform: rotate(0);
+}
 
-// .hamburger {
-//   display: flex !important;
-//   position: absolute !important;
-//   background-color: map-get($theme-colors, theme-new-light) !important;
-//   height: 7% !important;
-//   transition: 0.2s;
-// }
-
-// // Hamburger as an X
-// .hamburger-top,
-// .hamburger-bottom {
-//   width: 75%;
-// }
-
-// .hamburger-top {
-//   transform: rotate(45deg);
-// }
-
-// .hamburger-mid {
-//   opacity: 0;
-// }
-
-// .hamburger-bottom {
-//   transform: rotate(-45deg);
-// }
-
-// @media (min-width: 767px) {
-//   .navbar-toggler {
-//     display: none !important;
-//   }
-// }
-
-// @media (max-width: 767px) {
-//   .navbar-toggler {
-//     display: flex !important;
-//   }
-// }
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+  bottom: 0;
+  transform: rotate(90deg);
+}
