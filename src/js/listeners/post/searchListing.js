@@ -1,28 +1,30 @@
 // Author: Emilie Herrera Thomsen
 // This is just the skeleton for a search functionality, not finished.
 
-import { renderListings } from '../../templates/listings/renderListings.js';
+import { getListOfListings } from '../../api/posts/getListOfListings.js';
+import { renderListings, renderNoListings } from '../../templates/listings/renderListings.js';
 
-export function searchListings(arrayOfListings) {
-  const search = document.querySelector('.searchInput');
+export async function searchListings() {
 
-  search.onkeyup = function () {
+  const arrayOfListings = await getListOfListings();
+
+  const search = document.querySelector('#searchListing');
+  search.onkeyup = function (event) {
+
     const searchValue = event.target.value.trim().toLowerCase();
 
     const filteredListings = arrayOfListings.filter(function (result) {
-      if (result.toLocaleLowerCase().startsWith(searchValue)) {
+      if (searchValue.length < 2 || result.title.toLowerCase().includes(searchValue)) {
         return true;
-      }
+      } 
     });
 
-    renderListings(filteredListings);
+    if (filteredListings.length > 0){
+      renderListings(filteredListings);
+    }
+    else {
+      renderNoListings();
+    }
+ 
   };
 }
-
-// const searchButton = document.querySelector(".searchButton")
-// searchButton.onclick = function() {
-//     const searchInput = document.querySelector(".searchInput").value;
-//     const newUrl = getListingsUrl + `/search?q=${searchInput}`;
-
-//     getListOfListings(newUrl);
-// }
