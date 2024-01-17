@@ -15,36 +15,23 @@ import { getToken } from '../getToken.js';
  * @throws {Error} Throws error if the registration request fails or returns error status.
  */
 
-export async function registerCompany(profile) {
-  let token = profile.registerToken;
+export async function registerCompany(data) {
+  let token = data.registerToken;
   if (!token) {
-    const accessToken = getToken();
-    token = accessToken.replace(/^"|"$/g, '');
+    const loggedInUserToken = getToken();
+    token = loggedInUserToken.replace(/^"|"$/g, ''); //Todo: This seems unnecessary. Should be handled in getToken() if needed.
   }
   
   const registerURL = apiUrl.toString() + companyUrl;
 
-  try {
-    const response = await fetch(registerURL, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      method: 'POST',
-      body: JSON.stringify(profile),
-    });
+  const response = await fetch(registerURL, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
 
-    let result;
-
-    switch (response.status) {
-      case 201: 
-        result = await response.json(); 
-        return result;
-      default:        
-        throw new Error(`Error ${response.status}: ${response.statusText}`);
-    }
-  } catch (error) {    
-    console.error('Registration error:', error);
-    throw error;
-  }
+  return await response.json();
 }
