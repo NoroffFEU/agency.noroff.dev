@@ -3,6 +3,7 @@ import { getSingleListing } from '../../api/posts/getSingleListing.js';
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
 import { findDaysAgo } from '../../utilities/dateConverter/dateConverter.js';
+import { set } from 'immutable';
 
 
 
@@ -42,6 +43,12 @@ export const renderListing = async () => {
  
     
     
+    } else {
+      alert('No id provided');
+      setTimeout(() => {
+        location.href = '/listings.html';
+      }, 2000);
+      
     }
 }
 
