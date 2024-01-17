@@ -65,7 +65,7 @@ const createCardBody = (title, description, deadline) => {
     'align-items-baseline',
   ]);
   const cardBody = createElement('div', ['card-body', 'd-flex', 'flex-column', 'gap-2', 'w-100']);
-  const cardTitle = createElement('h5', ['card-title', 'fw-bold', 'text-truncate'], null, title);
+  const cardTitle = createElement('h2', ['card-title', 'fw-bold', 'text-truncate'], null, title);
   const cardText = createElement('p', ['card-text', 'overflow-hidden'], null, description);
   cardText.style.cssText =
     '-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;';
