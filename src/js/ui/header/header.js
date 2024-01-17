@@ -17,7 +17,7 @@ export const header = () => {
 
   const logoContainer = document.createElement('a');
   logoContainer.classList.add('navbar-brand', 'm-0', 'p-0');
-  logoContainer.href = '/';
+  logoContainer.href = '#';
   logoContainer.setAttribute('aria-label', 'Noroff Job Agency home page');
 
   const img = document.createElement('img');

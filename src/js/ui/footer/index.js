@@ -73,8 +73,8 @@ export const footer = () => {
     const a = document.createElement('a');
     a.href = href;
     a.className = 'nav-link text-white footer-nav-link';
-    a.target = '_blanc';
-    a.id = 'navlink-footer-id';
+    a.target = '_blank';
+    a.id = 'navlink-footer';
     a.textContent = text;
     li.append(a);
 
@@ -101,6 +101,7 @@ export const footer = () => {
   const phoneIcon = document.createElement('img');
   phoneIcon.src = '/assets/icons/phone.svg';
   phoneIcon.className = 'footerIcon';
+  phoneIcon.alt ="phone icon"
   phoneLink.append(phoneIcon);
   phoneLink.append(' 38000000');
   contactInfoDiv.append(phoneLink);
@@ -112,6 +113,7 @@ export const footer = () => {
   const emailIcon = document.createElement('img');
   emailIcon.src = '/assets/icons/mail.svg';
   emailIcon.className = 'footerIcon';
+  emailIcon.alt = 'footer Icon';
   emailLink.append(emailIcon);
   emailLink.append(' utdanning@noroff.no');
   contactInfoDiv.append(emailLink);
