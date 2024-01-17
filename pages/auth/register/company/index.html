@@ -23,7 +23,7 @@
       >
         <div class="d-flex flex-column justify-content-center align-items-center">
           <h1 class="fw-bold">Register for Companies</h1>
-        </div>
+        </div>       
         <!-- Register form -->
         <form class="row g-3" id="registerForm-company">
           <div class="d-flex justify-content-center mb-3">
@@ -40,6 +40,8 @@
               </button>
             </div>            
           </div>
+          <div id="registrationErrorMessage" class="alert alert-danger d-none"></div>          
+          <div id="registrationSuccessMessage" class="alert alert-success d-none"></div>
           <div class="col-md-6">
             <label class="mb-2" for="userEmail">E-mail*</label>
             <input
