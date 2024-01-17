@@ -13,6 +13,7 @@ import { createListing } from './src/js/listeners/post/createListing.js';
 import { showListings } from './src/js/views/admin/showListings.js';
 import { searchListings } from './src/js/listeners/post/searchListing.js'
 import '/src/scss/index.scss';
+import { deleteItem } from './src/js/api/posts/deleteListing.js';
 
 displayBaseLayout();
 
@@ -55,13 +56,15 @@ const routerSwitch = () => {
     case 'listing':
       document.querySelector('title').innerText = defaultTitle + ` || Listings`;
       renderListings();
-      searchListings();
+      deleteItem();
       break;
 
     // Listings UI settings
     case 'listings':
       document.querySelector('title').innerText = defaultTitle + ` || Job Listings`;
-      showListings();
+      // showListings();
+      renderListings();
+      searchListings();
       break;
 
     // TBD Listings UI settings
