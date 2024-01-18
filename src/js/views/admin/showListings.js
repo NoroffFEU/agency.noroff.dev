@@ -48,7 +48,7 @@ export function showListings() {
               <p>Ends at:</p>
               <button class="btn btn-info text-white">View</button>
               <button class="btn btn-sm btn${jobId}" id="deleteUserBtn">
-                <img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" />
+                <img src="/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" />
               </button>
             </div>
           </div>
