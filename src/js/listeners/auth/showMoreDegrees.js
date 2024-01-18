@@ -1,7 +1,7 @@
 const showMoreButton = document.querySelector('#showMore');
 
-const plus = `<img class="icon-sm" src="/assets/icons/plus.svg" alt="">`;
-const minus = `<img class="icon-sm" src="/assets/icons/minus.svg" alt="">`;
+const plus = `<img class="icon-sm" src="/assets/icons/plus.svg" alt="Illustration of close icon">`;
+const minus = `<img class="icon-sm" src="/assets/icons/minus.svg" alt="Illustration of close icon">`;
 var currentValue = plus;
 
 showMoreButton.addEventListener('click', function () {
