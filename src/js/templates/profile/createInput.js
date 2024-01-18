@@ -32,7 +32,7 @@ export function createInputSelect(array, parent) {
 
   const button = document.createElement('button');
   button.classList.add('btn', 'btn-dark');
-  button.innerHTML = '&#10005;';
+  button.innerHTML = '#10005;';
   button.type = 'button';
   button.addEventListener('click', () => container.remove());
 
@@ -58,3 +58,21 @@ export function createInputSelect(array, parent) {
   parent.append(container);
   return container;
 }
+
+const formUser = document.querySelector('#editStudentProfile');
+const formClient = document.querySelector('#editCompanyProfile');
+const editProfileBtn = document.querySelector('#editProfileBtn');
+export const getRole = () => {
+  const roleRaw = localStorage.getItem('role');
+  let role = JSON.parse(roleRaw);
+
+  if (role === 'Applicant') {
+    formUser.classList.remove('d-none');
+  } else if (role === 'Admin') {
+  } else if (role === 'Client') {
+    formClient.classList.remove('d-none');
+  } else {
+    editProfileBtn.classList.add('d-none');
+  }
+};
+getRole();

@@ -1,8 +1,6 @@
-import { apiPath } from '../constants.js';
+import { apiPath, companyUrl } from '../constants.js';
 import { message } from '../../utilities/message/message.js';
-
-const method = 'PUT';
-const action = 'company/';
+import { getToken } from '../getToken.js';
 
 /**
  * This function sends a PUT request to the API to update the company profile
@@ -13,19 +11,28 @@ const action = 'company/';
  */
 
 export async function editCompany(profile) {
-  const { id } = profile;
-  const profileURL = apiPath + action + `${id}`;
+  const id = localStorage.getItem('companyId');
+
+  const profileURL = apiPath + companyUrl + `${id}`;
+
+  const accessToken = JSON.parse(getToken('token'));
+  if (profile.phone) {
+    profile.phone = Number(profile.phone);
+  }
   const body = JSON.stringify(profile);
+
   const options = {
-    method,
+    method: 'PUT',
     body,
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
     },
   };
 
   try {
     const response = await fetch(profileURL, options);
+
     const profile = await response.json();
 
     switch (response.status) {

@@ -1,5 +1,6 @@
 // import headers for the requestOption
 import { headers } from '../../api/headers.js';
+
 // Import API url for fetch the data (dummy API for users data)
 const apiPath = 'https://cors.noroff.dev/https://agency-api.noroff.dev/';
 
@@ -16,4 +17,5 @@ export async function showUserDatails() {
   const response = await fetch(userUrl, reqOption);
   const data = await response.json();
   createProfileContent(data);
+  localStorage.setItem('companyId', data.company.id);
 }
