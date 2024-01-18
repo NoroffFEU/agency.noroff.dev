@@ -48,9 +48,9 @@
               id="fullName"
               required
               pattern="^[a-zA-ZæøåÆØÅ]+( [a-zA-ZæøåÆØÅ]+)+$"
-              title="Full Name must only contain lowercase and uppercase letters. Example: John Johnson"
+              title='Name must be in the format: "Firstname Lastname".'
             />
-            <div class="error"></div>
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="emailStudent">Email*</label>
@@ -64,7 +64,7 @@
               title="The email value must be a valid stud.noroff.no or noroff.no email address."
               required
             />
-            <div class="error"></div>
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="passwordStudent">Password*</label>
@@ -78,7 +78,7 @@
               title="The password value must be at least 8 characters."
               required
             />
-            <div class="error"></div>
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="repPasswordStud">Repeat password*</label>
@@ -91,7 +91,7 @@
               id="repPasswordStud"
               required
             />
-            <div class="error"></div>
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="degrees">Degree(s)</label>
@@ -101,10 +101,11 @@
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#hiddenInput"
+              aria-label="show"
             >
               <img class="icon-sm" src="/assets/icons/plus.svg" alt="" />
             </button>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" id="degrees">
               <option selected></option>
               <option value="">Applied Machine Learning</option>
               <option value="">Front-end Development</option>
@@ -160,11 +161,11 @@
                 <option value="">Other</option>
               </select>
             </div>
-            <div class="error"></div>
+            <div class="error mt-1"></div>
           </div>
           <div id="errorMessage" class="text-theme-primary"></div>
           <div class="d-grid gap-2 col-md-6 mx-auto">
-            <button class="btn btn-theme-primary btn-lg text-white rounded-1 mt-3" type="submit">
+            <button class="btn btn-theme-primary btn-lg text-white rounded-1 mt-3 registerButton" type="submit">
               Register
             </button>
 
@@ -227,6 +228,9 @@
         </div>
       </div>
     </main>
+    <h2 class="visually-hidden">subheading1</h2>
+    <h3 class="visually-hidden">subheading2</h3>
+    <h4 class="visually-hidden">subheading3</h4>
     <footer></footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
