@@ -6,7 +6,9 @@ It's recommended for each development team to have its own main working branch (
 
 ### Important Notes:
 
-- Avoid working directly in the main/master branch. Always use your team's branch.
+- The `main` is a protected branch, so it cannot be worked with directly without the proper permissions.
+  Before merging into the `main` branch, changes must go through a Pull Request (PR) process. This process requires at least one review approval and the successful passing of all necessary tests, ensuring the `main` branch maintains high standards of code quality and stability.
+
 - If a branch is accidentally created from main/master, inform the scrum master for resolution.
 
 ### Example
