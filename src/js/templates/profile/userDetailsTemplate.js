@@ -15,16 +15,16 @@ import { Store } from '../../storage/storage.js';
  * Setup function for profile user details
  * @param {object} data object data from user or company model
  */
-export function userDetailsTemplate(data) {
-  const profileImage = document.querySelector('#profileImage');
-  const profileName = document.querySelector('#profileName');
-  const profileRole = document.querySelector('#profileRole');
-  const skillContainer = document.querySelector('#skillsContainer');
-  const skillsList = document.querySelector('#skillsList');
-  const descriptionHeader = document.querySelector('#descriptionHeader');
-  const profileDescription = document.querySelector('#descriptionBody');
-  const profileEmail = document.querySelector('#profileEmail');
+const profileImage = document.querySelector('#profileImage');
+const profileName = document.querySelector('#profileName');
+const profileRole = document.querySelector('#profileRole');
+const skillContainer = document.querySelector('#skillsContainer');
+const skillsList = document.querySelector('#skillsList');
+const descriptionHeader = document.querySelector('#descriptionHeader');
+const profileDescription = document.querySelector('#descriptionBody');
+const profileEmail = document.querySelector('#profileEmail');
 
+export function userDetailsTemplate(data) {
   renderProfileImage(data, profileImage);
   renderProfileName(data, profileName);
   renderProfileRole(data, profileRole);
@@ -47,7 +47,9 @@ export function renderProfileImage(data, element) {
     element.alt = (name || 'Unknown') + 'logo';
   } else {
     const { avatar, fullName } = data;
-    element.src = avatar || 'https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
+    element.src =
+      avatar ||
+      'https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
     element.alt = (fullName || 'Unknown') + 'avatar';
   }
   return element;

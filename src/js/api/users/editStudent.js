@@ -14,8 +14,6 @@ const action = 'users/';
  */
 
 export async function editStudent(profile) {
-
-  
   const id = JSON.parse(localStorage.getItem('id'));
   console.log(id);
   const profileURL = apiPath + action + `${id}`;
