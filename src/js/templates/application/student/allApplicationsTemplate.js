@@ -7,7 +7,7 @@ export function allApplicationsTemplate() {
   /// Placeholders
   const data = {
     applicationTitle: 'Listing title',
-    media: '/public/assets/icons/DefaultPlaceholder.svg',
+    media: '/assets/icons/DefaultPlaceholder.svg',
     applicationText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     ending: 'Ends 16/01',
     applicantsCount: 4,
