@@ -53,6 +53,10 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 $input-focus-box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
 
+$form-feedback-invalid-color: #932934;
+$form-feedback-valid-color: #146c43;
+
 .registerButton {
   background-image: linear-gradient(to top, #ff0844 0%, #ff4e27 100%);
 }
+

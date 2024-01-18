@@ -11,19 +11,32 @@ export function setRegisterFormListenerApplicant() {
 
   if (form) {
     password.addEventListener('blur', () => {
-      inputs.validatePassword(password);
+      inputs.validatePassword(password, false);
+    });
+    password.addEventListener('input', () => {
+      inputs.validatePassword(password, true);
     });
 
     repeatPassword.addEventListener('blur', () => {
-      inputs.validateRepeatPassword(password, repeatPassword);
+      inputs.validateRepeatPassword(password, repeatPassword, false);
+    });
+    repeatPassword.addEventListener('input', () => {
+      inputs.validateRepeatPassword(password, repeatPassword, true);
+    });
+
+    fullName.addEventListener('input', () => {
+      inputs.validateFullName(fullName, true);
     });
 
     fullName.addEventListener('blur', () => {
-      inputs.validateFullName(fullName);
+      inputs.validateFullName(fullName, false);
     });
 
     email.addEventListener('blur', () => {
-      inputs.validateEmail(email);
+      inputs.validateEmail(email, false);
+    });
+    email.addEventListener('input', () => {
+      inputs.validateEmail(email, true);
     });
 
     form.addEventListener('submit', async (event) => {
