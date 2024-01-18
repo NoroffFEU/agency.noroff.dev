@@ -38,7 +38,7 @@ export function showListings() {
         // eslint-disable-next-line no-undef
         jobListings.innerHTML += `
         <div class="card flex-row p-0 gap-4 w-auto">
-          <img src="https://via.placeholder.com/150 " alt="" class="" />
+          <img src="https://via.placeholder.com/150 " alt="Illustration of close icon" class="" />
           <div class="d-flex flex-column gap-2 me-3">
             <h3>${jobCompany}</h3>
             <p>${jobTitle}#-${jobId}</p>
@@ -48,7 +48,7 @@ export function showListings() {
               <p>Ends at:</p>
               <button class="btn btn-info text-white">View</button>
               <button class="btn btn-sm btn${jobId}" id="deleteUserBtn">
-                <img src="/public/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" />
+                <img src="/assets/icons/delete-black.svg" alt="Delete button" class="footerIcon" />
               </button>
             </div>
           </div>

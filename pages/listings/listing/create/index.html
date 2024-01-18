@@ -37,13 +37,13 @@
             <div class="m-4 mt-5">
               <div class="form mb-3">
                 <label for="companySelect">Select Company</label>
-                <select 
-                    class="form-control bg-theme-light" 
-                    id="companySelect"
-                    name="company"
-                    data-auth="createFormCompanySelect"
-                    aria-label="Enter company ID from dropdown menu"
-                    >
+                <select
+                  class="form-control bg-theme-light"
+                  id="companySelect"
+                  name="company"
+                  data-auth="createFormCompanySelect"
+                  aria-label="Enter company ID from dropdown menu"
+                >
                   <!-- The options will be dynamically added by the script -->
                 </select>
               </div>
@@ -54,6 +54,7 @@
                   style="border-radius: 0px"
                   type="text"
                   name="title"
+                  placeholder="Please enter a job title/position."
                   id="createTitle"
                   data-auth="createFormTitle"
                   required
@@ -66,6 +67,7 @@
                   style="border-radius: 0px"
                   type="text"
                   name="tags"
+                  placeholder="Separate tags by commas (,)"
                   id="createTags"
                   data-auth="createFormTags"
                   aria-label="Enter Tags"
@@ -79,6 +81,7 @@
                   style="border-radius: 0px"
                   type="text"
                   name="requirements"
+                  placeholder="Separate requirements by commas (,)"
                   id="createRequirements"
                   data-auth="createFormRequirements"
                   aria-label="Enter Requirements"
@@ -107,6 +110,7 @@
                   rows="10"
                   type="text"
                   name="jobDescription"
+                  placeholder="Please write a clear description. Description must be at least 10 characters long."
                   id="createDescription"
                   data-auth="createFormDescription"
                   required
@@ -136,8 +140,8 @@
           <div class="modal-dialog">
             <div class="modal-content text-center">
               <div class="modal-body">
-                <!-- <img src="/public/assets/icons/cancel.svg" alt="" />
-                <h3>Woops! Please try again.</h3> -->
+                <img src="/assets/icons/cancel.svg" alt="Cancel icon" />
+                <h3>Woops! Please try again.</h3>
               </div>
             </div>
           </div>
