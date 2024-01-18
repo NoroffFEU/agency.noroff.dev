@@ -11,14 +11,12 @@ import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
 
-export const renderListings = async (listings) => {
+export const renderListings = async () => {
   const listingsContainer = document.querySelector('.listingContainer');
 
   listingsContainer.innerHTML = '';
 
-  if (!listings) {
-      listings = await getListOfListings();
-  }
+  const listings = await getListOfListings();
 
   listings.forEach((listing) => {
     const listingCards = createListings(listing);
@@ -31,7 +29,7 @@ export const renderNoListings = async () => {
   listingsContainer.innerHTML = 'Sorry, no listings found';
 };
 
-const createListings = ({ title, description, company, deadline }) => {
+const createListings = ({ title, description, company, deadline, id }) => {
   const element = createElement('div', ['col-12', 'col-lg-6']);
   const elementRow = createElement('div', [
     'row',
@@ -43,7 +41,7 @@ const createListings = ({ title, description, company, deadline }) => {
     'shadow',
   ]);
   const imgContainer = createImgContainer(company, title);
-  const cardBody = createCardBody(title, description, deadline);
+  const cardBody = createCardBody(title, description, deadline, id);
   elementRow.append(imgContainer, cardBody);
   element.append(elementRow);
 
@@ -63,7 +61,7 @@ const createImgContainer = ({ logo, name }) => {
   element.append(img);
   return element;
 };
-const createCardBody = (title, description, deadline) => {
+const createCardBody = (title, description, deadline, id) => {
   const element = createElement('div', [
     'm-0',
     'col-9',
@@ -78,11 +76,11 @@ const createCardBody = (title, description, deadline) => {
   cardText.style.cssText =
     '-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;';
   cardBody.append(cardTitle, cardText);
-  const cardFooter = createCardFooter(deadline);
+  const cardFooter = createCardFooter(deadline, id);
   element.append(cardBody, cardFooter);
   return element;
 };
-const createCardFooter = (deadline) => {
+const createCardFooter = (deadline, id) => {
   const element = createElement(
     'div',
     ['d-flex', 'flex-column', 'flex-sm-row', 'align-items-end', 'justify-content-between', 'w-100'],
@@ -98,13 +96,12 @@ const createCardFooter = (deadline) => {
     ['bg-theme-primary', 'text-theme-black', 'px-3', 'text-decoration-none'],
     null,
     'View',
-    '#'
+    '/pages/listings/listing/index.html?id=' + id
   );
   a.addEventListener('click', handleClick);
   element.append(span2, a);
   return element;
 };
 function handleClick() {
-  window.location.href = "../../..//pages/listings/listing/index.html"
+  window.location.href = '../../..//pages/listings/listing/index.html';
 }
-
