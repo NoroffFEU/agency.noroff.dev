@@ -1,20 +1,14 @@
 import { getSingleListing } from '../../api/posts/getSingleListing.js';
-
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
 import { findDaysAgo } from '../../utilities/dateConverter/dateConverter.js';
-import { set } from 'immutable';
-
-
 
 export const renderListing = async () => {
   const url = new URL(location.href);
   const id = url.searchParams.get('id');
   
-  
     const metaDescription = document.head.children[4]
-  
-  
+
     const container = document.getElementById('listingContainer');
   
     if (id) {
