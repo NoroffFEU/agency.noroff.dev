@@ -11,16 +11,24 @@ import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
 
-export const renderListings = async () => {
+export const renderListings = async (listings) => {
   const listingsContainer = document.querySelector('.listingContainer');
 
   listingsContainer.innerHTML = '';
 
-  const listings = await getListOfListings();
+  if (!listings) {
+      listings = await getListOfListings();
+  }
+
   listings.forEach((listing) => {
     const listingCards = createListings(listing);
     listingsContainer.append(listingCards);
   });
+};
+
+export const renderNoListings = async () => {
+  const listingsContainer = document.querySelector('.listingContainer');
+  listingsContainer.innerHTML = 'Sorry, no listings found';
 };
 
 const createListings = ({ title, description, company, deadline }) => {
@@ -65,7 +73,7 @@ const createCardBody = (title, description, deadline) => {
     'align-items-baseline',
   ]);
   const cardBody = createElement('div', ['card-body', 'd-flex', 'flex-column', 'gap-2', 'w-100']);
-  const cardTitle = createElement('h5', ['card-title', 'fw-bold', 'text-truncate'], null, title);
+  const cardTitle = createElement('h2', ['card-title', 'fw-bold', 'text-truncate'], null, title);
   const cardText = createElement('p', ['card-text', 'overflow-hidden'], null, description);
   cardText.style.cssText =
     '-webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical;';
@@ -90,8 +98,13 @@ const createCardFooter = (deadline) => {
     ['bg-theme-primary', 'text-theme-black', 'px-3', 'text-decoration-none'],
     null,
     'View',
-    '../../..//pages/listings/listing/index.html'
+    '#'
   );
+  a.addEventListener('click', handleClick);
   element.append(span2, a);
   return element;
 };
+function handleClick() {
+  window.location.href = "../../..//pages/listings/listing/index.html"
+}
+

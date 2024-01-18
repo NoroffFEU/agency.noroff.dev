@@ -10,6 +10,10 @@
   margin-left: -40px;
 }
 
+.form-focus:focus {
+  background-color: #c0c0c0;
+}
+
 .search-listig-section {
   display: flex;
   flex-direction: column;
