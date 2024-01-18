@@ -60,7 +60,7 @@ function validateFullName(input) {
  * @param {HTMLInputElement} input - The email input element.
  * @returns {boolean} True if the email is valid; otherwise, false.
  */
-function validateEmail(input) {
+export function validateEmail(input) {
   const errorDiv = input.nextElementSibling;
   const pattern = /^[\w\-.]+@(stud.)?noroff.no$/;
 
