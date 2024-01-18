@@ -1,4 +1,7 @@
 {
+  "globals": {
+    "bootstrap": "readonly"
+  },
   "env": {
     "browser": true,
     "es2021": true
@@ -26,7 +29,7 @@
       "rules": { "jest/prefer-expect-assertions": "off", "no-undef": "off" }
     },
     {
-      "files": ["**/cypress.config.js"],
+      "files": ["**/cypress.config.js", "cypress/support/commands.js"],
       "env": { "cypress/globals": true },
       "plugins": ["cypress"],
       "extends": ["plugin:cypress/recommended"],
