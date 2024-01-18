@@ -19,6 +19,7 @@ export const header = () => {
   const img = document.createElement('img');
   img.classList.add('Logo-noroff', 'my-auto');
   img.src = '/assets/icons/noroff-logo.svg';
+  img.alt = 'Noroff logo';
   img.setAttribute('width', '33');
   img.setAttribute('height', '50');
 
