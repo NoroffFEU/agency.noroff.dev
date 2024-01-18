@@ -31,9 +31,9 @@ export function getRedirectUrl(role) {
     case 'Applicant':
       return '/';
     case 'Admin':
-      return '/'; // TODO: Add admin page url
+      return '/';
     case 'Client':
-      return '/'; // TODO: Add client page url
+      return '/';
     default:
       return '/';
   }
