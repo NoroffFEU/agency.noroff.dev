@@ -34,7 +34,7 @@ export const checkState = () => {
   } else if (role === 'Client') {
     const links = [
       { href: '/', text: 'Home' },
-      { href: '/pages/client/', text: 'Profile' },
+      { href: '/pages/user/', text: 'Profile' },
       { href: '/pages/listings/', text: 'Listings' },
     ];
     const lis = iterateLinks(links);
