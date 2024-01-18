@@ -13,20 +13,21 @@
     <meta name="author" content="@Menubrea" />
     <meta name="team" content="user" />
     <!-- Description -->
-    <meta name="description" content="Noroff Jobs User login page." />
+    <meta name="description" content="Welcome to the login page, a gateway for both students and companies to access our platform. Whether you're a student seeking career opportunities or a company looking to discover new talent, this portal is your first step towards achieving your goals. Sign in to connect, explore, and take advantage of all the resources available to you on our platform." />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
 
     <script src="/index.js" defer type="module"></script>
   </head>
-
   <body id="signIn">
     <header></header>
-
-    <main class="px-3 bg-theme-dark">
+    <main class="px-sm-3 py-5 bg-theme-dark">
       <div
-        class="bg-theme-light shadow-lg mx-auto p-3 py-5 maxWidthContainer rounded-1 mt-5 col-lg-4"
+        class="container bg-theme-light maxWidthContainer shadow-lg my-3 p-3 py-5 rounded-1 mt-5 w-75"
       >
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <h1 class="fw-bold">Sign in</h1>
+        </div>
         <!-- login form -->
         <!--
           {
@@ -35,12 +36,12 @@
           }
          -->
         <form data-auth="login" id="loginForm" class="container-sm">
-          <h1 class="fw-bold">Sign in</h1>
           <!-- Email input -->
           <div class="mb-3">
             <label for="email" class="form-label mb-2">E-mail</label>
             <input
               data-auth="login"
+              type="email"
               class="form-control p-3"
               id="email"
               name="email"
