@@ -1,4 +1,3 @@
-
 /**
  * @description Creates content inside header
  * @returns logo and navigation
@@ -8,7 +7,7 @@ export const header = () => {
   header.classList.add('bg-theme-dark', 'fixed-top', 'align-items-center', 'shadow-lg', 'p-2');
 
   const nav = document.createElement('nav');
-  nav.classList.add('navbar', 'navbar-dark', 'navbar-expand-md',  'p-0');
+  nav.classList.add('navbar', 'navbar-dark', 'navbar-expand-md', 'p-0');
   nav.setAttribute('role', 'navigation');
   nav.setAttribute('aria-label', 'Main navigation');
 
@@ -21,9 +20,8 @@ export const header = () => {
   logoContainer.setAttribute('aria-label', 'Noroff Job Agency home page');
 
   const img = document.createElement('img');
-  img.src = '/assets/icons/noroff-logo.svg';
-  img.setAttribute('width', '200');
-  img.setAttribute('height', '70');
+  img.src = '/assets/logo/noroff-logo.png';
+  img.setAttribute('width', '150');
   img.alt = 'Noroff Job Agency Logo';
 
   logoContainer.append(img);
@@ -46,9 +44,17 @@ export const header = () => {
   navbarCollapse.id = 'navbarNavDropdown';
 
   const ul = document.createElement('ul');
-  ul.classList.add('navbar-nav', 'ms-auto', 'align-items-center', 'text-center', 'gap-4', 'p-3', 'p-md-0');
+  ul.classList.add(
+    'navbar-nav',
+    'ms-auto',
+    'align-items-center',
+    'text-center',
+    'gap-4',
+    'p-3',
+    'p-md-0'
+  );
   ul.id = 'navUl';
-  ul.setAttribute('role', 'menubar');
+  ul.setAttribute('role', 'button');
   ul.setAttribute('aria-labelledby', 'navUl');
 
   navbarCollapse.append(ul);
