@@ -1,4 +1,4 @@
-import { viewSingleListing } from './src/js/views/listings/index.js';
+import { renderListing } from './src/js/templates/listings/renderListing.js';
 import { displayBaseLayout } from './src/js/ui/index.js';
 import { singleApplicationTemplate } from './src/js/templates/application/student/singleApplicationTemplate.js';
 import { setLoginFormListener } from './src/js/listeners/auth/index.js';
@@ -11,7 +11,7 @@ import { setRegisterFormListenerApplicant } from './src/js/listeners/auth/index.
 import { setRegisterFormListenerCompany } from './src/js/listeners/auth/index.js'; // for company
 import { createListing } from './src/js/listeners/post/createListing.js';
 import { showListings } from './src/js/views/admin/showListings.js';
-import { searchListings, filterListings } from './src/js/listeners/post/searchListing.js'
+import { searchListings, filterListings } from './src/js/listeners/post/searchListing.js';
 import '/src/scss/index.scss';
 import { deleteItem } from './src/js/api/posts/deleteListing.js';
 
@@ -48,18 +48,18 @@ const routerSwitch = () => {
 
     // Single listing page UI (PAGE DOESNT EXIST YET)
     case 'singleListing':
-      document.querySelector('title').innerText = defaultTitle + ` || Listing`;
-      viewSingleListing();
+      document.querySelector('title').innerText = defaultTitle + ` || listing`;
+      renderListing();
+      deleteItem();
+      editListingListener();
       break;
 
     // Listing UI settings
     case 'listing':
       document.querySelector('title').innerText = defaultTitle + ` || Listings`;
-      renderListings();
+      renderListing();
       deleteItem();
       editListingListener();
-      searchListings();
-      filterListings();
       break;
 
     // Listings UI settings
@@ -68,6 +68,7 @@ const routerSwitch = () => {
       // showListings();
       renderListings();
       searchListings();
+      filterListings();
       break;
 
     // TBD Listings UI settings

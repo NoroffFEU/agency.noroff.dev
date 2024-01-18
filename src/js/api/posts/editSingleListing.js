@@ -20,8 +20,8 @@ export async function editSingleListing(id, updatedData) {
 
   try {
     const accessToken = getToken('token');
-    if (!accessToken){
-      throw new Error("Access token is not available");
+    if (!accessToken) {
+      throw new Error('Access token is not available');
     }
     const newAccessToken = accessToken.replace(/^"|"$/g, '');
 
@@ -35,7 +35,11 @@ export async function editSingleListing(id, updatedData) {
 
     if (!response.ok) {
       const editResponse = await response.json();
+      alert(`Error editing listing: ${editResponse.message}`);
       throw new Error(`Error editing listing: ${editResponse.message || response.statusText}`);
+    } else {
+      document.getElementById('hide-edit-modal').click();
+      new bootstrap.Modal(document.querySelector('#success-modal')).show();
     }
 
     return response.json();
