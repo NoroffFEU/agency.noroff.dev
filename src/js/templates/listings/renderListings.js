@@ -17,7 +17,7 @@ export const renderListings = async () => {
   listingsContainer.innerHTML = '';
 
   const listings = await getListOfListings();
-  
+
   listings.forEach((listing) => {
     const listingCards = createListings(listing);
     listingsContainer.append(listingCards);
@@ -29,7 +29,7 @@ export const renderNoListings = async () => {
   listingsContainer.innerHTML = 'Sorry, no listings found';
 };
 
-const createListings = ({ title, description, company, deadline }) => {
+const createListings = ({ title, description, company, deadline, id }) => {
   const element = createElement('div', ['col-12', 'col-lg-6']);
   const elementRow = createElement('div', [
     'row',
@@ -96,13 +96,12 @@ const createCardFooter = (deadline, id) => {
     ['bg-theme-primary', 'text-theme-black', 'px-3', 'text-decoration-none'],
     null,
     'View',
-    '/pages/listings/listing/index.html?id=' + id ,
+    '/pages/listings/listing/index.html?id=' + id
   );
   a.addEventListener('click', handleClick);
   element.append(span2, a);
   return element;
 };
 function handleClick() {
-  window.location.href = "../../..//pages/listings/listing/index.html"
+  window.location.href = '../../..//pages/listings/listing/index.html';
 }
-
