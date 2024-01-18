@@ -40,7 +40,7 @@ export const renderListing = async () => {
     } else {
       alert('No id provided');
       setTimeout(() => {
-        location.href = '/listings.html';
+        location.href = '../index.html';
       }, 2000);
       
     }

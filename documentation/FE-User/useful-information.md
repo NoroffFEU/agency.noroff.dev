@@ -34,8 +34,8 @@ Provides you with name of `keys` and `datatype` of `value`. Current code uses a 
 
 #### Design
 
-[Figma hifi-wireframes](https://www.figma.com/file/cNUVBifEDpYxAgAV57da3q/Experimentation?node-id=6%3A2&t=zhwHG24xwodydGdY-0)
-You might need permission to view this.
+[Figma hifi-wireframes](https://www.figma.com/file/JBKuBV7FH9yrmcq4MUhKid/Hi-fi-wireframes?type=design&node-id=0%3A1&mode=design&t=CZ56opBRWy80vuGK-1)
+You might need permission to view this (password required).
 
 ## Code
 
