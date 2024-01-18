@@ -2,7 +2,7 @@ Working in teams in this project team members will have different roles. Scrum M
 
 ### Scrum Master(SM):
 
-1. **Facilitator and Servant Leader:**
+1. **Facilitator and Leader:**
    - Act as a facilitator for the Scrum Team, removing impediments and ensuring a conducive environment for development.
    - Serve as a servant leader, putting the needs of the team first and helping them achieve their goals.
 
@@ -10,7 +10,7 @@ Working in teams in this project team members will have different roles. Scrum M
    - Ensure that the Scrum framework is understood and followed by the team.
    - Facilitate Scrum events, such as Sprint Planning, Daily Stand-ups, Sprint Review, and Sprint Retrospective.
 
-3. **Communication Facilitator:**
+3. **Coordinator:**
    - Promote effective communication within the team and acts as a link between teams. 
    - Address conflicts and foster collaboration among team members.
    - Promote collaboration between teams, Scrum masters meeting such as Sprint planning and spring retrospective.
@@ -25,6 +25,7 @@ Working in teams in this project team members will have different roles. Scrum M
 1. **Responsability:**
    - Quality Assurance serves as the primary reviewer for the project, ensuring thorough assessment and validation of deliverables.
    - Review the code changes and provide feedback.QA may verify that the reported issue has been adequately addressed and resolved. 
+   - QA is responsible for merging, and if the issue is properly linked, it should automatically close itself. However, it sometimes encounters bugs.
    - Ensure that quality is maintained throughout the development process.
    - Collaborate with developers to understand user stories and acceptance criteria.
    - Establish a dedicated channel for Quality Assurances to collaborate and communicate effectively.
@@ -63,7 +64,7 @@ Working in teams in this project team members will have different roles. Scrum M
 4. **Code Review and Refactoring:**
    - Participate in code reviews to ensure code quality and adherence to coding standards.
    - Proactively identify opportunities for code refactoring to improve maintainability.
-   - Developers are required to await approval from QA before merging code changes. This ensures a comprehensive review of the code and adherence to quality standards. 
-   - Developers are responsable for merging and closing their own issues. 
+   - Developers are required to verify that their issues have been merged and closed. Do NOT delete issues. 
+
 
 Remember, effective collaboration among these roles is essential for the success of an Agile team. Clear communication, mutual respect, and a shared commitment to delivering high-quality products are key components of a successful Agile development process.
