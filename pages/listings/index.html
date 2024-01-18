@@ -7,7 +7,7 @@
     <!-- Description -->
     <meta
       name="description"
-      content="This page provides an overview of all the job listings that are posted on the website."
+      content="This page presents a detailed compilation of the latest job listings posted on our website, tailored for companies seeking exceptional talent. Here, employers can explore a diverse array of opportunities to connect with skilled professionals across various industries and specializations, streamlining the recruitment process to efficiently find the ideal candidate for your team."
     />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
@@ -20,7 +20,7 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../../src/scss/custom/_allListingPage.scss">
+    <link rel="stylesheet" href="../../css/index.css">
   </head>
 
   <body id="listings">
@@ -34,6 +34,7 @@
         id="container-listings"
       >
         <!--Top of listings container-->
+    
 
         <section class="d-flex justify-content-center">
           <div class="mt-5 col-6">
@@ -72,22 +73,28 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <imgi
-                    src="/assets/icons/filter.svg"
-                    alt="Illustration of filter icon"
+
+                  <img
+                    src="../../public/assets/icons/filter.svg"
+                    alt="Sort icon"
+
+                  
                     class="icon-sm"
                   />
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">All</a></li>
-                  <li><a class="dropdown-item" href="#">Latest</a></li>
-                  <li><a class="dropdown-item" href="#">Last 14 days</a></li>
-                  <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                  <li><a class="dropdown-item" href="#" id="allListings">All</a></li>
+                  <li><a class="dropdown-item" href="#" id="latestListings">Latest</a></li>
+                  <li><a class="dropdown-item" href="#" id="fourteenDaysListings">Last 14 days</a></li>
+                  <li><a class="dropdown-item" href="#" id="thirtyDaysListings">Last 30 days</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
+        <h2 class="visually-hidden">Subheading 1</h2>
+        <h3 class="visually-hidden">Subheading 1</h3>
+        <h4 class="visually-hidden">Subheading 1</h4>
         <div id="listingsErrorContainer" class="container"></div>
         <!--Bootstrap grid cards-->
         <div class="row g-4 listingContainer justify-content-center px-5">
@@ -176,6 +183,7 @@
       </div>
     </main>
     <!--Footer is created trough JS script-->
+    <h3 class="visually-hidden">Subheading 1</h3>
     <footer></footer>
   </body>
 </html>

@@ -1,8 +1,12 @@
 // Author: Emilie Herrera Thomsen
 // This is just the skeleton for a search functionality, not finished.
 
+// Author of the working version: Ekaterina Nattrass
+
+
 import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { renderListings, renderNoListings } from '../../templates/listings/renderListings.js';
+
 
 export async function searchListings() {
 
@@ -25,6 +29,53 @@ export async function searchListings() {
     else {
       renderNoListings();
     }
- 
   };
 }
+
+export async function filterListings() {
+
+    const arrayOfListings = await getListOfListings();
+
+    function filter(daysInMilliseconds) {
+      const filteredListings = arrayOfListings.filter((listing) => {
+      const dateCreated = new Date(listing.created);
+      const currentDate = new Date();
+      const timeDifference = currentDate.getTime() - dateCreated.getTime();
+      if (timeDifference <= daysInMilliseconds) {
+        return true
+      }
+     });
+     if (filteredListings.length > 0) {
+      renderListings(filteredListings)
+     } else {
+      renderNoListings()
+     }
+    }
+    
+    const btnAll = document.querySelector('#allListings');
+    const btnLatest = document.querySelector('#latestListings');
+    const btnFourteen = document.querySelector('#fourteenDaysListings');
+    const btnThirty = document.querySelector('#thirtyDaysListings');
+
+    const day = 24 * 60 * 60 * 1000;
+    const fourDays = 4 * day;
+    const fourteenDays = 14 * day;
+    const thirtyDays = 30 * day;
+    
+
+    btnAll.addEventListener('click', () => {
+    renderListings(arrayOfListings);
+    });
+
+    btnLatest.addEventListener('click', () => {
+      filter(fourDays)
+    });
+
+    btnFourteen.addEventListener('click', () => {
+     filter(fourteenDays)
+    });
+
+    btnThirty.addEventListener('click', () => {
+    filter(thirtyDays)
+    });
+} 
