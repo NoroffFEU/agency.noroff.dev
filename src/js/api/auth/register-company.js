@@ -1,6 +1,7 @@
 import { apiUrl, companyUrl } from '../constants.js';
 import { getToken } from '../getToken.js';
 
+
 /**
  * Register a company by sending a POST request to the API
  *
@@ -15,36 +16,29 @@ import { getToken } from '../getToken.js';
  * @throws {Error} Throws error if the registration request fails or returns error status.
  */
 
-export async function registerCompany(profile) {
-  const accessToken = getToken('token');
-  const newAccessToken = accessToken.replace(/^"|"$/g, '');
+export async function registerCompany(data) {
+  let token = data.registerToken;
+  if (!token) {
+    const loggedInUserToken = getToken();
+    token = loggedInUserToken.replace(/^"|"$/g, ''); //Todo: This seems unnecessary. Should be handled in getToken() if needed.
+  }
+  
   const registerURL = apiUrl.toString() + companyUrl;
 
-  try {
-    const response = await fetch(registerURL, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${newAccessToken}`,
-      },
-      method: 'POST',
-      body: JSON.stringify(profile),
-    });
+  const response = await fetch(registerURL, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
 
-    let result; // Declare the variable outside of the switch block
+  const json = await response.json();
 
-    switch (response.status) {
-      case 201: // Status code for successful creation
-        result = await response.json(); // Assign the value here
-        // Redirect to login page after successful registration
-        window.location.replace('/pages/auth/login/index.html');
-        return result;
-      default:
-        // Handle API-specific errors
-        throw new Error(`Error ${response.status}: ${response.statusText}`);
-    }
-  } catch (error) {
-    // Handle network or unexpected errors
-    console.error('Registration error:', error);
-    throw error; // Rethrow to allow error handling by the caller
+  if (!response.ok) {    
+    throw new Error(json.message);
   }
+
+  return json;
 }
