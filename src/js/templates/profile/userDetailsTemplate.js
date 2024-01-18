@@ -23,7 +23,6 @@ export function userDetailsTemplate(data) {
   const skillsList = document.querySelector('#skillsList');
   const descriptionHeader = document.querySelector('#descriptionHeader');
   const profileDescription = document.querySelector('#descriptionBody');
-  const profileEmail = document.querySelector('#profileEmail');
 
   renderProfileImage(data, profileImage);
   renderProfileName(data, profileName);
@@ -31,7 +30,6 @@ export function userDetailsTemplate(data) {
   renderProfileSkills(data, skillsList, skillContainer);
   renderDescriptionHeader(data, descriptionHeader);
   renderProfileDescription(data, profileDescription);
-  renderProfileEmail(data, profileEmail);
 }
 
 /**
@@ -53,22 +51,7 @@ export function renderProfileImage(data, element) {
   return element;
 }
 
-/**
- * Function for rendering profile email
- * @param {*} data profile response
- * @param {*} element container
- * @returns returns html based on state
- */
-export function renderProfileEmail(data, element) {
-  if (roleCompany) {
-    const { email } = data;
-    element.innerHTML = email;
-  } else {
-    const { email } = data;
-    element.innerHTML = email;
-  }
-  return element;
-}
+
 
 /**
  * Function to render profile name

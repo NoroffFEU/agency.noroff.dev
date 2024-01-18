@@ -1,6 +1,7 @@
 // Register form for company
 
 import { registerCompany } from '../../api/auth/index.js';
+import { message } from '../../utilities/message/message.js';
 
 export function setRegisterFormListenerCompany() {
   const form = document.querySelector('#registerForm-company');
@@ -18,8 +19,8 @@ export function setRegisterFormListenerCompany() {
         // send it to Api
         await registerCompany(data);
       } catch (error) {
-        // display error message here
-        console.log('error:', error);
+        message("danger", "An error occured when attempting to register company. Please try again", "#errorMessage");
+        console.error(error)
       }
     });
   }
