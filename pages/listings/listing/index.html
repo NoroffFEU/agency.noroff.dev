@@ -7,14 +7,13 @@
     <!-- Description of single listing page will have to be rendered in JS to get correct info for each listing -->
     <meta name="description" content="" />
     <!-- Link to my font awesome, will probably have to be replaced with one that belongs to the entire team? -->
-    <link rel="stylesheet" href="/css/index.css" />
     <script src="https://kit.fontawesome.com/155738729b.js" crossorigin="anonymous"></script>
     <!-- Page title of single listing will have to be rendered in JS to get correct info related to the listing -->
     <title></title>
 
     <script src="/index.js" defer type="module"></script>
   </head>
-  <body id="listing">
+  <body id="singleListing">
     <header></header>
     <main class="bg-theme-grey">
       <div class="container mt-4">
@@ -24,8 +23,8 @@
             <i class="fa-solid fa-chevron-left"></i> Back
           </button>
           <div
-            class="card bg-theme-light border-0 w-75 align-self-center"
-            id="applicationData"
+            class="   border-0 w-75 align-self-center"
+            id="listingContainer"
           ></div>
           <section class="listingContainer"></section>
           <!-- Modal -->
@@ -63,6 +62,7 @@
                             class="form-control bg-theme-light"
                             type="text"
                             name="title"
+                            placeholder="Please enter a job title/position."
                             id="editTitle"
                             required
                           />
@@ -73,6 +73,7 @@
                             class="form-control bg-theme-light"
                             type="text"
                             name="tags"
+                            placeholder="Separate tags by commas (,)"
                             id="editTags"
                             required
                             aria-label="Enter tags"
@@ -95,6 +96,7 @@
                           <input
                             class="form-control bg-theme-light"
                             type="text"
+                            placeholder="Separate requirements by commas (,)"
                             name="requirements"
                             id="editRequirements"
                             aria-label="Enter URL for cover picture"
@@ -107,6 +109,7 @@
                             rows="10"
                             type="text"
                             name="description"
+                            placeholder="Please write a clear description. Description must be at least 10 characters long."
                             id="editDescription"
                           ></textarea>
                         </div>
@@ -133,7 +136,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="text-center mt-4">
-                    <img src="../../../public/assets/icons/checkmark.svg" alt="" />
+                    <img src="/assets/icons/checkmark.svg" alt="Illustration of close icon" />
                     <h2 class="modal-title text-center">Listing has been </br> updated</h2>
                     <div class="modal-footer justify-content-center pb-4">
                       <a
@@ -211,7 +214,7 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="text-center py-5 my-5">
-                <img src="../../../public/assets/icons/delete-red.svg" alt="" />
+                <img src="/assets/icons/delete-red.svg" alt="Illustration of close icon" />
                 <h2 class="modal-title text-center">Listing Deleted</h2>
                 <button class="d-none" id="hide-delete-modal"
                 data-bs-dismiss="modal"
