@@ -11,7 +11,7 @@ import { setRegisterFormListenerApplicant } from './src/js/listeners/auth/index.
 import { setRegisterFormListenerCompany } from './src/js/listeners/auth/index.js'; // for company
 import { createListing } from './src/js/listeners/post/createListing.js';
 import { showListings } from './src/js/views/admin/showListings.js';
-import { searchListings, filterListings } from './src/js/listeners/post/searchListing.js'
+import { searchListings, filterListings } from './src/js/listeners/post/searchListing.js';
 import '/src/scss/index.scss';
 import { deleteItem } from './src/js/api/posts/deleteListing.js';
 
@@ -58,8 +58,6 @@ const routerSwitch = () => {
       renderListings();
       deleteItem();
       editListingListener();
-      searchListings();
-      filterListings();
       break;
 
     // Listings UI settings
@@ -68,6 +66,7 @@ const routerSwitch = () => {
       // showListings();
       renderListings();
       searchListings();
+      filterListings();
       break;
 
     // TBD Listings UI settings
