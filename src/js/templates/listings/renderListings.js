@@ -96,6 +96,11 @@ const createCardFooter = (deadline, id) => {
     'View',
     '/pages/listings/listing/index.html?id=' + id ,
   );
+  a.addEventListener('click', handleClick);
   element.append(span2, a);
   return element;
 };
+function handleClick() {
+  window.location.href = "../../..//pages/listings/listing/index.html"
+}
+
