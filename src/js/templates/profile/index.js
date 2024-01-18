@@ -1,2 +1,2 @@
-export * from './userDetailsTemplate.js';
+export * from './createProfileContent.js';
 export * from './createInput.js';

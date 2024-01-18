@@ -48,33 +48,27 @@
               src="https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png"
               alt="Profile User Avatar"
             />
-            <h1 class="text-center mt-3 fw-bold" id="profileName">Peter Parker</h1>
-            <p id="profileRole" class="text-center fw-bold fs-2">Front-End Developer</p>
-            <p id="profileEmail" class="text-center fs-2 fw-lighter">profileEmail</p>
+            <h1 class="text-center mt-3 fw-bold" id="profileName"></h1>
+            <p id="profileRole" class="text-center fw-bold fs-2"></p>
+            <p id="profileContact" class="text-center fw-regular fs-1"></p>
+            <p id="profileEmail" class="text-center fs-2 fw-lighter"></p>
           </div>
           <div
             class="px-4 py-3 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
             id="skillsContainer"
           >
-            <h2 class="fs-2 fw-bold" id="skillsHeader">Skills</h2>
+            <h2 class="fs-2 fw-bold mb-3" id="skillsHeader">Skills</h2>
             <ul
-              class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6"
+              class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6 mb-0"
               id="skillsList">
-             
-              
             </ul>
           </div>
           <div
-            class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+            class="px-4 pt-3 pb-2 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
             id="descriptionContainer"
           >
-            <h2 class="fs-2 fw-bold" id="descriptionHeader">About Me</h2>
-            <p id="descriptionBody">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eligendi rem ullam
-              inventore tenetur delectus animi dolorum sit sequi totam suscipit doloribus nemo fuga,
-              quam vel? Alias, repellendus, at aut inventore, obcaecati ipsa tenetur incidunt illo
-              exercitationem dolor porro odit facilis pariatur. Rerum quam consequuntur consequatur
-              velit molestiae minus reiciendis?
+            <h2 class="fs-2 fw-bold mb-3" id="descriptionHeader"></h2>
+            <p class="mb-2" id="descriptionBody">
             </p>
           </div>
         </div>
@@ -239,7 +233,7 @@
                 <!-- // Student form ends // -->
 
                 <!-- // company form starts -->
-                <form id="editCompanyProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
+                <form id="editCompanyProfile" class="px-md-5 pb-md-5 p-2 container-sm ">
                   <!-- Logo input -->
                   <div class="mb-4 position-relative">
                     <img
@@ -336,7 +330,7 @@
             </button>
           </div>
 
-          <div class="mt-5">
+          <div class="mt-5" id="companyApplicationsContainer">
             <!-- Tab navigation for app/offers -->
             <nav class="nav nav-tabs container-sm" role="tablist" id="nav-tab">
               <!-- Button for Application tab -->
