@@ -1,5 +1,10 @@
 // Author: May-Tove Hovdal
-
+/**
+ * function containing the template for a listing, the template adds the elements: cardTitle, details, buttonContainer, description,img, applyBtn, favBtn which appends to the card element
+ * the card element the appends to the column element which is return from the function
+ * @param {Object} listing 
+ * @returns {Element} column element
+ */
 export function singleListingTemplate(listing) {
   // Content will be updated and altered better when we are provided with correct endpoints, using dummy API for now
   const column = document.createElement('div');
