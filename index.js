@@ -55,8 +55,10 @@ const routerSwitch = () => {
     case 'listing':
       document.querySelector('title').innerText = defaultTitle + ` || Listings`;
       renderListings();
+      editListingListener();
       searchListings();
       filterListings();
+
       break;
 
     // Listings UI settings
@@ -77,11 +79,11 @@ const routerSwitch = () => {
       setLoginFormListener();
       break;
 
-    // Edit listing UI settings
-    case 'editListing':
-      document.querySelector('title').innerText = defaultTitle + ` || editListing`;
-      editListingListener();
-      break;
+    // // Edit listing UI settings
+    // case 'editListing':
+    //   document.querySelector('title').innerText = defaultTitle + ` || editListing`;
+    //   editListingListener();
+    //   break;
 
     // Create listing UI settings
     case 'createListing':
