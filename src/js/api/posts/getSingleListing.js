@@ -20,12 +20,12 @@ export  const getSingleListing = async (id) => {
     const response = await authBaseFetchOpen(getListingURL);
 
     
-    if (!response.ok) {
-     
-      alert('Error retrieving listing') + response.status + response.statusText;
+    if (!response || !response.ok) {
+      const errorMsg = 'Error retrieving listing: ' + (response ? response.statusText : 'Response is undefined');
+      throw new Error(errorMsg);
     }
 
-    return response.json()
+    return response.json();
   } catch (error) {
     console.error('Get listing failed:', error);
     throw error;
