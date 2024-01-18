@@ -1,12 +1,11 @@
+@import './themeColorVariables';
+
 header {
+  min-height: 86px;
   .navbarBrand {
     img {
       width: 33px;
       height: 50px;
-    }
-    .logoText {
-      span {
-      }
     }
   }
   nav {
@@ -20,13 +19,11 @@ header {
       }
     }
   }
-  button {
-    span {
-      background-color: lightgray;
-    }
-  }
+}
+.navBtnCustomWidth {
+  min-width: 88px;
 }
 
-//Customize the hamburger menu icon -- This doesnt work as of now. Fix on the way.
-$navbar-dark-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#fff' stroke-linecap='square' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+//Customize the hamburger menu icon
 $navbar-toggler-font-size: 2rem;
+$navbar-toggler-focus-width: none;

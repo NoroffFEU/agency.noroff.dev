@@ -7,7 +7,7 @@
     <!-- Description -->
     <meta
       name="description"
-      content="This page lets users who are looking for work to register as Applicants on the website."
+      content="Explore career opportunities by registering as an Applicant on this page. Designed for users seeking employment, our platform streamlines the process of connecting you with potential job openings. Get started on your path to a rewarding career today."
     />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
@@ -16,16 +16,15 @@
 
   <body id="registerPageApplicant">
     <header></header>
-    <main class="px-sm-3 py-5 bg-theme-dark">
+    <main class="px-sm-3 bg-theme-dark">
       <div
-        class="container maxWidthContainer my-3 shadow bg-white p-3 rounded-1 w-50"
-        style="min-width: 300px"
+        class="container bg-theme-light maxWidthContainer shadow-lg my-3 p-3 py-5 rounded-1 mt-5 w-75"
       >
         <div class="d-flex flex-column justify-content-center align-items-center">
-          <h1 class="fw-bold">Register For Applicant</h1>
+          <h1 class="fw-bold">Register for Applicant</h1>
         </div>
         <!-- Register form -->
-        <form class="row g-3" id="registerForm-applicant">
+        <form novalidate class="row g-3" id="registerForm-applicant">
           <div class="d-flex justify-content-center mb-3">
             <div
               class="d-flex justify-content-center align-items-center border border-dark rounded-circle bg-theme-new-grey registerImg"
@@ -96,7 +95,17 @@
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="degrees">Degree(s)</label>
-            <select class="form-select" aria-label="Default select example">
+            <button
+              id="showMore"
+              class="btn border-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#hiddenInput"
+              aria-label="show"
+            >
+              <img class="icon-sm" src="/assets/icons/plus.svg" alt="" />
+            </button>
+            <select class="form-select" aria-label="Default select example" id="degrees">
               <option selected></option>
               <option value="">Applied Machine Learning</option>
               <option value="">Front-end Development</option>
@@ -152,19 +161,11 @@
                 <option value="">Other</option>
               </select>
             </div>
-            <button
-              id="showMore"
-              class="btn border-0"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#hiddenInput"
-            >
-              <img class="icon-sm" src="/assets/icons/plus.svg" alt="" />
-            </button>
             <div class="error"></div>
           </div>
+          <div id="errorMessage" class="text-theme-primary"></div>
           <div class="d-grid gap-2 col-md-6 mx-auto">
-            <button class="btn btn-theme-primary btn-lg text-white rounded-1 mt-3" type="submit">
+            <button class="btn btn-theme-primary btn-lg text-white rounded-1 mt-3 registerButton" type="submit">
               Register
             </button>
 
@@ -174,27 +175,7 @@
                 >Register as a company</a
               >
             </div>
-            <button
-              id="showMore"
-              class="btn border-0"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#hiddenInput"
-            >
-              <img class="icon-sm" src="/assets/icons/plus.svg" alt="" />
-            </button>
             <div class="error"></div>
-          </div>
-          <div class="d-grid gap-2 col-md-6 mx-auto">
-            <button class="btn btn-theme-primary btn-lg text-black rounded-1 mt-3" type="submit">
-              Register
-            </button>
-            <a
-              href="../company/index.html"
-              class="btn text-black align-self-center text-decoration-underline"
-              id="companyReg"
-              >Not an applicant? Register as company instead!</a
-            >
           </div>
         </form>
         <!-- image modal -->
@@ -235,7 +216,7 @@
                   <!-- There are styles for a background img ready for JS.-->
                   <button
                     type="button"
-                    class="btn btn-theme-primary btn-lg text-black rounded-1 w-100"
+                    class="btn btn-theme-primary btn-lg text-light rounded-1 w-100"
                     data-bs-dismiss="modal"
                   >
                     Add image
@@ -245,9 +226,11 @@
             </div>
           </form>
         </div>
-        <div id="confirm-message"></div>
       </div>
     </main>
+    <h2 class="visually-hidden">subheading1</h2>
+    <h3 class="visually-hidden">subheading2</h3>
+    <h4 class="visually-hidden">subheading3</h4>
     <footer></footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
