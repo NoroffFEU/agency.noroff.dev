@@ -59,25 +59,20 @@ export function createInputSelect(array, parent) {
   return container;
 }
 
-
-const formUser = document.querySelector("#editStudentProfile");
-const formClient = document.querySelector("#editCompanyProfile");
+const formUser = document.querySelector('#editStudentProfile');
+const formClient = document.querySelector('#editCompanyProfile');
+const editProfileBtn = document.querySelector('#editProfileBtn');
 export const getRole = () => {
   const roleRaw = localStorage.getItem('role');
   let role = JSON.parse(roleRaw);
 
   if (role === 'Applicant') {
-    formUser.classList.remove("d-none")
-  } 
-  
-  else if (role === 'Admin') {
-
-  } 
-  else if (role === 'Client') {
-    formClient.classList.remove("d-none")
-  } 
-  else {
-    console.log("No role found, waiting for log in")
+    formUser.classList.remove('d-none');
+  } else if (role === 'Admin') {
+  } else if (role === 'Client') {
+    formClient.classList.remove('d-none');
+  } else {
+    editProfileBtn.classList.add('d-none');
   }
 };
-getRole() 
+getRole();
