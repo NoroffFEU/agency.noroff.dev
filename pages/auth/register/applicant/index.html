@@ -44,7 +44,6 @@
             <input
               type="text"
               class="form-control"
-              aria-label="Full name"
               id="fullName"
               required
               pattern="^[a-zA-ZæøåÆØÅ]+( [a-zA-ZæøåÆØÅ]+)+$"
@@ -57,7 +56,6 @@
             <input
               type="email"
               class="form-control"
-              aria-label="Email"
               name="email"
               id="emailStudent"
               pattern="^[\w\-.]+@(stud.)?noroff.no$"
@@ -71,7 +69,6 @@
             <input
               type="password"
               class="form-control"
-              aria-label="Password"
               name="password"
               id="passwordStudent"
               minlength="8"
@@ -85,7 +82,6 @@
             <input
               type="password"
               class="form-control"
-              aria-label="Repeat password"
               minlength="8"
               title="The password value must be at least 8 characters."
               id="repPasswordStud"
@@ -101,7 +97,7 @@
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#hiddenInput"
-              aria-label="show"
+              aria-label="show add image modal"
             >
               <img class="icon-sm" src="/assets/icons/plus.svg" alt="" />
             </button>
@@ -165,7 +161,10 @@
           </div>
           <div id="errorMessage" class="text-theme-primary"></div>
           <div class="d-grid gap-2 col-md-6 mx-auto">
-            <button class="btn btn-theme-primary btn-lg text-white rounded-1 mt-3 registerButton" type="submit">
+            <button
+              class="btn btn-theme-primary btn-lg text-white rounded-1 mt-3 registerButton"
+              type="submit"
+            >
               Register
             </button>
 
@@ -192,7 +191,7 @@
                 type="button"
                 class="button-close align-self-end"
                 data-bs-dismiss="modal"
-                aria-label="Close"
+                aria-label="Close add image modal"
               >
                 <img class="icon" src="/assets/icons/close.svg" alt="" />
               </button>
@@ -218,6 +217,7 @@
                     type="button"
                     class="btn btn-theme-primary btn-lg text-light rounded-1 w-100"
                     data-bs-dismiss="modal"
+                    aria-label="add image button"
                   >
                     Add image
                   </button>
