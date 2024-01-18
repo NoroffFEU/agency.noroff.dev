@@ -4,7 +4,7 @@
  * @param {HTMLInputElement} input - The password input element.
  * @returns {boolean} True if the password is valid; otherwise, false.
  */
-function validatePassword(input) {
+export function validatePassword(input) {
   const errorDiv = input.nextElementSibling;
 
   if (input.value.length < 8) {

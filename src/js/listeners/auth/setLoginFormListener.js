@@ -1,5 +1,6 @@
 import { login } from '../../api/auth/index.js';
 import { validateEmail } from './validateInputs.js';
+import { validatePassword } from './validateInputs.js';
 
 
 // Author: Truls Haakenstad @Menubrea
@@ -13,13 +14,18 @@ import { validateEmail } from './validateInputs.js';
  */
 export function setLoginFormListener() {
   const emailInput = document.querySelector('#email');
+  const passwordInput = document.getElementById('password');
   const storedEmail = localStorage.getItem('email');
   const form = document.querySelector('#loginForm');
 
   emailInput.addEventListener('blur', () => {
     const emailField = document.getElementById('email')
-    //const emailAddress = emailField.value
     validateEmail(emailField);
+  })
+
+  passwordInput.addEventListener('blur', () => {
+    const passwordField = document.getElementById('password')
+    validatePassword(passwordField);
   })
 
   if (storedEmail && emailInput) {
