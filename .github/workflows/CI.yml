@@ -11,14 +11,14 @@ on:
     branches: ['main']
     # Ignores changes in the .md, .env.example and .gitignore files
     paths-ignore:
-      # - '**/*.md'
+      - '**/*.md'
       - '**/*.env.example'
       - '.gitignore'
   pull_request:
     branches: ['main']
     types: [opened, synchronize, reopened, ready_for_review]
     paths-ignore:
-      # - '**/*.md'
+      - '**/*.md'
       - '**/*.env.example'
       - '.gitignore'
 
