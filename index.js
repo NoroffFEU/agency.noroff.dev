@@ -49,13 +49,15 @@ const routerSwitch = () => {
     // Single listing page UI (PAGE DOESNT EXIST YET)
     case 'singleListing':
       document.querySelector('title').innerText = defaultTitle + ` || listing`;
-      renderListing()
+      renderListing();
+      deleteItem();
+      editListingListener();
       break;
 
     // Listing UI settings
     case 'listing':
       document.querySelector('title').innerText = defaultTitle + ` || Listings`;
-      renderListings();
+      renderListing();
       deleteItem();
       editListingListener();
       break;
