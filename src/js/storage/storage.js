@@ -24,7 +24,7 @@ export class Store {
       return undefined;
     }
   }
-
+  
   set state(newState) {
     if (newState !== undefined) {
       this.storage.setItem(this.key, JSON.stringify(newState));
@@ -39,4 +39,5 @@ export class Store {
       sessionStorage.removeItem(this.key);
     }
   }
+ 
 }
