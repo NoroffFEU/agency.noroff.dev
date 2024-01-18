@@ -98,8 +98,13 @@ const createCardFooter = (deadline) => {
     ['bg-theme-primary', 'text-theme-black', 'px-3', 'text-decoration-none'],
     null,
     'View',
-    '../../..//pages/listings/listing/index.html'
+    '#'
   );
+  a.addEventListener('click', handleClick);
   element.append(span2, a);
   return element;
 };
+function handleClick() {
+  window.location.href = "../../..//pages/listings/listing/index.html"
+}
+
