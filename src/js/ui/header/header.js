@@ -17,7 +17,7 @@ export const header = () => {
 
   const logoContainer = document.createElement('a');
   logoContainer.classList.add('navbar-brand', 'm-0', 'p-0');
-  logoContainer.href = '/';
+  logoContainer.href = './index.html';
   logoContainer.setAttribute('aria-label', 'Noroff Job Agency home page');
 
   const img = document.createElement('img');
@@ -48,7 +48,7 @@ export const header = () => {
   const ul = document.createElement('ul');
   ul.classList.add('navbar-nav', 'ms-auto', 'align-items-center', 'text-center', 'gap-4', 'p-3', 'p-md-0');
   ul.id = 'navUl';
-  ul.setAttribute('role', 'menubar');
+  ul.setAttribute('role', 'button');
   ul.setAttribute('aria-labelledby', 'navUl');
 
   navbarCollapse.append(ul);
