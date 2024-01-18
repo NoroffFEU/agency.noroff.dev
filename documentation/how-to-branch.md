@@ -59,11 +59,11 @@ Ensure you're in your team's main working branch:
 
 Then create a new branch for your task:
 
-`git branch FE-Offers-createOfferListener`
+`git branch teamName-Offers-createOfferListener`
 
 Or, create and switch to the new branch in one command:
 
-`git checkout -b FE-Application-nameOfTaskHere`
+`git checkout -b teamName-Application-nameOfTaskHere`
 
 #### Deleting Branches
 
