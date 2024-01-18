@@ -23,9 +23,9 @@
       >
         <div class="d-flex flex-column justify-content-center align-items-center">
           <h1 class="fw-bold">Register for Companies</h1>
-        </div>       
+        </div>
         <!-- Register form -->
-        <form class="row g-3" id="registerForm-company">
+        <form novalidate class="row g-3" id="registerForm-company">
           <div class="d-flex justify-content-center mb-3">
             <div
               class="d-flex justify-content-center align-items-center border border-dark rounded-circle bg-theme-new-grey registerImg"
@@ -38,100 +38,71 @@
               >
                 Add image
               </button>
-            </div>            
+            </div>
           </div>
-          <div id="registrationErrorMessage" class="alert alert-danger d-none"></div>          
-          <div id="registrationSuccessMessage" class="alert alert-success d-none"></div>
           <div class="col-md-6">
             <label class="mb-2" for="userEmail">E-mail*</label>
             <input
               type="email"
               name="email"
-              class="form-control"              
+              class="form-control"
               id="userEmail"
               autocomplete="username"
               required
             />
-            <div class="error"></div>
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="companyName">Company name*</label>
-            <input
-              type="text"
-              name="name"
-              class="form-control"              
-              id="companyName"
-              required
-            />
-            <div class="error"></div>
+            <input type="text" name="name" class="form-control" id="companyName" required />
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="userPassword">Password*</label>
             <input
               type="password"
               name="password"
-              class="form-control"              
+              class="form-control"
               id="userPassword"
               autocomplete="off"
               required
             />
-            <div class="error"></div>
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="userConfirmPassword">Confirm password*</label>
             <input
               type="password"
               name="confirm-password"
-              class="form-control"              
+              class="form-control"
               id="userConfirmPassword"
-              autocomplete="off"                                      
+              autocomplete="off"
               required
             />
-            <div class="error"></div>
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="companySector">Sector*</label>
-            <input
-              type="text"
-              name="sector"
-              class="form-control"              
-              id="companySector"
-              required
-            />
-            <div class="error"></div>
+            <input type="text" name="sector" class="form-control" id="companySector" required />
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="userName">Contact person*</label>
-            <input
-              type="text"
-              name="user"
-              class="form-control"              
-              id="userName"
-              required
-            />
-            <div class="error"></div>
+            <input type="text" name="user" class="form-control" id="userName" required />
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="contactNumber">Contact number</label>
-            <input
-              type="tel"
-              name="phone"
-              class="form-control"              
-              id="contactNumber"              
-            />
-            <div class="error"></div>
+            <input type="tel" name="phone" class="form-control" id="contactNumber" />
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="companyWebsite">Company website</label>
-            <input
-              type="url"
-              name="website"
-              class="form-control"              
-              id="companyWebsite"              
-            />
-            <div class="error"></div>
+            <input type="url" name="website" class="form-control" id="companyWebsite" />
+            <div class="error mt-1"></div>
           </div>
           <div id="errorMessage" class="text-theme-primary"></div>
+          <div id="registrationSuccessMessage" class="alert alert-success d-none"></div>
           <div class="d-grid gap-2 col-md-6 mx-auto">
             <button class="btn btn-theme-primary btn-lg text-light rounded-1 mt-3" type="submit">
               Register
