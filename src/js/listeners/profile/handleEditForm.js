@@ -32,7 +32,7 @@ export function handleEditForms() {
         }
       }
       const profile = Object.fromEntries(filteredFormData.entries());
-
+      console.log(profile)
       return editCompany(profile);
     });
   }

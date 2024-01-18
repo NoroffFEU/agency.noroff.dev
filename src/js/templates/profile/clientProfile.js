@@ -4,14 +4,15 @@ const companyContact = document.querySelector('#profileContact');
 const skillContainer = document.querySelector('#skillsContainer');
 const descriptionHeader = document.querySelector('#descriptionHeader');
 const profileDescription = document.querySelector('#descriptionBody');
-
-const applicationsContainer = document.querySelector('#companyApplicationsContainer');
+const editUserForm = document.querySelector('#editCompanyProfile');
+// const applicationsContainer = document.querySelector('#companyApplicationsContainer');
 
 /**
  * @description Renders content on Client profile page
  * @param {object} data object data on user
  */
 export function clientProfile(data) {
+  console.log(data)
   // Profile section
   const name = data.company.name; // Avatar / logo
   profileImage.src =
@@ -26,6 +27,7 @@ export function clientProfile(data) {
   const description = data.about; // Description
   profileDescription.textContent = description;
 
+  editUserForm.classList.remove('d-none');
   // Company applications
 
   // Favorite listings section

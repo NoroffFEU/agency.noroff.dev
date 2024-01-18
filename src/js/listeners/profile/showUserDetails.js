@@ -17,5 +17,13 @@ export async function showUserDatails() {
   const response = await fetch(userUrl, reqOption);
   const data = await response.json();
   createProfileContent(data);
-  localStorage.setItem('companyId', data.company.id);
+  /**
+   * THIS IS NOT IDEAL, but as a temporary fix. 
+   * The {object}.company.id should be stored during login of the user, instead of storing it here
+   * If this gets fixed, it needs to be addressed a little different inside src/js/users/editCompany.js 
+   * You can see this is retrieved there in localStorage. This is for editing the Client profile
+   * */ 
+  if(data.company){
+    localStorage.setItem('companyId', data.company.id);
+  }
 }

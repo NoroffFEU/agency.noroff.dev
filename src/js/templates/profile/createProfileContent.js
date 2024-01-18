@@ -1,12 +1,14 @@
 import { applicantProfile } from './applicantProfile.js';
 import { clientProfile } from './clientProfile';
 
+const editProfileBtn = document.querySelector('#editProfileBtn');
+
 /**
  * @description Renders content on profile page based on user role
  * @param {object} data object data on user
  */
 export function createProfileContent(data) {
-  console.log(data);
+  // console.log(data);
   
   const userRole = data.role;
 
@@ -17,7 +19,10 @@ export function createProfileContent(data) {
   // else if (userRole === 'Admin'){
   //   adminProfile(data);
   // }
-  else {
+  else if(userRole === 'Applicant'){
     applicantProfile(data);
+  }
+  else {
+    editProfileBtn.classList.add('d-none');
   }
 }

@@ -7,6 +7,8 @@ const skillsList = document.querySelector('#skillsList');
 const descriptionHeader = document.querySelector('#descriptionHeader');
 const profileDescription = document.querySelector('#descriptionBody');
 
+const editUserForm = document.querySelector('#editStudentProfile');
+
 /**
  * @description Renders content on Applicant profile page
  * @param {object} data object data on user
@@ -36,6 +38,8 @@ export function applicantProfile(data) {
   descriptionHeader.innerText = 'About me'; // Description Header
   const description = data.about; // Description
   profileDescription.textContent = description;
+
+  editUserForm.classList.remove('d-none');
 
   // listings section
 }
