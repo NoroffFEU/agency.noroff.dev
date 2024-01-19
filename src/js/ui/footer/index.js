@@ -1,5 +1,8 @@
 import { handleActiveLinks } from "../../listeners/footer/handleActiveLinks";
-
+/**
+ * function that creates the footer, the function creates container elements aswell as div,list and anchor elements, the function also adds bootstrap classLists and content for the differet
+ * elements
+ */
 export const footer = () => {
   const footerElement = document.querySelector('footer');
   footerElement.classList.add('bg-theme-dark', 'pt-5', 'p-2', 'mt-auto', 'pb-5');
