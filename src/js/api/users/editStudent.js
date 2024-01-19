@@ -14,7 +14,6 @@ const action = 'users/';
  */
 
 export async function editStudent(profile) {
-  
   const id = JSON.parse(localStorage.getItem('id'));
   console.log(id);
   const profileURL = apiPath + action + `${id}`;
@@ -35,11 +34,11 @@ export async function editStudent(profile) {
 
     const successMessage = document.getElementById('success-modal');
 
-    function closeModal() {
+    const closeModal = () => {
       successMessage.close();
       successMessage.style.display = 'none';
-    }
-
+    };
+  
     switch (response.status) {
       case 200: {
         successMessage.style.display = 'flex';
