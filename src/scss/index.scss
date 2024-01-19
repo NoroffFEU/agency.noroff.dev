@@ -31,3 +31,16 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
+main {
+  padding-top: 86px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}

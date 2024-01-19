@@ -1,29 +1,50 @@
-// Author: Gonzalo Longe
-
-import { apiBaseFetch } from '../apiBaseFetch.js';
-/*import { apiUrl } from '../constants.js';*/
+import { apiUrl, listingsUrl } from '../constants.js';
+import { getToken } from '../getToken.js';
 
 /**
+ * Edits a single listing by its ID.
+ * Sends a PUT request to the API to update a listing with the specific ID.
  *
- * @param {string} id - The unique identifier of the product listing to be retrieved.
- * @returns {Promise<Response>} - A promise that resolves with with the response from the API
- * @throws {Error} If the 'id' parameter is missing
+ * @param {string} id - The unique identifier of the listing to be edited.
+ * @param {Object} updatedData - The updated data for the listing.
+ * @returns {Promise<Response>} - A promise that resolves with the response from the API.
+ * @throws {Error} If the 'id' parameter is missing or the request fails.
  */
 
-export async function editSingleListing(id) {
+export async function editSingleListing(id, updatedData) {
   if (!id) {
-    throw new Error('Get requires a listingID');
+    throw new Error('Edit requires a listing ID');
   }
 
-  const headers = {
-    'Content-Type': 'application/json',
-  };
+  const editListingURL = apiUrl.toString() + listingsUrl + id;
 
-  const url = `https://dummyjson.com/products/${id}`;
+  try {
+    const accessToken = getToken('token');
+    if (!accessToken) {
+      throw new Error('Access token is not available');
+    }
+    const newAccessToken = accessToken.replace(/^"|"$/g, '');
 
-  const response = await apiBaseFetch(url, headers);
+    const editData = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${newAccessToken}` },
+      body: JSON.stringify(updatedData),
+    };
 
-  if (!response.ok) {
-    return await response;
+    const response = await fetch(editListingURL, editData);
+
+    if (!response.ok) {
+      const editResponse = await response.json();
+      alert(`Error editing listing: ${editResponse.message}`);
+      throw new Error(`Error editing listing: ${editResponse.message || response.statusText}`);
+    } else {
+      document.getElementById('hide-edit-modal').click();
+      new bootstrap.Modal(document.querySelector('#success-modal')).show();
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('Edit listing failed:', error);
+    throw error;
   }
 }

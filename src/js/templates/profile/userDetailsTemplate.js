@@ -46,32 +46,17 @@ export function userDetailsTemplate(data) {
 export function renderProfileImage(data, element) {
   if (roleCompany()) {
     const { logo, name } = data;
-    element.src = logo;
-    element.alt = name + 'logo';
+    element.src = logo || 'https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg';
+    element.alt = (name || 'Default Logo Avatar');
   } else {
     const { avatar, fullName } = data;
-    element.src = avatar;
-    element.alt = fullName + 'avatar';
+    element.src = avatar || 'https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
+    element.alt = (fullName || 'Default User Avatar');
   }
   return element;
 }
 
-/**
- * Function for rendering profile email
- * @param {*} data profile response
- * @param {*} element container
- * @returns returns html based on state
- */
-export function renderProfileEmail(data, element) {
-  if (roleCompany) {
-    const { email } = data;
-    element.innerHTML = email;
-  } else {
-    const { email } = data;
-    element.innerHTML = email;
-  }
-  return element;
-}
+
 
 /**
  * Function to render profile name

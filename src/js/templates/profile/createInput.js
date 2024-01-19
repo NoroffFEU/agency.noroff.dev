@@ -49,7 +49,6 @@ export function createInputSelect(array, parent) {
   array.forEach((element) => {
     const option = document.createElement('option');
 
-    const { name } = array;
     option.innerHTML = element.name;
     option.value = element.name;
 

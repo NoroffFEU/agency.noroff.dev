@@ -1,36 +1,76 @@
 import { registerUser } from '../../api/auth/index.js';
-import { displayMessage } from '../../ui/message/displayMessage.js';
-
+import { message } from '../../utilities/message/message.js';
+import { inputs } from './validateInputs.js';
+/**
+ * function that first makes constants from IDs and then uses validation functions to validate the input from the constants,
+ * it then gives the user an error message if the validation fails or it stores the user data given, and register the user
+ * if the registration is successful the user gets a success message
+ */
 export function setRegisterFormListenerApplicant() {
   const form = document.querySelector('#registerForm-applicant');
   const password = document.querySelector('#passwordStudent');
   const repeatPassword = document.querySelector('#repPasswordStud');
+  const fullName = document.querySelector('#fullName');
+  const email = document.querySelector('#emailStudent');
 
   if (form) {
+    password.addEventListener('blur', () => {
+      inputs.validatePassword(password, false);
+    });
+    password.addEventListener('input', () => {
+      inputs.validatePassword(password, true);
+    });
+
+    repeatPassword.addEventListener('blur', () => {
+      inputs.validateRepeatPassword(password, repeatPassword, false);
+    });
+    repeatPassword.addEventListener('input', () => {
+      inputs.validateRepeatPassword(password, repeatPassword, true);
+    });
+
+    fullName.addEventListener('input', () => {
+      inputs.validateFullName(fullName, true);
+    });
+
+    fullName.addEventListener('blur', () => {
+      inputs.validateFullName(fullName, false);
+    });
+
+    email.addEventListener('blur', () => {
+      inputs.validateEmail(email, false);
+    });
+    email.addEventListener('input', () => {
+      inputs.validateEmail(email, true);
+    });
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      if (password.value !== repeatPassword.value) {
-        displayMessage('warning', "Passwords don't match!", '#confirm-message');
+
+      const isPasswordValid = inputs.validatePassword(password);
+      const isRepeatPasswordValid = inputs.validateRepeatPassword(password, repeatPassword);
+      const isFullNameValid = inputs.validateFullName(fullName);
+      const isEmailValid = inputs.validateEmail(email);
+
+      if (!isPasswordValid || !isRepeatPasswordValid || !isFullNameValid || !isEmailValid) {
+        message("danger", "Invalid registration credentials. Please try again", "#errorMessage");
         return;
       }
-      const form = event.target;
+
       const formData = new FormData(form);
       const profile = Object.fromEntries(formData.entries());
       const imageUrl = document.querySelector('#imageUrl').value;
-      const fullName = document.querySelector('#fullName').value.split(' ');
-      profile.firstName = fullName[0];
-      profile.lastName = fullName.slice(1).join(' ');
+      const fullNameSplit = fullName.value.split(' ');
+      profile.firstName = fullNameSplit[0];
+      profile.lastName = fullNameSplit.slice(1).join(' ');
       const data = { ...profile, imageUrl };
 
       const { error } = await registerUser(data);
       if (error) {
-        return displayMessage('danger', error, '#confirm-message');
+        message("danger", "An error occured when attempting to register user. Please try again", "#errorMessage");
+        console.error(error);
+        return;
       }
-      displayMessage(
-        'success',
-        `Registration successful! You can now <a href="/pages/auth/login/index.html">login</a>.`,
-        '#confirm-message'
-      );
+      message("success", "Registration successful! You can now login.", "#errorMessage");
     });
   }
 }

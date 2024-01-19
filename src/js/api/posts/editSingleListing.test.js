@@ -1,37 +1,63 @@
-// Author: Åke Ek
-
+global.fetch = jest.fn();
 import { editSingleListing } from './editSingleListing';
 
-const ID = '1';
-const INVALID_ID = '';
+jest.mock('../getToken.js', () => ({
+  getToken: jest.fn().mockReturnValue('mocked-token'),
+}));
 
-const TEST_ITEM = {
-  id: ID,
-};
+document.getElementById = jest.fn().mockImplementation((id) => {
+  if (id === 'hide-edit-modal') {
+    return { click: jest.fn() };
+  }
+  return null;
+});
 
-function mockUpdateListing() {
-  return Promise.resolve({
-    ok: true,
-    json: () => Promise.resolve(TEST_ITEM),
-  });
-}
+window.bootstrap = { Modal: jest.fn().mockImplementation(() => ({ show: jest.fn() })) };
 
-function mockFailUpdateListing() {
-  return Promise.resolve({
-    ok: false,
-    statusText: 'Get requires a listingID',
-  });
-}
-
-describe('updateListing', () => {
-  it('Updates existing listing to the API', async () => {
-    global.fetch = jest.fn(() => mockUpdateListing());
-    const updatedListing = await editSingleListing(ID);
-    expect(updatedListing).toEqual(TEST_ITEM);
+describe('editSingleListing', () => {
+  beforeEach(() => {
+    fetch.mockClear();
+    document.getElementById.mockClear();
+    window.bootstrap.Modal.mockClear();
   });
 
-  it('Fails to update listing to the API', async () => {
-    global.fetch = jest.fn(() => mockFailUpdateListing());
-    await expect(editSingleListing(INVALID_ID)).rejects.toThrow('Get requires a listingID');
+  it('should return updated data on successful edit', async () => {
+    const mockListingId = '123';
+    const mockUpdatedData = { name: 'Updated Listing', description: 'Updated Description' };
+    const mockApiResponse = { ...mockUpdatedData, id: mockListingId };
+
+    fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockApiResponse,
+    });
+
+    const result = await editSingleListing(mockListingId, mockUpdatedData);
+
+    expect(document.getElementById).toHaveBeenCalledWith('hide-edit-modal');
+    expect(window.bootstrap.Modal).toHaveBeenCalled();
+    expect(result).toEqual(mockApiResponse);
+  });
+
+  it('should throw an error if the listing ID is not provided', async () => {
+    const mockUpdatedData = { name: 'Updated Listing', description: 'Updated Description' };
+
+    await expect(editSingleListing(undefined, mockUpdatedData)).rejects.toThrow(
+      'Edit requires a listing ID'
+    );
+  });
+
+  it('should throw an error on API failure', async () => {
+    const mockListingId = '123';
+    const mockUpdatedData = { name: 'Updated Listing', description: 'Updated Description' };
+    const mockError = { message: 'Not Found' };
+
+    fetch.mockResolvedValueOnce({
+      ok: false,
+      json: async () => mockError,
+    });
+
+    await expect(editSingleListing(mockListingId, mockUpdatedData)).rejects.toThrow(
+      'Error editing listing: Not Found'
+    );
   });
 });

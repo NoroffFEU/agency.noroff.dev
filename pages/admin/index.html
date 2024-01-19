@@ -12,8 +12,7 @@
       content="The Admin page provides an overview of the currently available users, listings, offers and applications."
     />
     <title>Noroff Jobs</title>
-    <link href="/css/index.css" rel="stylesheet" />
-    <script src="/index.js" defer type="module"></script>
+    <script src="../../index.js" defer type="module"></script>
   </head>
   <body id="adminPage" class="bg-theme-new-grey">
     <header></header>
@@ -84,7 +83,7 @@
             role="tabpanel"
           >
             <!-- Users search -->
-            <div class="row container-sm pb-5">
+            <div class="row container-sm">
               <div class="col d-flex justify-content-end">
                 <form
                   id="usersSearchForm"
@@ -100,10 +99,12 @@
                       minlength="3"
                       name="term"
                       class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light"
+                      aria-label="Search"
                     />
                     <label class="form-label py-1"
                       ><img src="/assets/icons/search.svg" class="searchIcon ps-1"
                     /></label>
+
                   </div>
                 </form>
                 <label class="d-flex justify-content-center ms-1"
@@ -122,7 +123,7 @@
                   <th scope="col">Delete</th>
                 </tr>
               </thead>
-              <tbody class="" id="userProfile"></tbody>
+              <tbody id="userProfile"></tbody>
             </table>
           </div>
           <!-- Listings -->
@@ -144,6 +145,7 @@
                       minlength="3"
                       name="term"
                       class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light"
+                      aria-label="Search"
                     />
                     <label class="form-label py-1"
                       ><img src="/assets/icons/search.svg" class="searchIcon ps-1"
@@ -189,6 +191,7 @@
                       minlength="3"
                       name="term"
                       class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light"
+                      aria-label="Search"
                     />
                     <label class="form-label py-1"
                       ><img src="/assets/icons/search.svg" class="searchIcon ps-1"
@@ -280,6 +283,7 @@
                       minlength="3"
                       name="term"
                       class="adminSearchField py-3 form-control border-0 rounded-5 ps-5 text-bg-light"
+                      aria-label="Search"
                     />
                     <label class="form-label py-1"
                       ><img src="/assets/icons/search.svg" class="searchIcon ps-1"

@@ -1,24 +1,49 @@
 // Author: Margrethe By
 // Team: Enigma Bullet
+import { apiUrl, listingsUrl } from '../constants.js';
 
-const token = localStorage.getItem('token');
+export async function deleteItem() {
+  const form = document.querySelector('#deleteThisListing');
+  form.addEventListener('click', deleteListing);
+}
 
 /**
  * Sends a delete request to the API based on the url parameter.
  * @param { string } url to target the listing that is going to be deleted.
  */
-export async function deleteItem(url) {
+export async function deleteListing() {
+  const accessToken = localStorage.getItem('token');
+  if (!accessToken){
+    throw new Error("Access token is not available");
+  }
+  const newAccessToken = accessToken.replace(/^"|"$/g, '');
+
   try {
-    const itemData = {
+    const url = new URL(location.href);
+    const id = url.searchParams.get('id');
+    const listingUrl = apiUrl.toString() + listingsUrl + id;
+
+    const listingData = {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${newAccessToken}`,
       },
       body: JSON.stringify(),
     };
-    const response = await fetch(url, itemData);
+
+    const response = await fetch(listingUrl, listingData);
     const result = await response.json();
+
+      if (!result.ok) {
+        alert(`Error editing listing: ${result.message}`);
+        throw new Error(`Error editing listing: ${result.statusText}`);
+      } else {
+          document.getElementById("hide-delete-modal").click();
+          new bootstrap.Modal(document.querySelector('#success-delete-modal')).show();
+      }
+
+    return result;
   } catch (error) {
     console.log(error);
   }

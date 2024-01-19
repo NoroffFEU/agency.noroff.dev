@@ -1,37 +1,37 @@
-// Author: Åke Ek
+import { getSingleListing } from './getSingleListing.js';
+import { authBaseFetchOpen } from '../apiBaseFetch.js';
 
-import { getSingleListing } from './getSingleListing';
+jest.mock('../apiBaseFetch.js');
 
-const ID = '1';
-const INVALID_ID = '';
+describe('getSingleListing', () => {
+  it('should return listing data on successful fetch', async () => {
+    const mockListingId = '123';
+    const mockApiResponse = { id: mockListingId, name: 'Test Listing', description: 'Description' };
 
-const TEST_ITEM = {
-  id: ID,
-};
+    authBaseFetchOpen.mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockApiResponse,
+    });
 
-function mockGetListing() {
-  return Promise.resolve({
-    ok: true,
-    json: () => Promise.resolve(TEST_ITEM),
-  });
-}
+    const result = await getSingleListing(mockListingId);
 
-function mockFailGetListing() {
-  return Promise.resolve({
-    ok: false,
-    statusText: 'Bad request',
-  });
-}
-
-describe('getListing', () => {
-  it('Displays a single listing from the API', async () => {
-    global.fetch = jest.fn(() => mockGetListing());
-    const idListing = await getSingleListing(ID);
-    expect(idListing).toEqual(TEST_ITEM);
+    expect(result).toEqual(mockApiResponse);
+    expect(authBaseFetchOpen).toHaveBeenCalledWith(expect.stringContaining(mockListingId));
   });
 
-  it('Fails to display a single listing from the API', async () => {
-    global.fetch = jest.fn(() => mockFailGetListing());
-    await expect(getSingleListing(INVALID_ID)).rejects.toThrow('Get requires a listingID');
+  it('should throw an error if the listing ID is not provided', async () => {
+    await expect(getSingleListing()).rejects.toThrow('Get requires a listing ID');
+  });
+
+  it('should throw an error on API failure', async () => {
+    const mockListingId = '123';
+    authBaseFetchOpen.mockResolvedValueOnce({
+      ok: false,
+      statusText: 'Not Found',
+    });
+
+    await expect(getSingleListing(mockListingId)).rejects.toThrow(
+      'Error retrieving listing: Not Found'
+    );
   });
 });

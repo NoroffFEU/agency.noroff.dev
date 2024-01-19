@@ -1,29 +1,33 @@
-// Author: May-Tove Hovdal
+import { authBaseFetchOpen } from '../apiBaseFetch.js';
+import { apiUrl, listingsUrl } from '../constants.js';
 
-import { apiBaseFetch } from '../apiBaseFetch.js';
-/*import { apiUrl } from '../constants.js';*/
-
+//Author Fredrik Tokle
 /**
- * This functino sends a GET request to the API to retrieve the details of a single listing
+ * This function sends a GET request to the API to retrieve the details of a single listing.
  *
  * @param {string} id - The unique identifier of the listing to be retrieved.
- * @returns {Promise<Response>}
+ * @returns {Promise<Response>} - A promise that resolves with the response from the API.
+ * @throws {Error} If the 'id' parameter is missing or the request fails.
  */
-
-export async function getSingleListing(id) {
+export  const getSingleListing = async (id) => {
   if (!id) {
-    throw new Error('Get requires a listingID');
+    throw new Error('Get requires a listing ID');
   }
 
-  const headers = {
-    'Content-Type': 'application/json',
-  };
+  const getListingURL = apiUrl.toString() + listingsUrl + id ;
 
-  const url = `https://dummyjson.com/products/${id}`;
+  try {
+    const response = await authBaseFetchOpen(getListingURL);
 
-  const response = await apiBaseFetch(url, headers);
+    
+    if (!response || !response.ok) {
+      const errorMsg = 'Error retrieving listing: ' + (response ? response.statusText : 'Response is undefined');
+      throw new Error(errorMsg);
+    }
 
-  if (!response.ok) {
-    return await response;
+    return response.json();
+  } catch (error) {
+    console.error('Get listing failed:', error);
+    throw error;
   }
 }

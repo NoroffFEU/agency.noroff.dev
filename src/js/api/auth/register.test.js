@@ -1,64 +1,64 @@
-import { register } from './register.js';
+import { registerUser } from './register';
 
-// Author: Truls Haakenstad @Menubrea
-// Team: FE-User
+global.fetch = jest.fn();
 
-const result = {
-  name: 'Frank',
-  age: 54,
-  gender: 'Male',
-};
-
-const profile = {
-  name: 'Frank',
-  age: 54,
-  gender: 'Male',
-};
-
-const bad_input = {
-  name: '',
-  age: '',
-  gender: '',
-};
-
-global.window = jest.fn();
-window.location = Object.assign(new URL('https://example.org'), {
-  replace: jest.fn(),
-});
-
-function fetchSuccess() {
-  return Promise.resolve({
-    ok: true,
-    status: 201,
-    statusText: 'OK',
-    json: () => Promise.resolve(result),
-  });
-}
-
-function fetchFailure(status = 500, statusText = 'Internal Server Error') {
-  return Promise.resolve({
-    ok: false,
-    status,
-    statusText,
-    json: () => Promise.reject(new Error('Internal Server Error')),
-  });
-}
-
-describe('register()', () => {
-  it('Returns the result of the response on 201 created', async () => {
-    global.fetch = jest.fn(() => fetchSuccess());
-    const registeredProfile = await register(profile);
-
-    const expectedResult = {
-      data: result,
-      error: undefined,
-    };
-
-    expect(registeredProfile).toEqual(expectedResult);
+describe('registerUser', () => {
+  beforeEach(() => {
+    fetch.mockClear();
   });
 
-  it('throws error when !response.ok', async () => {
-    global.fetch = jest.fn(() => fetchFailure());
-    await expect(register(bad_input)).rejects.toThrow('Internal Server Error');
+  it('should return data on successful registration', async () => {
+    fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        id: '123',
+        username: 'testuser',
+        email: 'test@example.com',
+      }),
+    });
+
+    const profile = { username: 'testuser', email: 'test@example.com', password: 'password123' };
+    const result = await registerUser(profile);
+
+    expect(result).toEqual({
+      data: {
+        id: '123',
+        username: 'testuser',
+        email: 'test@example.com',
+      },
+      error: null,
+    });
+  });
+
+  it('should return error message on failed registration', async () => {
+    fetch.mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({
+        message: 'Registration failed',
+      }),
+    });
+
+    const profile = { username: 'testuser', email: 'test@example.com', password: 'password123' };
+    const result = await registerUser(profile);
+
+    expect(result).toEqual({
+      data: null,
+      error: 'Registration failed',
+    });
+  });
+
+  it('should handle unexpected response format', async () => {
+    fetch.mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({}),
+    });
+
+    const profile = { username: 'testuser', email: 'test@example.com', password: 'password123' };
+    const result = await registerUser(profile);
+
+    expect(result).toEqual({
+      data: null,
+      error: 'There was an error processing the request.',
+    });
   });
 });

@@ -1,3 +1,6 @@
+/**
+ * creates a mock local storage with a constructor method, the function is able to set values, retrive, remove and clear
+ */
 export class LocalStorageMock {
   constructor() {
     this.store = {};

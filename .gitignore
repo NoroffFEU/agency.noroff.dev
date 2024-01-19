@@ -109,3 +109,12 @@ dist
 
 # DS_Store
 .DS_Store
+
+# IntelliJ project folder
+.idea
+
+# vscode settings folder
+.vscode
+
+#.history folder
+.history

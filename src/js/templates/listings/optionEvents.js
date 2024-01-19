@@ -1,10 +1,10 @@
 import { deleteSingleListing } from '../../api/posts/deleteSingleListing.js';
-
+/**
+ * function that calls the deleteSingleListing() function which uses the id parameter to send a delete request to the API
+ * which deletes a lisiting
+ * @param {string} id 
+ */
 export async function deleteListing(id) {
-  const res = await deleteSingleListing(id);
+  await deleteSingleListing(id);
   // TODO: Take action based on the result from API
-}
-
-export async function editListing(id) {
-  // TODO: Navigate to edit page
 }

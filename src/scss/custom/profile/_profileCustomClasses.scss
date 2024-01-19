@@ -21,3 +21,52 @@ Version: 1.0.0
   max-width: 300px;
   max-height: 300px;
 }
+#skillsList {
+  li {
+    width: fit-content;
+    margin: 0 0.5rem 0 0.5rem;
+  }
+}
+
+.vertical-line {
+  border-left: 2px solid darkgray;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.card-img-left {
+  max-width: 150px;
+  min-width: 100px;
+}
+
+.card-title {
+  font-size: max(13px, min(4vw, 20px));
+}
+
+.card-text {
+  font-size: max(10px, min(4vw, 15px));
+}
+
+.card-bottom {
+  font-size: max(8px, min(4vw, 13px));
+}
+
+#success-modal {
+  width: 230px;
+  height: 230px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.profile-input {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .profile-input {
+    width: 50%;
+  }
+}

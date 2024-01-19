@@ -1,6 +1,9 @@
 // Author: May-Tove Hovdal
-import { deleteListing, editListing } from './optionEvents.js';
-
+import { deleteListing } from './optionEvents.js';
+/**
+ * function that creates a delete button and an edit button which appends to the option div which then appends to the cardBody element
+ * the function also runs the deleteListing() function if the user clicks delete
+ */
 export function options() {
   const cardBody = document.querySelector('.card-body');
 
@@ -15,7 +18,6 @@ export function options() {
   editBtn.href = '/pages/listings/listing/editListing.html';
   editBtn.id = 'editListingBtn';
   editBtn.innerText = 'Edit';
-  editBtn.addEventListener('click', editListing);
 
   // Delete button
   const deleteBtn = document.createElement('button');
