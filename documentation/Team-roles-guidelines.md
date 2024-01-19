@@ -64,7 +64,7 @@ Working in teams in this project team members will have different roles. Scrum M
 4. **Code Review and Refactoring:**
    - Participate in code reviews to ensure code quality and adherence to coding standards.
    - Proactively identify opportunities for code refactoring to improve maintainability.
-   - Developers are required to verify that their issues have been merged and closed. Do NOT delete issues. 
+   - Developers are required to verify that their PRs have been merged and issues closed. Do NOT delete issues. A branch can safely be deleted when the PR is merged.
 
 
 Remember, effective collaboration among these roles is essential for the success of an Agile team. Clear communication, mutual respect, and a shared commitment to delivering high-quality products are key components of a successful Agile development process.
