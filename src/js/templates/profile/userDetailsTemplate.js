@@ -33,7 +33,6 @@ export function userDetailsTemplate(data) {
   renderProfileSkills(data, skillsList, skillContainer);
   renderDescriptionHeader(data, descriptionHeader);
   renderProfileDescription(data, profileDescription);
-  renderProfileEmail(data, profileEmail);
   populateEditNames(data, editProfileFirstName, editProfileLastName);
 }
 
