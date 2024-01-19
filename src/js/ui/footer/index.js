@@ -1,4 +1,4 @@
-import { handleActiveLinks } from "../../listeners/footer/handleActiveLinks";
+import { handleActiveLinks } from '../../listeners/footer/handleActiveLinks';
 
 export const footer = () => {
   const footerElement = document.querySelector('footer');
@@ -71,16 +71,22 @@ export const footer = () => {
 
     const a = document.createElement('a');
     a.href = href;
-    a.className = 'nav-link text-white footer-nav-link';
-    a.target = '_blanc';
-    a.id = 'navlink-footer-id';
+
+    a.className = 'nav-link text-white';
+    a.target = '_blank';
+    a.id = 'navlink-footer';
+
     a.textContent = text;
     li.append(a);
 
     parent.append(li);
   };
 
-  createListItem(forCompaniesList, '#', 'About Noroff Jobs');
+  createListItem(
+    forCompaniesList,
+    '../../../../pages/footer/aboutNoroffJobs.html',
+    'About Noroff Jobs'
+  );
   createListItem(forCompaniesList, '#', 'Company User Guide');
   createListItem(forCompaniesList, '#', 'FAQ');
 
@@ -97,10 +103,11 @@ export const footer = () => {
   const phoneLink = document.createElement('a');
   phoneLink.href = 'tel:38000000';
   phoneLink.className = 'nav-link text-white';
-  phoneLink.id = 'navlink-footer-id';
+  phoneLink.id = 'navlink-footer';
   const phoneIcon = document.createElement('img');
   phoneIcon.src = '/assets/icons/phone.svg';
   phoneIcon.className = 'footerIcon';
+  phoneIcon.alt = 'phoneIcon';
   phoneLink.append(phoneIcon);
   phoneLink.append(' 38000000');
   contactInfoDiv.append(phoneLink);
@@ -112,6 +119,7 @@ export const footer = () => {
   const emailIcon = document.createElement('img');
   emailIcon.src = '/assets/icons/mail.svg';
   emailIcon.className = 'footerIcon';
+  emailIcon.alt = 'mailIcon';
   emailLink.append(emailIcon);
   emailLink.append(' utdanning@noroff.no');
   contactInfoDiv.append(emailLink);
@@ -123,8 +131,8 @@ export const footer = () => {
   helpList.className = 'p-0 d-flex flex-column gap-1';
   helpCol.append(helpList);
 
-  createListItem(helpList, '/privacy_policy.html', 'Privacy Policy');
-  createListItem(helpList, '/terms_of_use.html', 'Terms of use');
+  createListItem(helpList, '../../../../pages/footer/privacypolicy.html', 'Privacy Policy');
+  createListItem(helpList, '../../../../pages/footer/termsofuse.html', 'Terms of use');
 
   const rightSpacer = document.createElement('div');
   rightSpacer.classList.add('col-xl-1', 'col-xxl-2', 'd-none', 'd-lg-block');

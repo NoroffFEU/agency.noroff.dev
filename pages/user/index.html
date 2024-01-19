@@ -20,7 +20,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Description -->
-    <meta name="description" content="the users profile page" />
+    <meta
+      name="description"
+      content="Welcome to your profile page, a versatile platform for both students and companies to customize their information and preferences. This central hub enables you to tailor your experience, whether you're showcasing skills and aspirations as a student or presenting company details and recruitment criteria as an employer. It's designed to facilitate meaningful connections and opportunities on our platform."
+    />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
 
@@ -58,10 +61,8 @@
             <h2 class="fs-2 fw-bold" id="skillsHeader">Skills</h2>
             <ul
               class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6"
-              id="skillsList">
-             
-              
-            </ul>
+              id="skillsList"
+            ></ul>
           </div>
           <div
             class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
@@ -83,6 +84,454 @@
         </div>
 
         <!-- // Profile Details ends // -->
+
+        <!-- // Hardcoded Applications/Offers section to show as example. To be dynamically populated later, with createElement. To be copied to StudentView when roles issue is sorted. -->
+        <div class="mt-5 col-md-12 mx-auto container">
+          <!-- Tab navigation for app/offers -->
+          <ul class="nav nav-tabs border-0" role="tablist" id="student-nav-tab">
+            <!-- Button for Offers received tab -->
+            <li class="nav-item bg-theme-new-grey rounded-top" role="presentation">
+              <a
+                class="nav-link active d-inline-block text-center fs-5 fw-bold"
+                id="studentOffers-tab"
+                data-bs-toggle="tab"
+                href="#studentOffers"
+                role="tab"
+                aria-controls="studentOffers"
+                aria-selected="true"
+                >Offers</a
+              >
+            </li>
+            <!-- Button for applications sent tab -->
+            <li class="nav-item bg-theme-new-grey rounded-top" role="presentation">
+              <a
+                class="nav-link d-inline-block text-center fs-5 fw-bold"
+                id="studentApplications-tab"
+                data-bs-toggle="tab"
+                href="#studentApplications"
+                role="tab"
+                aria-controls="studentApplications"
+                aria-selected="false"
+                >Applications</a
+              >
+            </li>
+          </ul>
+
+          <!-- Tab content -->
+          <div
+            class="tab-content bg-theme-dark rounded-bottom rounded-end p-5"
+            id="student-nav-tabContent"
+          >
+            <div tabindex="0" class="tab-pane active" id="studentOffers" role="tabpanel">
+              <!-- Student offers go here -->
+              <div class="row bg-theme-dark">
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6 mb-4">
+                  <div class="card rounded-0">
+                    <div class="row g-0">
+                      <div class="col-xl-4">
+                        <img
+                          src="/images/placeholder.png"
+                          class="card-img-top rounded-0 h-100"
+                          alt="Image 1"
+                        />
+                      </div>
+                      <div class="col-xl-8">
+                        <div class="card-body d-flex flex-column justify-content-between h-100">
+                          <h5 class="card-title fw-bold">Offer 1</h5>
+                          <p class="card-text fw-light">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between mt-md-3"
+                          >
+                            <p class="me-md-3 mb-0 fw-light">4 applicants</p>
+                            <p class="me-md-3 mb-0 fw-light">Ends 16/02</p>
+                            <button
+                              class="btn btn-theme-primary text-theme-light rounded-0 px-2 fw-semibold mt-md-0 mt-3"
+                            >
+                              View
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6 mb-4">
+                  <div class="card rounded-0">
+                    <div class="row g-0">
+                      <div class="col-xl-4">
+                        <img
+                          src="/images/placeholder.png"
+                          class="card-img-top rounded-0 h-100"
+                          alt="Image 1"
+                        />
+                      </div>
+                      <div class="col-xl-8">
+                        <div class="card-body d-flex flex-column justify-content-between h-100">
+                          <h5 class="card-title fw-bold">Offer 2</h5>
+                          <p class="card-text fw-light">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between mt-md-3"
+                          >
+                            <p class="me-md-3 mb-0 fw-light">4 applicants</p>
+                            <p class="me-md-3 mb-0 fw-light">Ends 16/02</p>
+                            <button
+                              class="btn btn-theme-primary text-theme-light rounded-0 px-2 fw-semibold mt-md-0 mt-3"
+                            >
+                              View
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card rounded-0">
+                    <div class="row g-0">
+                      <div class="col-xl-4">
+                        <img
+                          src="/images/placeholder.png"
+                          class="card-img-top rounded-0 h-100"
+                          alt="Image 1"
+                        />
+                      </div>
+                      <div class="col-xl-8">
+                        <div class="card-body d-flex flex-column justify-content-between h-100">
+                          <h5 class="card-title fw-bold">Offer 3</h5>
+                          <p class="card-text fw-light">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between mt-md-3"
+                          >
+                            <p class="me-md-3 mb-0 fw-light">4 applicants</p>
+                            <p class="me-md-3 mb-0 fw-light">Ends 16/02</p>
+                            <button
+                              class="btn btn-theme-primary text-theme-light rounded-0 px-2 fw-semibold mt-md-0 mt-3"
+                            >
+                              View
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card rounded-0">
+                    <div class="row g-0">
+                      <div class="col-xl-4">
+                        <img
+                          src="/images/placeholder.png"
+                          class="card-img-top rounded-0 h-100"
+                          alt="Image 1"
+                        />
+                      </div>
+                      <div class="col-xl-8">
+                        <div class="card-body d-flex flex-column justify-content-between h-100">
+                          <h5 class="card-title fw-bold">Offer 4</h5>
+                          <p class="card-text fw-light">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between mt-md-3"
+                          >
+                            <p class="me-md-3 mb-0 fw-light">4 applicants</p>
+                            <p class="me-md-3 mb-0 fw-light">Ends 16/02</p>
+                            <button
+                              class="btn btn-theme-primary text-theme-light rounded-0 px-2 fw-semibold mt-md-0 mt-3"
+                            >
+                              View
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="studentApplications" role="tabpanel">
+              <!-- Student applications go here -->
+              <div class="row bg-theme-dark">
+                <!-- Card 1 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card rounded-0">
+                    <div class="row g-0">
+                      <div class="col-xl-4">
+                        <img
+                          src="/images/placeholder.png"
+                          class="card-img-top rounded-0 h-100"
+                          alt="Image 1"
+                        />
+                      </div>
+                      <div class="col-xl-8">
+                        <div class="card-body d-flex flex-column justify-content-between h-100">
+                          <h5 class="card-title fw-bold">Application 1</h5>
+                          <p class="card-text fw-light">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between mt-md-3"
+                          >
+                            <p class="me-md-3 mb-0 fw-light">4 applicants</p>
+                            <p class="me-md-3 mb-0 fw-light">Ends 16/02</p>
+                            <button
+                              class="btn btn-theme-primary text-theme-light rounded-0 px-2 fw-semibold mt-md-0 mt-3"
+                            >
+                              View
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card rounded-0">
+                    <div class="row g-0">
+                      <div class="col-xl-4">
+                        <img
+                          src="/images/placeholder.png"
+                          class="card-img-top rounded-0 h-100"
+                          alt="Image 1"
+                        />
+                      </div>
+                      <div class="col-xl-8">
+                        <div class="card-body d-flex flex-column justify-content-between h-100">
+                          <h5 class="card-title fw-bold">Application 2</h5>
+                          <p class="card-text fw-light">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between mt-md-3"
+                          >
+                            <p class="me-md-3 mb-0 fw-light">4 applicants</p>
+                            <p class="me-md-3 mb-0 fw-light">Ends 16/02</p>
+                            <button
+                              class="btn btn-theme-primary text-theme-light rounded-0 px-2 fw-semibold mt-md-0 mt-3"
+                            >
+                              View
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card rounded-0">
+                    <div class="row g-0">
+                      <div class="col-xl-4">
+                        <img
+                          src="/images/placeholder.png"
+                          class="card-img-top rounded-0 h-100"
+                          alt="Image 1"
+                        />
+                      </div>
+                      <div class="col-xl-8">
+                        <div class="card-body d-flex flex-column justify-content-between h-100">
+                          <h5 class="card-title fw-bold">Application 3</h5>
+                          <p class="card-text fw-light">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between mt-md-3"
+                          >
+                            <p class="me-md-3 mb-0 fw-light">4 applicants</p>
+                            <p class="me-md-3 mb-0 fw-light">Ends 16/02</p>
+                            <button
+                              class="btn btn-theme-primary text-theme-light rounded-0 px-2 fw-semibold mt-md-0 mt-3"
+                            >
+                              View
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card rounded-0">
+                    <div class="row g-0">
+                      <div class="col-xl-4">
+                        <img
+                          src="/images/placeholder.png"
+                          class="card-img-top rounded-0 h-100"
+                          alt="Image 1"
+                        />
+                      </div>
+                      <div class="col-xl-8">
+                        <div class="card-body d-flex flex-column justify-content-between h-100">
+                          <h5 class="card-title fw-bold">Application 4</h5>
+                          <p class="card-text fw-light">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-xl-row align-items-xl-center justify-content-between mt-md-3"
+                          >
+                            <p class="me-md-3 mb-0 fw-light">4 applicants</p>
+                            <p class="me-md-3 mb-0 fw-light">Ends 16/02</p>
+                            <button
+                              class="btn btn-theme-primary text-theme-light rounded-0 px-2 fw-semibold mt-md-0 mt-3"
+                            >
+                              View
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- favourite section -->
+          <div>
+            <h2 class="fs-2 fw-bold mb-3 mt-5">Favourite listings</h2>
+            <div class="row">
+              <div class="col-12 col-lg-6 mb-3">
+                <div class="card rounded-0 border-0 shadow">
+                  <div class="row g-0">
+                    <div class="col-4 d-flex">
+                      <img
+                        src="/images/placeholder.png"
+                        class="card-img-left my-auto me-2"
+                        alt="placeholder image"
+                      />
+                      <span class="vertical-line"></span>
+                    </div>
+                    <div class="col-8">
+                      <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <h5 class="card-title fw-bold">Front-End Developer</h5>
+                        <p class="card-text fw-light">
+                          Our tech department is looking for a motivated Front-End Developer...
+                        </p>
+                      </div>
+                      <div class="d-flex flex-row justify-content-between mx-3 gap-2">
+                        <p class="fw-light mb-2 card-bottom">4 Applicants</p>
+                        <p class="fw-light mb-2 card-bottom">Ends 16/01</p>
+                        <a
+                          href="#"
+                          class="bg-theme-primary text-white px-3 text-decoration-none mb-auto"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6 mb-3">
+                <div class="card rounded-0 border-0 shadow">
+                  <div class="row g-0">
+                    <div class="col-4 d-flex">
+                      <img
+                        src="/images/placeholder.png"
+                        class="card-img-left my-auto me-2"
+                        alt="placeholder image"
+                      />
+                      <span class="vertical-line"></span>
+                    </div>
+                    <div class="col-8">
+                      <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <h5 class="card-title fw-bold">Front-End Developer</h5>
+                        <p class="card-text fw-light">
+                          Our tech department is looking for a motivated Front-End Developer...
+                        </p>
+                      </div>
+                      <div class="d-flex flex-row justify-content-between mx-3 gap-2">
+                        <p class="fw-light mb-2 card-bottom">4 Applicants</p>
+                        <p class="fw-light mb-2 card-bottom">Ends 16/01</p>
+                        <a
+                          href="#"
+                          class="bg-theme-primary text-white px-3 text-decoration-none mb-auto"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6 mb-3">
+                <div class="card rounded-0 border-0 shadow">
+                  <div class="row g-0">
+                    <div class="col-4 d-flex">
+                      <img
+                        src="/images/placeholder.png"
+                        class="card-img-left my-auto me-2"
+                        alt="placeholder image"
+                      />
+                      <span class="vertical-line"></span>
+                    </div>
+                    <div class="col-8">
+                      <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <h5 class="card-title fw-bold">Front-End Developer</h5>
+                        <p class="card-text fw-light">
+                          Our tech department is looking for a motivated Front-End Developer...
+                        </p>
+                      </div>
+                      <div class="d-flex flex-row justify-content-between mx-3 gap-2">
+                        <p class="fw-light mb-2 card-bottom">4 Applicants</p>
+                        <p class="fw-light mb-2 card-bottom">Ends 16/01</p>
+                        <a
+                          href="#"
+                          class="bg-theme-primary text-white px-3 text-decoration-none mb-auto"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6 mb-3">
+                <div class="card rounded-0 border-0 shadow">
+                  <div class="row g-0">
+                    <div class="col-4 d-flex">
+                      <img
+                        src="/images/placeholder.png"
+                        class="card-img-left my-auto me-2"
+                        alt="placeholder image"
+                      />
+                      <span class="vertical-line"></span>
+                    </div>
+                    <div class="col-8">
+                      <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <h5 class="card-title fw-bold">Front-End Developer</h5>
+                        <p class="card-text fw-light">
+                          Our tech department is looking for a motivated Front-End Developer...
+                        </p>
+                      </div>
+                      <div class="d-flex flex-row justify-content-between mx-3 gap-2">
+                        <p class="fw-light mb-2 card-bottom">4 Applicants</p>
+                        <p class="fw-light mb-2 card-bottom">Ends 16/01</p>
+                        <a
+                          href="#"
+                          class="bg-theme-primary text-white px-3 text-decoration-none mb-auto"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- // Edit Profile Modal // -->
         <div
@@ -137,7 +586,7 @@
                     </div>
                   </div>
                   <!-- // Name input group -->
-                  <div class="w-50 mx-auto">
+                  <div class="mx-auto profile-input">
                     <div class="mb-2 col-md">
                       <label for="firstNameStudent" class="form-label mb-0">First Name*</label>
                       <input
@@ -328,7 +777,6 @@
               Edit Profile
             </button>
           </div>
-
           <div class="mt-5">
             <!-- Tab navigation for app/offers -->
             <nav class="nav nav-tabs container-sm" role="tablist" id="companyNavTab">
@@ -389,47 +837,9 @@
           </div>
           <!-- Displayed if student is logged in -->
           <div class="mt-5">
-            <!-- Tab navigation for app/offers -->
-            <nav class="nav nav-tabs border-0" role="tablist" id="studentNavTab">
-              <!-- Button for Offers received tab -->
-              <button
-                class="nav-link active tabWidth text-start fw-bolder"
-                data-bs-target="#studentOffers"
-                type="button"
-                role="tab"
-                aria-controls="#studentOffers"
-                data-bs-toggle="tab"
-              >
-                Offers
-              </button>
-              <!-- Button for applications sent tab -->
-              <button
-                class="nav-link tabWidth text-start fw-bolder"
-                data-bs-toggle="tab"
-                data-bs-target="#studentApplications"
-                aria-controls="#studentApplications"
-                aria-selected="true"
-              >
-                Applications
-              </button>
-            </nav>
-            <!-- Tab content -->
-            <div
-              class="tab-content bg-theme-dark rounded-bottom rounded-end p-5 container"
-              id="studentNavTabContent"
-            >
-              <div tabindex="0" class="tab-pane active" id="studentOffers" role="tabpanel">
-                <!-- Student offers goes here -->
-              </div>
-              <div class="tab-pane" id="studentApplications" role="tabpanel">
-                <!-- Student applications goes here -->
-              </div>
-            </div>
-          </div>
-          <div class="mt-5">
             <h2 class="fw-bold">Saved Listings</h2>
             <div class="mt-3 p-5" id="studentFavoriteListings">
-              <!-- Student favourite listings goes here -->
+              <!-- Student favourite listings go here -->
             </div>
           </div>
         </div>
