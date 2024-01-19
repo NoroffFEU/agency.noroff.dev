@@ -37,7 +37,7 @@ export async function editStudent(profile) {
 
     function closeModal() {
       successMessage.close();
-      successMessage.style.display = 'none'; // Reset display property
+      successMessage.style.display = 'none';
     }
 
     switch (response.status) {
