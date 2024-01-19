@@ -7,7 +7,10 @@
 
 import { authBaseFetchOpen } from '../apiBaseFetch.js';
 import { apiPath } from '../constants.js';
-
+/**
+ * function that retrives an array of listings
+ * @returns {Array} array of Listings
+ */
 export async function getListOfListings() {
   const baseUrl = apiPath;
   const listingUrl = baseUrl + `listings`;

@@ -1,6 +1,9 @@
 export const handleActiveLinks = () => {
 const footerNavLinks = document.querySelectorAll('.footer-nav-link');
-
+/**
+ * function that gets the pathname of the current location and checks each element if it links to the current page, the function then toggles the active-footer-link based
+ * on whether it's the current page
+ */
 const updateActiveLink = () => {
   const currentPath = window.location.pathname;
   footerNavLinks.forEach(link => {
