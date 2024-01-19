@@ -2,12 +2,6 @@
 import { apiBaseFetch } from '../../api/apiBaseFetch.js';
 import { apiUrl, listingsUrl } from '../../api/constants.js';
 import { editSingleListing } from '../../api/posts/editSingleListing.js';
-/**
- * function that allows users to edit the a listing, if a user clicks the submit button a new object is created with the new input the function the sends the new object to the api
- * after the listing is updated the page reloads
- */
-export async function editListingListener() {
-  const form = document.querySelector('#editListings');
 
 const url = new URL(location.href);
 const id = url.searchParams.get('id');
@@ -37,6 +31,10 @@ export function editListingListener() {
   });
 }
 
+/**
+ * function that allows users to edit the a listing, if a user clicks the submit button a new object is created with the new input the function the sends the new object to the api
+ * after the listing is updated the page reloads
+ */
 async function editListingListenerForm(event) {
   event.preventDefault();
 
