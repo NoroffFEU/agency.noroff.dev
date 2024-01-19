@@ -50,7 +50,7 @@ Working in teams in this project team members will have different roles. Scrum M
 ### Developer:
 
 1. **Coding and Implementation:**
-   - Write clean, maintainable, and efficient code based on requirements.
+   - Write clean, maintainable, and efficient code based on the requirements.
    - Collaborate with other developers to ensure consistency in coding practices.
 
 2. **Collaboration:**
