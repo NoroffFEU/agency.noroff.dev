@@ -1,5 +1,5 @@
-import { apiBaseFetch } from '../apiBaseFetch.js';
 import { apiUrl, listingsUrl } from '../constants.js';
+import { getToken } from '../getToken.js';
 
 /**
  * Edits a single listing by its ID.
@@ -10,23 +10,36 @@ import { apiUrl, listingsUrl } from '../constants.js';
  * @returns {Promise<Response>} - A promise that resolves with the response from the API.
  * @throws {Error} If the 'id' parameter is missing or the request fails.
  */
+
 export async function editSingleListing(id, updatedData) {
   if (!id) {
     throw new Error('Edit requires a listing ID');
   }
 
   const editListingURL = apiUrl.toString() + listingsUrl + id;
-  const headers = { 'Content-Type': 'application/json' };
 
   try {
-    const response = await apiBaseFetch(editListingURL, {
+    const accessToken = getToken('token');
+    if (!accessToken) {
+      throw new Error('Access token is not available');
+    }
+    const newAccessToken = accessToken.replace(/^"|"$/g, '');
+
+    const editData = {
       method: 'PUT',
-      headers: headers,
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${newAccessToken}` },
       body: JSON.stringify(updatedData),
-    });
+    };
+
+    const response = await fetch(editListingURL, editData);
 
     if (!response.ok) {
-      throw new Error(`Error editing listing: ${response.statusText}`);
+      const editResponse = await response.json();
+      alert(`Error editing listing: ${editResponse.message}`);
+      throw new Error(`Error editing listing: ${editResponse.message || response.statusText}`);
+    } else {
+      document.getElementById('hide-edit-modal').click();
+      new bootstrap.Modal(document.querySelector('#success-modal')).show();
     }
 
     return response.json();

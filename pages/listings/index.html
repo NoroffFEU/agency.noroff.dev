@@ -11,7 +11,7 @@
     />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-    
+
     <script defer src="/index.js" type="module"></script>
 
     <script
@@ -20,10 +20,10 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../../src/scss/custom/_allListingPage.scss">
   </head>
 
-  <body id="listing">
+  <body id="listings" class="d-flex flex-column">
+
     <!--Header is created trough JS script-->
     <header></header>
     <!--Main content on page-->
@@ -45,7 +45,7 @@
                     class="form-control rounded bg-white shadow-sm"
                     type="search"
                     placeholder="Search Listings..."
-                    autofocus="autofocus" 
+                    autofocus="autofocus"
                     id="searchListing"
                     data-search-listings
                     aria-label="Search listings input"
@@ -54,7 +54,6 @@
                     <button class="btn ms-n5 ps-1" type="button" aria-label="Search-button">
                       <img
                         src="/assets/icons/search.svg"
-
                         alt="illustration of search icon"
                         class="icon-sm"
                       />
@@ -70,110 +69,34 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <imgi
-                    src="/assets/icons/filter.svg"
-                    alt="Illustration of filter icon"
-                    class="icon-sm"
-                  />
+                  <img src="/assets/icons/filter.svg" alt="Sort icon" class="icon-sm" />
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li><a class="dropdown-item" href="#" id="allListings">All</a></li>
                   <li><a class="dropdown-item" href="#" id="latestListings">Latest</a></li>
-                  <li><a class="dropdown-item" href="#" id="fourteenDaysListings">Last 14 days</a></li>
-                  <li><a class="dropdown-item" href="#" id="thirtyDaysListings">Last 30 days</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#" id="fourteenDaysListings">Last 14 days</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#" id="thirtyDaysListings">Last 30 days</a>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
+        <h2 class="visually-hidden">Subheading 1</h2>
+        <h3 class="visually-hidden">Subheading 1</h3>
+        <h4 class="visually-hidden">Subheading 1</h4>
         <div id="listingsErrorContainer" class="container"></div>
         <!--Bootstrap grid cards-->
         <div class="row g-4 listingContainer justify-content-center px-5">
-          <!-- dummy-cards start -->
-          <div class="card bg-theme-light shadow col-12 col-md-5 m-2">
-            <div class="mt-5 px-2 thumbnail-img card-img-top img-fluid img-thumbnail">
-              <img src="/images/logoipsum-287.svg" class="rounded-start" alt="illustration of the logo." />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Lorem ipsum dolor sit amet.</h2>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
-                tempore! Reiciendis soluta doloremque . . .
-              </p>
-            </div>
-            <div>
-              <a href="#" class="btn btn-theme-primary text-theme-light fw-semibold p-3 m-2 w-50"
-                >View</a
-              >
-            </div>
-          </div>
-          <div class="card bg-theme-light shadow col-12 col-md-5 m-2">
-            <div class="mt-5 px-2">
-              <img
-                src="/images/logoipsum-287.svg"
-                class="img-fluid rounded-start"
-                alt="Illustration of the logo"
-              />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Lorem ipsum dolor sit amet.</h2>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
-                tempore! Reiciendis soluta doloremque . . .
-              </p>
-            </div>
-            <div>
-              <a href="#" class="btn btn-theme-primary text-theme-light fw-semibold p-3 m-2 w-50"
-                >View</a
-              >
-            </div>
-          </div>
-          <div class="card bg-theme-light shadow col-12 col-md-5 m-2">
-            <div class="mt-5 px-2">
-              <img
-                src="/images/logoipsum-287.svg"
-                class="img-fluid rounded-start"
-                alt="Illustration of the logo"
-              />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Lorem ipsum dolor sit amet.</h2>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
-                tempore! Reiciendis soluta doloremque . . .
-              </p>
-            </div>
-            <div>
-              <a href="#" class="btn btn-theme-primary text-theme-light fw-semibold p-3 m-2 w-50"
-                >View</a
-              >
-            </div>
-          </div>
-          <div class="card bg-theme-light shadow col-12 col-md-5 m-2">
-            <div class="mt-5 px-2">
-              <img
-                src="/images/logoipsum-287.svg"
-                class="img-fluid rounded-start"
-                alt="Illustration of the logo"
-              />
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">Lorem ipsum dolor sit amet.</h2>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus vitae ipsam
-                tempore! Reiciendis soluta doloremque . . .
-              </p>
-            </div>
-            <div>
-              <a href="#" class="btn btn-theme-primary text-theme-light fw-semibold p-3 m-2 w-50"
-                >View</a
-              >
-            </div>
-          </div>
+          <!-- Listings -->
         </div>
       </div>
     </main>
     <!--Footer is created trough JS script-->
+    <h3 class="visually-hidden">Subheading 1</h3>
     <footer></footer>
   </body>
 </html>
