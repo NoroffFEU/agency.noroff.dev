@@ -23,6 +23,7 @@ export function userDetailsTemplate(data) {
   const skillsList = document.querySelector('#skillsList');
   const descriptionHeader = document.querySelector('#descriptionHeader');
   const profileDescription = document.querySelector('#descriptionBody');
+  const profileEmail = document.querySelector('#profileEmail');
 
   renderProfileImage(data, profileImage);
   renderProfileName(data, profileName);
@@ -30,6 +31,7 @@ export function userDetailsTemplate(data) {
   renderProfileSkills(data, skillsList, skillContainer);
   renderDescriptionHeader(data, descriptionHeader);
   renderProfileDescription(data, profileDescription);
+  renderProfileEmail(data, profileEmail);
 }
 
 /**
@@ -42,16 +44,16 @@ export function renderProfileImage(data, element) {
   if (roleCompany()) {
     const { logo, name } = data;
     element.src = logo || 'https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg';
-    element.alt = (name || 'Default Logo Avatar');
+    element.alt = name || 'Default Logo Avatar';
   } else {
     const { avatar, fullName } = data;
-    element.src = avatar || 'https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
-    element.alt = (fullName || 'Default User Avatar');
+    element.src =
+      avatar ||
+      'https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
+    element.alt = fullName || 'Default User Avatar';
   }
   return element;
 }
-
-
 
 /**
  * Function to render profile name
@@ -154,5 +156,16 @@ export function roleCompany() {
 
   if (roleState === 'Company') {
     return true;
+  }
+}
+export function renderProfileEmail(data) {
+  const emailInput = document.getElementById('emailStudent');
+
+  if (roleCompany()) {
+    const { email } = data;
+    emailInput.value = email;
+  } else {
+    const { email } = data;
+    emailInput.value = email;
   }
 }

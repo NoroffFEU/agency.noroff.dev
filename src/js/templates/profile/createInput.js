@@ -11,7 +11,7 @@ export function createInput(name, type, title, placeholder, parent) {
   const input = document.createElement('input');
   input.name = name;
   input.type = type;
-  input.title = title;
+  input.email = title;
   input.placeholder = placeholder;
   input.classList.add('form-control');
 
