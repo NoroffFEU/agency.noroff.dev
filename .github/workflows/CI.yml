@@ -112,13 +112,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm ci
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           build: npm run build
-          start: npm build-preview
+          start: npm run build-preview
           browser: chrome # only run in chrome to save time
       - name: Update e2e Badge
         uses: RubbaBoy/BYOB@v1.3.0
