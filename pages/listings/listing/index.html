@@ -7,25 +7,24 @@
     <!-- Description of single listing page will have to be rendered in JS to get correct info for each listing -->
     <meta name="description" content="" />
     <!-- Link to my font awesome, will probably have to be replaced with one that belongs to the entire team? -->
-    <link rel="stylesheet" href="/css/index.css" />
     <script src="https://kit.fontawesome.com/155738729b.js" crossorigin="anonymous"></script>
     <!-- Page title of single listing will have to be rendered in JS to get correct info related to the listing -->
     <title></title>
 
     <script src="/index.js" defer type="module"></script>
   </head>
-  <body id="listing">
+  <body id="singleListing">
     <header></header>
     <main class="bg-theme-grey">
       <div class="container mt-4">
         <div class="d-flex flex-column align-items-start">
           <!-- Back button, need to add JS event to make it take you to previous page -->
-          <button class="btn border-0 p-1 me-3 my-2 my-md-0 fs-5">
+          <button class="btn border-0 p-1 me-3 my-2 my-md-0 fs-5" id="backButton">
             <i class="fa-solid fa-chevron-left"></i> Back
           </button>
           <div
-            class="card bg-theme-light border-0 w-75 align-self-center"
-            id="applicationData"
+            class="   border-0 w-75 align-self-center"
+            id="listingContainer"
           ></div>
           <section class="listingContainer"></section>
           <!-- Modal -->
@@ -104,7 +103,7 @@
                           />
                         </div>
                         <div class="form mb-3">
-                          <label for="description" class="">Job Description</label>
+                          <label for="description">Job Description</label>
                           <textarea
                             class="form-control bg-theme-light"
                             rows="10"
@@ -137,7 +136,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="text-center mt-4">
-                    <img src="../../../public/assets/icons/checkmark.svg" alt="" />
+                    <img src="/assets/icons/checkmark.svg" alt="Illustration of close icon" />
                     <h2 class="modal-title text-center">Listing has been </br> updated</h2>
                     <div class="modal-footer justify-content-center pb-4">
                       <a
@@ -145,13 +144,17 @@
                         class="btn btn-theme-dark text-theme-light ps-4 pe-4 me-4"
                         >GO TO PROFILE</a
                       >
-                      <a
-                        href="/pages/listings/listing/index.html"
+                      <button
+                        id="editListingViewListingBtn"
                         class="btn btn-theme-secondary ps-4 pe-4 me-4"
                         type="button"
                       >
                         VIEW LISTING
-                      </a>
+                      </button>
+                      <button class="d-none" id="hide-edit-modal"
+                        data-bs-dismiss="modal"
+                        data-bs-target="#editListingModal">
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -215,7 +218,7 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="text-center py-5 my-5">
-                <img src="../../../public/assets/icons/delete-red.svg" alt="" />
+                <img src="/assets/icons/delete-red.svg" alt="Illustration of close icon" />
                 <h2 class="modal-title text-center">Listing Deleted</h2>
                 <button class="d-none" id="hide-delete-modal"
                 data-bs-dismiss="modal"

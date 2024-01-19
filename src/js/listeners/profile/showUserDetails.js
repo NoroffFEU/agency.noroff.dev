@@ -16,4 +16,5 @@ export async function showUserDatails() {
   const response = await fetch(userUrl, reqOption);
   const data = await response.json();
   userDetailsTemplate(data);
+  return data;
 }

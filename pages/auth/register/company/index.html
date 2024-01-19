@@ -7,14 +7,14 @@
     <!-- Description -->
     <meta
       name="description"
-      content="This page lets companies who are looking for talent to register on the website."
-    />
+      content="Expand your team by registering as an Employer on this page. Tailored for companies seeking talented candidates, our platform simplifies the recruitment process, connecting you with skilled applicants. Begin your journey to finding the ideal addition to your workforce today."  
+      />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
 
     <script src="/index.js" defer type="module"></script>
   </head>
-  <body id="registerPageCompany">
+  <body id="registerPageCompany" class="bg-theme-dark">
     <header></header>
     <main class="px-sm-3 bg-theme-dark">
       <div
@@ -25,7 +25,7 @@
           <h1 class="fw-bold">Register for Companies</h1>
         </div>
         <!-- Register form -->
-        <form class="row g-3" id="registerForm-company">
+        <form novalidate class="row g-3" id="registerForm-company">
           <div class="d-flex justify-content-center mb-3">
             <div
               class="d-flex justify-content-center align-items-center border border-dark rounded-circle bg-theme-new-grey registerImg"
@@ -41,61 +41,78 @@
             </div>
           </div>
           <div class="col-md-6">
-            <label class="mb-2" for="companyName">Company name*</label>
+            <label class="mb-2" for="userEmail">E-mail*</label>
             <input
-              type="text"
-              name="name"
+              type="email"
+              name="email"
               class="form-control"
-              aria-label="Company name"
-              id="companyName"
+              id="userEmail"
+              autocomplete="username"
               required
             />
-            <div class="error"></div>
+            <div class="error mt-1"></div>
+          </div>
+          <div class="col-md-6">
+            <label class="mb-2" for="companyName">Company name*</label>
+            <input type="text" name="name" class="form-control" id="companyName" required />
+            <div class="error mt-1"></div>
+          </div>
+          <div class="col-md-6">
+            <label class="mb-2" for="userPassword">Password*</label>
+            <input
+              type="password"
+              name="password"
+              class="form-control"
+              id="userPassword"
+              autocomplete="off"
+              required
+            />
+            <div class="error mt-1"></div>
+          </div>
+          <div class="col-md-6">
+            <label class="mb-2" for="userConfirmPassword">Confirm password*</label>
+            <input
+              type="password"
+              name="confirm-password"
+              class="form-control"
+              id="userConfirmPassword"
+              autocomplete="off"
+              required
+            />
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
             <label class="mb-2" for="companySector">Sector*</label>
-            <input
-              type="text"
-              name="sector"
-              class="form-control"
-              aria-label="Sector"
-              id="companySector"
-              required
-            />
-            <div class="error"></div>
+            <input type="text" name="sector" class="form-control" id="companySector" required />
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
-            <label class="mb-2" for="contactPerson">Contact person*</label>
-            <input
-              type="text"
-              name="admin"
-              class="form-control"
-              aria-label="Contact person"
-              id="contactPerson"
-              required
-            />
-            <div class="error"></div>
+            <label class="mb-2" for="userName">Contact person*</label>
+            <input type="text" name="user" class="form-control" id="userName" required />
+            <div class="error mt-1"></div>
           </div>
           <div class="col-md-6">
-            <label class="mb-2" for="contactNumber">Contact number*</label>
-            <input
-              type="tel"
-              name="phone"
-              class="form-control"
-              aria-label="Contact number"
-              id="contactNumber"
-              required
-            />
-            <div class="error"></div>
+            <label class="mb-2" for="contactNumber">Contact number</label>
+            <input type="tel" name="phone" class="form-control" id="contactNumber" />
+            <div class="error mt-1"></div>
+          </div>
+          <div class="col-md-6">
+            <label class="mb-2" for="companyWebsite">Company website</label>
+            <input type="url" name="website" class="form-control" id="companyWebsite" />
+            <div class="error mt-1"></div>
           </div>
           <div id="errorMessage" class="text-theme-primary"></div>
+          <div id="registrationSuccessMessage" class="alert alert-success d-none"></div>
           <div class="d-grid gap-2 col-md-6 mx-auto">
             <button class="btn btn-theme-primary btn-lg text-light rounded-1 mt-3" type="submit">
               Register
             </button>
             <div class="text-center my-2 text-dark">Not a company?</div>
             <div class="d-flex flex-column flex-md-row justify-content-center text-center">
-              <a class="text-dark px-3 fs-6" href="/pages/auth/register/applicant/index.html" id="navlink-form-id"
+              <a
+                class="text-dark px-3 fs-6"
+                href="/pages/auth/register/applicant/index.html"
+                id="navlink-form-id"
                 >Register as an applicant</a
               >
             </div>
@@ -117,7 +134,7 @@
                 data-bs-dismiss="modal"
                 aria-label="Close"
               >
-                <img class="icon" src="../../../../public/assets/icons/close.svg" alt="" />
+                <img class="icon" src="/assets/icons/close.svg" alt="Illustration of close icon" />
               </button>
               <div class="px-4 pb-4">
                 <div class="modal-header border-0">
