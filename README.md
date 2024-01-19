@@ -47,7 +47,7 @@ npm i
 
 ### Running the Project
 
-**Do not use live server or any other server, as this will not work.**
+**Do not use live-server or any other server, as this will not work.**
 The project is configured to run with [Vite](https://vitejs.dev/). Run the project with the following command.
 
 ```bash
@@ -92,7 +92,7 @@ If you want to run a specific test, you can use the `-t` flag. For example, if y
 npm run test-unit -- -t path/to/file.test.js
 ```
 
-To run the tests in watch mode, add the `--watch` flag run the following command. This will run the tests in watch mode, which means that the tests will be re-run when a file is changed.
+To run the tests in watch mode, add the `--watch` flag and run the following command. This will run the tests in watch mode, which means that the tests will be re-run when a file is changed.
 
 ```bash
 npm run test-unit -- -t --watch path/to/file.test.js
