@@ -27,7 +27,6 @@ export function userDetailsTemplate(data) {
   const editProfileFirstName = document.querySelector('#firstNameStudent');
   const editProfileLastName = document.querySelector('#lastNameStudent');
 
-
   renderProfileImage(data, profileImage);
   renderProfileName(data, profileName);
   renderProfileRole(data, profileRole);
@@ -172,11 +171,10 @@ export function renderEditProfileEmail(data) {
     const { email } = data;
     emailInput.value = email;
   }
-
+}
 
 export function populateEditNames(data, editProfileFirstName, editProfileLastName) {
   const { firstName, lastName } = data;
   editProfileFirstName.value = firstName;
   editProfileLastName.value = lastName;
-
 }
