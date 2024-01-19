@@ -1,7 +1,13 @@
 {
+  "globals": {
+    "bootstrap": "readonly"
+  },
   "env": {
     "browser": true,
     "es2021": true
+  },
+  "globals": {
+    "bootstrap": "readonly"
   },
   "extends": "eslint:recommended",
   "overrides": [
