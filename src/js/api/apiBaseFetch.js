@@ -35,7 +35,12 @@ export async function apiBaseFetch(url, headers = null, offset = 0, limit = 100)
     throw error;
   }
 }
-
+/**
+ * function that uses two parameters and fetches these parameters to return a promise
+ * @param {string} url 
+ * @param {object} options 
+ * @returns {Promise}
+ */
 export async function authBaseFetchOpen(url, options = {}) {
   return fetch(url, {
     ...options,
