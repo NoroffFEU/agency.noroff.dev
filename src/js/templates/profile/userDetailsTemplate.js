@@ -23,7 +23,7 @@ export function userDetailsTemplate(data) {
   const skillsList = document.querySelector('#skillsList');
   const descriptionHeader = document.querySelector('#descriptionHeader');
   const profileDescription = document.querySelector('#descriptionBody');
-  const profileEmail = document.querySelector('#profileEmail');
+  const editProfileEmail = document.querySelector('#profileEmail');
 
   renderProfileImage(data, profileImage);
   renderProfileName(data, profileName);
@@ -31,7 +31,7 @@ export function userDetailsTemplate(data) {
   renderProfileSkills(data, skillsList, skillContainer);
   renderDescriptionHeader(data, descriptionHeader);
   renderProfileDescription(data, profileDescription);
-  renderProfileEmail(data, profileEmail);
+  renderEditProfileEmail(data, editProfileEmail);
 }
 
 /**
@@ -158,7 +158,7 @@ export function roleCompany() {
     return true;
   }
 }
-export function renderProfileEmail(data) {
+export function renderEditProfileEmail(data) {
   const emailInput = document.getElementById('emailStudent');
 
   if (roleCompany()) {
