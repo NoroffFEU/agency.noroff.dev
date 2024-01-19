@@ -31,7 +31,7 @@ describe('Edits profile details', () => {
       .type(`Hello! This "About Me" section is written with a Cypress E2E test`);
 
     // Submit the form
-    cy.get('.d-grid > .fw-semibold').click();
+    cy.get('button').contains('SAVE').click();
 
     // Wait for the PUT request to complete and check the status code
     cy.wait('@editProfile').its('response.statusCode').should('eq', 200);
