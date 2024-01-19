@@ -19,10 +19,13 @@ export const renderListing = async () => {
       container.append(listing);
 
       //Have used userName and UserRole because i could not get the Store to work
+
       /* This could should call user name and role as profile from the class Store that handles local storage*/
-      const userName = localStorage.getItem('email');
-      const userRole = localStorage.getItem('role');
+      const userName = localStorage.getItem('email') ? localStorage.getItem('email').replace(/"/g, '').trim() : null;
+      const userRole = localStorage.getItem('role') ? localStorage.getItem('role').replace(/"/g, '').trim() : null;
+      const listing = createListing(result, userRole);
       const btnContainer = listing.querySelector('.buttonContainer');
+      container.append(listing);
 
      /*The if statements should use profile username and role, but is using userName and userRole instead because of the issue written above */
         if (userName === company.name) {
@@ -47,25 +50,28 @@ export const renderListing = async () => {
 }
 
 
-const createListing = ({company, title, description, deadline, created, requirements, tags}) => {
+const createListing = (result, userRole) => {
+const { company, title, description, deadline, created, requirements, tags } = result;
 const element = createElement("div")
 const card = createElement("div", ["card", "bg-theme-light", "d-flex", "border-0", "rounded-0"])
 const img = createImg(company)
-const cardBody = createCardBody(title, description, deadline,company, created, requirements, tags)
+const cardBody = createCardBody(title, description, deadline,company, created, requirements, tags, userRole)
 card.append(img, cardBody)
 element.append(card)
 return element
 }
+
 const  createImg = ({name, logo}) => {
   const element = createElement("img", ["listing-logo", "my-5", "card-img-top", "rounded", "w-75"],null,null,null,logo, name)
   return element;
 }
 
-const createCardBody = (title, description, deadline, company, created, requirements, tags) => {
+
+const createCardBody = (title, description, deadline, company, created, requirements, tags, userRole) => {
   const element = createElement("div", ["card-body", "d-flex", "flex-column", "gap-2" ])
   const h1 = createElement("h1", ["card-title"], null, title)
   const detailsContainer = createDetailsContainer(title, company, deadline, created)
-  const btnContainer = createBtnContainer()
+  const btnContainer = createBtnContainer(userRole)
   const tagsContainer = createTagContainer(tags)
   const JobDescription = createElement("p", null, null, description)
   const requirementsContainer = createRequirementsContainer( requirements)
@@ -81,17 +87,24 @@ const createDetailsContainer = (title, company, deadline, created) => {
   return element
 }
 
-const createBtnContainer = () => {
+const createBtnContainer = (userRole) => {
   const element = createElement("div", ["d-flex", "align-items-center", "gap-2", "my-3", "buttonContainer", ])
-  const applyBtn = createElement("a", ["btn", "btn-theme-secondary", "text-uppercase", "w-100", "rounded-0", "applyBtn"], null , "Apply for job")
-  applyBtn.dataset.auth = "applyForJob"
+  if (userRole === 'Client') {
+    return element;
+  }
+
+  const applyBtn = createElement("a", ["btn", "btn-theme-secondary", "text-uppercase", "w-100", "rounded-0", "applyBtn"], null, "Apply for job");
+  applyBtn.dataset.auth = "applyForJob";
+  element.append(applyBtn);
+  
   const favIcon = createElement("img", null, null, null, null, "/assets/icons/heart-fav.svg", "heart icon")
   favIcon.style = "width: 30px"
   const favBtn = createElement("button", ["btn", "btn-theme-light"], [favIcon])
   favBtn.dataset.auth = "favoriteListing"
-  element.append(applyBtn, favBtn)
-  return element
+  element.append(favBtn)
 
+  return element
+  
 }
 const createTagContainer = (tags) => {
   const element = createElement("div", ["d-flex", "flex-wrap", "gap-2"])

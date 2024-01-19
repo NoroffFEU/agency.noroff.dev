@@ -7,7 +7,10 @@
 import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { renderListings, renderNoListings } from '../../templates/listings/renderListings.js';
 
-
+/**
+ * funnction thats allow a user to search thru the lisitngs, the function calls getListOfLisitings() to get all the listings, it then gets the search value and uses
+ * the .filter() method to create a new array with listings that matches the search value
+ */
 export async function searchListings() {
 
   const arrayOfListings = await getListOfListings();
