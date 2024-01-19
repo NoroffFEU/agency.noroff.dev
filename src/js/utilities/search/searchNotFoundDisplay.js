@@ -14,7 +14,7 @@ export function userNotFound(container) {
             <div>
                 <img class="img-fluid" src="" alt="Illustration of close icon">
             </div>
-            <h3 class="">Something went wrong</h3>
+            <h3>Something went wrong</h3>
             <p>The listing/user you are looking for was not found in our database, please try again.</p>
         </div>
     </div>`);
@@ -28,7 +28,7 @@ export function listingNotFound(container) {
             <div>
                 <img class="img-fluid" src="" alt="Illustration of close icon">
             </div>
-            <h3 class="">Something went wrong</h3>
+            <h3>Something went wrong</h3>
             <p>The listing/user you are looking for was not found in our database, please try again.</p>
         </div>
     </div>`);
