@@ -59,3 +59,7 @@ $form-feedback-valid-color: #146c43;
 .registerButton {
   background-image: linear-gradient(to top, #ff0844 0%, #ff4e27 100%);
 }
+
+// Small change for more visible hover effect on btn's
+$btn-hover-bg-tint-amount: 35%;
+$btn-hover-border-tint-amount: 15%;
