@@ -106,9 +106,33 @@ jobs:
           label: 'Build Status'
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+  e2e:
+    name: E2E Tests
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm build-preview
+          browser: chrome # only run in chrome to save time
+      - name: Update e2e Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: e2e
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'E2E Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
   # only runs if the previous jobs are successful and the push event is targeting the main branch
   deploy:
-    needs: [setup, lint, unit-test, build]
+    needs: [setup, lint, unit-test, build, e2e]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     # Allow one concurrent deployment
