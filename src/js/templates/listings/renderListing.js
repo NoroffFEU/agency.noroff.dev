@@ -87,7 +87,7 @@ const createBtnContainer = () => {
   const element = createElement("div", ["d-flex", "align-items-center", "gap-2", "my-3", "buttonContainer", ])
   const applyBtn = createElement("a", ["btn", "btn-theme-secondary", "text-uppercase", "w-100", "rounded-0", "applyBtn"], null , "Apply for job")
   applyBtn.dataset.auth = "applyForJob"
-  const favIcon = createElement("img", null, null, null, null, "/public/assets/icons/heart-fav.svg")
+  const favIcon = createElement("img", null, null, null, null, "/assets/icons/heart-fav.svg", "heart icon")
   favIcon.style = "width: 30px"
   const favBtn = createElement("button", ["btn", "btn-theme-light"], [favIcon])
   favBtn.dataset.auth = "favoriteListing"

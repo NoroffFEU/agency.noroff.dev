@@ -41,6 +41,7 @@ export function singleListingTemplate(listing) {
   const favIcon = document.createElement('img');
   favIcon.style = 'width: 30px';
   favIcon.src = '/assets/icons/heart-fav.svg';
+  
 
   column.append(card);
   card.append(img, cardBody);
