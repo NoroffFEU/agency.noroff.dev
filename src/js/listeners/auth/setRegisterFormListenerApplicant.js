@@ -1,7 +1,11 @@
 import { registerUser } from '../../api/auth/index.js';
 import { message } from '../../utilities/message/message.js';
 import { inputs } from './validateInputs.js';
-
+/**
+ * function that first makes constants from IDs and then uses validation functions to validate the input from the constants,
+ * it then gives the user an error message if the validation fails or it stores the user data given, and register the user
+ * if the registration is successful the user gets a success message
+ */
 export function setRegisterFormListenerApplicant() {
   const form = document.querySelector('#registerForm-applicant');
   const password = document.querySelector('#passwordStudent');
