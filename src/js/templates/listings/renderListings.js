@@ -10,6 +10,7 @@
 import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
+import { backButtonEventListener } from '../../utilities/listings/listingsBackButton.js';
 
 let cachedListings = null;
 
@@ -109,3 +110,5 @@ const createCardFooter = (deadline, id) => {
 function handleClick() {
   window.location.href = '../../..//pages/listings/listing/index.html';
 }
+
+backButtonEventListener('backButton', '/pages/listings/index.html');
