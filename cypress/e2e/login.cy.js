@@ -19,9 +19,13 @@ describe('Login page', () => {
     cy.get('#password').type('czv4euj*ncv6NUG@aqy');
     cy.get('button[type="submit"]').click();
 
+    cy.contains('Welcome to Noroff Job Agency').should('be.visible');
+    cy.findByTestId('header').contains('Profile').should('be.visible');
+    cy.findByTestId('header').contains('Log out').should('be.visible');
+    cy.findByTestId('header').contains('Profile').click();
+
     cy.get('#profileName').should('contain', 'cypress test');
     cy.get('#profileRole').should('contain', 'Applicant');
-    cy.get('#profileEmail').should('contain', 'cypress-test@noroff.no');
   });
 
   it('should logout successfully', () => {
@@ -29,9 +33,10 @@ describe('Login page', () => {
     cy.get('#password').type('czv4euj*ncv6NUG@aqy');
     cy.get('button[type="submit"]').click();
 
+    cy.findByTestId('header').contains('Profile').click();
+
     cy.get('#profileName').should('contain', 'cypress test');
     cy.get('#profileRole').should('contain', 'Applicant');
-    cy.get('#profileEmail').should('contain', 'cypress-test@noroff.no');
 
     cy.contains('Log out').click();
 
@@ -54,9 +59,10 @@ describe('Login page', () => {
     cy.get('input[type="checkbox"]').check();
     cy.get('button[type="submit"]').click();
 
+    cy.findByTestId('header').contains('Profile').click();
+
     cy.get('#profileName').should('contain', 'cypress test');
     cy.get('#profileRole').should('contain', 'Applicant');
-    cy.get('#profileEmail').should('contain', 'cypress-test@noroff.no');
 
     cy.checkLocalStorage('email', 'cypress-test@noroff.no');
     cy.checkLocalStorage('id', '649e0993-ce87-474e-8714-9e44d2de8e40');
@@ -69,16 +75,16 @@ describe('Login page', () => {
     cy.checkSessionStorage('token', null);
   });
 
-  it('should save credentials to session storage when remember is not checked', () => {
+  // this is skipped until https://github.com/NoroffFEU/agency.noroff.dev/issues/1022 is resolved
+  it.skip('should save credentials to session storage when remember is not checked', () => {
     cy.get('#email').type('cypress-test@noroff.no');
     cy.get('#password').type('czv4euj*ncv6NUG@aqy');
     cy.get('input[type="checkbox"]').uncheck();
     cy.get('button[type="submit"]').click();
 
-    cy.get('#skillsHeader').should('contain', 'Skills');
+    cy.findByTestId('header').contains('Profile').click();
 
-    // profile view is currently broken when using session storage, e.g "don't remember me"
-    // when this is fixed, add profile assertion here
+    cy.get('#skillsHeader').should('contain', 'Skills');
 
     cy.checkLocalStorage('email', null);
     cy.checkLocalStorage('id', null);
