@@ -10,3 +10,9 @@ Version: 1.0.0
   
   At that point the link also needs to be updated, as of right now it links the global properties into a local environment rather than the other way around to avoid conflict and issues
 */
+
+#navlink-form-id:hover {
+  color: #f8f8f8 !important;
+  transition: 400ms ease-in-out;
+  background-color: #212529;
+}

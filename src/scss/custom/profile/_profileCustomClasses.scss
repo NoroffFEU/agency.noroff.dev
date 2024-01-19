@@ -50,3 +50,13 @@ Version: 1.0.0
 .card-bottom {
   font-size: max(8px, min(4vw, 13px));
 }
+
+.profile-input {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .profile-input {
+    width: 50%;
+  }
+}

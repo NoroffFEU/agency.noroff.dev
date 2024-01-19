@@ -11,7 +11,7 @@ export const studentView = `
 <div class="imgContainer">
 <img class="" src="
 https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png
-" alt="" />
+" alt="Illustration of close icon" />
 </div>
 </div>
 <div class="col-12 col-md-6 ms-md-5 row col-xxl-4">
@@ -37,7 +37,7 @@ https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png
 <div class="imgContainer">
 <img class="img-fluid" src="
 https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png
-" alt="" />
+" alt="Illustration of close icon" />
 </div>
 </div>
 </div>

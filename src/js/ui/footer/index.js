@@ -1,4 +1,4 @@
-import { handleActiveLinks } from "../../listeners/footer/handleActiveLinks";
+import { handleActiveLinks } from '../../listeners/footer/handleActiveLinks';
 
 export const footer = () => {
   const footerElement = document.querySelector('footer');
@@ -82,7 +82,11 @@ export const footer = () => {
     parent.append(li);
   };
 
-  createListItem(forCompaniesList, '#', 'About Noroff Jobs');
+  createListItem(
+    forCompaniesList,
+    '../../../../pages/footer/aboutNoroffJobs.html',
+    'About Noroff Jobs'
+  );
   createListItem(forCompaniesList, '#', 'Company User Guide');
   createListItem(forCompaniesList, '#', 'FAQ');
 
@@ -127,8 +131,8 @@ export const footer = () => {
   helpList.className = 'p-0 d-flex flex-column gap-1';
   helpCol.append(helpList);
 
-  createListItem(helpList, '/privacy_policy.html', 'Privacy Policy');
-  createListItem(helpList, '/terms_of_use.html', 'Terms of use');
+  createListItem(helpList, '../../../../pages/footer/privacypolicy.html', 'Privacy Policy');
+  createListItem(helpList, '../../../../pages/footer/termsofuse.html', 'Terms of use');
 
   const rightSpacer = document.createElement('div');
   rightSpacer.classList.add('col-xl-1', 'col-xxl-2', 'd-none', 'd-lg-block');
