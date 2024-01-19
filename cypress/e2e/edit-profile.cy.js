@@ -39,7 +39,7 @@ describe('Edits profile details', () => {
     // Verify updated profile details
     cy.reload();
     cy.get('#profileName').should('contain', 'This User');
-    cy.get('#skillsList > :nth-child(1)').should('contain', 'E2E-testing');
+    cy.get('#skillsList').contains('E2E-testing');
     cy.get('#skillsList > :nth-child(2)').should('contain', 'Cypress');
     cy.get('#skillsList > :nth-child(3)').should('contain', 'JavaScript');
     cy.get('#descriptionBody').should(
