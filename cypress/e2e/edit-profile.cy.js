@@ -8,7 +8,7 @@ describe('Edits profile details', () => {
       'loginAPI'
     );
 
-    cy.visit('http://127.0.0.1:4173/'); // Please replace this with your local vite url
+     cy.visit('/'); // Please replace this with your local vite url
 
     // Login process
     cy.contains('Log in').click();
