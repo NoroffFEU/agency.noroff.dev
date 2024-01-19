@@ -17,7 +17,6 @@ export const renderListing = async () => {
     metaDescription.content = `View ${title} Application at Noroff Job Agency`;
     const listing = createListing(result);
     container.append(listing);
-    console.log(result);
 
     //Have used userName and UserRole because i could not get the Store to work
     /* This could should call user name and role as profile from the class Store that handles local storage*/
