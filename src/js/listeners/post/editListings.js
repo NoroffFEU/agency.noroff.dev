@@ -23,7 +23,12 @@ async function getListingData(listingUrl) {
 export function editListingListener() {
   getListingData(listingUrl);
   const form = document.querySelector('#editListing');
+  const viewListingBtn = document.querySelector('#editListingViewListingBtn');
+
   form.addEventListener('submit', editListingListenerForm);
+  viewListingBtn.addEventListener('click', () => {
+    window.location.reload();
+  });
 }
 
 async function editListingListenerForm(event) {

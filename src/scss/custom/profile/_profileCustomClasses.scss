@@ -60,3 +60,13 @@ Version: 1.0.0
   text-align: center;
   gap: 10px;
 }
+
+.profile-input {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .profile-input {
+    width: 50%;
+  }
+}
