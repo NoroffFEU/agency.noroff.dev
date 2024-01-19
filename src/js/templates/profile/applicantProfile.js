@@ -2,11 +2,9 @@ const profileImage = document.querySelector('#profileImage');
 const userName = document.querySelector('#profileName');
 const applicantRole = document.querySelector('#profileRole');
 const companyContact = document.querySelector('#profileContact');
-// const skillContainer = document.querySelector('#skillsContainer');
 const skillsList = document.querySelector('#skillsList');
 const descriptionHeader = document.querySelector('#descriptionHeader');
 const profileDescription = document.querySelector('#descriptionBody');
-
 const editUserForm = document.querySelector('#editStudentProfile');
 
 /**
@@ -14,16 +12,14 @@ const editUserForm = document.querySelector('#editStudentProfile');
  * @param {object} data object data on user
  */
 export function applicantProfile(data) {
-  // Profile section
-  const { avatar, fullName } = data; // Avatar
-  profileImage.src =
-    avatar ||
-    'https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
-  profileImage.alt = (fullName || 'Unknown') + 'avatar';
-  const { firstName, lastName } = data; // Applicant name
+  // console.log(data)
+  const { firstName, lastName } = data;
   userName.innerText = firstName + ' ' + lastName;
-  const role = data.title; // Applicant role
-  applicantRole.innerText = role;
+  profileImage.src =
+    data.avatar ||
+    'https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
+  profileImage.alt = (userName.innerText || 'Unknown') + 'avatar';
+  applicantRole.innerText = data.title;
   companyContact.classList.add('d-none');
   const { skills } = data; // SkillsContainer
   if (Array.isArray(skills) && skills.length > 0) {
@@ -31,15 +27,14 @@ export function applicantProfile(data) {
       const renderSkill = document.createElement('li');
       renderSkill.classList.add('fw-bolder', 'fs-6', 'ms-0');
       renderSkill.innerText = item.trim();
-
       skillsList.append(renderSkill);
     });
   }
-  descriptionHeader.innerText = 'About me'; // Description Header
-  const description = data.about; // Description
-  profileDescription.textContent = description;
-
+  descriptionHeader.innerText = 'About me'; 
+  profileDescription.textContent = data.about;
   editUserForm.classList.remove('d-none');
 
-  // listings section
+  // Favorite listings section
+    // The profile view will have a container component that will display the favorite listings of the Applicant. 
+// That code goes here
 }

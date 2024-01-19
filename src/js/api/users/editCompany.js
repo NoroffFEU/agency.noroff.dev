@@ -12,13 +12,8 @@ import { getToken } from '../getToken.js';
 
 export async function editCompany(profile) {
   const id = localStorage.getItem('companyId');
-
   const profileURL = apiPath + companyUrl + `${id}`;
-
   const accessToken = JSON.parse(getToken('token'));
-  if (profile.phone) {
-    profile.phone = Number(profile.phone);
-  }
   const body = JSON.stringify(profile);
 
   const options = {
@@ -32,11 +27,10 @@ export async function editCompany(profile) {
 
   try {
     const response = await fetch(profileURL, options);
-
     const profile = await response.json();
-
     switch (response.status) {
       case 200: {
+        console.log(profile)
         alert('Update was successful');
         return profile;
       }
