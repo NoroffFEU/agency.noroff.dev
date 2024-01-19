@@ -15,8 +15,6 @@ export const renderListing = async () => {
       const result = await getSingleListing(id);
       const {title, company } = result
       metaDescription.content = `View ${title} Application at Noroff Job Agency`
-      const listing = createListing(result);
-      container.append(listing);
 
       //Have used userName and UserRole because i could not get the Store to work
 
