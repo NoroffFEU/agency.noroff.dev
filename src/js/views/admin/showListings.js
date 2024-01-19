@@ -38,7 +38,7 @@ export function showListings() {
         // eslint-disable-next-line no-undef
         jobListings.innerHTML += `
         <div class="card flex-row p-0 gap-4 w-auto">
-          <img src="https://via.placeholder.com/150 " alt="Illustration of close icon" class="" />
+          <img src="https://via.placeholder.com/150 " alt="Illustration of close icon"/>
           <div class="d-flex flex-column gap-2 me-3">
             <h3>${jobCompany}</h3>
             <p>${jobTitle}#-${jobId}</p>
