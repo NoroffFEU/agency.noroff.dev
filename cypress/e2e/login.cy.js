@@ -1,3 +1,6 @@
+const username = Cypress.env('username');
+const password = Cypress.env('password');
+
 describe('Login page', () => {
   beforeEach(() => {
     cy.clearAllLocalStorage();
@@ -7,10 +10,7 @@ describe('Login page', () => {
   });
 
   it('should display an error when attempting to login with the wrong credentials', () => {
-    cy.get('#email').type('user@example.com');
-    cy.get('#password').type('password123');
-    cy.get('button[type="submit"]').click();
-
+    cy.login('wrongEmail@noroff.no', 'wrongPassword');
     cy.contains('Invalid login credentials. Please try again').should('be.visible');
   });
 
@@ -18,9 +18,7 @@ describe('Login page', () => {
     cy.findByTestId('header').contains('Profile').should('not.exist');
     cy.findByTestId('header').contains('Log out').should('not.exist');
 
-    cy.get('#email').type('cypress-test@noroff.no');
-    cy.get('#password').type('czv4euj*ncv6NUG@aqy');
-    cy.get('button[type="submit"]').click();
+    cy.login(username, password);
 
     cy.findByTestId('header').contains('Profile').should('be.visible');
     cy.findByTestId('header').contains('Log out').should('be.visible');
@@ -31,9 +29,7 @@ describe('Login page', () => {
   });
 
   it('should login successfully with the correct credentials', () => {
-    cy.get('#email').type('cypress-test@noroff.no');
-    cy.get('#password').type('czv4euj*ncv6NUG@aqy');
-    cy.get('button[type="submit"]').click();
+    cy.login(username, password);
 
     cy.contains('Welcome to Noroff Job Agency').should('be.visible');
     cy.findByTestId('header').contains('Profile').should('be.visible');
@@ -45,9 +41,7 @@ describe('Login page', () => {
   });
 
   it('should logout successfully', () => {
-    cy.get('#email').type('cypress-test@noroff.no');
-    cy.get('#password').type('czv4euj*ncv6NUG@aqy');
-    cy.get('button[type="submit"]').click();
+    cy.login(username, password);
 
     cy.findByTestId('header').contains('Profile').click();
 
@@ -69,18 +63,19 @@ describe('Login page', () => {
     cy.checkSessionStorage('token', null);
   });
 
+  // this test is explicitly using the login form, not the login command, to test the remember me functionality
   it('should save credentials to local storage when remember is checked', () => {
-    cy.get('#email').type('cypress-test@noroff.no');
-    cy.get('#password').type('czv4euj*ncv6NUG@aqy');
+    cy.findByTestId('login-form-email').type(username);
+    cy.findByTestId('login-form-password').type(password);
     cy.get('input[type="checkbox"]').check();
     cy.get('button[type="submit"]').click();
 
     cy.findByTestId('header').contains('Profile').click();
 
-    cy.get('#profileName').should('contain', 'cypress test');
-    cy.get('#profileRole').should('contain', 'Applicant');
+    cy.contains('cypress test');
+    cy.contains('Applicant');
 
-    cy.checkLocalStorage('email', 'cypress-test@noroff.no');
+    cy.checkLocalStorage('email', username);
     cy.checkLocalStorage('id', '649e0993-ce87-474e-8714-9e44d2de8e40');
     cy.checkLocalStorage('role', 'Applicant');
     cy.checkLocalStorage('token', 'NOT_NULL');
@@ -93,8 +88,8 @@ describe('Login page', () => {
 
   // this is skipped until https://github.com/NoroffFEU/agency.noroff.dev/issues/1022 is resolved
   it.skip('should save credentials to session storage when remember is not checked', () => {
-    cy.get('#email').type('cypress-test@noroff.no');
-    cy.get('#password').type('czv4euj*ncv6NUG@aqy');
+    cy.findByTestId('login-form-email').type(username);
+    cy.findByTestId('login-form-password').type(password);
     cy.get('input[type="checkbox"]').uncheck();
     cy.get('button[type="submit"]').click();
 
@@ -107,7 +102,7 @@ describe('Login page', () => {
     cy.checkLocalStorage('role', null);
     cy.checkLocalStorage('token', null);
 
-    cy.checkSessionStorage('email', 'cypress-test@noroff.no');
+    cy.checkSessionStorage('email', username);
     cy.checkSessionStorage('id', '649e0993-ce87-474e-8714-9e44d2de8e40');
     cy.checkSessionStorage('role', 'Applicant');
     cy.checkSessionStorage('token', 'NOT_NULL');
