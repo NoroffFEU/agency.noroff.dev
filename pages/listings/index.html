@@ -38,12 +38,9 @@
         <section class="d-flex justify-content-center">
           <div class="mt-5 col-6">
             <h1 class="mt-2 py-1 text-center fw-bold">Job Listings</h1>
-            <div class="container d-flex justify-content-center mt-3 col-12 ms-3">
+            <div class="container d-flex justify-content-center mt-3 col-12">
               <div class="col-md-5 w-100 col-10 ms-5 search-container">
                 <div class="input-group">
-                  <label for="searchListing"><span class="invisible">Searchbar</span></label>
-
-
                   <input
                     class="form-control rounded bg-white shadow-sm"
                     type="search"
@@ -51,9 +48,10 @@
                     autofocus="autofocus" 
                     id="searchListing"
                     data-search-listings
+                    aria-label="Searchbar"
                   />
                   <span class="input-group-append">
-                    <button class="btn ms-n5 ps-1" type="button">
+                    <button class="btn ms-n5 ps-1" type="button" aria-label="Search-button">
                       <img
                         src="/assets/icons/search.svg"
 
