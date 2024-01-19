@@ -16,7 +16,7 @@
   <body id="singleListing">
     <header></header>
     <main class="bg-theme-grey">
-      <div class="container mt-4">
+      <div class="container my-4">
         <div class="d-flex flex-column align-items-start">
           <!-- Back button, need to add JS event to make it take you to previous page -->
           <button class="btn border-0 p-1 me-3 my-2 my-md-0 fs-5" id="backButton">
@@ -27,18 +27,12 @@
             id="listingContainer"
           ></div>
           <section class="listingContainer"></section>
-          <!-- Modal -->
-          <section>
-            <div class="ms-4 mb-4">
-              <button
-                type="button"
-                class="btn btn-theme-secondary ps-4 pe-4 me-4"
-                data-bs-toggle="modal"
-                data-bs-target="#editListingModal"
-              >
-                EDIT
-              </button>
-            </div>
+          
+        </div>
+      </div>
+      <!-- <section class="listingContainer"></section> -->
+      <!-- Modal -->
+      <section>
             <div
               class="modal fade"
               id="editListingModal"
@@ -160,22 +154,9 @@
                 </div>
               </div>
             </div>
-          </section>
-        </div>
-      </div>
-      <section class="listingContainer"></section>
+      </section>
       <!-- Modal delete -->
       <section>
-        <div class="ms-4 mb-4">
-          <button
-            type="button"
-            class="btn btn-theme-dark text-theme-light ps-4 pe-4 me-4"
-            data-bs-toggle="modal"
-            data-bs-target="#deleteListingModal"
-          >
-            DELETE
-          </button>
-        </div>
         <div
           class="modal fade"
           id="deleteListingModal"
