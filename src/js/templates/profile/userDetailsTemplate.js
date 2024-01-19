@@ -23,6 +23,8 @@ export function userDetailsTemplate(data) {
   const skillsList = document.querySelector('#skillsList');
   const descriptionHeader = document.querySelector('#descriptionHeader');
   const profileDescription = document.querySelector('#descriptionBody');
+  const editProfileFirstName = document.querySelector('#firstNameStudent');
+  const editProfileLastName = document.querySelector('#lastNameStudent');
 
   renderProfileImage(data, profileImage);
   renderProfileName(data, profileName);
@@ -30,6 +32,7 @@ export function userDetailsTemplate(data) {
   renderProfileSkills(data, skillsList, skillContainer);
   renderDescriptionHeader(data, descriptionHeader);
   renderProfileDescription(data, profileDescription);
+  populateEditNames(data, editProfileFirstName, editProfileLastName);
 }
 
 /**
@@ -155,4 +158,10 @@ export function roleCompany() {
   if (roleState === 'Company') {
     return true;
   }
+}
+
+export function populateEditNames(data, editProfileFirstName, editProfileLastName) {
+  const { firstName, lastName } = data;
+  editProfileFirstName.value = firstName;
+  editProfileLastName.value = lastName;
 }
