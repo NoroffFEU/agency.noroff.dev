@@ -15,9 +15,9 @@ export function createListing() {
   const createModal = new bootstrap.Modal(document.getElementById('createModal'));
 
   function populateCompanyDropdown() {
-    const companyData = localStorage.getItem('companyIDs');
+    const companyData = localStorage.getItem('id');
     if (companyData) {
-      const companies = JSON.parse(companyData); // Replace with the actual local storage key
+      const companies = JSON.parse(companyData); 
       companies.forEach((companyId) => {
         const option = document.createElement('option');
         option.value = companyId;
