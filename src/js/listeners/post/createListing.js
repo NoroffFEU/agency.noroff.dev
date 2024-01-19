@@ -17,7 +17,10 @@ export function createListing() {
   function populateCompanyDropdown() {
     const companyData = localStorage.getItem('id');
     if (companyData) {
-      const companies = JSON.parse(companyData); 
+      let companies = JSON.parse(companyData); 
+      if (!Array.isArray(companies)) {
+        companies = [companies];
+      }
       companies.forEach((companyId) => {
         const option = document.createElement('option');
         option.value = companyId;
