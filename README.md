@@ -3,9 +3,20 @@
 Frontend web application for the Noroff Agency API.
 Deployed site: [agency.noroff.dev](https://agency.noroff.dev)
 
-## Documentation
+## Documentation Index
 
-For more documentation, see the [documentation directory](./documentation/)
+Here's a list of additional documentation available for this project:
+
+- [Front-End Brief](./documentation/frontend-brief.md)
+- [Purpose of the CA](./documentation/ca-purpose.md)
+- [Naming Convention](./documentation/naming-convention.md)
+- [How to Branch](./documentation/how-to-branch.md)
+- [How to Use the API](./documentation/How-to-use-API.md)
+- [E2E Testing Guide](./documentation/E2E-testing-guide.md)
+- [GitHub Actions Pipeline](./documentation/GitHub-actions-pipeline.md)
+- [Useful Information](./documentation/useful-information.md)
+
+For more details, see the [documentation directory](./documentation/).
 
 ## Status
 
@@ -36,8 +47,8 @@ npm i
 
 ### Running the Project
 
-The project is configured to run with [Vite](https://vitejs.dev/). Run the project with the following command.
 **Do not use live server or any other server, as this will not work.**
+The project is configured to run with [Vite](https://vitejs.dev/). Run the project with the following command.
 
 ```bash
 npm run dev
