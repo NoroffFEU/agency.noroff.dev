@@ -49,7 +49,7 @@ export const renderListing = async () => {
 
 const createListing = ({company, title, description, deadline, created, requirements, tags}) => {
 const element = createElement("div")
-const card = createElement("div", ["card", "bg-theme-light", "border-0", "rounded-0"])
+const card = createElement("div", ["card", "bg-theme-light", "d-flex", "border-0", "rounded-0"])
 const img = createImg(company)
 const cardBody = createCardBody(title, description, deadline,company, created, requirements, tags)
 card.append(img, cardBody)
@@ -57,7 +57,7 @@ element.append(card)
 return element
 }
 const  createImg = ({name, logo}) => {
-  const element = createElement("img", ["listing-logo card-img-top", "rounded-0", "w-100"],null,null,null,logo, name)
+  const element = createElement("img", ["listing-logo", "my-5", "card-img-top", "rounded", "w-75"],null,null,null,logo, name)
   return element;
 }
 
