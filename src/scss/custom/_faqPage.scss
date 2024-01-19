@@ -1,0 +1,10 @@
+#faq-main {
+  max-width: 900px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 980px) {
+  #faq-main {
+    margin: 2rem;
+  }
+}
