@@ -36,12 +36,12 @@ export function handleLoginRedirect(url) {
 export function getRedirectUrl(role) {
   switch (role) {
     case 'Applicant':
-      return '/pages/user/index.html';
+      return '/';
     case 'Admin':
-      return '#'; // TODO: Add admin page url
+      return '/';
     case 'Client':
-      return '#'; // TODO: Add client page url
+      return '/';
     default:
-      return '/pages/user/index.html';
+      return '/';
   }
 }
