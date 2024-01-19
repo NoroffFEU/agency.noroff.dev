@@ -8,7 +8,7 @@ describe('Edits profile details', () => {
       'loginAPI'
     );
 
-    cy.visit('http://127.0.0.1:5173/'); // Please replace this with your local vite url
+    cy.visit('http://127.0.0.1:4173/'); // Please replace this with your local vite url
 
     // Login process
     cy.contains('Log in').click();
@@ -36,7 +36,7 @@ describe('Edits profile details', () => {
     cy.wait('@editProfile').its('response.statusCode').should('eq', 200);
 
     // Verify updated profile details
-    cy.visit('http://127.0.0.1:5173/pages/user/'); // Please replace the first part with your local vite url
+    cy.visit('http://127.0.0.1:4173/pages/user/'); // Please replace the first part with your local vite url
     cy.get('#profileName').should('contain', 'This User');
     cy.get('#skillsList > :nth-child(1)').should('contain', 'E2E-testing');
     cy.get('#skillsList > :nth-child(2)').should('contain', 'Cypress');
