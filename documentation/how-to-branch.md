@@ -2,7 +2,10 @@
 
 ## Overview
 
-It's recommended for each development team to have its own main working branch (e.g., `teamName-Offers`, `teamName-Listing`). Developers are encouraged to create task-specific branches from their team's main working branch for their individual tasks. However, it's important to consult with the team leads or teachers before proceeding to ensure alignment with the overall project strategy.
+Our branching strategy utilizes the `main` branch as the central hub for all development. Developers are required to create new branches off `main` for every feature or bug fix, with the branch name starting with a keyword followed by a forward slash to indicate the type of change, such as feature/, fix/, etc. This is then followed by a description of the purpose, like feature/add-login or fix/header-layout. 
+
+Once development on these branches is complete, a Pull Request (PR) should be initiated to merge the changes back into `main`, ensuring a thorough code review for maintaining quality standards. Branch names should be kept straightforward, avoiding special characters and relying on alphanumeric characters and hyphens for better clarity and compatibility. 
+It's crucial for developers to align their work with the overall project strategy before commencing new features or fixes.
 
 ### Important Notes:
 
