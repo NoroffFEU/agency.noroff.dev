@@ -7,7 +7,11 @@ import {
   validateFutureDate,
   validateDescription,
 } from '../../utilities/formvalidation/listingValidation.js';
-
+/**
+ * function that creates a Listing, the function creates a modal where companys can add different information like Title, tags, requirements, deadline,
+ * description the function also validates the input, the input is used to create an object called appData which is sent to the api, if the listing is successfully created
+ * the user will recive a success message, if an error occurs the user will recive an error message
+ */
 export function createListing() {
   const form = document.querySelector('#createNewListing');
   const modalBody = document.querySelector('.modal-body');
@@ -15,9 +19,12 @@ export function createListing() {
   const createModal = new bootstrap.Modal(document.getElementById('createModal'));
 
   function populateCompanyDropdown() {
-    const companyData = localStorage.getItem('companyIDs');
+    const companyData = localStorage.getItem('id');
     if (companyData) {
-      const companies = JSON.parse(companyData); // Replace with the actual local storage key
+      let companies = JSON.parse(companyData); 
+      if (!Array.isArray(companies)) {
+        companies = [companies];
+      }
       companies.forEach((companyId) => {
         const option = document.createElement('option');
         option.value = companyId;
