@@ -14,7 +14,6 @@ const action = 'users/';
  */
 
 export async function editStudent(profile) {
-
   
   const id = JSON.parse(localStorage.getItem('id'));
   console.log(id);
@@ -34,9 +33,20 @@ export async function editStudent(profile) {
     const response = await fetch(profileURL, options);
     const profile = await response.json();
 
+    const successMessage = document.getElementById('success-modal');
+
+    function closeModal() {
+      successMessage.close();
+      successMessage.style.display = 'none'; // Reset display property
+    }
+
     switch (response.status) {
       case 200: {
-        alert('Update was successful');
+        successMessage.style.display = 'flex';
+        successMessage.showModal();
+
+        successMessage.addEventListener('click', closeModal);
+
         return profile;
       }
       default:
