@@ -3,6 +3,11 @@
   margin: auto;
 }
 
+.accordion-button:not(.collapsed) {
+  background-color: $theme-Grey !important;
+  color: $theme-Dark !important;
+}
+
 @media only screen and (max-width: 980px) {
   #faq-main {
     margin: 2rem;
