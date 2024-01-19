@@ -23,7 +23,6 @@ export function userDetailsTemplate(data) {
   const skillsList = document.querySelector('#skillsList');
   const descriptionHeader = document.querySelector('#descriptionHeader');
   const profileDescription = document.querySelector('#descriptionBody');
-  const profileEmail = document.querySelector('#profileEmail');
   const editProfileFirstName = document.querySelector('#firstNameStudent');
   const editProfileLastName = document.querySelector('#lastNameStudent');
 
