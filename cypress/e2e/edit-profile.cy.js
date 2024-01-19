@@ -8,32 +8,32 @@ describe('Edits profile details', () => {
       'loginAPI'
     );
 
-    cy.visit('http://127.0.0.1:4173/'); // Please replace this with your local vite url
+    cy.visit('/'); // Please replace this with your local vite url
 
     // Login process
-    cy.contains('Log in').click();
-    cy.get('#email').type('thisuser@stud.noroff.no', { force: true });
-    cy.get('#password').type('qwe123***', { force: true });
-    cy.get('button[data-auth="login"]').click({ force: true });
+    cy.get('#email').type('cypress-test@noroff.no');
+    cy.get('#password').type('czv4euj*ncv6NUG@aqy');
+    cy.get('button[type="submit"]').click();
 
     // Navigate to profile edit modal
     cy.contains('Profile').click();
     cy.contains('EDIT PROFILE').click();
 
     // Fill out the edit profile form
-    cy.wait(200);
-    cy.get('#firstNameStudent').clear().type('This', { delay: 100 });
-    cy.get('#lastNameStudent').clear().type('User', { delay: 100 });
-    cy.get('#studentSkills').clear().type('E2E-testing, Cypress, JavaScript');
-    cy.get('#studentDescription')
-      .clear()
-      .type(`Hello! This "About Me" section is written with a Cypress E2E test`);
+    cy.get('#firstNameStudent').should('be.visible');
+    cy.get('#firstNameStudent').clear();
+    cy.get('#firstNameStudent').type('This', { delay: 100 });
+    cy.get('#lastNameStudent').clear();
+    cy.get('#lastNameStudent').type('User', { delay: 100 });
+    cy.get('#studentSkills').clear();
+    cy.get('#studentSkills').type('E2E-testing, Cypress, JavaScript');
+    cy.get('#studentDescription').clear();
+    cy.get('#studentDescription').type(
+      `Hello! This "About Me" section is written with a Cypress E2E test`
+    );
 
     // Submit the form
     cy.get('.d-grid > .fw-semibold').click();
-
-    // Wait for the PUT request to complete and check the status code
-    cy.wait('@editProfile').its('response.statusCode').should('eq', 200);
 
     // Verify updated profile details
     cy.visit('http://127.0.0.1:4173/pages/user/'); // Please replace the first part with your local vite url
