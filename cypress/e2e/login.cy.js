@@ -14,6 +14,22 @@ describe('Login page', () => {
     cy.contains('Invalid login credentials. Please try again').should('be.visible');
   });
 
+  it('should only display the profile link when logged in', () => {
+    cy.findByTestId('header').contains('Profile').should('not.exist');
+    cy.findByTestId('header').contains('Log out').should('not.exist');
+
+    cy.get('#email').type('cypress-test@noroff.no');
+    cy.get('#password').type('czv4euj*ncv6NUG@aqy');
+    cy.get('button[type="submit"]').click();
+
+    cy.findByTestId('header').contains('Profile').should('be.visible');
+    cy.findByTestId('header').contains('Log out').should('be.visible');
+
+    cy.findByTestId('header').contains('Log out').click();
+    cy.findByTestId('header').contains('Profile').should('not.exist');
+    cy.findByTestId('header').contains('Log out').should('not.exist');
+  });
+
   it('should login successfully with the correct credentials', () => {
     cy.get('#email').type('cypress-test@noroff.no');
     cy.get('#password').type('czv4euj*ncv6NUG@aqy');
