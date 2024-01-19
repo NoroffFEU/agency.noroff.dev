@@ -19,11 +19,16 @@ async function getListingData(listingUrl) {
   document.getElementById('editRequirements').value = `${listingData.requirements}`;
   document.getElementById('editDescription').value = `${listingData.description}`;
 }
-getListingData(listingUrl);
 
 export function editListingListener() {
+  getListingData(listingUrl);
   const form = document.querySelector('#editListing');
+  const viewListingBtn = document.querySelector('#editListingViewListingBtn');
+
   form.addEventListener('submit', editListingListenerForm);
+  viewListingBtn.addEventListener('click', () => {
+    window.location.reload();
+  });
 }
 
 async function editListingListenerForm(event) {
