@@ -16,6 +16,7 @@ export async function showUserDatails() {
   };
   const response = await fetch(userUrl, reqOption);
   const data = await response.json();
+<<<<<<< HEAD
   createProfileContent(data);
   /**
    * THIS IS NOT IDEAL, but as a temporary fix. 
@@ -26,4 +27,8 @@ export async function showUserDatails() {
   if(data.company){
     localStorage.setItem('companyId', data.company.id);
   }
+=======
+  userDetailsTemplate(data);
+  return data;
+>>>>>>> 2acddf18496d08959997a177dd87f24fbe836d59
 }
