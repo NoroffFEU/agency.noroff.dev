@@ -8,7 +8,7 @@ export function handleModalData() {
   editProfileModal.addEventListener('show.bs.modal', async function () {
     const profileData = await showUserDatails();
 
-    aboutField.value = profileData.about;
-    skillsField.value = profileData.skills.join(', ');
+    aboutField.innerText = profileData.about;
+    skillsField.innerText = profileData.skills.join(', ');
   });
 }
