@@ -1,5 +1,5 @@
 import { registerUser } from '../../api/auth/index.js';
-import { displayMessage } from '../../ui/message/displayMessage.js';
+import { message } from '../../utilities/message/message.js';
 import { inputs } from './validateInputs.js';
 
 export function setRegisterFormListenerApplicant() {
@@ -11,19 +11,32 @@ export function setRegisterFormListenerApplicant() {
 
   if (form) {
     password.addEventListener('blur', () => {
-      inputs.validatePassword(password);
+      inputs.validatePassword(password, false);
+    });
+    password.addEventListener('input', () => {
+      inputs.validatePassword(password, true);
     });
 
     repeatPassword.addEventListener('blur', () => {
-      inputs.validateRepeatPassword(password, repeatPassword);
+      inputs.validateRepeatPassword(password, repeatPassword, false);
+    });
+    repeatPassword.addEventListener('input', () => {
+      inputs.validateRepeatPassword(password, repeatPassword, true);
+    });
+
+    fullName.addEventListener('input', () => {
+      inputs.validateFullName(fullName, true);
     });
 
     fullName.addEventListener('blur', () => {
-      inputs.validateFullName(fullName);
+      inputs.validateFullName(fullName, false);
     });
 
     email.addEventListener('blur', () => {
-      inputs.validateEmail(email);
+      inputs.validateEmail(email, false);
+    });
+    email.addEventListener('input', () => {
+      inputs.validateEmail(email, true);
     });
 
     form.addEventListener('submit', async (event) => {
@@ -35,6 +48,7 @@ export function setRegisterFormListenerApplicant() {
       const isEmailValid = inputs.validateEmail(email);
 
       if (!isPasswordValid || !isRepeatPasswordValid || !isFullNameValid || !isEmailValid) {
+        message("danger", "Invalid registration credentials. Please try again", "#errorMessage");
         return;
       }
 
@@ -48,14 +62,11 @@ export function setRegisterFormListenerApplicant() {
 
       const { error } = await registerUser(data);
       if (error) {
-        return displayMessage('danger', error, '#confirm-message');
+        message("danger", "An error occured when attempting to register user. Please try again", "#errorMessage");
+        console.error(error);
+        return;
       }
-
-      displayMessage(
-        'success',
-        `Registration successful! You can now <a href="/pages/auth/login/index.html">login</a>.`,
-        '#confirm-message'
-      );
+      message("success", "Registration successful! You can now login.", "#errorMessage");
     });
   }
 }

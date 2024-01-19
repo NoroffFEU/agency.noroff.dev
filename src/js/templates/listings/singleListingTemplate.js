@@ -39,7 +39,7 @@ export function singleListingTemplate(listing) {
 
   const favIcon = document.createElement('img');
   favIcon.className = 'favIconStyling';
-  favIcon.src = '/public/assets/icons/heart-fav.svg';
+  favIcon.src = '/assets/icons/heart-fav.svg';
 
   column.append(card);
   card.append(img, cardBody);

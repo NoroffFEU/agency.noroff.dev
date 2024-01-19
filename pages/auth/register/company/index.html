@@ -6,159 +6,124 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Description -->
-  <meta name="description" content="This page lets companies who are looking for talent to register on the website." />
+  <meta name="description"
+    content="Expand your team by registering as an Employer on this page. Tailored for companies seeking talented candidates, our platform simplifies the recruitment process, connecting you with skilled applicants. Begin your journey to finding the ideal addition to your workforce today." />
   <title>Noroff Jobs</title>
   <!-- Links and scripts -->
 
-    <script src="/index.js" defer type="module"></script>
-  </head>
-  <body id="registerPageCompany">
-    <header></header>
-    <main class="px-sm-3 bg-theme-dark">
-      <div
-        class="container bg-theme-light maxWidthContainer minWidthContainer shadow-lg my-3 p-3 py-5 rounded-1 mt-5 w-75">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <h1 class="fw-bold">Register for Companies</h1>
-        </div>
-        <!-- Register form -->
-        <form class="row g-3" id="registerForm-company">
-          <div class="d-flex justify-content-center mb-3">
-            <div
-              class="d-flex justify-content-center align-items-center border border-dark rounded-circle bg-theme-new-grey registerImg"
-            >
-              <button
-                type="button"
-                class="btn text-decoration-underline py-5 px-4"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Add image
-              </button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <label class="mb-2" for="companyName">Company name*</label>
-            <input
-              type="text"
-              name="name"
-              class="form-control"
-              aria-label="Company name"
-              id="companyName"
-              required
-            />
-            <div class="error"></div>
-          </div>
-          <div class="col-md-6">
-            <label class="mb-2" for="companySector">Sector*</label>
-            <input
-              type="text"
-              name="sector"
-              class="form-control"
-              aria-label="Sector"
-              id="companySector"
-              required
-            />
-            <div class="error"></div>
-          </div>
-          <div class="col-md-6">
-            <label class="mb-2" for="contactPerson">Contact person*</label>
-            <input
-              type="text"
-              name="admin"
-              class="form-control"
-              aria-label="Contact person"
-              id="contactPerson"
-              required
-            />
-            <div class="error"></div>
-          </div>
-          <div class="col-md-6">
-            <label class="mb-2" for="contactNumber">Contact number*</label>
-            <input
-              type="tel"
-              name="phone"
-              class="form-control"
-              aria-label="Contact number"
-              id="contactNumber"
-              required
-            />
-            <div class="error"></div>
-          </div>
+  <script src="/index.js" defer type="module"></script>
+</head>
 
-          <div class="d-grid gap-2 col-md-6 mx-auto">
-            <button class="btn btn-theme-primary btn-lg text-light rounded-1 mt-3" type="submit">
-              Register
+<body id="registerPageCompany" class="bg-theme-dark">
+  <header></header>
+  <main class="px-sm-3 bg-theme-dark">
+    <div
+      class="container bg-theme-light maxWidthContainer minWidthContainer shadow-lg my-3 p-3 py-5 rounded-1 mt-5 w-75">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="fw-bold">Register for Companies</h1>
+      </div>
+      <!-- Register form -->
+      <form novalidate class="row g-3" id="registerForm-company">
+        <div class="d-flex justify-content-center mb-3">
+          <div
+            class="d-flex justify-content-center align-items-center border border-dark rounded-circle bg-theme-new-grey registerImg">
+            <button type="button" class="btn text-decoration-underline py-5 px-4" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+              Add image
             </button>
-            <div class="text-center my-2 text-dark">Not a company?</div>
-            <div class="d-flex flex-column flex-md-row justify-content-center text-center">
-              <a class="text-dark px-3 fs-6" href="/pages/auth/register/applicant/index.html"
-                >Register as an applicant</a
-              >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="userEmail">E-mail*</label>
+          <input type="email" name="email" class="form-control" id="userEmail" autocomplete="username" required />
+          <div class="error mt-1"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="companyName">Company name*</label>
+          <input type="text" name="name" class="form-control" id="companyName" required />
+          <div class="error mt-1"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="userPassword">Password*</label>
+          <input type="password" name="password" class="form-control" id="userPassword" autocomplete="off" required />
+          <div class="error mt-1"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="userConfirmPassword">Confirm password*</label>
+          <input type="password" name="confirm-password" class="form-control" id="userConfirmPassword"
+            autocomplete="off" required />
+          <div class="error mt-1"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="companySector">Sector*</label>
+          <input type="text" name="sector" class="form-control" id="companySector" required />
+          <div class="error mt-1"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="userName">Contact person*</label>
+          <input type="text" name="user" class="form-control" id="userName" required />
+          <div class="error mt-1"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="contactNumber">Contact number</label>
+          <input type="tel" name="phone" class="form-control" id="contactNumber" />
+          <div class="error mt-1"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="mb-2" for="companyWebsite">Company website</label>
+          <input type="url" name="website" class="form-control" id="companyWebsite" />
+          <div class="error mt-1"></div>
+        </div>
+        <div id="errorMessage" class="text-theme-primary"></div>
+        <div id="registrationSuccessMessage" class="alert alert-success d-none"></div>
+        <div class="d-grid gap-2 col-md-6 mx-auto">
+          <button class="btn btn-theme-primary btn-lg text-light rounded-1 mt-3" type="submit">
+            Register
+          </button>
+          <div class="text-center my-2 text-dark">Not a company?</div>
+          <div class="d-flex flex-column flex-md-row justify-content-center text-center">
+            <a class="text-dark px-3 fs-6" href="/pages/auth/register/applicant/index.html"
+              id="navlink-form-id">Register as an applicant</a>
+          </div>
+        </div>
+      </form>
+      <!-- image modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form class="modal-dialog" id="add-image">
+          <div class="modal-content d-flex">
+            <button type="button" class="button-close align-self-end" data-bs-dismiss="modal" aria-label="Close">
+              <img class="icon" src="/assets/icons/close.svg" alt="Illustration of close icon" />
+            </button>
+            <div class="px-4 pb-4">
+              <div class="modal-header border-0">
+                <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Add image</h1>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label class="mb-2" for="imageUrl">Direct image url</label>
+                  <input type="url" name="logo" class="form-control" id="imageUrl" name="avatar" />
+                </div>
+                <span>Generate a direct image url on
+                  <a class="link-theme-primary" href="https://postimages.org/">https://postimages.org/</a></span>
+              </div>
+              <div class="modal-footer border-0">
+                <!-- There are styles for a background img ready for JS.-->
+                <button type="button" class="btn btn-theme-primary btn-lg text-light rounded-1 w-100"
+                  data-bs-dismiss="modal">
+                  Add image
+                </button>
+              </div>
             </div>
           </div>
         </form>
-        <!-- image modal -->
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <form class="modal-dialog" id="add-image">
-            <div class="modal-content d-flex">
-              <button
-                type="button"
-                class="button-close align-self-end"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >
-                <img class="icon" src="../../../../public/assets/icons/close.svg" alt="" />
-              </button>
-              <div class="px-4 pb-4">
-                <div class="modal-header border-0">
-                  <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Add image</h1>
-                </div>
-                <div class="modal-body">
-                  <div class="mb-3">
-                    <label class="mb-2" for="imageUrl">Direct image url</label>
-                    <input
-                      type="url"
-                      name="logo"
-                      class="form-control"
-                      id="imageUrl"
-                      name="avatar"
-                    />
-                  </div>
-                  <span
-                    >Generate a direct image url on
-                    <a class="link-theme-primary" href="https://postimages.org/"
-                      >https://postimages.org/</a
-                    ></span
-                  >
-                </div>
-                <div class="modal-footer border-0">
-                  <!-- There are styles for a background img ready for JS.-->
-                  <button
-                    type="button"
-                    class="btn btn-theme-primary btn-lg text-light rounded-1 w-100"
-                    data-bs-dismiss="modal"
-                  >
-                    Add image
-                  </button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div id="confirm-message"></div>
       </div>
-    </main>
-    <footer></footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      <div id="confirm-message"></div>
+    </div>
+  </main>
+  <footer></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

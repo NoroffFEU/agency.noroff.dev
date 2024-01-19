@@ -13,8 +13,13 @@
 }
 
 // Active
-.active {
+.active,
+.active-footer-link {
   font-weight: 600 !important;
+}
+
+.active-footer-link {
+  background-color: rgb(48, 57, 67);
 }
 
 // Hover State on tabs
