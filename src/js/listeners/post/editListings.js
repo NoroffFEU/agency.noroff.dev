@@ -23,9 +23,18 @@ async function getListingData(listingUrl) {
 export function editListingListener() {
   getListingData(listingUrl);
   const form = document.querySelector('#editListing');
+  const viewListingBtn = document.querySelector('#editListingViewListingBtn');
+
   form.addEventListener('submit', editListingListenerForm);
+  viewListingBtn.addEventListener('click', () => {
+    window.location.reload();
+  });
 }
 
+/**
+ * function that allows users to edit the a listing, if a user clicks the submit button a new object is created with the new input the function the sends the new object to the api
+ * after the listing is updated the page reloads
+ */
 async function editListingListenerForm(event) {
   event.preventDefault();
 

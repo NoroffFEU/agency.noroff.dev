@@ -15,14 +15,14 @@ Below is an example of a user flow for the login process. This example follows a
 3. **Page State**: User is redirected to the **Login Page**.
 4. **Action**: User enters credentials (username and password).
 5. **Condition**: Are the credentials correct?
-    - **Yes**: Proceed to step 6.
-    - **No**: Redirect back to step 3 and display an error message on the **Login Page**.
+   - **Yes**: Proceed to step 6.
+   - **No**: Redirect back to step 3 and display an error message on the **Login Page**.
 6. **Page State**: User is redirected to the **Profile Page**.
 7. **End**: User successfully logs in.
 
 Below is the flow diagram for the login process:
 
-![Login example flow map](documentation\resources\flow map\Flow_example.png)
+![Login example flow map](./documentation/resources/flow map/Flow_example.png)
 
 ### Creating a User Flow
 
@@ -50,9 +50,10 @@ To create a user flow for E2E testing, follow these steps:
 
 Our user flow diagrams are designed in Figma, and the `.fig` file is included in the project repository for reference and editing. To open and view these files, follow these steps:
 
-1. **Find the Figma File**: Navigate to the project folder and locate the `.fig` file. It's in the `resources` directory [here](documentation\documentation\resources\flow map\Flow_map.fig).
+1. **Find the Figma File**: Navigate to the project folder and locate the `.fig` file. It's in the `resources` directory [here](./documentation/documentation/resources/flow map/Flow_map.fig).
 
 2. **Open with Figma**:
+
 - If you have Figma installed on your computer, you can double-click the file to open it.
 - Alternatively, you can open Figma in your browser, go to the file browser, and use the 'Import File' option to upload and open the `.fig` file.
 

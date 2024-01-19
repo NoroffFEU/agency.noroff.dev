@@ -1,5 +1,10 @@
 const formContainer = document.getElementById('formContainer');
-
+/**
+ *  function that creates a form for registration of new users, the function has one parameter buttonId and uses this paramter to determine if the the form for companys
+ *  or students should be created
+ * @param {string} buttonId 
+ * @returns {HTML} returns a form
+ */
 export const showRegForm = (buttonId) => {
   if (buttonId == 'companyReg') {
     formContainer.innerHTML = `<form class="container mb-3 mt-3 shadow bg-white p-3">
