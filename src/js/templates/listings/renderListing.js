@@ -20,7 +20,6 @@ export const renderListing = async () => {
       /* This could should call user name and role as profile from the class Store that handles local storage*/
       const userName = localStorage.getItem('email') ? localStorage.getItem('email').replace(/"/g, '').trim() : null;
       const userRole = localStorage.getItem('role') ? localStorage.getItem('role').replace(/"/g, '').trim() : null;
-      console.log(userRole)
       const listing = createListing(result, userRole);
       const btnContainer = listing.querySelector('.buttonContainer');
       container.append(listing);
@@ -71,7 +70,6 @@ const createCardBody = (title, description, deadline, company, created, requirem
   const element = createElement("div", ["card-body", "d-flex", "flex-column", "gap-2" ])
   const h1 = createElement("h1", ["card-title"], null, title)
   const detailsContainer = createDetailsContainer(title, company, deadline, created)
-  console.log("User Role in createCardBody:", userRole);
   const btnContainer = createBtnContainer(userRole)
   const tagsContainer = createTagContainer(tags)
   const JobDescription = createElement("p", null, null, description)
@@ -90,7 +88,6 @@ const createDetailsContainer = (title, company, deadline, created) => {
 
 const createBtnContainer = (userRole) => {
   const element = createElement("div", ["d-flex", "align-items-center", "gap-2", "my-3", "buttonContainer", ])
-  console.log("User Role in createBtnContainer:", userRole);
   if (userRole === 'Client') {
     return element;
   }
