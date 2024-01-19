@@ -37,7 +37,7 @@ describe('Edits profile details', () => {
     cy.wait('@editProfile').its('response.statusCode').should('eq', 200);
 
     // Verify updated profile details
-    cy.visit('http://127.0.0.1:4173/pages/user/'); // Please replace the first part with your local vite url
+    cy.reload();
     cy.get('#profileName').should('contain', 'This User');
     cy.get('#skillsList > :nth-child(1)').should('contain', 'E2E-testing');
     cy.get('#skillsList > :nth-child(2)').should('contain', 'Cypress');
