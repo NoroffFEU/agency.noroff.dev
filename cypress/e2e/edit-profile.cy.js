@@ -22,7 +22,8 @@ describe('Edits profile details', () => {
 
     // Fill out the edit profile form
     cy.wait(200);
-    cy.get('#firstNameStudent').clear().type('This', { delay: 100 });
+    cy.get('#firstNameStudent').clear()
+    cy.get('#firstNameStudent').type('This', { delay: 100 });
     cy.get('#lastNameStudent').clear().type('User', { delay: 100 });
     cy.get('#studentSkills').clear().type('E2E-testing, Cypress, JavaScript');
     cy.get('#studentDescription')
