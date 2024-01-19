@@ -151,6 +151,11 @@ const routerSwitch = () => {
       document.querySelector('title').innerText = defaultTitle + ` || Privacy Policy`;
       break;
 
+    // FAQ UI Settings
+    case 'faq':
+      document.querySelector('title').innerText = defaultTitle + ` || FAQ - Frequently Asked Questions`;
+      break;
+
     // 404 UI settings (PAGE DOESNT EXIST YET)
     case '404':
       document.querySelector('title').innerText = defaultTitle + ` || ` + '404';

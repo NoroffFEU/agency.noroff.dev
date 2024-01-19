@@ -24,6 +24,9 @@ export function userDetailsTemplate(data) {
   const descriptionHeader = document.querySelector('#descriptionHeader');
   const profileDescription = document.querySelector('#descriptionBody');
   const editProfileEmail = document.querySelector('#profileEmail');
+  const editProfileFirstName = document.querySelector('#firstNameStudent');
+  const editProfileLastName = document.querySelector('#lastNameStudent');
+
 
   renderProfileImage(data, profileImage);
   renderProfileName(data, profileName);
@@ -32,6 +35,7 @@ export function userDetailsTemplate(data) {
   renderDescriptionHeader(data, descriptionHeader);
   renderProfileDescription(data, profileDescription);
   renderEditProfileEmail(data, editProfileEmail);
+  populateEditNames(data, editProfileFirstName, editProfileLastName);
 }
 
 /**
@@ -168,4 +172,11 @@ export function renderEditProfileEmail(data) {
     const { email } = data;
     emailInput.value = email;
   }
+
+
+export function populateEditNames(data, editProfileFirstName, editProfileLastName) {
+  const { firstName, lastName } = data;
+  editProfileFirstName.value = firstName;
+  editProfileLastName.value = lastName;
+
 }
