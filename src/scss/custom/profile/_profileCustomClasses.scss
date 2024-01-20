@@ -65,6 +65,10 @@ Version: 1.0.0
   width: 100%;
 }
 
+#emailStudent {
+  cursor: not-allowed;
+}
+
 @media (min-width: 992px) {
   .profile-input {
     width: 50%;
