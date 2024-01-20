@@ -25,10 +25,10 @@ Working in teams in this project team members will have different roles. Scrum M
 1. **Responsability:**
    - Quality Assurance serves as the primary reviewer for the project, ensuring thorough assessment and validation of deliverables.
    - Review the code changes and provide feedback. QA should verify that the reported issue has been adequately addressed and resolved. 
-- QA handles the merging process, and if the issue is correctly linked, it should close automatically. However, this process can occasionally experience bugs.
+   - QA handles the merging process, and if the issue is correctly linked, it should close automatically. However, this process can occasionally experience bugs.
    - Ensure that quality is maintained throughout the development process.
    - Collaborate with developers to understand user stories and acceptance criteria.
-   - Establish a dedicated channel for Quality Assurances to collaborate and communicate effectively.
+   - Establish a dedicated channel for Quality Assurances from all teams to collaborate and communicate effectively.
 
 2. **Test Planning and Execution:**
    - Create comprehensive test plans based on user stories and acceptance criteria.
@@ -51,7 +51,7 @@ Working in teams in this project team members will have different roles. Scrum M
 
 1. **Coding and Implementation:**
    - Write clean, maintainable, and efficient code based on the requirements.
-   - Collaborate with other developers to ensure consistency in coding practices.
+   - Collaborate mainly with other developers to ensure consistency in coding practices. SM or QA can also contribute if needed.
 
 2. **Collaboration:**
    - Engage actively in Scrum events, such as Sprint Planning and Daily Stand-ups.
