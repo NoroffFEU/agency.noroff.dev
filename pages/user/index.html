@@ -138,7 +138,9 @@
                         <span class="vertical-line"></span>
                       </div>
                       <div class="col-8">
-                        <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <div
+                          class="card-body d-flex flex-column justify-content-between gap-2 w-100"
+                        >
                           <h5 class="card-title fw-bold">Offer 1</h5>
                           <p class="card-text fw-light">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
@@ -170,7 +172,9 @@
                         <span class="vertical-line"></span>
                       </div>
                       <div class="col-8">
-                        <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <div
+                          class="card-body d-flex flex-column justify-content-between gap-2 w-100"
+                        >
                           <h5 class="card-title fw-bold">Offer 2</h5>
                           <p class="card-text fw-light">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
@@ -202,7 +206,9 @@
                         <span class="vertical-line"></span>
                       </div>
                       <div class="col-8">
-                        <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <div
+                          class="card-body d-flex flex-column justify-content-between gap-2 w-100"
+                        >
                           <h5 class="card-title fw-bold">Offer 3</h5>
                           <p class="card-text fw-light">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
@@ -234,7 +240,9 @@
                         <span class="vertical-line"></span>
                       </div>
                       <div class="col-8">
-                        <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <div
+                          class="card-body d-flex flex-column justify-content-between gap-2 w-100"
+                        >
                           <h5 class="card-title fw-bold">Offer 4</h5>
                           <p class="card-text fw-light">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
@@ -271,7 +279,9 @@
                         <span class="vertical-line"></span>
                       </div>
                       <div class="col-8">
-                        <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <div
+                          class="card-body d-flex flex-column justify-content-between gap-2 w-100"
+                        >
                           <h5 class="card-title fw-bold">Application 1</h5>
                           <p class="card-text fw-light">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
@@ -303,7 +313,9 @@
                         <span class="vertical-line"></span>
                       </div>
                       <div class="col-8">
-                        <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <div
+                          class="card-body d-flex flex-column justify-content-between gap-2 w-100"
+                        >
                           <h5 class="card-title fw-bold">Application 2</h5>
                           <p class="card-text fw-light">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
@@ -335,7 +347,9 @@
                         <span class="vertical-line"></span>
                       </div>
                       <div class="col-8">
-                        <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <div
+                          class="card-body d-flex flex-column justify-content-between gap-2 w-100"
+                        >
                           <h5 class="card-title fw-bold">Application 3</h5>
                           <p class="card-text fw-light">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
@@ -367,7 +381,9 @@
                         <span class="vertical-line"></span>
                       </div>
                       <div class="col-8">
-                        <div class="card-body d-flex flex-column justify-content-between gap-2 w-100">
+                        <div
+                          class="card-body d-flex flex-column justify-content-between gap-2 w-100"
+                        >
                           <h5 class="card-title fw-bold">Application 4</h5>
                           <p class="card-text fw-light">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
@@ -601,8 +617,15 @@
                     <!-- // Title and degree input group -->
 
                     <div class="mb-2 col-md">
-                      <label for="titleStudent" class="form-label mb-0">Title</label>
-                      <input type="text" name="title" id="titleStudent" class="form-control" />
+                      <label for="emailStudent" class="form-label mb-0">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="emailStudent"
+                        class="form-control"
+                        readonly
+                        disabled
+                      />
                     </div>
                     <div class="mb-2 col-md">
                       <label for="degreeStudent" class="form-label mb-0">Degree(s)</label>
@@ -669,14 +692,16 @@
                       SAVE
                     </button>
                   </div>
-                  
+
                   <!-- success message -->
                   <dialog id="success-modal" class="shadow m-auto p-5 border-0">
-                    <img src="/public/assets/icons/checkmark.svg" alt="Check mark icon" class="m-auto">
+                    <img
+                      src="/public/assets/icons/checkmark.svg"
+                      alt="Check mark icon"
+                      class="m-auto"
+                    />
                     <p class="m-auto">Profile Updated</p>
                   </dialog>
-
-
                 </form>
                 <!-- // Student form ends // -->
 
