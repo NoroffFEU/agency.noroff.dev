@@ -1,0 +1,35 @@
+#faq-main {
+  width: 900px;
+  margin: auto;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: $theme-Grey !important;
+  color: $theme-Dark !important;
+}
+
+.accordion-button:hover {
+  background-color: $light;
+}
+
+.accordion-button:active {
+  background-color: $theme-Light;
+}
+
+@media only screen and (max-width: 980px) {
+  #faq-main {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  #faq-main {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #faq-main {
+    max-width: 300px;
+  }
+}

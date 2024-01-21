@@ -2,7 +2,9 @@ import { registerUser, registerCompany } from '../../api/auth/index.js';
 import getCompanies from '../../api/company/companies.js';
 import { message } from '../../utilities/message/message.js';
 import { inputs } from './validateInputs.js';
-
+/**
+ * function that gets the form input from the company form and stores it, it then register the company and if it fails the user gets an error message
+ */
 export function setRegisterFormListenerCompany() {
   const form = document.querySelector('#registerForm-company');
 

@@ -1,5 +1,10 @@
 // Author: May-Tove Hovdal
-
+/**
+ * function containing the template for a listing, the template adds the elements: cardTitle, details, buttonContainer, description,img, applyBtn, favBtn which appends to the card element
+ * the card element the appends to the column element which is return from the function
+ * @param {Object} listing 
+ * @returns {Element} column element
+ */
 export function singleListingTemplate(listing) {
   // Content will be updated and altered better when we are provided with correct endpoints, using dummy API for now
   const column = document.createElement('div');
@@ -9,8 +14,7 @@ export function singleListingTemplate(listing) {
   card.className = 'card bg-theme-light border-0 rounded-0';
 
   const img = document.createElement('img');
-  img.className = 'card-img-top rounded-0';
-  img.style = 'max-height: 250px; object-fit: cover;';
+  img.className = 'card-img-top rounded-0 imgStyling';
   img.src = listing.thumbnail;
 
   const cardBody = document.createElement('div');
@@ -39,7 +43,7 @@ export function singleListingTemplate(listing) {
   favBtn.className = 'btn btn-theme-light';
 
   const favIcon = document.createElement('img');
-  favIcon.style = 'width: 30px';
+  favIcon.className = 'favIconStyling';
   favIcon.src = '/assets/icons/heart-fav.svg';
   
 
