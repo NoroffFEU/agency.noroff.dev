@@ -13,7 +13,7 @@ describe('Edits profile details', () => {
     cy.contains('EDIT PROFILE').click();
 
     // Fill out the edit profile form
-    cy.wait(200);
+    cy.wait(500);
     cy.get('#editProfileModal').should('be.visible');
     cy.get('#firstNameStudent').clear();
     cy.get('#firstNameStudent').type('This', { delay: 100 });
@@ -38,7 +38,7 @@ describe('Edits profile details', () => {
     cy.contains('EDIT PROFILE').click();
 
     // Fill out the edit profile form again to assure changes happen
-    cy.wait(200);
+    cy.wait(500);
     cy.get('#editProfileModal').should('be.visible');
     cy.get('#firstNameStudent').clear();
     cy.get('#firstNameStudent').type('cypress', { delay: 100 });
