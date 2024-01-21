@@ -8,8 +8,8 @@
 import { authBaseFetchOpen } from '../apiBaseFetch.js';
 import { apiPath } from '../constants.js';
 /**
- * function that retrives an array of listings
- * @returns {Array} array of Listings
+ * function that retrieves an array of listings
+ * @returns {Promise<Array>} - A Promise that resolves with a list of listings if successful.
  */
 export async function getListOfListings() {
   const baseUrl = apiPath;
