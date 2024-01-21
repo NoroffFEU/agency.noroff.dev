@@ -30,7 +30,6 @@ describe('Edits profile details', () => {
     cy.contains('Profile Updated').should('be.visible');
 
     // Verify updated profile details
-    cy.wait(500);
     cy.reload();
     cy.get('#profileName').should('contain', 'This User');
     cy.get('#skillsList').contains('E2E-testing');
@@ -41,7 +40,7 @@ describe('Edits profile details', () => {
     cy.contains('EDIT PROFILE').click();
 
     // Fill out the edit profile form again to assure changes happen
-    cy.wait(500);
+    cy.wait(500); // wait for modal animation
     cy.get('#editProfileModal').should('be.visible');
     cy.get('#firstNameStudent').clear();
     cy.get('#firstNameStudent').type('cypress', { delay: 100 });
@@ -54,6 +53,7 @@ describe('Edits profile details', () => {
 
     // Submit the form again
     cy.get('button').contains('SAVE').click();
+    cy.contains('Profile Updated').should('be.visible');
 
     // Verify the new, updated profile details
     cy.wait(500);
