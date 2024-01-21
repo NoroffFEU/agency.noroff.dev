@@ -11,7 +11,7 @@
 
 // Pages
 @import './custom/customFile';
-@import './custom/createOffer';
+@import './custom/createAndEditOffer';
 @import './custom/allListingPage';
 @import './custom/singleListingPage';
 @import './custom/faqPage';
@@ -27,6 +27,12 @@
 
 // Bootstrap from module
 @import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Test Files
+@import './custom/testFiles';
+
+// Single Listing
+@import './custom/singleListing';
 
 body {
   height: 100vh;
