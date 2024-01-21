@@ -10,18 +10,23 @@
 import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
+import { backButtonEventListener } from '../../utilities/listings/listingsBackButton.js';
 
-export const renderListings = async () => {
+let cachedListings = null;
+
+export const renderListings = async (listings) => {
   const listingsContainer = document.querySelector('.listingContainer');
-
   listingsContainer.innerHTML = '';
 
-  const listings = await getListOfListings();
+  if (!listings) {
+    if(!cachedListings){
+    cachedListings = await getListOfListings();
+    }
+    listings = cachedListings;
+  }
 
-  listings.forEach((listing) => {
-    const listingCards = createListings(listing);
-    listingsContainer.append(listingCards);
-  });
+  const listingElements = listings.map(createListings);
+  listingElements.forEach(element => listingsContainer.append(element));
 };
 
 export const renderNoListings = async () => {
@@ -105,3 +110,5 @@ const createCardFooter = (deadline, id) => {
 function handleClick() {
   window.location.href = '../../..//pages/listings/listing/index.html';
 }
+
+backButtonEventListener('backButton', '/pages/listings/index.html');

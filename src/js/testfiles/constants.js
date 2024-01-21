@@ -9,7 +9,7 @@ export const studentView = `
 <h2 class="d-md-none fw-bold">Update your profile to showcase your skills</h2>
 
 <div class="imgContainer">
-<img class="" src="
+<img src="
 https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png
 " alt="Illustration of close icon" />
 </div>
@@ -52,7 +52,7 @@ export const organisationView = `
 
 <div class="col">
 <div class="shadow-sm d-flex p-3">
-  <div style="width: 200px">
+  <div class="logoStyle">
     <img src="https://www.seekpng.com/png/detail/246-2468199_logo-placeholder-png-white.png" alt="logo" />
   </div>
   <div class="ms-3">

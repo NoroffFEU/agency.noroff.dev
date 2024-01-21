@@ -21,11 +21,18 @@ export function clearProfileData(Store) {
   new Store('email').clear();
   new Store('id').clear();
 }
-
+/**
+ * function that uses a URL parameter, when the function is called the user is redirected to the URL used
+ * @param {string} url 
+ */
 export function handleLoginRedirect(url) {
   window.location.replace(url);
 }
-
+/**
+ * function that returns a URL based on which role a user have
+ * @param {string} role 
+ * @returns {string} URL
+ */
 export function getRedirectUrl(role) {
   switch (role) {
     case 'Applicant':

@@ -1,0 +1,39 @@
+// Resizes the Success icon | Redundant until I figure out something for..
+// ..a new way to show new "Offer Successfully Sent"
+// #offerSuccess img {
+//   height: 200px;
+// }
+
+// Lessens the width of the deadline to the proper
+.deadlineWidth {
+  max-width: 140px;
+}
+
+//Anna Wojtowicz (Tryvann)
+// changed name from _createOffer.scss to _createAndEditOffer.scss since edit/index.html has the same changes as create/index.html
+// inline styling moved from ../pages/listings/listing/create/index.html & ../pages/listings/listing/edit/index.js
+// this inline styling doesn't work (check links below) since it is overruled by rule from _imputVariable.scss
+//(http://127.0.0.1:5173/pages/listings/listing/create/index.html) & (http://127.0.0.1:5173/pages/listings/listing/edit/index.html)
+
+#createNewListing,
+#editListing {
+  button {
+    border-radius: 0px;
+  }
+}
+
+#createTitle,
+#createLocation,
+#createDeadline,
+#uploadCoverPicture,
+#pictureUrl,
+#createDescription,
+#createListingBtn,
+#updateListingBtn {
+  border-radius: 0px;
+}
+
+#createListingBtn,
+#updateListingBtn {
+  width: 250px;
+}

@@ -1,96 +1,90 @@
-# This will show you how you will branch from your respective work branch. 
+# Branching Guide for Development Teams
 
-Each team has their own main working branch `FE-Offers` `FE-Listing` etc. 
-From this main working branch each dev will make the branch for the task their working on. 
+## Overview
 
-ex: 
-Ola Nordmann is working on creating a listener for createOffer. Ola will then create a branch from `FE-Offers` that is named 
-```
-FE-Offers-createOfferListener
-```
-and then add the file for the listener in that branch. 
-This will give a more sense of ownership, easier for the general overview when you know who has been working on something,
-rather then spending time figure out who has worked on what files. 
+Our branching strategy utilizes the `main` branch as the central hub for all development. Developers are required to create new branches off `main` for every feature or bug fix, with the branch name starting with a keyword followed by a forward slash to indicate the type of change, such as feature/, fix/, etc. This is then followed by a description of the purpose, like feature/add-login or fix/header-layout. 
 
-![A graphic displaying the branching format](https://i.imgur.com/vdOzdpk.png)
+Once development on these branches is complete, a Pull Request (PR) should be initiated to merge the changes back into `main`, ensuring a thorough code review for maintaining quality standards. Branch names should be kept straightforward, avoiding special characters and relying on alphanumeric characters and hyphens for better clarity and compatibility. 
+It's crucial for developers to align their work with the overall project strategy before commencing new features or fixes.
 
+### Important Notes:
 
-## Commits
-It's important that you commit your work regularly, and you are to use descriptive commit messages. Not like: Added something, fixed a thing. 
-Use messages like: Created function "name your function" this is for "name what it's for", (if it's working state it in the text, if it's not working state it)
-We do love descriptive commit texts. 
+- The `main` is a protected branch, so it cannot be worked with directly without the proper permissions.
+  Before merging into the `main` branch, changes must go through a Pull Request (PR) process. This process requires at least one review approval and the successful passing of all necessary tests, ensuring the `main` branch maintains high standards of code quality and stability.
 
-When committing trough the code editor terminal, you can write a longer text for message than you can in gitHub desktop. Use this as an advantage for your self. 
+- If a branch is accidentally created from main/master, inform the scrum master for resolution.
 
----
+### Example
 
-### Some terminal snippets if you dont remember them : 
+Ola Nordmann, working on a feature to create a listener for `createOffer`, would:
 
-git add 
-```
-git add <name-of-file>
-``` 
-this will add the file you type in to the stage commits, so that you can write a commmit text. 
+1. Branch from `teamName-Offers` naming the new branch:
+   `teamName-Offers-createOfferListener`
+2. Work on the listener feature within this branch.
 
-view the status to view what we staged 
-```
-git status
-``` 
+This approach ensures clarity in ownership and responsibilities, making it easier to track who is working on what, enhancing the overall workflow.
 
-add commit text and commit to the repo 
-```
-git commit -m "your descriptive commit text goes here"
-``` 
+![Branching Format Graphic](https://i.imgur.com/vdOzdpk.png)
 
----
+## Committing Changes
 
-### View all branches in terminal: 
+Regular commits with descriptive messages are crucial. Avoid vague messages like "Added something" or "Fixed a thing." Instead, use clear descriptions, e.g., "Created function [Function Name] for [Purpose]." Indicate whether the function is in a working state in your commit message.
 
-```
-git branch --all
-``` 
+### Tips for Committing:
 
-you will get a list of all branches, normally use this after you created a new branch to check it was created correctly. 
+- Utilize longer commit messages when committing through the code editor terminal compared to GitHub Desktop.
 
----
+### Terminal Snippets for Git
 
-### Create new branch in terminal : 
+#### Adding Files for Commit
 
-```
-git branch FE-Offers-createOfferListener
-``` 
+`git add <name-of-file>`
 
----
+#### Checking Staged Files
 
-## Important that you are in the main working branch for your team ex: FE-Application
-To be sure you are in the right branch you can use 
-```
-git checkout nameOfBranch
-``` 
-this will put you in the correct branch before you make a new branch for your task. 
+`git status`
 
-This can also be done in one line by use of one command. 
-```
-git checkout -b FE-Application-nameOfTaskHere
-``` 
+#### Committing Changes
 
-You should never be working in the main/master branch of the repo it self. Always make sure you are in the correct team work branch.
-If you do make a mistake and create a branch from main/master branch, make your scrum master aware of this, they will sort it out and get it deleted.
+`git commit -m "Your descriptive commit text"`
 
-For deleting a branch you can use 
-```
-git branch -d nameOfBranchToDelete
-```
+## Branch Management
 
-If a branch does not contain any changes that have not already been merged into the default branch - it is safe to delete. 
-If the branch contains changes that have not yet been merged into the default branch - it is not safe to delete.
+### Viewing Branches
 
-## Merge
+To view all branches:
 
-When your work is ready for testing, QA engineers will go through PR's and run tests. If approved, the QA engineer will merge the branch into your teams' main working branch.
+`git branch --all`
 
-All merges into main/master should be approved by a reviewer, if all is approved then the code goes into main/master for production. It is beneficial if QA engineers from other teams inspect this PR, as the team QA already have approved for these changes.
+### Creating a New Branch
 
-Merging is not a thing the devs will do unless asked to or told to do it. 
+Ensure you're in your team's main working branch:
 
-Happy branching and coding. If there is any questions or issues please contact your scrum master. 
+`git checkout nameOfBranch`
+
+Then create a new branch for your task:
+
+`git branch teamName-Offers-createOfferListener`
+
+Or, create and switch to the new branch in one command:
+
+`git checkout -b teamName-Application-nameOfTaskHere`
+
+#### Deleting Branches
+
+`git branch -d nameOfBranchToDelete`
+
+Note: Only delete branches that don't contain unmerged changes.
+
+## Merging
+
+QA engineers will handle merging task branches into the team's main working branch after testing and approval. All merges into the main/master branch should be reviewed and approved.
+
+### Note:
+
+- Developers generally do not perform merges unless specifically instructed.
+- Cross-team QA review is encouraged for merges into main/master.
+
+For any questions or issues, please contact your scrum master.
+
+Happy coding and efficient branching!
