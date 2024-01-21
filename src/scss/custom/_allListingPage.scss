@@ -21,7 +21,18 @@
   align-items: center;
   width: 100%;
   align-self: center;
-  margin-bottom: 2rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .input-group .search-listing-input {
@@ -86,4 +97,26 @@
       }
     }
   }
+}
+
+//Anna Wojtowicz (Tryvann)
+// inline style removed from js: ../src/templates/listings/renderListings.js
+
+// this part of the code doesn't work when removed from js file (line 25)
+// #listing-card-body {
+//   .listing-card-body {
+//     p {
+//       display: -webkit-box;
+//       -webkit-line-clamp: 2;
+//       -webkit-box-orient: vertical;
+//     }
+//   }
+// }
+
+.smallText {
+  font-size: 0.75rem;
+}
+
+.viewBtn {
+  font-size: 1rem;
 }
