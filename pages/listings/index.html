@@ -23,28 +23,28 @@
   </head>
 
   <body id="listings" class="d-flex flex-column">
-
     <!--Header is created trough JS script-->
     <header></header>
     <!--Main content on page-->
 
     <main class="bg-theme-new-grey">
       <div
-        class="container w-75 d-flex flex-column gap-5 bg-theme-light mt-5 mb-3 pb-3 shadow"
+        class="container w-75 d-flex flex-column gap-4 bg-theme-light mt-5 mb-3 pb-3 shadow"
         id="container-listings"
       >
         <!--Top of listings container-->
 
         <section class="d-flex justify-content-center">
-          <div class="mt-5 col-6">
+          <div class="mt-5">
             <h1 class="mt-2 py-1 text-center fw-bold">Job Listings</h1>
             <div class="container d-flex justify-content-center mt-3 col-12">
-              <div class="col-md-5 w-100 col-10 ms-5 search-container">
+              <div class="col-8 col-md-10 col-lg-12 ms-5 search-containe">
                 <div class="input-group">
+                  <label for="searchListing" class="visually-hidden">Search:</label>
                   <input
                     class="form-control rounded bg-white shadow-sm"
                     type="search"
-                    placeholder="Search Listings..."
+                    placeholder="Search..."
                     autofocus="autofocus"
                     id="searchListing"
                     data-search-listings
@@ -69,7 +69,7 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img src="/assets/icons/filter.svg" alt="Sort icon" class="icon-sm" />
+                  <img src="/assets/icons/filter.svg" alt="Sort icon" class="icon-sm me-4" />
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li><a class="dropdown-item" href="#" id="allListings">All</a></li>
