@@ -1,6 +1,6 @@
 describe('Edits profile details', () => {
   it('should check that profile details are successfully edited', () => {
-    cy.visit('/'); // Please replace this with your local vite url
+    cy.visit('/');
 
     // Login process
     cy.contains('Log in').click();
@@ -26,6 +26,8 @@ describe('Edits profile details', () => {
 
     // Submit the form
     cy.get('button').contains('SAVE').click();
+
+    cy.contains('Profile Updated').should('be.visible');
 
     // Verify updated profile details
     cy.wait(500);
