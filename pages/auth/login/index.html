@@ -13,7 +13,10 @@
     <meta name="author" content="@Menubrea" />
     <meta name="team" content="user" />
     <!-- Description -->
-    <meta name="description" content="Welcome to the login page, a gateway for both students and companies to access our platform. Whether you're a student seeking career opportunities or a company looking to discover new talent, this portal is your first step towards achieving your goals. Sign in to connect, explore, and take advantage of all the resources available to you on our platform." />
+    <meta
+      name="description"
+      content="Welcome to the login page, a gateway for both students and companies to access our platform. Whether you're a student seeking career opportunities or a company looking to discover new talent, this portal is your first step towards achieving your goals. Sign in to connect, explore, and take advantage of all the resources available to you on our platform."
+    />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
 
@@ -41,6 +44,7 @@
             <label for="email" class="form-label mb-2">E-mail</label>
             <input
               data-auth="login"
+              data-testid="login-form-email"
               type="email"
               class="form-control p-3"
               id="email"
@@ -54,6 +58,7 @@
             <label for="email" class="form-label mb-2">Password</label>
             <input
               data-auth="login"
+              data-testid="login-form-password"
               type="password"
               class="form-control p-3"
               id="password"
@@ -95,10 +100,16 @@
           <!-- links -->
           <div class="text-center my-2 text-dark">Don't have a user?</div>
           <div class="d-flex flex-column flex-md-row justify-content-center text-center">
-            <a class="text-dark px-3 ps-6" href="/pages/auth/register/applicant/index.html" id="navlink-form-id"
+            <a
+              class="text-dark px-3 ps-6"
+              href="/pages/auth/register/applicant/index.html"
+              id="navlink-form-id"
               >Register for applicants</a
             >
-            <a class="text-dark px-3 fs-6" href="/pages/auth/register/company/index.html" id="navlink-form-id"
+            <a
+              class="text-dark px-3 fs-6"
+              href="/pages/auth/register/company/index.html"
+              id="navlink-form-id"
               >Register for companies</a
             >
           </div>
