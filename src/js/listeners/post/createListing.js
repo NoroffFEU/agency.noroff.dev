@@ -7,7 +7,11 @@ import {
   validateFutureDate,
   validateDescription,
 } from '../../utilities/formvalidation/listingValidation.js';
-
+/**
+ * function that creates a Listing, the function creates a modal where companies can add different information like Title, tags, requirements, deadline,
+ * description the function also validates the input, the input is used to create an object called appData which is sent to the api, if the listing is successfully created
+ * the user will receive a success message, if an error occurs the user will receive an error message
+ */
 export function createListing() {
   const form = document.querySelector('#createNewListing');
   const modalBody = document.querySelector('.modal-body');
@@ -17,7 +21,7 @@ export function createListing() {
   function populateCompanyDropdown() {
     const companyData = localStorage.getItem('id');
     if (companyData) {
-      let companies = JSON.parse(companyData); 
+      let companies = JSON.parse(companyData);
       if (!Array.isArray(companies)) {
         companies = [companies];
       }
@@ -27,8 +31,9 @@ export function createListing() {
         option.textContent = companyId;
         companySelect.appendChild(option);
       });
-    } else { //Disables field if no company ID is present in localstorage
-      const defaultOption = document.createElement('option'); 
+    } else {
+      //Disables field if no company ID is present in localstorage
+      const defaultOption = document.createElement('option');
       defaultOption.textContent = 'No companies available';
       defaultOption.disabled = true;
       companySelect.appendChild(defaultOption);
@@ -64,7 +69,9 @@ export function createListing() {
     if (validateTags(createTags.value)) {
       createTags.setCustomValidity('');
     } else {
-      createTags.setCustomValidity('Tags should be separated by commas and contain dashes instead of spaces. IE "IT-worker, html, javascript, css"');
+      createTags.setCustomValidity(
+        'Tags should be separated by commas and contain dashes instead of spaces. IE "IT-worker, html, javascript, css"'
+      );
     }
   });
 
@@ -72,7 +79,9 @@ export function createListing() {
     if (validateRequirements(createRequirements.value)) {
       createRequirements.setCustomValidity('');
     } else {
-      createRequirements.setCustomValidity('Requirements should be separated by commas and contain dashes instead of spaces. IE "IT-worker, html, javascript, css"');
+      createRequirements.setCustomValidity(
+        'Requirements should be separated by commas and contain dashes instead of spaces. IE "IT-worker, html, javascript, css"'
+      );
     }
   });
 

@@ -51,8 +51,22 @@ Version: 1.0.0
   font-size: max(8px, min(4vw, 13px));
 }
 
+#success-modal {
+  width: 230px;
+  height: 230px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+
 .profile-input {
   width: 100%;
+}
+
+#emailStudent {
+  cursor: not-allowed;
 }
 
 @media (min-width: 992px) {
