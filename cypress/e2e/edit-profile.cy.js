@@ -28,6 +28,7 @@ describe('Edits profile details', () => {
     cy.get('button').contains('SAVE').click();
 
     // Verify updated profile details
+    cy.wait(500);
     cy.reload();
     cy.get('#profileName').should('contain', 'This User');
     cy.get('#skillsList').contains('E2E-testing');
@@ -53,6 +54,7 @@ describe('Edits profile details', () => {
     cy.get('button').contains('SAVE').click();
 
     // Verify the new, updated profile details
+    cy.wait(500);
     cy.reload();
     cy.get('#profileName').should('contain', 'cypress test');
     cy.get('#skillsList').contains('Cypress');
