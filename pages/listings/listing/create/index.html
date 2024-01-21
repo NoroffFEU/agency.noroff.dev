@@ -1,158 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Description -->
-    <meta
-      name="description"
-      content="This page lets companies who are looking for talent to create and publish listings."
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="create job listings" />
-    <title>Noroff Jobs</title>
-    <!-- Links and scripts -->
 
-    <script src="/index.js" defer type="module"></script>
-  </head>
-  <body class="d-flex flex-column flex-fill min-vh-100 gap-4" id="createListing">
-    <header></header>
-    <main class="container-fluid d-flex flex-fill flex-lg-row justify-content-center bg-theme-grey">
-      <div class="mt-5 mb-5" id="newListing" data-bs-backdrop="static" tabindex="-1">
-        <div class="border">
-          <!-- Waiting on API docs for validation requirements -->
-          <!-- To future developers:
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Description -->
+  <meta name="description"
+    content="This page lets companies who are looking for talent to create and publish listings." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="create job listings" />
+  <title>Noroff Jobs</title>
+  <!-- Links and scripts -->
+
+  <script src="/index.js" defer type="module"></script>
+</head>
+
+<body class="d-flex flex-column flex-fill min-vh-100 gap-4" id="createListing">
+  <header></header>
+  <main class="container-fluid d-flex flex-fill flex-lg-row justify-content-center bg-theme-grey">
+    <div class="mt-5 mb-5" id="newListing" data-bs-backdrop="static" tabindex="-1">
+      <div class="border">
+        <!-- Waiting on API docs for validation requirements -->
+        <!-- To future developers:
             Looking at the Figma board, this page should be converted into a modal on the Company profile page. 
             We'll keep this code here for now, so you can easily copy/paste when ready -->
-          <form class="m-2" id="createNewListing" data-auth="createForm">
-            <div class="text-end">
-              <button
-                type="button"
-                class="btn-close"
-                style="border-radius: 0px"
-                data-auth="createFormClose"
-              ></button>
+        <form class="m-2" id="createNewListing" data-auth="createForm">
+          <div class="text-end">
+            <button type="button" class="btn-close" data-auth="createFormClose"></button>
+          </div>
+          <h1 class="text-center mt-4">Create New Listing</h1>
+          <div class="m-4 mt-5">
+            <div class="form mb-3">
+              <label for="companySelect">Select Company</label>
+              <select class="form-control bg-theme-light" id="companySelect" name="company"
+                data-auth="createFormCompanySelect" aria-label="Enter company ID from dropdown menu">
+                <!-- The options will be dynamically added by the script -->
+              </select>
             </div>
-            <h1 class="text-center mt-4">Create New Listing</h1>
-            <div class="m-4 mt-5">
-              <div class="form mb-3">
-                <label for="companySelect">Select Company</label>
-                <select
-                  class="form-control bg-theme-light"
-                  id="companySelect"
-                  name="company"
-                  data-auth="createFormCompanySelect"
-                  aria-label="Enter company ID from dropdown menu"
-                >
-                  <!-- The options will be dynamically added by the script -->
-                </select>
-              </div>
-              <div class="form mb-3">
-                <label for="createTitle">Job Title/Position</label>
-                <input
-                  class="form-control bg-theme-light"
-                  style="border-radius: 0px"
-                  type="text"
-                  name="title"
-                  placeholder="Please enter a job title/position."
-                  id="createTitle"
-                  data-auth="createFormTitle"
-                  required
-                />
-              </div>
-              <div class="form mb-3">
-                <label for="tags">Tags</label>
-                <input
-                  class="form-control bg-theme-light"
-                  style="border-radius: 0px"
-                  type="text"
-                  name="tags"
-                  placeholder="Separate tags by commas (,)"
-                  id="createTags"
-                  data-auth="createFormTags"
-                  aria-label="Enter Tags"
-                  required
-                />
-              </div>
-              <div class="form mb-3">
-                <label for="requirements">Requirements</label>
-                <input
-                  class="form-control bg-theme-light"
-                  style="border-radius: 0px"
-                  type="text"
-                  name="requirements"
-                  placeholder="Separate requirements by commas (,)"
-                  id="createRequirements"
-                  data-auth="createFormRequirements"
-                  aria-label="Enter Requirements"
-                  required
-                />
-              </div>
-              <div class="form mb-3">
-                <label for="deadline">Application Deadline</label>
-                <input
-                  class="form-control bg-theme-light"
-                  style="border-radius: 0px"
-                  type="datetime-local"
-                  name="deadline"
-                  id="createDeadline"
-                  data-auth="createFormLocation"
-                  title="Enter a valid date"
-                  aria-label="Application deadline"
-                  required
-                />
-              </div>
-              <div class="form mb-3">
-                <label for="jobDescription">Job Description</label>
-                <textarea
-                  class="form-control bg-theme-light"
-                  style="border-radius: 0px"
-                  rows="10"
-                  type="text"
-                  name="jobDescription"
-                  placeholder="Please write a clear description. Description must be at least 10 characters long."
-                  id="createDescription"
-                  data-auth="createFormDescription"
-                  required
-                ></textarea>
-              </div>
+            <div class="form mb-3">
+              <label for="createTitle">Job Title/Position</label>
+              <input class="form-control bg-theme-light" type="text" name="title"
+                placeholder="Please enter a job title/position." id="createTitle" data-auth="createFormTitle"
+                required />
             </div>
-            <div class="ms-4 mb-4">
-              <button
-                id="createListingBtn"
-                class="btn btn-theme-secondary ps-4 pe-4 me-4"
-                style="border-radius: 0px; width: 250px"
-                type="submit"
-                data-auth="createFormSubmitButton"
-              >
-                CREATE NEW LISTING
-              </button>
+            <div class="form mb-3">
+              <label for="tags">Tags</label>
+              <input class="form-control bg-theme-light" type="text" name="tags"
+                placeholder="Separate tags by commas (,)" id="createTags" data-auth="createFormTags"
+                aria-label="Enter Tags" required />
             </div>
-          </form>
-        </div>
-        <div
-          class="modal fade"
-          id="createModal"
-          tabindex="-1"
-          aria-labelledby="createModal"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content text-center">
-              <div class="modal-body">
-                <img src="/assets/icons/cancel.svg" alt="Cancel icon" />
-                <h3>Woops! Please try again.</h3>
-              </div>
+            <div class="form mb-3">
+              <label for="requirements">Requirements</label>
+              <input class="form-control bg-theme-light" type="text" name="requirements"
+                placeholder="Separate requirements by commas (,)" id="createRequirements"
+                data-auth="createFormRequirements" aria-label="Enter Requirements" required />
+            </div>
+            <div class="form mb-3">
+              <label for="deadline">Application Deadline</label>
+              <input class="form-control bg-theme-light" type="datetime-local" name="deadline" id="createDeadline"
+                data-auth="createFormLocation" title="Enter a valid date" aria-label="Application deadline" required />
+            </div>
+            <div class="form mb-3">
+              <label for="jobDescription">Job Description</label>
+              <textarea class="form-control bg-theme-light" rows="10" type="text" name="jobDescription"
+                placeholder="Please write a clear description. Description must be at least 10 characters long."
+                id="createDescription" data-auth="createFormDescription" required></textarea>
+            </div>
+          </div>
+          <div class="ms-4 mb-4">
+            <button id="createListingBtn" class="btn btn-theme-secondary ps-4 pe-4 me-4" type="submit"
+              data-auth="createFormSubmitButton">
+              CREATE NEW LISTING
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content text-center">
+            <div class="modal-body">
+              <img src="/assets/icons/cancel.svg" alt="Cancel icon" />
+              <h3>Woops! Please try again.</h3>
             </div>
           </div>
         </div>
       </div>
-    </main>
-    <footer></footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    </div>
+  </main>
+  <footer></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

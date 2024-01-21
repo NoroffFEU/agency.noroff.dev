@@ -1,5 +1,9 @@
-import { handleActiveLinks } from '../../listeners/footer/handleActiveLinks';
+import { handleActiveLinks } from "../../listeners/footer/handleActiveLinks";
 
+/**
+ * function that creates the footer, the function creates container elements aswell as div,list and anchor elements, the function also adds bootstrap classLists and content for the differet
+ * elements
+ */
 export const footer = () => {
   const footerElement = document.querySelector('footer');
   footerElement.classList.add('bg-theme-dark', 'pt-5', 'p-2', 'mt-auto', 'pb-5');
@@ -73,7 +77,6 @@ export const footer = () => {
     a.href = href;
 
     a.className = 'nav-link text-white';
-    a.target = '_blank';
     a.id = 'navlink-footer';
 
     a.textContent = text;
@@ -88,7 +91,7 @@ export const footer = () => {
     'About Noroff Jobs'
   );
   createListItem(forCompaniesList, '#', 'Company User Guide');
-  createListItem(forCompaniesList, '#', 'FAQ');
+  createListItem(forCompaniesList, '../../../../pages/footer/faq.html', 'FAQ');
 
   const contactUsCol = createColumn(innerRow);
   createTextElement(contactUsCol, 'h4', 'text-white mb-3 fw-bold', 'Contact us');
