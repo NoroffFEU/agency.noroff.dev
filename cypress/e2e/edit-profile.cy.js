@@ -1,13 +1,5 @@
 describe('Edits profile details', () => {
   it('should check that profile details are successfully edited', () => {
-    // Intercept the PUT request and login API call
-    cy.intercept('PUT', 'https://cors.noroff.dev/https://agency-api.noroff.dev/users/*').as(
-      'editProfile'
-    );
-    cy.intercept('POST', 'https://cors.noroff.dev/https://agency-api.noroff.dev/users/login').as(
-      'loginAPI'
-    );
-
     cy.visit('/'); // Please replace this with your local vite url
 
     // Login process
@@ -49,9 +41,9 @@ describe('Edits profile details', () => {
     cy.wait(200);
     cy.get('#editProfileModal').should('be.visible');
     cy.get('#firstNameStudent').clear();
-    cy.get('#firstNameStudent').type('Test', { delay: 100 });
+    cy.get('#firstNameStudent').type('cypress', { delay: 100 });
     cy.get('#lastNameStudent').clear();
-    cy.get('#lastNameStudent').type('Student', { delay: 100 });
+    cy.get('#lastNameStudent').type('test', { delay: 100 });
     cy.get('#studentSkills').clear();
     cy.get('#studentSkills').type('Cypress');
     cy.get('#studentDescription').clear();
@@ -62,7 +54,7 @@ describe('Edits profile details', () => {
 
     // Verify the new, updated profile details
     cy.reload();
-    cy.get('#profileName').should('contain', 'Test Student');
+    cy.get('#profileName').should('contain', 'cypress test');
     cy.get('#skillsList').contains('Cypress');
     cy.get('#descriptionBody').should('contain', `New description for student`);
   });
