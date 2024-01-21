@@ -11,5 +11,7 @@ declare namespace Cypress {
      * @example cy.checkSessionStorage('key', 'expectedValue')
      */
     checkSessionStorage(key: string, expectedValue: string | null): Chainable<Subject>;
+
+    login(email: string, password: string): Chainable<Subject>;
   }
 }
