@@ -8,8 +8,8 @@ const userUrl = apiPath + `users`;
 /**
  *  function that uses two parameters to send a GET request and recives back information about applicants, the function then calls the applicantTemplate() and uses
  *  the recived information as a parameter, if the call fails the function console logs the error message
- * @param {string} url 
- * @param {object} data 
+ * @param {string} url
+ * @param {object} data
  */
 export async function showApplicants(url, data) {
   try {
@@ -114,7 +114,9 @@ export async function applicantTemplate(applicantData) {
       if (typeof document !== 'undefined') {
         const fetchApplicants = document.querySelector('#applicants');
 
-        fetchApplicants.innerHTML += applicant;
+        if (fetchApplicants) {
+          fetchApplicants.innerHTML += applicant;
+        }
       }
     }
     return applicant;
