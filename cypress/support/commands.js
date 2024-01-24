@@ -25,3 +25,10 @@ Cypress.Commands.add('checkSessionStorage', (key, expectedValue) => {
     }
   });
 });
+
+Cypress.Commands.add('login', (email, password) => {
+  cy.visit('/pages/auth/login/');
+  cy.findByTestId('login-form-email').type(email);
+  cy.findByTestId('login-form-password').type(password);
+  cy.get('button[type="submit"]').click();
+});

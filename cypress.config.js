@@ -11,6 +11,8 @@ module.exports = defineConfig({
       config.env = {
         ...process.env,
         ...config.env,
+        username: 'cypress-test@noroff.no',
+        password: 'czv4euj*ncv6NUG@aqy', // when a user gets more permissions, this should be changed to not reveal the password
       };
       return config;
     },

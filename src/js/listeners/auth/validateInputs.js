@@ -63,7 +63,8 @@ function validateCompanyName(input, isTyping) {
  * @param {boolean} isTyping - True if the user is still typing; otherwise, false.
  * @returns {boolean} True if the password is valid; otherwise, false.
  */
-function validatePassword(input, isTyping) {
+
+export function validatePassword(input, isTyping) {
   const errorDiv = input.nextElementSibling;
   const isValidPassword = input.value.length >= 8;
 
@@ -163,7 +164,8 @@ function validateFullName(input, isTyping) {
  * @param {boolean} isTyping - True if the user is still typing; otherwise, false.
  * @returns {boolean} True if the email is valid; otherwise, false.
  */
-function validateEmail(input, isTyping) {
+
+export function validateEmail(input, isTyping) {
   const errorDiv = input.nextElementSibling;
   const pattern = /^[\w\-.]+@(stud.)?noroff.no$/;
   const isValidEmail = pattern.test(input.value);
