@@ -53,23 +53,25 @@
             />
             <h1 class="text-center mt-3 fw-bold" id="profileName"></h1>
             <p id="profileRole" class="text-center fw-bold fs-2"></p>
+            <p id="profileContact" class="text-center fw-regular fs-1"></p>
+            <p id="profileEmail" class="text-center fs-2 fw-lighter"></p>
           </div>
           <div
             class="px-4 py-3 bg-theme-new-grey mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
             id="skillsContainer"
           >
-            <h2 class="fs-2 fw-bold" id="skillsHeader">Skills</h2>
+            <h2 class="fs-2 fw-bold mb-3" id="skillsHeader">Skills</h2>
             <ul
-              class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6"
+              class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6 mb-0"
               id="skillsList"
             ></ul>
           </div>
           <div
-            class="px-4 pt-3 pb-2 bg-theme-new-grey my-2 mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+            class="px-4 pt-3 pb-2 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
             id="descriptionContainer"
           >
-            <h2 class="fs-2 fw-bold" id="descriptionHeader">About Me</h2>
-            <p id="descriptionBody"></p>
+            <h2 class="fs-2 fw-bold mb-3" id="descriptionHeader"></h2>
+            <p class="mb-2" id="descriptionBody"></p>
           </div>
         </div>
         <div class="d-flex justify-content-center">
@@ -564,7 +566,7 @@
               <!-- Modal content -->
               <div class="modal-body">
                 <!-- // Student form starts here // -->
-                <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm">
+                <form id="editStudentProfile" class="px-md-5 pb-md-5 p-2 container-sm d-none">
                   <!-- avatar input -->
                   <div class="mb-4 position-relative">
                     <img
@@ -672,11 +674,11 @@
                   <!-- Student description input -->
                   <div class="mb-2">
                     <label for="studentDescription" class="form-label mb-0 fw-bold fs-4"
-                      >About Me</label
+                      >About me</label
                     >
                     <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
                     <textarea
-                      class="form-control bg-theme-new-grey"
+                      class="form-control"
                       rows="5"
                       name="about"
                       id="studentDescription"
@@ -689,7 +691,7 @@
                       type="submit"
                       class="fw-semibold btn btn-dark mt-2 rounded-0 mx-auto px-5"
                     >
-                      SAVE
+                      Save changes
                     </button>
                   </div>
 
@@ -735,36 +737,30 @@
                     </div>
                   </div>
                   <!-- Company name and email group -->
-                  <div class="row">
+                  <div class="w-100 mx-auto">
                     <div class="mb-2 col-md">
-                      <label for="nameCompany" class="form-label mb-0">Company Name</label>
-                      <input type="text" name="companyName" id="nameCompany" class="form-control" />
+                      <label for="nameCompany" class="form-label mb-0">Company name</label>
+                      <input type="text" name="name" id="nameCompany" class="form-control" />
                     </div>
-                    <div class="mb-2 col-md">
+                    <!-- <div class="mb-2 col-md">
                       <label for="emailCompany" class="form-label mb-0">E-mail</label>
                       <input type="email" name="email" id="emailCompany" class="form-control" />
+                    </div> -->
+                    <div class="mb-2 col-md">
+                      <label for="sector" class="form-label mb-0">Title / Sector</label>
+                      <input type="text" name="sector" id="sectorCompany" class="form-control" />
+                    </div>
+                    <div class="mb-2 col-md">
+                      <label for="phone" class="form-label mb-0">Phone</label>
+                      <input type="phone" name="phone" id="phoneCompany" class="form-control" />
                     </div>
                   </div>
                   <!-- Contact person and contact number -->
-                  <div class="row">
-                    <div class="mb-2 col-md">
-                      <label for="contactPerson" class="form-label mb-0">Contact Person</label>
-                      <input type="text" name="contact" id="contactPerson" class="form-control" />
-                    </div>
-                    <div class="mb-2 col-md">
-                      <label for="contactNumber" class="form-label mb-0">Contact Number</label>
-                      <input
-                        type="number"
-                        name="contactNumber"
-                        id="contactNumber"
-                        class="form-control"
-                      />
-                    </div>
-                  </div>
+
                   <!-- Company description -->
                   <div class="mb-2">
                     <label for="companyDescription" class="form-label mb-0 fw-bold fs-4"
-                      >About Us</label
+                      >About us</label
                     >
                     <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
                     <textarea
@@ -802,7 +798,8 @@
               Edit Profile
             </button>
           </div>
-          <div class="mt-5">
+
+          <div class="mt-5" id="companyApplicationsContainer">
             <!-- Tab navigation for app/offers -->
             <nav class="nav nav-tabs container-sm" role="tablist" id="companyNavTab">
               <!-- Button for Application tab -->
@@ -867,6 +864,9 @@
               <!-- Student favourite listings go here -->
             </div>
           </div>
+        </div>
+        <div class="mt-5 d-flex fs-5">
+          <a class="ms-auto" href="/pages/listings/listing/create/index.html">New listings +</a>
         </div>
       </div>
     </main>
