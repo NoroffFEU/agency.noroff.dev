@@ -33,7 +33,7 @@ export const renderListing = async () => {
 
     // Mariusz Rozycki
     // correct condition in next line should be 'loggedCompanyId === company.id'
-    if (loggedCompanyId !== company.id) {
+    if (loggedCompanyId === company.id) {
       btnContainer.innerHTML = '';
       const editBtn = createElement(
         'a',
