@@ -3,38 +3,25 @@
 import { apiUrl, listingsUrl } from '../constants.js';
 
 export async function deleteItem() {
-  const deleteButton = document.querySelector('#delete-button-on-listing-screen');
-
-  // Check if the user is logged in by checking the presence of an access token
-  const accessToken = localStorage.getItem('token');
-  if (!accessToken) {
-    // If not logged in, hide the DELETE button
-    if (deleteButton) {
-      deleteButton.style.display = 'none';
-    }
-  } else {
-    // If logged in, ensure the DELETE button is visible and add the event listener
-    if (deleteButton) {
-      deleteButton.style.display = 'block'; // Show the button if the user is logged in
-      deleteButton.addEventListener('click', deleteListing);
-    }
-  }
+  const form = document.querySelector('#deleteThisListing');
+  form.addEventListener('click', deleteListing);
 }
 
 /**
  * Sends a delete request to the API based on the url parameter.
+ * @param { string } url to target the listing that is going to be deleted.
  */
 export async function deleteListing() {
   const accessToken = localStorage.getItem('token');
   if (!accessToken) {
-    throw new Error("Access token is not available");
+    throw new Error('Access token is not available');
   }
   const newAccessToken = accessToken.replace(/^"|"$/g, '');
 
   try {
     const url = new URL(location.href);
     const id = url.searchParams.get('id');
-    const listingUrl = `${apiUrl}${listingsUrl}/${id}`;
+    const listingUrl = apiUrl.toString() + listingsUrl + id;
 
     const listingData = {
       method: 'DELETE',
@@ -48,18 +35,16 @@ export async function deleteListing() {
     const response = await fetch(listingUrl, listingData);
     const result = await response.json();
 
-    if (!response.ok) {
-      alert(`Error deleting listing: ${result.message}`);
-      throw new Error(`Error deleting listing: ${result.statusText}`);
+    if (!result.ok) {
+      alert(`Error editing listing: ${result.message}`);
+      throw new Error(`Error editing listing: ${result.statusText}`);
     } else {
-      document.getElementById("hide-delete-modal").click();
+      document.getElementById('hide-delete-modal').click();
       new bootstrap.Modal(document.querySelector('#success-delete-modal')).show();
     }
 
     return result;
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
-
-
