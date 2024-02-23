@@ -32,8 +32,8 @@ export const renderListing = async () => {
     container.append(listing);
 
     // Mariusz Rozycki
-    // correct condition in next line should be 'loggedCompanyId === company.id'
-    if (loggedCompanyId === company.id) {
+    // correct condition in next line should be 'loggedCompanyId === company.id' - to get effect we have to be able to create listing/offer as 'Client'
+    if (loggedCompanyId === company.id && userRole === 'Client') {
       btnContainer.innerHTML = '';
       const editBtn = createElement(
         'a',
@@ -51,9 +51,12 @@ export const renderListing = async () => {
       deleteBtn.setAttribute('data-bs-target', '#deleteListingModal');
 
       btnContainer.append(editBtn, deleteBtn);
-    } else if (userRole === 'Client') {
-      btnContainer.classList.add('d-none');
+      btnContainer.classList.remove('d-none');
     }
+    // Mariusz Rozycki - I think this condition is not necessary here
+    // else if (userRole === 'Applicant') {
+    //   btnContainer.classList.add('d-none');
+    // }
   } else {
     alert('No id provided');
     setTimeout(() => {
@@ -137,6 +140,7 @@ const createDetailsContainer = (title, company, deadline, created) => {
 };
 
 const createBtnContainer = (userRole) => {
+  console.log(userRole);
   const element = createElement('div', [
     'd-flex',
     'align-items-center',
