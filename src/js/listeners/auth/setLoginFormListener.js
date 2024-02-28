@@ -1,5 +1,5 @@
 import { login } from '../../api/auth/index.js';
-import { validateEmail } from './validateInputs.js';
+import { inputs } from './validateInputs.js';
 
 // Author: Truls Haakenstad @Menubrea
 // Dev-team: Frontend - User
@@ -17,7 +17,7 @@ export function setLoginFormListener() {
 
   emailInput.addEventListener('blur', () => {
     const emailField = document.getElementById('email');
-    validateEmail(emailField);
+    inputs.validateCompanyEmail(emailField);
   });
 
   if (storedEmail && emailInput) {
