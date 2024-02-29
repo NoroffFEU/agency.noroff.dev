@@ -161,75 +161,48 @@
                 </div>
               </div>
             </div>
+            <!-- Modal delete -->
+            <div class="ms-4 mb-4">
+              <button type="button" class="btn btn-theme-dark text-theme-light ps-4 pe-4 me-4"
+                id="delete-button-on-listing-screen" data-bs-toggle="modal" data-bs-target="#deleteListingModal">
+                DELETE
+              </button>
+            </div>
+            <div class="modal fade" id="deleteListingModal" tabindex="-1" role="dialog" aria-labelledby="Edit Listing Modal"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div>
+                    <h2 class="modal-title text-center text-wrap my-5 px-4">Are you sure you want to delete this listing?</h2>
+                    <div class="modal-footer justify-content-center pb-4">
+                      <button href="/pages/user/index.html" class="btn btn-theme-dark text-theme-light px-4 me-4"
+                        data-bs-dismiss="modal">CANCEL</button>
+                      <button href="/pages/listings/listing/index.html" class="btn bg-theme-primary fw-bolder px-5" type="button"
+                        id="deleteThisListing">YES
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Success Modal -->
+            <div class="modal fade" id="success-delete-modal" tabindex="-1" role="dialog"
+              aria-labelledby="Success edit Listing Modal" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="text-center py-5 my-5">
+                    <img src="/assets/icons/delete-red.svg" alt="Illustration of close icon" />
+                    <h2 class="modal-title text-center">Listing Deleted</h2>
+                    <button class="d-none" id="hide-delete-modal" data-bs-dismiss="modal"
+                      data-bs-target="#deleteListingModal"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
       </div>
       <section class="listingContainer"></section>
-      <!-- Modal delete -->
-      <section>
-        <div class="ms-4 mb-4">
-          <button
-            type="button"
-            class="btn btn-theme-dark text-theme-light ps-4 pe-4 me-4"
-            id="delete-button-on-listing-screen"
-            data-bs-toggle="modal"
-            data-bs-target="#deleteListingModal"
-          >
-            DELETE
-          </button>
-        </div>
-        <div
-          class="modal fade"
-          id="deleteListingModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="Edit Listing Modal"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div>
-                  <h2 class="modal-title text-center text-wrap my-5 px-4">Are you sure you want to delete this listing?</h2>
-                  <div class="modal-footer justify-content-center pb-4">
-                    <button
-                      href="/pages/user/index.html"
-                      class="btn btn-theme-dark text-theme-light px-4 me-4" data-bs-dismiss="modal"
-                      >CANCEL</button
-                    >
-                    <button
-                      href="/pages/listings/listing/index.html"
-                      class="btn bg-theme-primary fw-bolder px-5"
-                      type="button"
-                      id="deleteThisListing"
-                    >YES
-                    </button>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Success Modal -->
-        <div
-          class="modal fade"
-          id="success-delete-modal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="Success edit Listing Modal"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="text-center py-5 my-5">
-                <img src="/assets/icons/delete-red.svg" alt="Illustration of close icon" />
-                <h2 class="modal-title text-center">Listing Deleted</h2>
-                <button class="d-none" id="hide-delete-modal"
-                data-bs-dismiss="modal"
-                data-bs-target="#deleteListingModal"></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
     <footer></footer>
     <script
