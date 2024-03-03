@@ -45,17 +45,17 @@ export function setRegisterFormListenerApplicant() {
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-
+    
       const isPasswordValid = inputs.validatePassword(password);
       const isRepeatPasswordValid = inputs.validateRepeatPassword(password, repeatPassword);
       const isFullNameValid = inputs.validateFullName(fullName);
       const isEmailValid = inputs.validateEmail(email);
-
+    
       if (!isPasswordValid || !isRepeatPasswordValid || !isFullNameValid || !isEmailValid) {
         message("danger", "Invalid registration credentials. Please try again", "#errorMessage");
         return;
       }
-
+    
       const formData = new FormData(form);
       const profile = Object.fromEntries(formData.entries());
       const imageUrl = document.querySelector('#imageUrl').value;
@@ -63,15 +63,21 @@ export function setRegisterFormListenerApplicant() {
       profile.firstName = fullNameSplit[0];
       profile.lastName = fullNameSplit.slice(1).join(' ');
       const data = { ...profile, imageUrl };
-
+    
       const { error } = await registerUser(data);
       if (error) {
-        message("danger", "An error occured when attempting to register user. Please try again", "#errorMessage");
+        message("danger", "An error occurred when attempting to register user. Please try again", "#errorMessage");
         console.error(error);
         return;
       }
-      message("success", "Registration successful! You can now login.", "#errorMessage");
-      window.location.href = "../login";
+    
+      // Construct the login path based on the current URL
+      const currentPath = window.location.pathname;
+      const loginPath = currentPath.replace('/register/applicant', '/login');
+    
+      // Redirect to the login page after successful registration
+      window.location.href = loginPath;
     });
+    
   }
 }
