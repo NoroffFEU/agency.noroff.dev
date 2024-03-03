@@ -71,6 +71,7 @@ export function setRegisterFormListenerApplicant() {
         return;
       }
       message("success", "Registration successful! You can now login.", "#errorMessage");
+      window.location.href = "../login";
     });
   }
 }
