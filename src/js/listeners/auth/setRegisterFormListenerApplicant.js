@@ -71,6 +71,12 @@ export function setRegisterFormListenerApplicant() {
         return;
       }
       message("success", "Registration successful! You can now login.", "#errorMessage");
+         // Construct the login path based on the current URL
+         const currentPath = window.location.pathname;
+         const loginPath = currentPath.replace('/register/applicant', '/login');
+       
+         // Redirect to the login page after successful registration
+         window.location.href = loginPath;
     });
   }
 }
