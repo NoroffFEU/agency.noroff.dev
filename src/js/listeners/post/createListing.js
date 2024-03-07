@@ -38,26 +38,6 @@ export function createListing() {
       option.textContent = applicantId;
       companySelect.appendChild(option);
     }
-
-    // if (companyData) {
-    //   let companies = JSON.parse(companyData);
-    //   if (!Array.isArray(companies)) {
-    //     companies = [companies];
-    //   }
-    //   companies.forEach((companyId) => {
-    //     const option = document.createElement('option');
-    //     option.value = companyId;
-    //     option.textContent = companyId;
-    //     companySelect.appendChild(option);
-    //   });
-    // } else {
-    //   //Disables field if no company ID is present in localstorage
-    //   const defaultOption = document.createElement('option');
-    //   defaultOption.textContent = 'No companies available';
-    //   defaultOption.disabled = true;
-    //   companySelect.appendChild(defaultOption);
-    //   companySelect.disabled = true;
-    // }
   }
 
   populateCompanyDropdown();
