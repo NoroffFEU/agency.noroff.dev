@@ -117,7 +117,7 @@ export const footer = () => {
 
   const emailLink = document.createElement('a');
   emailLink.href = 'mailto:utdanning@noroff.no';
-  emailLink.className = 'nav-link text-white';
+  emailLink.className = 'nav-link email-color';
   emailLink.id = 'navlink-footer-id';
   const emailIcon = document.createElement('img');
   emailIcon.src = '/assets/icons/mail.svg';

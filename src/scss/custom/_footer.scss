@@ -15,6 +15,14 @@ div[data-footer-col] {
   padding-left: 10px;
 }
 
+.email-color {
+  color: white !important;
+}
+
+.email-color:hover {
+  color: black !important;
+}
+
 @media only screen and (min-width: 576px) {
   .center-desktop {
     justify-content: center;
