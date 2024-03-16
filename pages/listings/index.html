@@ -37,8 +37,12 @@
         <section class="d-flex justify-content-center">
           <div class="mt-5">
             <h1 class="mt-2 py-1 text-center fw-bold">Job Listings</h1>
-            <div class="container d-flex justify-content-center mt-3 col-12">
-              <div class="col-8 col-md-10 col-lg-12 ms-5 search-containe">
+            <!-- Johan's modifications: class="d-none" and id="searchListingContId" add to div in next line -->
+            <div
+              class="container d-flex justify-content-center mt-3 col-12 d-none"
+              id="searchListingContId"
+            >
+              <div class="container d-flex justify-content-center col-12">
                 <div class="input-group">
                   <label for="searchListing" class="visually-hidden">Search:</label>
                   <input
@@ -86,10 +90,14 @@
           </div>
         </section>
         <div class="spinner-container d-flex justify-content-center" id="spinner-container">
-        <div class="spinner-border" style="width: 5rem; height: 5rem; border-width: 0.6rem;" role="status">
-          <span class="sr-only"></span>
+          <div
+            class="spinner-border"
+            style="width: 5rem; height: 5rem; border-width: 0.6rem"
+            role="status"
+          >
+            <span class="sr-only"></span>
+          </div>
         </div>
-      </div>
         <h2 class="visually-hidden">Subheading 1</h2>
         <h3 class="visually-hidden">Subheading 1</h3>
         <h4 class="visually-hidden">Subheading 1</h4>
