@@ -19,14 +19,23 @@ export const renderListings = async (listings) => {
   listingsContainer.innerHTML = '';
 
   if (!listings) {
-    if(!cachedListings){
-    cachedListings = await getListOfListings();
+    if (!cachedListings) {
+      cachedListings = await getListOfListings();
     }
     listings = cachedListings;
   }
 
   const listingElements = listings.map(createListings);
-  listingElements.forEach(element => listingsContainer.append(element));
+  listingElements.forEach((element) => listingsContainer.append(element));
+
+  // Display search bar for listings after content loaded
+  // Modification made by: Johan Lossius
+  // Team: Phoenix
+  function displaySearchBarAfterLoad() {
+    const searchListingContId = document.getElementById('searchListingContId');
+    searchListingContId.classList.remove('d-none');
+  }
+  displaySearchBarAfterLoad();
 };
 
 export const renderNoListings = async () => {
