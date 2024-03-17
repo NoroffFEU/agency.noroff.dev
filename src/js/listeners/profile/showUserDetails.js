@@ -26,4 +26,8 @@ export async function showUserDetails() {
   if (data.company) {
     localStorage.setItem('companyId', data.company.id);
   }
+
+  if (data.role === 'Client') {
+    localStorage.setItem('companyName', data.company.name);
+  }
 }

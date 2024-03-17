@@ -1,7 +1,12 @@
 // Author: Åke Ek
 // comment: There is an issue with the response, wich is why I added a "1" in the filename. Remove the 1 and run the test to see the response.
+import { getListOfListings } from './getListOfListings.js';
+import { showSpinner, hideSpinner } from '../../utilities/listings/loadingIndicator.js';
 
-import { getListOfListings } from './getListOfListings';
+jest.mock('../../utilities/listings/loadingIndicator.js', () => ({
+  showSpinner: jest.fn(),
+  hideSpinner: jest.fn(),
+}));
 
 global.fetch = jest.fn(() => {});
 
@@ -37,5 +42,29 @@ describe('getListOfListings', () => {
   it('Fails to display from the API', async () => {
     global.fetch = jest.fn(() => mockFailGetListing());
     await expect(getListOfListings()).rejects.toThrow('Something went wrong, please try again');
+  });
+
+  describe('getListOfListings with spinner actions', () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it('calls showSpinner and hideSpinner when fetching listings', async () => {
+      global.fetch = jest.fn(() => mockGetList());
+
+      await getListOfListings();
+
+      expect(showSpinner).toHaveBeenCalled();
+      expect(hideSpinner).toHaveBeenCalled();
+    });
+
+    it('calls showSpinner and hideSpinner even if fetching fails', async () => {
+      global.fetch = jest.fn(() => mockFailGetListing());
+
+      await expect(getListOfListings()).rejects.toThrow('Something went wrong, please try again');
+
+      expect(showSpinner).toHaveBeenCalled();
+      expect(hideSpinner).toHaveBeenCalled();
+    });
   });
 });
