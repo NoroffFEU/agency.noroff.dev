@@ -66,20 +66,20 @@ main {
   transform: scale(1.06);
   background-color: #ff785a !important;
 }
-.view-btn {
+.viewBtn {
   background-color: #fd2e07 !important;
   transition: all 0.3s ease;
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
   border: 1px solid #fff;
 }
 
-.view-btn:hover {
+.viewBtn:hover {
   background-color: #212931 !important;
   color: #ffffff !important;
   border-color: #fd2e07;
   box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.1);
 }
-.view-btn:active {
+.viewbtn:active {
   transform: scale(1);
 }
 
