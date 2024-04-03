@@ -55,7 +55,7 @@ main {
 
 .btn,
 .bg-theme-primary {
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .btn:hover {
@@ -65,6 +65,22 @@ main {
 .bg-theme-primary:hover {
   transform: scale(1.06);
   background-color: #ff785a !important;
+}
+.view-btn {
+  background-color: #fd2e07 !important;
+  transition: all 0.3s ease;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid #fff;
+}
+
+.view-btn:hover {
+  background-color: #212931 !important;
+  color: #ffffff !important;
+  border-color: #fd2e07;
+  box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.1);
+}
+.view-btn:active {
+  transform: scale(1);
 }
 
 #editProfileBtn:hover {

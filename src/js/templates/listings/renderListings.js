@@ -98,7 +98,7 @@ const createCardFooter = (deadline, id) => {
   const span2 = createElement('span', null, null, `DeadLine:  ` + parseDate(deadline));
   const a = createElement(
     'a',
-    ['bg-theme-primary', 'text-theme-black', 'px-3', 'text-decoration-none'],
+    [ 'bg-theme-primary', 'view-btn', 'text-theme-black', 'px-3', 'text-decoration-none'],
     null,
     'View',
     '/pages/listings/listing/index.html?id=' + id
