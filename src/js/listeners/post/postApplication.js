@@ -7,7 +7,7 @@ export async function postApplication() {
   if (appForm) {
     appForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const appForm = event.target;
+     /* const appForm = event.target;
       const appFormData = new FormData(appForm);
       const postData = Object.fromEntries(appFormData.entries());
       console.log(postData);
@@ -18,9 +18,20 @@ export async function postApplication() {
       const appLink = document.querySelector('#inputLink');
       const appFile = document.querySelector('#inputFile');
       const appLetter = document.querySelector('#inputLetter');
+      */
 
-      //   await create(postData);
+      // await create(postData);
       // Will make more responsive errors and elements when submitting, later tho :)
+
+      // Sander vh 2024-05-04
+      // Temporary measure to show success modal, in the future add api logic to show success modal if post is successful.
+      const applyModalInstance = bootstrap.Modal.getInstance(document.getElementById('applyModal'));
+      applyModalInstance.hide();
+      showSuccessModal();
     });
   }
+}
+function showSuccessModal() {
+  const applicationSuccessModal = new bootstrap.Modal(document.getElementById('applicationSuccessModal'));
+  applicationSuccessModal.show();
 }

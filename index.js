@@ -14,6 +14,7 @@ import { showListings } from './src/js/views/admin/showListings.js';
 import { searchListings, filterListings } from './src/js/listeners/post/searchListing.js';
 import '/src/scss/index.scss';
 import { deleteItem } from './src/js/api/posts/deleteListing.js';
+import { postApplication } from './src/js/listeners/post/postApplication.js';
 
 displayBaseLayout();
 
@@ -52,6 +53,7 @@ const routerSwitch = () => {
       renderListing();
       deleteItem();
       editListingListener();
+      postApplication();
       break;
 
     // Listing UI settings

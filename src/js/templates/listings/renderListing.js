@@ -93,6 +93,9 @@ const createBtnContainer = (userRole) => {
 
   const applyBtn = createElement("a", ["btn", "btn-theme-secondary", "text-uppercase", "w-100", "rounded-0", "applyBtn"], null, "Apply for job");
   applyBtn.dataset.auth = "applyForJob";
+  applyBtn.setAttribute('data-bs-toggle', 'modal');
+  applyBtn.setAttribute('data-bs-target', '#applyModal');
+  applyBtn.dataset.auth = "applyForJob";
   element.append(applyBtn);
   
   const favIcon = createElement("img", null, null, null, null, "/assets/icons/heart-fav.svg", "heart icon")
