@@ -8,7 +8,7 @@ input[type='password'],
 input[type='url'],
 .form-select,
 #contactNumber {
-  border-radius: $input-border-radius !important;
+  border-radius: $input-border-radius;
 }
 
 $input-border-color: #cbcbcb;
