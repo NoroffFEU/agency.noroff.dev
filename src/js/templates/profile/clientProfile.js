@@ -6,6 +6,7 @@ const descriptionHeader = document.querySelector('#descriptionHeader');
 const profileDescription = document.querySelector('#descriptionBody');
 const editUserForm = document.querySelector('#editCompanyProfile');
 // const applicationsContainer = document.querySelector('#companyApplicationsContainer');
+const favouriteContainer = document.querySelector('#favouriteContainer');
 
 /**
  * @description Renders content on Client profile page
@@ -25,6 +26,9 @@ export function clientProfile(data) {
   The client cant add anything to it. Therefore this text you see is hardcoded until that is fixed`
 
   editUserForm.classList.remove('d-none');
+
+  // Temporary fix to hide Favourites section from client view (to adhere to figma design)
+  favouriteContainer.classList.add('d-none');
   
   // Company applications
 

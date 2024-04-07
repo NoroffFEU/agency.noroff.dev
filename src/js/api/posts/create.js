@@ -9,6 +9,7 @@ import { apiUrl, applicationUrl } from '../constants.js';
 
 export async function create(appData) {
   const createAppURL = apiUrl.toString() + applicationUrl;
+  console.log(appData)
 
   try {
     const response = await fetch(createAppURL, {
@@ -19,6 +20,7 @@ export async function create(appData) {
 
     if (!response.ok) {
       throw new Error(`Error creating application: ${response.statusText}`);
+      
     }
 
     return await response.json();
