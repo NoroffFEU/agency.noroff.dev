@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install
-        run: npm ci
+        run: npm i
       - name: Build CSS
         run: npm run build
       - name: Build Vite

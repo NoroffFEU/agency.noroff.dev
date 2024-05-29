@@ -21,6 +21,5 @@ export const logout = function () {
   localStorage.removeItem('email');
   sessionStorage.removeItem('email');
   localStorage.removeItem('companyId');
-  localStorage.removeItem('companyName');
   window.location.replace('/');
 };

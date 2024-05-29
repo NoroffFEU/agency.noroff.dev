@@ -116,9 +116,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           build: npm run build
-          start: npm run dev
-          wait-on: 'http://127.0.0.1:5173/'
-          wait-on-timeout: 60
+          start: npm run build-preview
           browser: chrome # only run in chrome to save time
       - name: Update e2e Badge
         uses: RubbaBoy/BYOB@v1.3.0

@@ -15,7 +15,9 @@
     "watch": "vite",
     "build-preview": "vite preview",
     "prepare": "husky install",
-    "dev": "vite"
+    "dev": "vite",
+    "vite-build": "vite build",
+    "vite-preview": "vite preview"
   },
   "repository": {
     "type": "git",
