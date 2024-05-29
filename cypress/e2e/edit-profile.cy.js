@@ -25,7 +25,7 @@ describe('Edits profile details', () => {
     cy.get('#studentDescription').type(`First student description edit`);
 
     // Submit the form
-    cy.get('button').contains('Save changes').click();
+    cy.get('button').contains('SAVE').click();
 
     cy.contains('Profile Updated').should('be.visible');
 
@@ -52,7 +52,7 @@ describe('Edits profile details', () => {
     cy.get('#studentDescription').type(`New description for student`);
 
     // Submit the form again
-    cy.get('button').contains('Save changes').click();
+    cy.get('button').contains('SAVE').click();
     cy.contains('Profile Updated').should('be.visible');
 
     // Verify the new, updated profile details

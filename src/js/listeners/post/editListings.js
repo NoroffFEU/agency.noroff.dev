@@ -21,33 +21,15 @@ async function getListingData(listingUrl) {
 }
 
 export function editListingListener() {
+  getListingData(listingUrl);
+  const form = document.querySelector('#editListing');
+  const viewListingBtn = document.querySelector('#editListingViewListingBtn');
 
-  const editButton = document.querySelector("#edit-listing-button-show-hide");
-  const accessToken = localStorage.getItem("token");
-
-  if(!accessToken){
-    //Hide the button if there is no accesstoken
-    if (editButton){
-      // checks if there is an editbutton there
-    editButton.style.display = "none";
-  }
-  } else {
-    editButton.style.display = "block";
-
-      getListingData(listingUrl); 
-
-      const form = document.querySelector('#editListing');
-      const viewListingBtn = document.querySelector('#editListingViewListingBtn');
-
-      // Ensure form and viewListingBtn are not null before adding event listeners
-      if (form && viewListingBtn) {
-        form.addEventListener('submit', editListingListenerForm);
-        viewListingBtn.addEventListener('click', () => {
-          window.location.reload();
-        });
-      }
-    }
-  }
+  form.addEventListener('submit', editListingListenerForm);
+  viewListingBtn.addEventListener('click', () => {
+    window.location.reload();
+  });
+}
 
 /**
  * function that allows users to edit the a listing, if a user clicks the submit button a new object is created with the new input the function the sends the new object to the api

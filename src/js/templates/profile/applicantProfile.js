@@ -11,22 +11,15 @@ const editUserForm = document.querySelector('#editStudentProfile');
  * @description Renders content on Applicant profile page
  * @param {object} data object data on user
  */
-
 export function applicantProfile(data) {
+  // console.log(data)
   const { firstName, lastName } = data;
   userName.innerText = firstName + ' ' + lastName;
   profileImage.src =
     data.avatar ||
     'https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png';
   profileImage.alt = (userName.innerText || 'Unknown') + 'avatar';
-  // Mariusz Rozycki as phoenix QA -
-  // I changed 'applicantRole.innerText = data.title' to 'applicantRole.innerText = data.title'
-  // to render applicantRole on 'edit website'.
-  // Then tests:
-  // 'should login successfully with the correct credentials'
-  // 'should logout successfully'
-  // from file login.cy.js are passing.
-  applicantRole.innerText = data.role;
+  applicantRole.innerText = data.title;
   companyContact.classList.add('d-none');
   const { skills } = data; // SkillsContainer
   if (Array.isArray(skills) && skills.length > 0) {
@@ -37,11 +30,11 @@ export function applicantProfile(data) {
       skillsList.append(renderSkill);
     });
   }
-  descriptionHeader.innerText = 'About me';
+  descriptionHeader.innerText = 'About me'; 
   profileDescription.textContent = data.about;
   editUserForm.classList.remove('d-none');
 
   // Favorite listings section
-  // The profile view will have a container component that will display the favorite listings of the Applicant.
-  // That code goes here
+    // The profile view will have a container component that will display the favorite listings of the Applicant. 
+// That code goes here
 }

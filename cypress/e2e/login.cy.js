@@ -37,9 +37,6 @@ describe('Login page', () => {
     cy.findByTestId('header').contains('Profile').click();
 
     cy.get('#profileName').should('contain', 'cypress test');
-    // Mariusz Rozycki as QA-phoenix
-    // To get 'cy.get('#profileRole').should('contain', 'Applicant'); works I change code inside file applicantProfile.js'
-    // eventually it could be such assertion used instead to don't render profileRole on 'edit web': 'cy.checkLocalStorage('role', 'Applicant')';
     cy.get('#profileRole').should('contain', 'Applicant');
   });
 
@@ -49,9 +46,6 @@ describe('Login page', () => {
     cy.findByTestId('header').contains('Profile').click();
 
     cy.get('#profileName').should('contain', 'cypress test');
-    // Mariusz Rozycki as QA-phoenix
-    // To get 'cy.get('#profileRole').should('contain', 'Applicant'); works I change code inside file applicantProfile.js'
-    // eventually it could be such assertion used instead to don't render profileRole on 'edit web': 'cy.checkLocalStorage('role', 'Applicant')';
     cy.get('#profileRole').should('contain', 'Applicant');
 
     cy.contains('Log out').click();

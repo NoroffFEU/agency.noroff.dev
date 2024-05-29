@@ -18,25 +18,26 @@ export function createListing() {
   const companySelect = document.querySelector('#companySelect');
   const createModal = new bootstrap.Modal(document.getElementById('createModal'));
 
-  //Re-written because as it stands there will always be one ID in local storage, so no need for forEach
-  //This company field does not need to be a dropdown/selection as well
-  //This function will display the same result for an Applicant as before
-  //However it displays correct company name if the user is a Client
   function populateCompanyDropdown() {
-    const role = JSON.parse(localStorage.getItem('role'));
-
-    if (role === 'Client') {
-      const companyData = localStorage.getItem('companyName');
-      const option = document.createElement('option');
-      option.value = companyData;
-      option.textContent = companyData;
-      companySelect.appendChild(option);
+    const companyData = localStorage.getItem('id');
+    if (companyData) {
+      let companies = JSON.parse(companyData);
+      if (!Array.isArray(companies)) {
+        companies = [companies];
+      }
+      companies.forEach((companyId) => {
+        const option = document.createElement('option');
+        option.value = companyId;
+        option.textContent = companyId;
+        companySelect.appendChild(option);
+      });
     } else {
-      const applicantId = localStorage.getItem('id');
-      const option = document.createElement('option');
-      option.value = applicantId;
-      option.textContent = applicantId;
-      companySelect.appendChild(option);
+      //Disables field if no company ID is present in localstorage
+      const defaultOption = document.createElement('option');
+      defaultOption.textContent = 'No companies available';
+      defaultOption.disabled = true;
+      companySelect.appendChild(defaultOption);
+      companySelect.disabled = true;
     }
   }
 
