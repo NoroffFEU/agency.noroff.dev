@@ -18,6 +18,9 @@ This is a frontend web application for interacting with the Noroff Agency API. I
 ## Goal
 To create a fully functional and scalable frontend application that meets Noroff's requirements, supports detailed quality assurance, and uses CI/CD integration with GitHub Actions.
 
+This is a group project with a clear division of roles and responsibilities. Each team member has specific tasks, contributing to different aspects of development, quality assurance, and project management. This collaborative approach ensures that all parts of the application are thoroughly developed, tested, and aligned with best practices.
+
+
 ## Features
 - User-friendly homepage with content retrieved from Noroff Agency API.
 - Detailed product and service pages with responsive design.
