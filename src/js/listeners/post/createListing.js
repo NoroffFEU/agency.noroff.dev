@@ -119,14 +119,15 @@ export function createListing() {
     }
 
     const appData = {
-      company: companySelect.value,
+      company: localStorage.getItem("companyId"),
       title: createTitle.value,
       tags: createTags.value.split(',').map((tag) => tag.trim()),
       requirements: createRequirements.value.split(',').map((req) => req.trim()),
       deadline: createDeadline.value,
       description: createDescription.value,
     };
-
+    console.log( localStorage.getItem("companyId"))
+    console.log(appData)
     try {
       await create(appData);
 
