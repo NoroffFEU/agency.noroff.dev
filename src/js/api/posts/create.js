@@ -8,7 +8,7 @@ import { headers } from '../headers.js';
  */
 
 export async function create(appData) {
-  const createAppURL = apiPath + listingsUrl;
+  const createAppURL = `${apiPath}${listingsUrl}`;
   
   try {
     const response = await fetch(createAppURL, {
