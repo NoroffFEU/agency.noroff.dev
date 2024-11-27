@@ -17,8 +17,7 @@ export async function create(appData) {
       headers: headers('application/json'),
       body: JSON.stringify(appData),
     });
-    console.log(appData)
-    console.log(response)
+    
     if (!response.ok) {
       throw new Error(`Error creating application: ${response.statusText}`);
     }
