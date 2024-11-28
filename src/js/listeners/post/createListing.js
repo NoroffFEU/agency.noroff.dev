@@ -7,6 +7,7 @@ import {
   validateFutureDate,
   validateDescription,
 } from '../../utilities/formvalidation/listingValidation.js';
+
 /**
  * function that creates a Listing, the function creates a modal where companies can add different information like Title, tags, requirements, deadline,
  * description the function also validates the input, the input is used to create an object called appData which is sent to the api, if the listing is successfully created
@@ -117,9 +118,8 @@ export function createListing() {
     if (!form.reportValidity()) {
       return;
     }
-
     const appData = {
-      company: companySelect.value,
+      company: localStorage.getItem("companyId"),
       title: createTitle.value,
       tags: createTags.value.split(',').map((tag) => tag.trim()),
       requirements: createRequirements.value.split(',').map((req) => req.trim()),
