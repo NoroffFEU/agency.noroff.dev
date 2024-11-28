@@ -11,6 +11,7 @@ import { getListOfListings } from '../../api/posts/getListOfListings.js';
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
 import { backButtonEventListener } from '../../utilities/listings/listingsBackButton.js';
+import { listingsHomeButtonEventListner } from '../../utilities/listings/listingsToHomeButton.js';
 
 let cachedListings = null;
 
@@ -121,3 +122,9 @@ function handleClick() {
 }
 
 backButtonEventListener('backButton', '/pages/listings/index.html');
+
+
+//Added a button to navigate to home page
+//Modified by: krialex
+//Team: JAN22P
+listingsHomeButtonEventListner('backButtonHome', '../../../../index.html');
