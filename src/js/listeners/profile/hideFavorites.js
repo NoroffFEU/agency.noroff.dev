@@ -12,7 +12,7 @@ export function toggleFavSectionDisplay() {
     }
 
     let role = localStorage.getItem("role");
-    console.log(`Raw Role from localStorage: "${role}"`);
+    
 
     // Removes any surrounding quotes 
     role = role.replace(/^"|"$/g, '').trim(); // Remove quotes and trims spaces
