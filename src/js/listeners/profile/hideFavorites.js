@@ -16,13 +16,13 @@ export function toggleFavSectionDisplay() {
 
     // Removes any surrounding quotes 
     role = role.replace(/^"|"$/g, '').trim(); // Remove quotes and trims spaces
-    console.log(`Normalized Role: "${role}"`);
+    
 
     // When client then hide favorite listing section
     if (role?.toLowerCase() === "client") {
-        console.log("Hiding favorite listings section for Client role");
+      
         favListingsSection.style.display = "none";
     } else {
-        console.log("Role is not 'Client'; no action taken");
+        
     }
 }
