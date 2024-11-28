@@ -118,7 +118,6 @@ export function createListing() {
     if (!form.reportValidity()) {
       return;
     }
-    // changed company in appData from companyName to comapnyID
     const appData = {
       company: localStorage.getItem("companyId"),
       title: createTitle.value,
