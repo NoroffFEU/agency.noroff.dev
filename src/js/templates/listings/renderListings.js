@@ -121,5 +121,3 @@ function handleClick() {
 }
 
 backButtonEventListener('backButton', '/pages/listings/index.html');
-
-
