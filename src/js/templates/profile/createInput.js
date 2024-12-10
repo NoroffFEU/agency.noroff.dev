@@ -32,7 +32,7 @@ export function createInputSelect(array, parent) {
 
   const button = document.createElement('button');
   button.classList.add('btn', 'btn-dark');
-  button.innerHTML = '#10005;';
+  button.innerHTML = '&#10005;';
   button.type = 'button';
   button.addEventListener('click', () => container.remove());
 
