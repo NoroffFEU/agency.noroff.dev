@@ -28,11 +28,11 @@ export function createInput(name, type, title, placeholder, parent) {
  */
 export function createInputSelect(array, parent) {
   const container = document.createElement('div');
-  container.classList.add('d-flex');
+  container.classList.add('d-flex', 'my-2');
 
   const button = document.createElement('button');
-  button.classList.add('btn', 'btn-dark');
-  button.innerHTML = '#10005;';
+  button.classList.add('btn', 'btn-dark', 'mx-1');
+  button.innerHTML = '&#10005;';
   button.type = 'button';
   button.addEventListener('click', () => container.remove());
 
