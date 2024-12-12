@@ -1,7 +1,14 @@
 // Author: Margrethe By
 // Team: Enigma Bullet
 import { apiUrl, listingsUrl } from '../constants.js';
-
+/**
+ * Deletes a listing item by showing the confirmation modal if the user is logged in.
+ * If the user is not logged in, the DELETE button will be hidden.
+ * This function checks for the presence of a valid access token in `localStorage`.
+ * 
+ * @async
+ * @function deleteItem
+ */
 export async function deleteItem() {
   const deleteButton = document.querySelector('#delete-button-on-listing-screen');
   const deleteModalElement = document.getElementById('deleteListingModal');
@@ -32,7 +39,15 @@ export async function deleteItem() {
 }
 }
 /**
- * Sends a delete request to the API based on the url parameter.
+ * Sends a DELETE request to the API to remove a listing.
+ * It retrieves the listing ID from the URL, constructs the API URL, 
+ * and sends the request with the necessary authorization headers.
+ * On success, it displays a success modal and hides the delete modal.
+ * 
+ * @async
+ * @function deleteListing
+ * @throws {Error} Throws an error if the access token is not available or if the delete operation fails.
+ * @returns {Promise<Object>} The result of the delete operation from the API.
  */
 async function deleteListing() {
   const accessToken = localStorage.getItem('token');
