@@ -16,11 +16,12 @@ export async function deleteItem() {
     // If logged in, ensure the DELETE button is visible and add the event listener
     if (deleteButton) {
       deleteButton.style.display = 'block'; // Show the button if the user is logged in
-      deleteButton.addEventListener('click', deleteListing);
-    }
+      deleteButton.addEventListener('click', () => {
+       new bootstrap.Modal(document.getElementById('deleteListingModal')).show();
+    })
   }
 }
-
+}
 /**
  * Sends a delete request to the API based on the url parameter.
  */
