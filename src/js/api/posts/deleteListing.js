@@ -29,7 +29,7 @@ export async function deleteItem() {
        deleteModal.show();
     })
     document.getElementById('deleteListingModal').addEventListener('click', (event) => {
-      if(event.target.id = 'cancel-delete-listing--btn') {
+      if(event.target.id = 'cancel-delete-listing-btn') {
         deleteModal.hide();
       } 
       if(event.target.id = 'confirm-delete-listing-btn') {
@@ -82,7 +82,9 @@ async function deleteListing() {
       successModal.show();
       document.getElementById("hide-delete-modal-btn").addEventListener('click', () => {
         successModal.hide();
+        window.location.reload();
       })
+      
     }
 
     return result;
