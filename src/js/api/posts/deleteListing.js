@@ -1,6 +1,7 @@
 // Author: Margrethe By
 // Team: Enigma Bullet
 import { apiUrl, listingsUrl } from '../constants.js';
+import { headers } from '../headers.js';
 /**
  * Deletes a listing item by showing the confirmation modal if the user is logged in.
  * If the user is not logged in, the DELETE button will be hidden.
@@ -58,7 +59,7 @@ async function deleteListing() {
   if (!accessToken) {
     throw new Error("Access token is not available");
   }
-  const newAccessToken = accessToken.replace(/^"|"$/g, '');
+  
 
   try {
     const url = new URL(location.href);
@@ -67,10 +68,7 @@ async function deleteListing() {
 
     const listingData = {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${newAccessToken}`,
-      },
+      headers: headers('application/json'),
       body: JSON.stringify(),
     };
 
