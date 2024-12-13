@@ -29,6 +29,8 @@ export function applicantProfile(data) {
   applicantRole.innerText = data.role;
   companyContact.classList.add('d-none');
   const { skills } = data; // SkillsContainer
+  skillsList.innerHTML = '';
+
   if (Array.isArray(skills) && skills.length > 0) {
     skills.forEach((item) => {
       const renderSkill = document.createElement('li');
