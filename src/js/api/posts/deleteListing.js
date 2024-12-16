@@ -28,11 +28,11 @@ export async function deleteItem() {
       deleteButton.addEventListener('click', () => {
        deleteModal.show();
     })
-    document.getElementById('deleteListingModal').addEventListener('click', (event) => {
-      if(event.target.id = 'cancel-delete-listing-btn') {
+    deleteModalElement.addEventListener('click', (event) => {
+      if(event.target.id === 'cancel-delete-listing-btn') {
         deleteModal.hide();
       } 
-      if(event.target.id = 'confirm-delete-listing-btn') {
+      if(event.target.id === 'confirm-delete-listing-btn') {
         deleteListing();
       }
     })
