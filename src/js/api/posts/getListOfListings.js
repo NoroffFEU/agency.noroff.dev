@@ -8,6 +8,9 @@
 // Updated by Mariusz Rozycki - Phoenix QA 16/03/2024.
 // Add try...catch block code
 
+//Updated by Kristine Alexandersen - FED22P 16/12-24.
+//Added filter and sort to display only listings with deadlines in the future.
+
 import { authBaseFetchOpen } from '../apiBaseFetch.js';
 import { apiPath } from '../constants.js';
 import { showSpinner, hideSpinner } from '../../utilities/listings/loadingIndicator.js';
@@ -29,7 +32,16 @@ export async function getListOfListings() {
       throw new Error(`Error: ${response.status} ${response.statusText}`);
     }
     const data = await response.json();
-    return data;
+
+    const currentDate = new Date();
+    const filteredData = data.filter((listing) => {
+      const deadline = new Date(listing.deadline);
+      return deadline >= currentDate;
+    });
+
+    filteredData.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+
+    return filteredData;
   } catch (error) {
     console.error(error);
     throw error;

@@ -1,5 +1,5 @@
-import { apiUrl, applicationUrl } from '../constants.js';
-
+import {  apiPath, listingsUrl } from '../constants.js';
+import { headers } from '../headers.js';
 /**
  * Sends a POST request to create a new Application.
  * @param {Object} appData - The input data for the new application
@@ -8,15 +8,16 @@ import { apiUrl, applicationUrl } from '../constants.js';
  */
 
 export async function create(appData) {
-  const createAppURL = apiUrl.toString() + applicationUrl;
-
+  const createAppURL = `${apiPath}${listingsUrl}`;
+  
   try {
     const response = await fetch(createAppURL, {
+      
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: headers('application/json'),
       body: JSON.stringify(appData),
     });
-
+    
     if (!response.ok) {
       throw new Error(`Error creating application: ${response.statusText}`);
     }

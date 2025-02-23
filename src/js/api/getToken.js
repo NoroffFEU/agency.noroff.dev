@@ -3,9 +3,23 @@
  * @return {string|null} The API auth token
  */
 export function getToken() {
-  const sessionToken = sessionStorage.getItem('token');
-  if (sessionToken) return sessionToken;
-  const token = localStorage.getItem('token');
-  if (token) return token;
+  // Try to get the token from sessionStorage
+  let sessionToken = sessionStorage.getItem('token');
+  if (sessionToken) {
+    // Removes any extra quotes around the token
+    sessionToken = sessionToken.replace(/^"|"$/g, '');
+    return sessionToken;
+  }
+
+  // Try to get the token from localStorage
+  let token = localStorage.getItem('token');
+  if (token) {
+    // Removes any extra quotes around the token
+    token = token.replace(/^"|"$/g, '');
+    return token;
+  }
+
+  // If no token found, return null
   return null;
 }
+
