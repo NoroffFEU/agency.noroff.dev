@@ -16,6 +16,7 @@ import { searchListings, filterListings } from './src/js/listeners/post/searchLi
 import '/src/scss/index.scss';
 //This one
 import { deleteItem } from './src/js/api/posts/deleteListing.js';
+import { newListingOption } from './src/js/ui/user/createListingVisibility.js';
 
 displayBaseLayout();
 
@@ -166,3 +167,4 @@ const routerSwitch = () => {
   }
 };
 routerSwitch();
+newListingOption();
