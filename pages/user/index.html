@@ -83,7 +83,7 @@
             <p class="mb-2" id="descriptionBody"></p>
           </div>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center gap-4">
           <button
             id="editProfileBtn"
             data-bs-toggle="modal"
@@ -92,6 +92,23 @@
           >
             EDIT PROFILE
           </button>
+          
+          <!-- This should also be a modal. Remove anchor tag and uncomment button after fixing the new listing modal -->
+          <!-- <button
+          id="newListingBtn"
+          data-bs-toggle="modal"
+          data-bs-target="#newListingModal"
+          class="fw-semibold mt-4 m-1 btn btn-theme-dark text-theme-light fs-4 rounded-0"
+          > -->
+          <a
+            href="/pages/listings/listing/create/index.html"
+            class="fw-semibold mt-4 m-1 btn btn-theme-dark text-theme-light fs-4 rounded-0"
+          >
+          NEW LISTING
+          </a>
+          <!--</button>-->
+
+
         </div>
 
         <!-- // Profile Details ends // -->
@@ -874,9 +891,6 @@
               <!-- Student favourite listings go here -->
             </div>
           </div>
-        </div>
-        <div class="mt-5 d-flex fs-5">
-          <a class="ms-auto" href="/pages/listings/listing/create/index.html">New listings +</a>
         </div>
       </div>
     </main>
