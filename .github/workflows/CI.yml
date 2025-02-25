@@ -13,12 +13,6 @@ on:
     paths-ignore:
       - '**/*.env.example'
       - '.gitignore'
-  push:
-    branches: ['fix/resolve-npm-vulnerability']
-    # Ignores changes in the .md, .env.example and .gitignore files
-    paths-ignore:
-      - '**/*.env.example'
-      - '.gitignore'
   pull_request:
     branches: ['main']
     types: [opened, synchronize, reopened, ready_for_review]
