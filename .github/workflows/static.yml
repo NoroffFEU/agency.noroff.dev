@@ -24,19 +24,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install
+
+      - name: Install dependencies
         run: npm ci
-      - name: Build CSS
+
+      # Consolidate build steps to produce output in ./dist.
+      - name: Build static site
         run: npm run build
-      - name: Build Vite
-        run: npm run build
+
+      # Optional: list the contents of the build directory to verify the artifact exists.
+      - name: Verify build output
+        run: ls -la ./dist
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload the static site output; change './dist' if your build output is elsewhere
+          # Ensure this path matches the output folder from your build command.
           path: './dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
