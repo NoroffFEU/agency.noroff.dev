@@ -1,15 +1,12 @@
 # Workflow for deploying static content to GitHub Pages using GitHub Actions
-# it will also run linting and unit tests before deploying
-# the BYOB package is used to update and create custom status badges
+# It runs linting, unit tests, (optional E2E tests) and builds before deploying.
+# The BYOB package is used to update and create custom status badges.
 name: Lint, Test & Deploy
 
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  # Runs on pushes targeting the main branch
   push:
     branches: ['main']
-    # Ignores changes in the .md, .env.example and .gitignore files
     paths-ignore:
       - '**/*.env.example'
       - '.gitignore'
@@ -23,7 +20,6 @@ on:
 env:
   CI: true
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages & create status badges
 permissions:
   contents: write
   pages: write
@@ -119,7 +115,7 @@ jobs:
           start: npm run dev
           wait-on: 'http://127.0.0.1:5173/'
           wait-on-timeout: 60
-          browser: chrome # only run in chrome to save time
+          browser: chrome
       - name: Update e2e Badge
         uses: RubbaBoy/BYOB@v1.3.0
         if: ${{ always() }}
@@ -130,20 +126,15 @@ jobs:
           label: 'E2E Status'
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-  # only runs if the previous jobs are successful and the push event is targeting the main branch
   deploy:
     needs: [setup, lint, unit-test, build, e2e]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    # Allow one concurrent deployment
     concurrency:
       group: 'deploy-${{ github.ref }}'
       cancel-in-progress: true
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -157,11 +148,11 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload build file
+          # Upload the built static files (make sure your build outputs to ./dist)
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
       - name: Update deploy Badge
         uses: RubbaBoy/BYOB@v1.3.0
         if: ${{ always() }}
