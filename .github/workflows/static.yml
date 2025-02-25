@@ -35,7 +35,7 @@ jobs:
       - name: Build CSS
         run: npm run build
       - name: Build Vite
-        run: npm run vite-build
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
