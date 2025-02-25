@@ -11,6 +11,15 @@ const action = 'users/';
  * @param {Object} profile The updated user profile data
  * @returns {Promise<Object>} A Promise that resolves with the updated user profile
  * @throws {Error} If the 'id' is missing, the API request fails, or if it returns an error status
+ *
+ * @description
+ * - Retrieves the user ID from localStorage.
+ * - Constructs the API endpoint dynamically using 'apiPath' and 'action'.
+ * - Sends an authenticated PUT request with the updated profile data.
+ * - Displays a modal on success and reloads the page after 700ms.
+ * - Attaches an event listener to close the modal on click.
+ * - Catches errors and displays an error message in '#editUserErrorContainer'.
+ *
  */
 
 export async function editStudent(profile) {
@@ -37,13 +46,17 @@ export async function editStudent(profile) {
       successMessage.close();
       successMessage.style.display = 'none';
     };
-  
+
     switch (response.status) {
       case 200: {
         successMessage.style.display = 'flex';
         successMessage.showModal();
 
         successMessage.addEventListener('click', closeModal);
+
+        setTimeout(() => {
+          location.replace(location.href);
+        }, 700);
 
         return profile;
       }
