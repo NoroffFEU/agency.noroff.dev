@@ -14,6 +14,10 @@ I hope you enjoy yourselves just as much as I did, if there's any questions, don
 
 ## Links
 
+#### Swagger API Doc
+
+[API Docs](https://agency-api.noroff.dev/api-docs/)
+
 #### Docs
 
 [User-endpoint documentation](https://github.com/NoroffFEU/agency-api.noroff.dev/blob/main/User-Endpoint-Documentation.md)
