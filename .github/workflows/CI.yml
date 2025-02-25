@@ -1,12 +1,12 @@
-# Workflow for deploying static content to GitHub Pages using GitHub Actions
-# It runs linting, unit tests, (optional E2E tests) and builds before deploying.
-# The BYOB package is used to update and create custom status badges.
 name: Lint, Test & Deploy
 
 on:
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  # Runs on pushes targeting the main branch
   push:
     branches: ['main']
+    # Ignores changes in the .md, .env.example and .gitignore files
     paths-ignore:
       - '**/*.env.example'
       - '.gitignore'
@@ -20,6 +20,7 @@ on:
 env:
   CI: true
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages & create status badges
 permissions:
   contents: write
   pages: write
@@ -92,6 +93,10 @@ jobs:
         run: npm ci
       - name: Build Vite
         run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
       - name: Update build Badge
         uses: RubbaBoy/BYOB@v1.3.0
         if: ${{ always() }}
@@ -115,7 +120,7 @@ jobs:
           start: npm run dev
           wait-on: 'http://127.0.0.1:5173/'
           wait-on-timeout: 60
-          browser: chrome
+          browser: chrome # only run in chrome to save time
       - name: Update e2e Badge
         uses: RubbaBoy/BYOB@v1.3.0
         if: ${{ always() }}
@@ -129,30 +134,26 @@ jobs:
   deploy:
     needs: [setup, lint, unit-test, build, e2e]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Allow one concurrent deployment
     concurrency:
       group: 'deploy-${{ github.ref }}'
       cancel-in-progress: true
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install
-        run: npm ci
-      - name: Build Vite
-        run: npm run build
+      - name: Download artifact
+        uses: actions/download-pages-artifact@v3
       - name: Setup Pages
         uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload the built static files (make sure your build outputs to ./dist)
-          path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
       - name: Update deploy Badge
         uses: RubbaBoy/BYOB@v1.3.0
         if: ${{ always() }}
