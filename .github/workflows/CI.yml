@@ -135,7 +135,7 @@ jobs:
     # needs: [setup, lint, unit-test, build, e2e]
     needs: [setup, lint, build]
     # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    if: github.event_name == 'push' && github.ref == 'refs/heads/staging'
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/staging'
 
     # Allow one concurrent deployment
     concurrency:
