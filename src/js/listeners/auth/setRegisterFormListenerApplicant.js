@@ -1,16 +1,18 @@
 import { registerUser } from '../../api/auth/index.js';
 import { message } from '../../utilities/message/message.js';
 import { inputs } from './validateInputs.js';
+
 /**
  * function that first makes constants from IDs and then uses validation functions to validate the input from the constants,
- * it then gives the user an error message if the validation fails or it stores the user data given, and register the user
+ * it then gives the user an error message if the validation fails or it stores the user data given, and registers the user
  * if the registration is successful the user gets a success message
  */
 export function setRegisterFormListenerApplicant() {
   const form = document.querySelector('#registerForm-applicant');
   const password = document.querySelector('#passwordStudent');
   const repeatPassword = document.querySelector('#repPasswordStud');
-  const fullName = document.querySelector('#fullName');
+  const firstName = document.querySelector('#firstName');
+  const lastName = document.querySelector('#lastName');
   const email = document.querySelector('#emailStudent');
 
   if (form) {
@@ -28,12 +30,18 @@ export function setRegisterFormListenerApplicant() {
       inputs.validateRepeatPassword(password, repeatPassword, true);
     });
 
-    fullName.addEventListener('input', () => {
-      inputs.validateFullName(fullName, true);
+    firstName.addEventListener('input', () => {
+      inputs.validateFirstName(firstName, true);
+    });
+    firstName.addEventListener('blur', () => {
+      inputs.validateFirstName(firstName, false);
     });
 
-    fullName.addEventListener('blur', () => {
-      inputs.validateFullName(fullName, false);
+    lastName.addEventListener('input', () => {
+      inputs.validateLastName(lastName, true);
+    });
+    lastName.addEventListener('blur', () => {
+      inputs.validateLastName(lastName, false);
     });
 
     email.addEventListener('blur', () => {
@@ -48,10 +56,11 @@ export function setRegisterFormListenerApplicant() {
 
       const isPasswordValid = inputs.validatePassword(password);
       const isRepeatPasswordValid = inputs.validateRepeatPassword(password, repeatPassword);
-      const isFullNameValid = inputs.validateFullName(fullName);
+      const isFirstNameValid = inputs.validateFirstName(firstName);
+      const isLastNameValid = inputs.validateLastName(lastName);
       const isEmailValid = inputs.validateEmail(email);
 
-      if (!isPasswordValid || !isRepeatPasswordValid || !isFullNameValid || !isEmailValid) {
+      if (!isPasswordValid || !isRepeatPasswordValid || !isFirstNameValid || !isLastNameValid || !isEmailValid) {
         message("danger", "Invalid registration credentials. Please try again", "#errorMessage");
         return;
       }
@@ -59,24 +68,22 @@ export function setRegisterFormListenerApplicant() {
       const formData = new FormData(form);
       const profile = Object.fromEntries(formData.entries());
       const imageUrl = document.querySelector('#imageUrl').value;
-      const fullNameSplit = fullName.value.split(' ');
-      profile.firstName = fullNameSplit[0];
-      profile.lastName = fullNameSplit.slice(1).join(' ');
       const data = { ...profile, imageUrl };
 
       const { error } = await registerUser(data);
       if (error) {
-        message("danger", "An error occured when attempting to register user. Please try again", "#errorMessage");
+        message("danger", "An error occurred when attempting to register user. Please try again", "#errorMessage");
         console.error(error);
         return;
       }
       message("success", "Registration successful! You can now login.", "#errorMessage");
-         // Construct the login path based on the current URL
-         const currentPath = window.location.pathname;
-         const loginPath = currentPath.replace('/register/applicant', '/login');
-       
-         // Redirect to the login page after successful registration
-         window.location.href = loginPath;
+      
+      // Construct the login path based on the current URL
+      const currentPath = window.location.pathname;
+      const loginPath = currentPath.replace('/register/applicant', '/login');
+    
+      // Redirect to the login page after successful registration
+      window.location.href = loginPath;
     });
   }
 }
