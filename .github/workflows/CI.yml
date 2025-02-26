@@ -155,7 +155,7 @@
 #       - name: Setup Pages
 #         uses: actions/configure-pages@v2
 #       - name: Upload artifact
-#         uses: actions/upload-pages-artifact@v3
+#         uses: actions/upload-pages-artifact@v2
 #         with:
 #           # Upload build file
 #           path: './dist'
@@ -177,27 +177,34 @@ name: Deploy Vite App
 on:
   push:
     branches:
-      - staging # Change to your default branch if different
+      - main # Change to your main branch
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install and build
-        run: |
-          npm install
-          npm run build
+      - name: Install dependencies
+        run: npm install
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Build project
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          branch: gh-pages # Deployment branch
-          folder: dist # Output folder (Vite builds to "dist" by default)
+          path: dist
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
