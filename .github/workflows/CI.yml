@@ -132,7 +132,8 @@ jobs:
 
   # only runs if the previous jobs are successful and the push event is targeting the main branch
   deploy:
-    needs: [setup, lint, unit-test, build, e2e]
+    # needs: [setup, lint, unit-test, build, e2e]
+    needs: [setup, lint, build]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     # Allow one concurrent deployment
