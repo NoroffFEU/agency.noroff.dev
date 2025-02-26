@@ -52,13 +52,19 @@ Version: 1.0.0
 }
 
 #success-modal {
-  width: 230px;
-  height: 230px;
+  width: 530px;
+  height: 330px;
   display: none;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   gap: 10px;
+
+  // Center the modal on the screen
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .profile-input {
