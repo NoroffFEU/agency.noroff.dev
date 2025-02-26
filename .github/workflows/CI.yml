@@ -177,7 +177,7 @@ name: Deploy Vite App
 on:
   push:
     branches:
-      - staging # Change to your main branch
+      - staging # Change to your staging branch
 
 permissions:
   contents: write
