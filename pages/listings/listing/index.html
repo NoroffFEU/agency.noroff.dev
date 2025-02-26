@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Description of single listing page will have to be rendered in JS to get correct info for each listing -->
+    <meta name="description" content="" />
+    <!-- Link to my font awesome, will probably have to be replaced with one that belongs to the entire team? -->
+    <script src="https://kit.fontawesome.com/155738729b.js" crossorigin="anonymous"></script>
+    <!-- Page title of single listing will have to be rendered in JS to get correct info related to the listing -->
+    <title></title>
+
+    
+    <script type="module" crossorigin src="/assets/index-e6d22c0b.js"></script>
+    <link rel="stylesheet" href="/assets/index-a7ba4d24.css">
+  </head>
+  <body id="singleListing">
+    <header></header>
+    <main class="bg-theme-grey">
+      <div class="container mt-4">
+        <div class="d-flex flex-column align-items-start">
+          <!-- Back button, need to add JS event to make it take you to previous page -->
+          <button class="btn border-0 p-1 me-3 my-2 my-md-0 fs-5" id="backButton">
+            <i class="fa-solid fa-chevron-left"></i> Back
+          </button>
+          <div
+            class="border-0 w-75 align-self-center"
+            id="listingContainer"
+          ></div>
+          <section class="listingContainer"></section>
+          <!-- Modal -->
+          <section class="editDeleteListingButton d-flex bg-light mb-4 border-0 w-75 align-self-center">
+            <div>
+              <button
+                type="button"
+                class="btn btn-theme-secondary ps-4 pe-4 me-4"
+                id="edit-listing-button-show-hide"
+                data-bs-toggle="modal"
+                data-bs-target="#editListingModal"
+              >
+                EDIT
+              </button>
+            </div>
+            <div
+              class="modal fade"
+              id="editListingModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="Edit Listing Modal"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div>
+                    <form class="m-2" id="editListing">
+                      <div class="text-end">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      <h2 class="modal-title text-center mt-4">Edit Listing</h2>
+                      <div class="m-4 mt-5">
+                        <div class="form mb-3">
+                          <label for="title">Job Title/Position</label>
+                          <input
+                            class="form-control bg-theme-light"
+                            type="text"
+                            name="title"
+                            placeholder="Please enter a job title/position."
+                            id="editTitle"
+                            required
+                          />
+                        </div>
+                        <div class="form mb-3">
+                          <label for="tags">Tags</label>
+                          <input
+                            class="form-control bg-theme-light"
+                            type="text"
+                            name="tags"
+                            placeholder="Separate tags by commas (,)"
+                            id="editTags"
+                            required
+                            aria-label="Enter tags"
+                          />
+                        </div>
+                        <div class="form mb-3">
+                          <label for="deadline">Application Deadline</label>
+                          <input
+                            class="form-control bg-theme-light"
+                            type="date"
+                            name="deadline"
+                            id="editDeadline"
+                            required
+                            title="Enter a valid date"
+                            aria-label="Application deadline"
+                          />
+                        </div>
+                        <div class="form mb-3">
+                          <label for="requirements">Application Requirements</label>
+                          <input
+                            class="form-control bg-theme-light"
+                            type="text"
+                            placeholder="Separate requirements by commas (,)"
+                            name="requirements"
+                            id="editRequirements"
+                            aria-label="Enter URL for cover picture"
+                          />
+                        </div>
+                        <div class="form mb-3">
+                          <label for="description">Job Description</label>
+                          <textarea
+                            class="form-control bg-theme-light"
+                            rows="10"
+                            type="text"
+                            name="description"
+                            placeholder="Please write a clear description. Description must be at least 10 characters long."
+                            id="editDescription"
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div class="ms-4 mb-4">
+                        <button class="btn btn-theme-secondary ps-4 pe-4 me-4" type="submit">
+                          UPDATE LISTING
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Success Modal -->
+            <div
+              class="modal fade"
+              id="success-modal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="Success edit Listing Modal"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="text-center mt-4">
+                    <img src="/assets/icons/checkmark.svg" alt="Illustration of close icon" />
+                    <h2 class="modal-title text-center">Listing has been </br> updated</h2>
+                    <div class="modal-footer justify-content-center pb-4">
+                      <a
+                        href="/pages/user/index.html"
+                        class="btn btn-theme-dark text-theme-light ps-4 pe-4 me-4"
+                        >GO TO PROFILE</a
+                      >
+                      <button
+                        id="editListingViewListingBtn"
+                        class="btn btn-theme-secondary ps-4 pe-4 me-4"
+                        type="button"
+                      >
+                        VIEW LISTING
+                      </button>
+                      <button class="d-none" id="hide-edit-modal"
+                        data-bs-dismiss="modal"
+                        data-bs-target="#editListingModal">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal delete -->
+            <div>
+              <button type="button" class="btn btn-theme-dark text-theme-light ps-4 pe-4 me-4"
+                id="delete-button-on-listing-screen" data-bs-toggle="modal" data-bs-target="#deleteListingModal">
+                DELETE
+              </button>
+            </div>
+            <div class="modal fade" id="deleteListingModal" tabindex="-1" role="dialog" aria-labelledby="Edit Listing Modal"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div>
+                    <h2 class="modal-title text-center text-wrap my-5 px-4">Are you sure you want to delete this listing?</h2>
+                    <div class="modal-footer justify-content-center pb-4">
+                      <button id="cancel-delete-listing-btn" href="/pages/user/index.html" class="btn btn-theme-dark text-theme-light px-4 me-4"
+                        data-bs-dismiss="modal">CANCEL</button>
+                      <button id="confirm-delete-listing-btn" href="/pages/listings/listing/index.html" class="btn bg-theme-primary fw-bolder px-5" type="button"
+                        id="deleteThisListing">YES
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Success Modal -->
+            <div class="modal fade" id="success-delete-modal" tabindex="-1" role="dialog"
+              aria-labelledby="Success edit Listing Modal" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="text-center py-5 my-5">
+                    <img src="/assets/icons/delete-red.svg" alt="Illustration of close icon" />
+                    <h2 class="modal-title text-center">Listing Deleted</h2>
+                    <button  id="hide-delete-modal-btn" class="btn btn-theme-dark rounded-0" data-bs-dismiss="modal"
+                      data-bs-target="#deleteListingModal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <section class="listingContainer"></section>
+    </main>
+    <footer></footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

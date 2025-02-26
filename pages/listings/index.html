@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Description -->
+    <meta
+      name="description"
+      content="This page presents a detailed compilation of the latest job listings posted on our website, tailored for companies seeking exceptional talent. Here, employers can explore a diverse array of opportunities to connect with skilled professionals across various industries and specializations, streamlining the recruitment process to efficiently find the ideal candidate for your team."
+    />
+    <title>Noroff Jobs</title>
+    <!-- Links and scripts -->
+
+    
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://kit.fontawesome.com/ad221245c2.js" crossorigin="anonymous"></script>
+
+    <script type="module" crossorigin src="/assets/index-e6d22c0b.js"></script>
+    <link rel="stylesheet" href="/assets/index-a7ba4d24.css">
+  </head>
+
+  <body id="listings" class="d-flex flex-column">
+    <!--Header is created trough JS script-->
+    <header></header>
+    <!--Main content on page-->
+
+    <main class="bg-theme-new-grey">
+      <!--Button to go back to home page-->
+      <a href="../../index.html" class="btn btn-lg btn-theme-secondary rounded-0 fw-semibold" tabindex="0" aria-label="back to home">
+        <i class="fa-solid fa-chevron-left"></i> Home
+      </a>
+
+      <div
+        class="container d-flex flex-column gap-4 bg-theme-light my-5 pb-3 shadow"
+        id="container-listings"
+        
+      > 
+        <!--Top of listings container-->
+
+        <section class="d-flex justify-content-center">
+          <div class="mt-5">
+            <h1 class="mt-2 py-1 text-center fw-bold">Job Listings</h1>
+            <!-- Johan's modifications: class="d-none" and id="searchListingContId" add to div in next line -->
+            <div
+              class="container d-flex justify-content-center mt-3 col-12 d-none"
+              id="searchListingContId"
+            >
+              <div class="container d-flex justify-content-center col-12">
+                <div class="input-group">
+                  <label for="searchListing" class="visually-hidden">Search:</label>
+                  <input
+                    class="form-control rounded bg-white shadow-sm"
+                    type="search"
+                    placeholder="Search..."
+                    autofocus="autofocus"
+                    id="searchListing"
+                    data-search-listings
+                    aria-label="Search listings input"
+                  />
+                  <span class="input-group-append">
+                    <button class="btn ms-n5 ps-1" type="button" aria-label="Search-button">
+                      <img
+                        src="/assets/icons/search.svg"
+                        alt="illustration of search icon"
+                        class="icon-sm"
+                      />
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button
+                  class="btn"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img src="/assets/icons/filter.svg" alt="Sort icon" class="icon-sm me-4" />
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#" id="allListings">All</a></li>
+                  <li><a class="dropdown-item" href="#" id="latestListings">Latest</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#" id="fourteenDaysListings">Last 14 days</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#" id="thirtyDaysListings">Last 30 days</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="spinner-container d-flex justify-content-center" id="spinner-container">
+          <div
+            class="spinner-border"
+            style="width: 5rem; height: 5rem; border-width: 0.6rem"
+            role="status"
+          >
+            <span class="sr-only"></span>
+          </div>
+        </div>
+        <h2 class="visually-hidden">Subheading 1</h2>
+        <h3 class="visually-hidden">Subheading 1</h3>
+        <h4 class="visually-hidden">Subheading 1</h4>
+        <div id="listingsErrorContainer" class="container"></div>
+        <!--Bootstrap grid cards-->
+        <div class="row g-4 listingContainer justify-content-center px-5">
+          <!-- Listings -->
+        </div>
+      </div>
+    </main>
+    <!--Footer is created trough JS script-->
+    <h3 class="visually-hidden">Subheading 1</h3>
+    <footer></footer>
+  </body>
+</html>
