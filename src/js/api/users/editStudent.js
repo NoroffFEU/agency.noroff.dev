@@ -56,7 +56,7 @@ export async function editStudent(profile) {
 
         setTimeout(() => {
           location.replace(location.href);
-        }, 700);
+        }, 1500);
 
         return profile;
       }
