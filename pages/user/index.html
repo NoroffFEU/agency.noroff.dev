@@ -26,14 +26,13 @@
     />
     <title>Noroff Jobs</title>
     <!-- Links and scripts -->
-
-    <script defer src="/index.js" type="module"></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+    <script defer src="/index.js" type="module"></script>
 
     <script src="https://kit.fontawesome.com/ad221245c2.js" crossorigin="anonymous"></script>
 
@@ -805,82 +804,92 @@
         </div>
         <!-- // Edit Profile Modal Ends // -->
 
-                         <!-- // New listings Modal // -->
-                         <div
-                         class="modal fade"
-                         id="newListingsModal"
-                         tabindex="-1"
-                         aria-labelledby="newListingsModal"
-                         aria-hidden="true"
-                       >
-                         <div class="modal-dialog modal-xl">
-                           <div class="modal-content">
-                             <!-- Modal header -->
-                             <div class="modal-header">
-                               <div>Create New Listing</div>
-                               <button
-                                 type="button"
-                                 class="btn-close"
-                                 data-bs-dismiss="modal"
-                                 aria-label="Close"
-                               ></button>
-                             </div>
-                             <!-- Modal content -->
-                             <div class="modal-body">
-                               <!-- // Student form starts here // -->
-                               <form class="m-2" id="createNewListing" data-auth="createForm">
-                                 <div class="mx-auto profile-input">
-                                   <div class="form mb-3">
-                                     <label for="companySelect">Select Company</label>
-                                     <select class="form-control rounded-3" id="companySelect" name="company"
-                                       data-auth="createFormCompanySelect" aria-label="Enter company ID from dropdown menu">
-                                       <!-- The options will be dynamically added by the script -->
-                                     </select>
-                                   </div>
-                                   <div class="form mb-3">
-                                     <label for="createTitle">Job Title/Position</label>
-                                     <input class="form-control " type="text" name="title"
-                                       placeholder="Please enter a job title/position." id="createTitle" data-auth="createFormTitle"
-                                       required />
-                                   </div>
-                                   <div class="form mb-3">
-                                     <label for="tags">Tags</label>
-                                     <input class="form-control" type="text" name="tags"
-                                       placeholder="Separate tags by commas (,)" id="createTags" data-auth="createFormTags"
-                                       aria-label="Enter Tags" required />
-                                   </div>
-                                   <div class="form mb-3">
-                                     <label for="requirements">Requirements</label>
-                                     <input class="form-control" type="text" name="requirements"
-                                       placeholder="Separate requirements by commas (,)" id="createRequirements"
-                                       data-auth="createFormRequirements" aria-label="Enter Requirements" required />
-                                   </div>
-                                   <div class="form mb-3">
-                                     <label for="deadline">Application Deadline</label>
-                                     <input class="form-control rounded-3" type="datetime-local" name="deadline" id="createDeadline"
-                                       data-auth="createFormLocation" title="Enter a valid date" aria-label="Application deadline" required />
-                                   </div>
-                                   </div>
-                                   <div class="mt-2">
-                                   <div class="form mb-3">
-                                     <label for="jobDescription" class="form-label mb-0 fw-bold fs-4">Job Description</label>
-                                     <textarea class="form-control" rows="10" type="text" name="jobDescription"
-                                       placeholder="Please write a clear description. Description must be at least 10 characters long."
-                                       id="createDescription" data-auth="createFormDescription" required></textarea>
-                                   </div>
-                                 </div>
-                                 <div class="d-grid">
-                                   <button id="createListingBtn" class="fw-semibold btn btn-dark mt-2 rounded-0 mx-auto px-5" type="submit"
-                                     data-auth="createFormSubmitButton">
-                                     CREATE NEW LISTING
-                                   </button>
-                                 </div>
-                               </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                               <!-- // Listings form ends // -->
+        <!-- // New listings Modal // -->
+        <div
+        class="modal fade"
+        id="newListingsModal"
+        tabindex="-1"
+        aria-labelledby="newListingsModalTitle"
+        aria-hidden="true"
+        >
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <!-- Modal header -->
+              <div class="modal-header">
+                <div id="newListingsModalTitle">Create New Listing</div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <!-- Modal content -->
+              <div class="modal-body">
+                <!-- // Form starts here // -->
+                <form class="m-2" id="createNewListing" data-auth="createForm">
+                  <div class="mx-auto profile-input">
+                    <div class="form mb-3">
+                      <label for="companySelect">Select Company</label>
+                      <select class="form-control rounded-3" id="companySelect" name="company"
+                        data-auth="createFormCompanySelect" aria-label="Enter company ID from dropdown menu">
+                        <!-- The options will be dynamically added by the script -->
+                      </select>
+                    </div>
+                    <div class="form mb-3">
+                      <label for="createTitle">Job Title/Position</label>
+                      <input class="form-control " type="text" name="title"
+                        placeholder="Please enter a job title/position." id="createTitle" data-auth="createFormTitle"
+                        required />
+                    </div>
+                    <div class="form mb-3">
+                      <label for="tags">Tags</label>
+                      <input class="form-control" type="text" name="tags"
+                        placeholder="Separate tags by commas (,)" id="createTags" data-auth="createFormTags"
+                        aria-label="Enter Tags" required />
+                    </div>
+                    <div class="form mb-3">
+                      <label for="requirements">Requirements</label>
+                      <input class="form-control" type="text" name="requirements"
+                        placeholder="Separate requirements by commas (,)" id="createRequirements"
+                        data-auth="createFormRequirements" aria-label="Enter Requirements" required />
+                    </div>
+                    <div class="form mb-3">
+                      <label for="deadline">Application Deadline</label>
+                      <input class="form-control rounded-3" type="datetime-local" name="deadline" id="createDeadline"
+                        data-auth="createFormLocation" title="Enter a valid date" aria-label="Application deadline" required />
+                    </div>
+                    </div>
+                    <div class="mt-2">
+                    <div class="form mb-3">
+                      <label for="jobDescription" class="form-label mb-0 fw-bold fs-4">Job Description</label>
+                      <textarea class="form-control" rows="10" type="text" name="jobDescription"
+                        placeholder="Please write a clear description. Description must be at least 10 characters long."
+                        id="createDescription" data-auth="createFormDescription" required></textarea>
+                    </div>
+                  </div>
+                  <div class="d-grid">
+                    <button id="createListingBtn" class="fw-semibold btn btn-dark mt-2 rounded-0 mx-auto px-5" type="submit"
+                      data-auth="createFormSubmitButton">
+                      CREATE NEW LISTING
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content text-center">
+                    <div class="modal-body">
+                      <img src="/assets/icons/cancel.svg" alt="Cancel icon" />
+                      <h3>Woops! Please try again.</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- // New Listings Modal Ends // -->
 
         <!-- // Company view section goes here // -->
         <div class="d-none" id="companyView">

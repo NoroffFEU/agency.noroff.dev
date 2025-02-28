@@ -17,7 +17,6 @@ export function createListing() {
   const form = document.querySelector('#createNewListing');
   const modalBody = document.querySelector('.modal-body');
   const companySelect = document.querySelector('#companySelect');
-  const createModal = new bootstrap.Modal(document.getElementById('createModal'));
 
   //Re-written because as it stands there will always be one ID in local storage, so no need for forEach
   //This company field does not need to be a dropdown/selection as well
@@ -48,6 +47,7 @@ export function createListing() {
   const createRequirements = document.querySelector('#createRequirements');
   const createDeadline = document.querySelector('#createDeadline');
   const createDescription = document.querySelector('#createDescription');
+  const createModal = new bootstrap.Modal(document.getElementById('createModal'));
 
   companySelect.addEventListener('change', () => {
     if (validateCompanyId(companySelect.value)) {
@@ -119,7 +119,7 @@ export function createListing() {
       return;
     }
     const appData = {
-      company: localStorage.getItem("companyId"),
+      company: localStorage.getItem('companyId'),
       title: createTitle.value,
       tags: createTags.value.split(',').map((tag) => tag.trim()),
       requirements: createRequirements.value.split(',').map((req) => req.trim()),
@@ -129,6 +129,9 @@ export function createListing() {
 
     try {
       await create(appData);
+
+      const modalElement = document.getElementById('newListingsModal');
+      const modalBody = modalElement.querySelector('.modal-body');
 
       modalBody.innerHTML = '';
       const successIcon = document.createElement('img');
@@ -140,8 +143,6 @@ export function createListing() {
 
       modalBody.appendChild(successIcon);
       modalBody.appendChild(successMessage);
-
-      createModal.show();
     } catch (error) {
       modalBody.innerHTML = '';
       const errorIcon = document.createElement('img');
