@@ -9,13 +9,13 @@
  */
 export function newListingOption() {
   const newListing = document.getElementById('companyListing');
-  const isCompany = localStorage.getItem('role');
+  const isCompany = JSON.parse(localStorage.getItem('role'));
 
   if (newListing) {
-    if (isCompany === '"Client"') {
+    if (isCompany === 'Client') {
       newListing.classList.remove('d-none');
       newListing.classList.add('d-block');
-    } else if (isCompany === '"Applicant"') {
+    } else if (isCompany === 'Applicant') {
       newListing.classList.remove('d-block');
       newListing.classList.add('d-none');
     }
