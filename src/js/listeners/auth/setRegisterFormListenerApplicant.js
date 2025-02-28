@@ -73,7 +73,6 @@ export function setRegisterFormListenerApplicant() {
       const { error } = await registerUser(data);
       if (error) {
         message("danger", "An error occurred when attempting to register user. Please try again", "#errorMessage");
-        console.error(error);
         return;
       }
       message("success", "Registration successful! You can now login.", "#errorMessage");
