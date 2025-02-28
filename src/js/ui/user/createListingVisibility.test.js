@@ -5,9 +5,8 @@ describe('newListingOption', () => {
 
   beforeEach(() => {
     newListing = document.createElement('div');
-    newListing.id = 'companyListing';
+    newListing.id = 'toggle-create-listing';
     document.body.appendChild(newListing);
-
 
     jest.spyOn(Storage.prototype, 'getItem');
   });
