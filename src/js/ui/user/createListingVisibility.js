@@ -8,7 +8,7 @@
  * @returns {void} this function doesn't return anything back.
  */
 export function newListingOption() {
-  const newListing = document.getElementById('companyListing');
+  const newListing = document.getElementById('toggle-create-listing');
   const isCompany = JSON.parse(localStorage.getItem('role'));
 
   if (newListing) {
