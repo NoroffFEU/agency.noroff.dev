@@ -8,13 +8,13 @@ on:
   workflow_dispatch:
   # Runs on pushes targeting the main branch
   push:
-    branches: ['main']
+    branches: ['main', 'staging']
     # Ignores changes in the .md, .env.example and .gitignore files
     paths-ignore:
       - '**/*.env.example'
       - '.gitignore'
   pull_request:
-    branches: ['main']
+    branches: ['main', 'staging']
     types: [opened, synchronize, reopened, ready_for_review]
     paths-ignore:
       - '**/*.env.example'
@@ -155,7 +155,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           # Upload build file
           path: './dist'
@@ -171,3 +171,4 @@ jobs:
           color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
           label: 'Deployment Status'
           github_token: ${{ secrets.GITHUB_TOKEN }}
+

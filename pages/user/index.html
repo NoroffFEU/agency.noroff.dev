@@ -16,6 +16,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -58,6 +59,63 @@
           <p id="profileRole" class="text-center fw-bold fs-2"></p>
           <p id="profileContact" class="text-center fw-regular fs-1"></p>
           <p id="profileEmail" class="text-center fs-2 fw-lighter"></p>
+
+    <script defer src="/index.js" type="module"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://kit.fontawesome.com/ad221245c2.js" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body id="profilePage" class="bg-theme-grey">
+    <header>
+      <!-- Header -->
+    </header>
+    <main class="bg-theme-new-grey">
+
+      <!--Button to go back to home page-->
+      <a href="../../index.html" class="btn btn-lg btn-theme-secondary rounded-0 fw-semibold" tabindex="0" aria-label="back to home">
+        <i class="fa-solid fa-chevron-left"></i> Home
+      </a>
+
+      <div class="container d-flex flex-column gap-4 bg-theme-light my-5 p-md-5 p-3 shadow maxWidthLayout">
+        <!-- // Profile details goes here // -->
+        <div class="container-sm" id="profileContainer">
+          <div>
+            <img
+              class="rounded-circle d-block mx-auto w-25"
+              id="profileImage"
+              src="https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png"
+              alt="Profile User Avatar"
+            />
+            <h1 class="text-center mt-3 fw-bold" id="profileName"></h1>
+            <p id="profileRole" class="text-center fw-bold fs-2"></p>
+            <p id="profileContact" class="text-center fw-regular fs-1"></p>
+            <p id="profileEmail" class="text-center fs-2 fw-lighter"></p>
+          </div>
+          <div
+            class="px-4 py-3 bg-theme-new-grey mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+            id="skillsContainer"
+          >
+            <h2 class="fs-2 fw-bold mb-3" id="skillsHeader">Skills</h2>
+            <ul
+              class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6 mb-0"
+              id="skillsList"
+            ></ul>
+          </div>
+          <div
+            class="px-4 pt-3 pb-2 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+            id="descriptionContainer"
+          >
+            <h2 class="fs-2 fw-bold mb-3" id="descriptionHeader"></h2>
+            <p class="mb-2" id="descriptionBody"></p>
+          </div>
+
         </div>
         <div class="px-4 py-3 bg-theme-new-grey mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
           id="skillsContainer">
