@@ -874,17 +874,21 @@
                       CREATE NEW LISTING
                     </button>
                   </div>
+                  
+                  <!-- success message -->
+                  <dialog id="listing-success-modal" class="shadow m-auto p-5 border-0">
+                    <img
+                      src="/public/assets/icons/checkmark.svg"
+                      alt="Check mark icon"
+                      class="m-auto"
+                    />
+                    <p class="m-auto">Listing created</p>
+                  </dialog>
+                  <dialog id="error-modal" class="shadow m-auto p-5 border-0">
+                    <img src="/assets/icons/cancel.svg" alt="Error icon" class="m-auto" />
+                    <p id="error-message" class="m-auto">Woops! Please try again.</p>
+                  </dialog>
                 </form>
-              </div>
-              <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content text-center">
-                    <div class="modal-body">
-                      <img src="/assets/icons/cancel.svg" alt="Cancel icon" />
-                      <h3>Woops! Please try again.</h3>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

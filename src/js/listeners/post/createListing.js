@@ -15,7 +15,6 @@ import {
  */
 export function createListing() {
   const form = document.querySelector('#createNewListing');
-  const modalBody = document.querySelector('.modal-body');
   const companySelect = document.querySelector('#companySelect');
 
   //Re-written because as it stands there will always be one ID in local storage, so no need for forEach
@@ -47,7 +46,6 @@ export function createListing() {
   const createRequirements = document.querySelector('#createRequirements');
   const createDeadline = document.querySelector('#createDeadline');
   const createDescription = document.querySelector('#createDescription');
-  const createModal = new bootstrap.Modal(document.getElementById('createModal'));
 
   companySelect.addEventListener('change', () => {
     if (validateCompanyId(companySelect.value)) {
@@ -130,32 +128,50 @@ export function createListing() {
     try {
       await create(appData);
 
-      const modalElement = document.getElementById('newListingsModal');
-      const modalBody = modalElement.querySelector('.modal-body');
+      const successModal = document.querySelector('#listing-success-modal');
 
-      modalBody.innerHTML = '';
-      const successIcon = document.createElement('img');
-      successIcon.src = '/assets/icons/checkmark.svg';
-      successIcon.alt = 'Success';
+      if (successModal) {
+        successModal.style.display = 'flex';
+        successModal.showModal();
 
-      const successMessage = document.createElement('h3');
-      successMessage.textContent = 'Listing created successfully!';
+        const closeModal = () => {
+          successModal.close();
+          successModal.style.display = 'none';
+        };
 
-      modalBody.appendChild(successIcon);
-      modalBody.appendChild(successMessage);
+        successModal.addEventListener('click', closeModal);
+
+        setTimeout(() => {
+          closeModal();
+
+          const parentModal = document.querySelector('#newListingsModal');
+          const bootstrapModal = bootstrap.Modal.getInstance(parentModal);
+          if (bootstrapModal) {
+            bootstrapModal.hide();
+          }
+        }, 1500);
+      }
     } catch (error) {
-      modalBody.innerHTML = '';
-      const errorIcon = document.createElement('img');
-      errorIcon.src = '/assets/icons/cancel.svg';
-      errorIcon.alt = 'Error';
+      const errorModal = document.querySelector('#error-modal');
+      const errorMessageElement = document.querySelector('#error-message');
 
-      const errorMessage = document.createElement('h3');
-      errorMessage.textContent = `Error: ${error.message}`;
+      if (errorModal) {
+        errorMessageElement.textContent = `Error: ${error.message}`;
 
-      modalBody.appendChild(errorIcon);
-      modalBody.appendChild(errorMessage);
+        errorModal.style.display = 'flex';
+        errorModal.showModal();
 
-      createModal.show();
+        const closeModal = () => {
+          errorModal.close();
+          errorModal.style.display = 'none';
+        };
+
+        errorModal.addEventListener('click', closeModal);
+
+        setTimeout(() => {
+          closeModal();
+        }, 3000);
+      }
     }
   });
 }
