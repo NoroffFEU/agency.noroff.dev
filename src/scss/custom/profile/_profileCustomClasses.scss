@@ -52,13 +52,12 @@ Version: 1.0.0
 }
 
 #success-modal {
-  width: 530px;
-  height: 330px;
-  display: none;
-  flex-direction: column;
+  width: 100vw; // Make modal cover the full screen width
+  height: 100vh; // Make modal cover the full screen height
+  background: rgba(0, 0, 0, 0.5); // Add a dark transparent background
+  display: flex;
+  align-items: center;
   justify-content: center;
-  text-align: center;
-  gap: 10px;
 
   // Center the modal on the screen
   position: fixed;
