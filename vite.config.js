@@ -36,11 +36,4 @@ export default {
       '@': path.resolve(__dirname, './src'),
     },
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@/src/scss/index.scss";`, // Optional: Auto-import a global SCSS file
-      },
-    },
-  },
 };

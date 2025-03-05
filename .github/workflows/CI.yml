@@ -5,6 +5,17 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ['main']
+    # Ignores changes in the .md, .env.example and .gitignore files
+    paths-ignore:
+      - '**/*.env.example'
+      - '.gitignore'
+  pull_request:
+    branches: ['main']
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths-ignore:
+      - '**/*.env.example'
+      - '.gitignore'
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,7 +32,108 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
+  setup:
+    if: '! github.event.pull_request.draft'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache npm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install dependencies
+        run: npm ci
+
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Update lint Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: lint
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'Lint Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  unit-test:
+    name: Unit Test
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Test
+        run: npm run test-unit
+      - name: Update test Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: unit-test
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'Unit Test Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    name: Build
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Vite
+        run: npm run build
+      - name: Update build Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: build
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'Build Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  e2e:
+    name: E2E Tests
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm run dev
+          wait-on: 'http://127.0.0.1:5173/'
+          wait-on-timeout: 60
+          browser: chrome # only run in chrome to save time
+      - name: Update e2e Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: e2e
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'E2E Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # only runs if the previous jobs are successful and the push event is targeting the main branch
+
   deploy:
     environment:
       name: github-pages
