@@ -28,11 +28,7 @@ export const renderListing = async () => {
     container.append(listing);
 
     // Only display edit and delete if the user is the owner (companyId matches)
-    if (currentUserCompanyId !== company.id) {
-      editDeleteListingContainer.classList.add('d-none');
-    } else {
-      editDeleteListingContainer.classList.remove('d-none');
-    }
+editDeleteListingContainer.classList.toggle('d-none', currentUserCompanyId !== company.id);
   } else {
     alert('No id provided');
     setTimeout(() => {
