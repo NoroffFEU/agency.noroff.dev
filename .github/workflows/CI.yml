@@ -37,7 +37,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Cache npm modules
         uses: actions/cache@v3
         with:
@@ -47,8 +46,12 @@ jobs:
             ${{ runner.os }}-npm-
       - name: Set up Node
         uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
       - name: Install dependencies
         run: npm ci
+
   lint:
     needs: setup
     runs-on: ubuntu-latest
@@ -56,10 +59,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Set up Node
         uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
       - name: Install dependencies
         run: npm ci
       - name: Lint
-        run: npm run lint
+        run: npm run lint -- --no-fix
       - name: Update lint Badge
         uses: RubbaBoy/BYOB@v1.3.0
         if: ${{ always() }}
@@ -69,11 +75,9 @@ jobs:
           color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
           label: 'Lint Status'
           github_token: ${{ secrets.GITHUB_TOKEN }}
-  deploy:
+
+  build:
     needs: lint
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -85,14 +89,33 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Build
+      - name: Build project
         run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-site
+          path: './dist'
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download built files
+        uses: actions/download-artifact@v4
+        with:
+          name: built-site
+          path: './dist'
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist folder
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
