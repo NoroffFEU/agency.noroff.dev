@@ -96,9 +96,32 @@ jobs:
         with:
           name: built-site
           path: './dist'
-
+  unit-test:
+      name: Unit Test
+      needs: setup
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Set up Node
+          uses: actions/setup-node@v4
+          with:
+            node-version: 20
+            cache: 'npm'
+        - name: Install dependencies
+          run: npm ci
+        - name: Test
+          run: npm run test-unit
+        - name: Update test Badge
+          uses: RubbaBoy/BYOB@v1.3.0
+          if: ${{ always() }}
+          with:
+            name: unit-test
+            status: ${{ job.status }}
+            color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+            label: 'Unit Test Status'
+            github_token: ${{ secrets.GITHUB_TOKEN }}
   deploy:
-    needs: build
+    needs: [setup, lint, unit-test, build]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
