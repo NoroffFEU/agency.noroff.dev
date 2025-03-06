@@ -4,34 +4,30 @@
 name: Lint, Test & Deploy
 
 on:
-  # Runs on pushes targeting the default branch
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # Runs on pushes targeting the main branch
   push:
-    branches: ['main']
+    branches: ['main', 'staging']
     # Ignores changes in the .md, .env.example and .gitignore files
     paths-ignore:
       - '**/*.env.example'
       - '.gitignore'
   pull_request:
-    branches: ['main']
+    branches: ['main', 'staging']
     types: [opened, synchronize, reopened, ready_for_review]
     paths-ignore:
       - '**/*.env.example'
       - '.gitignore'
 
+env:
+  CI: true
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages & create status badges
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
 
 jobs:
   setup:
@@ -39,6 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Cache npm modules
         uses: actions/cache@v3
         with:
@@ -46,11 +43,7 @@ jobs:
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
+
       - name: Install dependencies
         run: npm ci
 
@@ -62,7 +55,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Lint
-        run: npm run lint 
+        run: npm run lint
       - name: Update lint Badge
         uses: RubbaBoy/BYOB@v1.3.0
         if: ${{ always() }}
@@ -73,70 +66,140 @@ jobs:
           label: 'Lint Status'
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-  build:
-    needs: lint
+  unit-test:
+    name: Unit Test
+    needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci
-      - name: Build project
-        run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Test
+        run: npm run test-unit
+      - name: Update test Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
         with:
-          name: built-site
-          path: './dist'
-  unit-test:
-      name: Unit Test
-      needs: setup
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-        - name: Set up Node
-          uses: actions/setup-node@v4
-          with:
-            node-version: 20
-            cache: 'npm'
-        - name: Install dependencies
-          run: npm ci
-        - name: Test
-          run: npm run test-unit
-        - name: Update test Badge
-          uses: RubbaBoy/BYOB@v1.3.0
-          if: ${{ always() }}
-          with:
-            name: unit-test
-            status: ${{ job.status }}
-            color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
-            label: 'Unit Test Status'
-            github_token: ${{ secrets.GITHUB_TOKEN }}
+          name: unit-test
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'Unit Test Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    name: Build
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Vite
+        run: npm run build
+      - name: Update build Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: build
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'Build Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  e2e:
+    name: E2E Tests
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm run dev
+          wait-on: 'http://127.0.0.1:5173/'
+          wait-on-timeout: 60
+          browser: chrome # only run in chrome to save time
+      - name: Update e2e Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: e2e
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'E2E Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # only runs if the previous jobs are successful and the push event is targeting the main branch
   deploy:
-    needs: [setup, lint, unit-test, build]
+    # needs: [setup, lint, unit-test, build, e2e]
+    needs: [setup, lint, build]
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/staging'
+
+    # Allow one concurrent deployment
+    concurrency:
+      group: 'deploy-${{ github.ref }}'
+      cancel-in-progress: true
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install
+        run: npm ci
+      - name: Build Vite
+        run: npm run build
+      - name: Debug Workspace
+        run: ls -al ./dist
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload build file
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+      - name: Update deploy Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: deploy
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'Deployment Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+  preview-deploy:
+    if: github.event_name == 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Download built files
         uses: actions/download-artifact@v4
         with:
           name: built-site
           path: './dist'
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
+
+      - name: Rename build folder for PR preview
+        run: mv ./dist ./pr-${{ github.event.pull_request.number }}
+
+      - name: Upload PR preview
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
-      - name: Deploy to GitHub Pages
+          path: './pr-${{ github.event.pull_request.number }}'
+
+      - name: Deploy Preview
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: PR Preview URL
+        run: echo "Preview deployed at https://noroffFEU.github.io/agency.noroff.dev/pr-${{ github.event.pull_request.number }}/"
