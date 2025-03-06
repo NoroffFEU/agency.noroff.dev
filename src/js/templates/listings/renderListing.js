@@ -2,6 +2,7 @@ import { getSingleListing } from '../../api/posts/getSingleListing.js';
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
 import { findDaysAgo } from '../../utilities/dateConverter/dateConverter.js';
+import { favoriteListing } from '../../utilities/listings/likehandler.js'; // Import the favoriteListing function
 
 export const renderListing = async () => {
   const url = new URL(location.href);
@@ -24,11 +25,14 @@ export const renderListing = async () => {
       ? localStorage.getItem('role').replace(/"/g, '').trim()
       : null;
 
-    const listing = createListing(result, userRole);
+    const listing = createListing(result, userRole, id);
     container.append(listing);
 
     // Only display edit and delete if the user is the owner (companyId matches)
-editDeleteListingContainer.classList.toggle('d-none', currentUserCompanyId !== company.id);
+    editDeleteListingContainer.classList.toggle('d-none', currentUserCompanyId !== company.id);
+
+    // Call the favoriteListing function to enable the favorite button functionality
+    favoriteListing();
   } else {
     alert('No id provided');
     setTimeout(() => {
@@ -37,7 +41,7 @@ editDeleteListingContainer.classList.toggle('d-none', currentUserCompanyId !== c
   }
 };
 
-const createListing = (result, userRole) => {
+const createListing = (result, userRole, postId) => {
   const { company, title, description, deadline, created, requirements, tags } = result;
   const element = createElement('div');
   const card = createElement('div', ['card', 'bg-theme-light', 'd-flex', 'border-0', 'rounded-0']);
@@ -50,7 +54,8 @@ const createListing = (result, userRole) => {
     created,
     requirements,
     tags,
-    userRole
+    userRole,
+    postId
   );
   card.append(img, cardBody);
   element.append(card);
@@ -78,12 +83,13 @@ const createCardBody = (
   created,
   requirements,
   tags,
-  userRole
+  userRole,
+  postId
 ) => {
   const element = createElement('div', ['card-body', 'd-flex', 'flex-column', 'gap-2']);
   const h1 = createElement('h1', ['card-title'], null, title);
   const detailsContainer = createDetailsContainer(title, company, deadline, created);
-  const btnContainer = createBtnContainer(userRole);
+  const btnContainer = createBtnContainer(userRole, postId);
   const tagsContainer = createTagContainer(tags);
   const jobDescription = createElement('p', null, null, description);
   const requirementsContainer = createRequirementsContainer(requirements);
@@ -112,7 +118,7 @@ const createDetailsContainer = (title, company, deadline, created) => {
   return element;
 };
 
-const createBtnContainer = (userRole) => {
+const createBtnContainer = (userRole, postId) => {
   const element = createElement('div', [
     'd-flex',
     'align-items-center',
@@ -134,18 +140,16 @@ const createBtnContainer = (userRole) => {
   applyBtn.dataset.auth = 'applyForJob';
   element.append(applyBtn);
 
-  const favIcon = createElement(
-    'img',
-    null,
-    null,
-    null,
-    null,
-    '/assets/icons/heart-fav.svg',
-    'heart icon'
-  );
+  // Check if the post is in favorites
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const isFavorite = favorites.includes(postId);
+
+  const favIconSrc = isFavorite ? '/assets/icons/heart-solid.svg' : '/assets/icons/heart-fav.svg';
+  const favIcon = createElement('img', null, null, null, null, favIconSrc, 'heart icon');
   favIcon.style = 'width: 30px';
   const favBtn = createElement('button', ['btn', 'btn-theme-light'], [favIcon]);
   favBtn.dataset.auth = 'favoriteListing';
+  favBtn.dataset.postId = postId; // Add postId to the button dataset
   element.append(favBtn);
 
   return element;
