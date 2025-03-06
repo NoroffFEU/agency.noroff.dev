@@ -52,18 +52,19 @@ Version: 1.0.0
 }
 
 #success-modal {
-  width: 100vw; // Make modal cover the full screen width
-  height: 100vh; // Make modal cover the full screen height
-  background: rgba(0, 0, 0, 0.5); // Add a dark transparent background
-  display: flex;
-  align-items: center;
+  width: 530px;
+  height: 530px;
+  display: none; // Hide until triggered
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
+  gap: 10px;
 
-  // Center the modal on the screen
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: transparent(0, 0, 0, 0.5); // Keep the transparent background
 }
 
 .profile-input {
