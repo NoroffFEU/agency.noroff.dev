@@ -122,17 +122,16 @@ jobs:
           path: './dist'
 
       - name: Rename build folder for PR preview
-        run: mv ./dist ./dist/pr-${{ github.event.pull_request.number }}
+        run: mv ./dist ./pr-${{ github.event.pull_request.number }}
 
       - name: Upload PR preview
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './pr-${{ github.event.pull_request.number }}'
 
       - name: Deploy Preview
         id: deployment
         uses: actions/deploy-pages@v4
 
       - name: PR Preview URL
-        run: echo "Preview deployed at https://NoroffFEU.github.io/agency.noroff.dev/pr-${{ github.event.pull_request.number }}/"
-
+        run: echo "Preview deployed at https://yourusername.github.io/your-repo-name/pr-${{ github.event.pull_request.number }}/"
