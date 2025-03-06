@@ -33,7 +33,7 @@ displayBaseLayout();
  * 
  * 
  */
-const routerSwitch = () => {
+const routerSwitch = async () => {
   // Default/Fallback page title
   const defaultTitle = 'Noroff Job';
 
@@ -52,17 +52,19 @@ const routerSwitch = () => {
     // Single listing page UI (PAGE DOESNT EXIST YET)
     case 'singleListing':
       document.querySelector('title').innerText = defaultTitle + ` || listing`;
-      renderListing();
+      await renderListing(console.log('Listing rendered'));
       deleteItem();
       editListingListener();
+
       break;
 
     // Listing UI settings
     case 'listing':
       document.querySelector('title').innerText = defaultTitle + ` || Listings`;
-      renderListing();
+      await renderListing();
       deleteItem();
       editListingListener();
+
       break;
 
     // Listings UI settings
@@ -156,7 +158,8 @@ const routerSwitch = () => {
 
     // FAQ UI Settings
     case 'faq':
-      document.querySelector('title').innerText = defaultTitle + ` || FAQ - Frequently Asked Questions`;
+      document.querySelector('title').innerText =
+        defaultTitle + ` || FAQ - Frequently Asked Questions`;
       break;
 
     // 404 UI settings (PAGE DOESNT EXIST YET)
