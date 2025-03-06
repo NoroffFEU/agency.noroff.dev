@@ -114,11 +114,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Download built files
         uses: actions/download-artifact@v4
         with:
           name: built-site
           path: './dist'
+
+      - name: Rename build folder for PR preview
+        run: mv ./dist ./dist/pr-${{ github.event.pull_request.number }}
+
+      - name: Upload PR preview
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
       - name: Deploy Preview
-        run: echo "Preview deployed at https://preview-url.example.com"
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: PR Preview URL
+        run: echo "Preview deployed at https://NoroffFEU.github.io/agency.noroff.dev/pr-${{ github.event.pull_request.number }}/"
 
