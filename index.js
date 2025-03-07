@@ -21,17 +21,17 @@ import { newListingOption } from './src/js/ui/user/createListingVisibility.js';
 displayBaseLayout();
 
 /**
- * 
+ *
  * Just a router switch do change page title and run the needed functions for each page.
- * The router switch is requiring a id on the body element of the html page. 
- * 
+ * The router switch is requiring a id on the body element of the html page.
+ *
  * @example // Profile UI settings
                 case 'dashboard':
                 // Page title
                 document.querySelector('title').innerText = defaultTitle + ` || ` + `Dashboard`;
                 break;
- * 
- * 
+ *
+ *
  */
 const routerSwitch = () => {
   // Default/Fallback page title
@@ -93,10 +93,10 @@ const routerSwitch = () => {
     //   break;
 
     // Create listing UI settings
-    case 'createListing':
-      document.querySelector('title').innerText = defaultTitle + ` || createListing`;
-      createListing();
-      break;
+    // case 'createListing':
+    //   document.querySelector('title').innerText = defaultTitle + ` || createListing`;
+    //   createListing();
+    //   break;
 
     // Register user UI settings
     case 'registerUser':
@@ -120,6 +120,14 @@ const routerSwitch = () => {
     case 'profilePage':
       document.querySelector('title').innerText = defaultTitle + ` || Profile`;
       profileRouter();
+
+      document.querySelector('#newListingsModal').addEventListener('shown.bs.modal', () => {
+        if (!document.querySelector('#createNewListing').dataset.initialized) {
+          createListing();
+          document.querySelector('#createNewListing').dataset.initialized = 'true';
+        }
+      });
+
       break;
 
     // Student offer UI settings
@@ -156,7 +164,8 @@ const routerSwitch = () => {
 
     // FAQ UI Settings
     case 'faq':
-      document.querySelector('title').innerText = defaultTitle + ` || FAQ - Frequently Asked Questions`;
+      document.querySelector('title').innerText =
+        defaultTitle + ` || FAQ - Frequently Asked Questions`;
       break;
 
     // 404 UI settings (PAGE DOESNT EXIST YET)
