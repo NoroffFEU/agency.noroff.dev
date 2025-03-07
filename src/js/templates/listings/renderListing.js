@@ -8,7 +8,6 @@ export const renderListing = async () => {
   const id = url.searchParams.get('id');
 
   const metaDescription = document.head.children[4];
-
   const container = document.getElementById('listingContainer');
   const editDeleteListingContainer = document.querySelector('.editDeleteListingButton');
 
@@ -17,38 +16,19 @@ export const renderListing = async () => {
     const { title, company } = result;
     metaDescription.content = `View ${title} Application at Noroff Job Agency`;
 
-    //Have used userName and UserRole because i could not get the Store to work
-
-    /* This could should call user name and role as profile from the class Store that handles local storage*/
-    const userName = localStorage.getItem('email')
-      ? localStorage.getItem('email').replace(/"/g, '').trim()
+    // Fetch the logged-in user's companyId from localStorage
+    const currentUserCompanyId = localStorage.getItem('companyId')
+      ? localStorage.getItem('companyId').replace(/"/g, '').trim()
       : null;
     const userRole = localStorage.getItem('role')
       ? localStorage.getItem('role').replace(/"/g, '').trim()
       : null;
+
     const listing = createListing(result, userRole);
-    const btnContainer = listing.querySelector('.buttonContainer');
     container.append(listing);
 
-    //Display/hide Edit and Delete listing buttons based on role. Applicant -> Hide. Client -> Display.
-    if (userRole === 'Applicant') {
-      editDeleteListingContainer.classList.add('d-none');
-    }
-
-    /*The if statements should use profile username and role, but is using userName and userRole instead because of the issue written above */
-    if (userName === company.name) {
-      btnContainer.innerHTML = '';
-      const editBtn = createElement(
-        'a',
-        ['btn', 'btn-theme-secondary', 'text-uppercase', 'rounded-0', 'applyBtn'],
-        null,
-        'Edit listing'
-      );
-      const deleteBtn = createElement('button', ['btn', 'btn-theme-dark'], null, 'Delete listing');
-      btnContainer.append(editBtn, deleteBtn);
-    } else if (userRole === 'Company') {
-      btnContainer.classList.add('d-none');
-    }
+    // Only display edit and delete if the user is the owner (companyId matches)
+editDeleteListingContainer.classList.toggle('d-none', currentUserCompanyId !== company.id);
   } else {
     alert('No id provided');
     setTimeout(() => {
@@ -105,18 +85,19 @@ const createCardBody = (
   const detailsContainer = createDetailsContainer(title, company, deadline, created);
   const btnContainer = createBtnContainer(userRole);
   const tagsContainer = createTagContainer(tags);
-  const JobDescription = createElement('p', null, null, description);
+  const jobDescription = createElement('p', null, null, description);
   const requirementsContainer = createRequirementsContainer(requirements);
   element.append(
     h1,
     detailsContainer,
     btnContainer,
     tagsContainer,
-    JobDescription,
+    jobDescription,
     requirementsContainer
   );
   return element;
 };
+
 const createDetailsContainer = (title, company, deadline, created) => {
   const element = createElement('div');
   const { sector, name } = company;
@@ -139,10 +120,11 @@ const createBtnContainer = (userRole) => {
     'my-3',
     'buttonContainer',
   ]);
+  // Create the button container for additional buttons (e.g., "Apply for job") shown for roles other than Client.
+  // Edit and Delete are handled separately via editDeleteListingContainer.
   if (userRole === 'Client') {
     return element;
   }
-
   const applyBtn = createElement(
     'a',
     ['btn', 'btn-theme-secondary', 'text-uppercase', 'w-100', 'rounded-0', 'applyBtn'],
@@ -168,6 +150,7 @@ const createBtnContainer = (userRole) => {
 
   return element;
 };
+
 const createTagContainer = (tags) => {
   const element = createElement('div', ['d-flex', 'flex-wrap', 'gap-2']);
   tags.forEach((tag) => {
@@ -176,6 +159,7 @@ const createTagContainer = (tags) => {
   });
   return element;
 };
+
 const createRequirementsContainer = (requirements) => {
   const element = createElement('div');
   const h2 = createElement('h2', ['fs-5', 'fw-semibold'], null, 'Requirements:');
