@@ -1,7 +1,6 @@
 @import './profileCustomVariables';
 @import './profileCustomClasses';
 
-
 /*
 Author: Truls Haakenstad - @Menubrea
 Team: User
@@ -12,3 +11,14 @@ Version: 1.0.0
 /* To Future developer
   There aren't a whole lot of custom classes, and in reality they should probably be more globally applied through a consolidated team effort. For now I've applied my classes and variables locally to avoid any sort of conflict with other team's work.
 */
+
+.nav-tabs {
+  .nav-link:not(.active):hover {
+    background-color: #6f7174 !important;
+    color: white;
+  }
+
+  .nav-link.active {
+    pointer-events: none;
+  }
+}
