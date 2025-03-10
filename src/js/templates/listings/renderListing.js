@@ -28,7 +28,7 @@ export const renderListing = async () => {
     container.append(listing);
 
     // Only display edit and delete if the user is the owner (companyId matches)
-editDeleteListingContainer.classList.toggle('d-none', currentUserCompanyId !== company.id);
+    editDeleteListingContainer.classList.toggle('d-none', currentUserCompanyId !== company.id);
   } else {
     alert('No id provided');
     setTimeout(() => {
@@ -131,7 +131,7 @@ const createBtnContainer = (userRole) => {
     null,
     'Apply for job'
   );
-  applyBtn.dataset.auth = 'applyForJob';
+
   element.append(applyBtn);
 
   const favIcon = createElement(
@@ -146,7 +146,17 @@ const createBtnContainer = (userRole) => {
   favIcon.style = 'width: 30px';
   const favBtn = createElement('button', ['btn', 'btn-theme-light'], [favIcon]);
   favBtn.dataset.auth = 'favoriteListing';
-  element.append(favBtn);
+
+  // Render favBtn only if user is registered.
+  // Redirect unregistered users when clicking "Apply for job"
+
+  if (userRole !== null) {
+    applyBtn.dataset.auth = 'applyForJob';
+
+    element.append(favBtn);
+  } else {
+    applyBtn.href = '../../auth/register/applicant/';
+  }
 
   return element;
 };
