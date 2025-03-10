@@ -80,7 +80,7 @@ jobs:
           label: 'Unit Test Status'
           github_token: ${{ secrets.GITHUB_TOKEN }}
   build:
-    needs: lint
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -124,7 +124,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
   deploy:
     if: github.event_name == 'push'
-    needs: build
+    needs: [setup, lint, unit-test, build, e2e]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
