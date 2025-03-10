@@ -61,7 +61,25 @@ jobs:
         run: npm ci
       - name: Lint
         run: npm run lint -- --no-fix
-
+  unit-test:
+    name: Unit Test
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Test
+        run: npm run test-unit
+      - name: Update test Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: unit-test
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'Unit Test Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
   build:
     needs: lint
     runs-on: ubuntu-latest
@@ -82,7 +100,29 @@ jobs:
         with:
           name: built-site
           path: './dist'
-
+  e2e:
+    name: E2E Tests
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm run dev
+          wait-on: 'http://127.0.0.1:5173/'
+          wait-on-timeout: 60
+          browser: chrome # only run in chrome to save time
+      - name: Update e2e Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        if: ${{ always() }}
+        with:
+          name: e2e
+          status: ${{ job.status }}
+          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
+          label: 'E2E Status'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
   deploy:
     if: github.event_name == 'push'
     needs: build
@@ -134,4 +174,4 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: PR Preview URL
-        run: echo "Preview deployed at https://yourusername.github.io/your-repo-name/pr-${{ github.event.pull_request.number }}/"
+        run: echo "Preview deployed at https://norofffeu.github.io/agency.noroff.dev/pr-${{ github.event.pull_request.number }}/"
