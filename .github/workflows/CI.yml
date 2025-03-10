@@ -46,7 +46,6 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-
   lint:
     needs: setup
     runs-on: ubuntu-latest
@@ -147,31 +146,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-  preview-deploy:
-    if: github.event_name == 'pull_request'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download built files
-        uses: actions/download-artifact@v4
-        with:
-          name: built-site
-          path: './dist'
-
-      - name: Rename build folder for PR preview
-        run: mv ./dist ./pr-${{ github.event.pull_request.number }}
-
-      - name: Upload PR preview
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './pr-${{ github.event.pull_request.number }}'
-
-      - name: Deploy Preview
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: PR Preview URL
-        run: echo "Preview deployed at https://norofffeu.github.io/agency.noroff.dev/pr-${{ github.event.pull_request.number }}/"
+  
