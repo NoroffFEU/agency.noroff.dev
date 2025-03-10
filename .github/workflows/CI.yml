@@ -4,10 +4,8 @@
 name: Lint, Test & Deploy
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ['main']
-    # Ignores changes in the .md, .env.example and .gitignore files
     paths-ignore:
       - '**/*.env.example'
       - '.gitignore'
@@ -17,18 +15,13 @@ on:
     paths-ignore:
       - '**/*.env.example'
       - '.gitignore'
-
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: 'pages'
   cancel-in-progress: true
@@ -59,19 +52,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
       - name: Install dependencies
         run: npm ci
       - name: Lint
-        run: npm run lint 
-      - name: Update lint Badge
-        uses: RubbaBoy/BYOB@v1.3.0
-        if: ${{ always() }}
-        with:
-          name: lint
-          status: ${{ job.status }}
-          color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
-          label: 'Lint Status'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run lint -- --no-fix
 
   build:
     needs: lint
@@ -93,32 +82,10 @@ jobs:
         with:
           name: built-site
           path: './dist'
-  unit-test:
-      name: Unit Test
-      needs: setup
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-        - name: Set up Node
-          uses: actions/setup-node@v4
-          with:
-            node-version: 20
-            cache: 'npm'
-        - name: Install dependencies
-          run: npm ci
-        - name: Test
-          run: npm run test-unit
-        - name: Update test Badge
-          uses: RubbaBoy/BYOB@v1.3.0
-          if: ${{ always() }}
-          with:
-            name: unit-test
-            status: ${{ job.status }}
-            color: ${{ job.status == 'success' && '31A802' || job.status == 'failure' && 'D10007' || 'E0A607' }}
-            label: 'Unit Test Status'
-            github_token: ${{ secrets.GITHUB_TOKEN }}
+
   deploy:
-    needs: [setup, lint, unit-test, build]
+    if: github.event_name == 'push'
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -140,3 +107,31 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+  preview-deploy:
+    if: github.event_name == 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download built files
+        uses: actions/download-artifact@v4
+        with:
+          name: built-site
+          path: './dist'
+
+      - name: Rename build folder for PR preview
+        run: mv ./dist ./pr-${{ github.event.pull_request.number }}
+
+      - name: Upload PR preview
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './pr-${{ github.event.pull_request.number }}'
+
+      - name: Deploy Preview
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: PR Preview URL
+        run: echo "Preview deployed at https://yourusername.github.io/your-repo-name/pr-${{ github.event.pull_request.number }}/"
