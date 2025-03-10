@@ -4,16 +4,23 @@ import { handleEditForms } from './handleEditForm.js';
 import { modalToggle } from './modalToggle.js';
 import { showUserDetails } from './showUserDetails.js';
 import { handleModalData } from './handleModalData.js';
-import { toggleShowFavListings} from './toggleShowFavListings.js';
+import { toggleShowFavListings } from './toggleShowFavListings.js';
 //import { showUserListings } from './showUserListings.js';
 
 export function profileRouter() {
-  addDegreeInput();
-  handleAvatarInput();
-  modalToggle();
-  handleEditForms();
-  showUserDetails();
-  handleModalData();
-  toggleShowFavListings();
-  //showUserListings();
+  // Redirects unregister user when accessing /pages/user/
+  const role = localStorage.getItem('role')?.replace(/^"|"$/g, '').trim().toLowerCase();
+  console.log('role', role);
+  if (role === undefined) {
+    window.location.href = '../auth/register/applicant/';
+  } else {
+    addDegreeInput();
+    handleAvatarInput();
+    modalToggle();
+    handleEditForms();
+    showUserDetails();
+    handleModalData();
+    toggleShowFavListings();
+    //showUserListings();
+  }
 }
