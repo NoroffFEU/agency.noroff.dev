@@ -124,7 +124,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
   deploy:
     if: github.event_name == 'push'
-    needs: [setup, lint, unit-test, build e2e]
+    needs: [setup, lint, unit-test, build, e2e]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
