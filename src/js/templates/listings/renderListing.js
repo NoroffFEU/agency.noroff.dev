@@ -38,7 +38,8 @@ export const renderListing = async () => {
 };
 
 const createListing = (result, userRole) => {
-  const { company, title, description, deadline, created, requirements, tags } = result;
+  const { company, title, description, deadline, created, requirements, tags, applications } =
+    result;
   const element = createElement('div');
   const card = createElement('div', ['card', 'bg-theme-light', 'd-flex', 'border-0', 'rounded-0']);
   const img = createImg(company);
@@ -50,7 +51,8 @@ const createListing = (result, userRole) => {
     created,
     requirements,
     tags,
-    userRole
+    userRole,
+    applications
   );
   card.append(img, cardBody);
   element.append(card);
@@ -78,11 +80,12 @@ const createCardBody = (
   created,
   requirements,
   tags,
-  userRole
+  userRole,
+  applications
 ) => {
   const element = createElement('div', ['card-body', 'd-flex', 'flex-column', 'gap-2']);
   const h1 = createElement('h1', ['card-title'], null, title);
-  const detailsContainer = createDetailsContainer(title, company, deadline, created);
+  const detailsContainer = createDetailsContainer(title, company, deadline, created, applications);
   const btnContainer = createBtnContainer(userRole);
   const tagsContainer = createTagContainer(tags);
   const jobDescription = createElement('p', null, null, description);
@@ -98,7 +101,7 @@ const createCardBody = (
   return element;
 };
 
-const createDetailsContainer = (title, company, deadline, created) => {
+export const createDetailsContainer = (title, company, deadline, created, applications) => {
   const element = createElement('div');
   const { sector, name } = company;
   const jobDetails = createElement('p', null, null, `${title}  /  ${sector}  /  ${name}`);
@@ -108,7 +111,17 @@ const createDetailsContainer = (title, company, deadline, created) => {
     null,
     `Created: ${findDaysAgo(created)} days ago / Deadline: ${parseDate(deadline)}`
   );
-  element.append(jobDetails, deadlineDetails);
+  if (applications) {
+    const totalApplications = createElement(
+      'p',
+      null,
+      null,
+      `Total applications: ${applications.length}`
+    );
+    element.append(jobDetails, deadlineDetails, totalApplications);
+  } else {
+    element.append(jobDetails, deadlineDetails);
+  }
   return element;
 };
 
