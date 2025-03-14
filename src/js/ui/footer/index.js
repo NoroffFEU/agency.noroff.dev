@@ -1,4 +1,4 @@
-import { handleActiveLinks } from "../../listeners/footer/handleActiveLinks";
+import { handleActiveLinks } from '../../listeners/footer/handleActiveLinks';
 
 /**
  * function that creates the footer, the function creates container elements aswell as div,list and anchor elements, the function also adds bootstrap classLists and content for the differet
@@ -90,7 +90,11 @@ export const footer = () => {
     '../../../../pages/footer/aboutNoroffJobs.html',
     'About Noroff Jobs'
   );
-  createListItem(forCompaniesList, '#', 'Company User Guide');
+  createListItem(
+    forCompaniesList,
+    '../../../../pages/footer/companyUserGuide.html',
+    'Company User Guide'
+  );
   createListItem(forCompaniesList, '../../../../pages/footer/faq.html', 'FAQ');
 
   const contactUsCol = createColumn(innerRow);
