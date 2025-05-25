@@ -71,7 +71,8 @@ const createImgContainer = ({ logo, name }) => {
     'flex-column',
     'justify-content-center',
   ]);
-  const img = createElement('img', ['img-fluid', 'rounded-start'], null, null, null, logo, name);
+  const logoUrl = logo || 'https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg';
+  const img = createElement('img', ['img-fluid', 'rounded-start'], null, null, null, logoUrl, name);
   element.append(img);
   return element;
 };
