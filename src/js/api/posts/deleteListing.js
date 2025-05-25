@@ -49,12 +49,17 @@ async function deleteListing() {
 
     const successModalElement = document.getElementById('success-delete-modal');
     if (successModalElement) {
-      const successModal = new bootstrap.Modal(successModalElement);
+      const successModal = new bootstrap.Modal(successModalElement, {
+        backdrop: 'static',
+        keyboard: false,
+      });
+      
       successModal.show();
 
       successModalElement.addEventListener('hidden.bs.modal', () => {
         window.location.href = '/pages/listings/index.html';
       });
+      
       setTimeout(() => {
         successModal.hide();
         window.location.href = '/pages/listings/index.html';
