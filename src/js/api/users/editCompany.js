@@ -47,9 +47,6 @@ export async function editCompany(profile) {
         successMessage.style.display = 'flex';
         successMessage.showModal();
         successMessage.addEventListener('click', closeModal);
-        // Debug success message element is not displayed
-        console.log('Success message displayed:', successMessage.style.display);
-        console.log('succes Message element:', successMessage);
 
         setTimeout(() => {
           location.replace(location.href);
