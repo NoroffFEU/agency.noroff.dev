@@ -28,10 +28,32 @@ export async function editCompany(profile) {
   try {
     const response = await fetch(profileURL, options);
     const profile = await response.json();
+
+    const successMessage = document.getElementById('company-success-modal');
+
+    if (!successMessage) {
+      throw new Error('Success modal element not found');
+    }
+
+    const closeModal = () => {
+      successMessage.close();
+      successMessage.style.display = 'none';
+      successMessage.style.zIndex = '10000';
+    };
+
     switch (response.status) {
       case 200: {
-        console.log(profile)
-        alert('Update was successful');
+        successMessage.style.display = 'flex';
+        successMessage.showModal();
+        successMessage.addEventListener('click', closeModal);
+        // Debug success message element is not displayed
+        console.log('Success message displayed:', successMessage.style.display);
+        console.log('succes Message element:', successMessage);
+
+        setTimeout(() => {
+          location.replace(location.href);
+        }, 1500);
+
         return profile;
       }
       default:
