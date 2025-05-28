@@ -15,8 +15,8 @@ const editUserForm = document.querySelector('#editCompanyProfile');
  */
 export function clientProfile(data) {
   //console.log(data)
-  companyName.innerText = data.firstName; // Company Name
-  companyRole.innerText = data.role; // Company Role
+  companyName.innerText = data.firstName; 
+  companyRole.innerText = data.role;
   profileImage.src =
     data.company.logo || 'https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg';
   profileImage.alt = (companyName.innerText || 'Unknown') + ' logo';
