@@ -13,7 +13,7 @@ import { getToken } from '../getToken.js';
 export async function editCompany(profile) {
   const id = localStorage.getItem('companyId');
   const profileURL = apiPath + companyUrl + `${id}`;
-  const accessToken = getToken('token');
+  const accessToken = getToken();
   const body = JSON.stringify(profile);
 
   const options = {
