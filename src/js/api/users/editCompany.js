@@ -37,8 +37,9 @@ export async function editCompany(profile) {
 
     const closeModal = () => {
       successMessage.close();
+      document.body.focus();
       successMessage.style.display = 'none';
-      successMessage.style.zIndex = '10000';
+      successMessage.removeEventListener('click', closeModal);
     };
 
     switch (response.status) {
