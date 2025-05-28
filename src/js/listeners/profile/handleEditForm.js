@@ -34,6 +34,7 @@ export function handleEditForms() {
         }
       }
       const profile = Object.fromEntries(filteredFormData.entries());
+      delete profile.name // Remove name if present, as it can not be updated
       console.log(profile)
       return editCompany(profile);
     });
