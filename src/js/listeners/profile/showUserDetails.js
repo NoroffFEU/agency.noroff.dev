@@ -10,6 +10,12 @@ import { createProfileContent } from '../../templates/profile/createProfileConte
 /* Original Author: Unknown, maybe Jan-Erik
  * Edited by: Robert Nilsen */
 
+/**
+ * This function fetches user details from the API and displays them on the profile page.
+ * It retrieves the user ID from localStorage, constructs the API URL, and makes a GET request.
+ * @returns {Promise<Object|null>} Returns a Promise that resolves with the user data or null if an error occurs.
+ * @throws {Error} If the fetch request fails or the response is not ok.
+ */
 export async function showUserDetails() {
   try {
     const userUrl = apiPath + `users/` + JSON.parse(localStorage.getItem('id'));
