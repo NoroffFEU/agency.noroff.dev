@@ -7,9 +7,6 @@ const apiPath = 'https://cors.noroff.dev/https://agency-api.noroff.dev/';
 // Import API url for fetch the data (userDetailsTemplate)
 import { createProfileContent } from '../../templates/profile/createProfileContent.js';
 
-/* Original Author: Unknown, maybe Jan-Erik
- * Edited by: Robert Nilsen */
-
 /**
  * This function fetches user details from the API and displays them on the profile page.
  * It retrieves the user ID from localStorage, constructs the API URL, and makes a GET request.
