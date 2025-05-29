@@ -1,7 +1,7 @@
 import { apiPath, companyUrl } from '../constants.js';
 import { message } from '../../utilities/message/message.js';
 import { getToken } from '../getToken.js';
-import { clientProfile } from '../../templates/profile/clientProfile.js';
+import { showUserDetails } from '../../listeners/profile/showUserDetails.js';
 
 /**
  * This function sends a PUT request to the API to update the company profile
@@ -49,7 +49,7 @@ export async function editCompany(profile) {
         successMessage.showModal();
         successMessage.addEventListener('click', closeModal);
 
-        clientProfile(profile);
+        showUserDetails();
 
         setTimeout(() => {
           closeModal();
