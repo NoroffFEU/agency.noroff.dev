@@ -1,6 +1,6 @@
 import { addDegreeInput } from './addDegreeHandler.js';
 import { handleAvatarInput } from './handleAvatarInput.js';
-import { handleEditForms } from './handleEditForm.js';
+//import { handleEditForms } from './handleEditForm.js';
 import { modalToggle } from './modalToggle.js';
 import { showUserDetails } from './showUserDetails.js';
 import { handleModalData } from './handleModalData.js';
@@ -11,7 +11,7 @@ export function profileRouter() {
   addDegreeInput();
   handleAvatarInput();
   modalToggle();
-  handleEditForms();
+  //handleEditForms();
   showUserDetails();
   handleModalData();
   toggleShowFavListings();
