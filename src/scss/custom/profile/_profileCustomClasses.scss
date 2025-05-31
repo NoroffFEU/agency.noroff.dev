@@ -52,9 +52,7 @@ Version: 1.0.0
 }
 
 #success-modal {
-  width: 1400px;
-  height: 530px;
-  display: none; // Hide until triggered
+  display: none;
   flex-direction: column;
   justify-content: center;
   text-align: center;

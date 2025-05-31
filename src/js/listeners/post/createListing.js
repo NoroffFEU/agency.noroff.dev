@@ -15,9 +15,7 @@ import {
  */
 export function createListing() {
   const form = document.querySelector('#createNewListing');
-  const modalBody = document.querySelector('.modal-body');
   const companySelect = document.querySelector('#companySelect');
-  const createModal = new bootstrap.Modal(document.getElementById('createModal'));
 
   //Re-written because as it stands there will always be one ID in local storage, so no need for forEach
   //This company field does not need to be a dropdown/selection as well
@@ -119,7 +117,7 @@ export function createListing() {
       return;
     }
     const appData = {
-      company: localStorage.getItem("companyId"),
+      company: localStorage.getItem('companyId'),
       title: createTitle.value,
       tags: createTags.value.split(',').map((tag) => tag.trim()),
       requirements: createRequirements.value.split(',').map((req) => req.trim()),
@@ -130,31 +128,50 @@ export function createListing() {
     try {
       await create(appData);
 
-      modalBody.innerHTML = '';
-      const successIcon = document.createElement('img');
-      successIcon.src = '/assets/icons/checkmark.svg';
-      successIcon.alt = 'Success';
+      const successModal = document.querySelector('#listing-success-modal');
 
-      const successMessage = document.createElement('h3');
-      successMessage.textContent = 'Listing created successfully!';
+      if (successModal) {
+        successModal.style.display = 'flex';
+        successModal.showModal();
 
-      modalBody.appendChild(successIcon);
-      modalBody.appendChild(successMessage);
+        const closeModal = () => {
+          successModal.close();
+          successModal.style.display = 'none';
+        };
 
-      createModal.show();
+        successModal.addEventListener('click', closeModal);
+
+        setTimeout(() => {
+          closeModal();
+
+          const parentModal = document.querySelector('#newListingsModal');
+          const bootstrapModal = bootstrap.Modal.getInstance(parentModal);
+          if (bootstrapModal) {
+            bootstrapModal.hide();
+          }
+        }, 1500);
+      }
     } catch (error) {
-      modalBody.innerHTML = '';
-      const errorIcon = document.createElement('img');
-      errorIcon.src = '/assets/icons/cancel.svg';
-      errorIcon.alt = 'Error';
+      const errorModal = document.querySelector('#error-modal');
+      const errorMessageElement = document.querySelector('#error-message');
 
-      const errorMessage = document.createElement('h3');
-      errorMessage.textContent = `Error: ${error.message}`;
+      if (errorModal) {
+        errorMessageElement.textContent = `Error: ${error.message}`;
 
-      modalBody.appendChild(errorIcon);
-      modalBody.appendChild(errorMessage);
+        errorModal.style.display = 'flex';
+        errorModal.showModal();
 
-      createModal.show();
+        const closeModal = () => {
+          errorModal.close();
+          errorModal.style.display = 'none';
+        };
+
+        errorModal.addEventListener('click', closeModal);
+
+        setTimeout(() => {
+          closeModal();
+        }, 3000);
+      }
     }
   });
 }
