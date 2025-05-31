@@ -1,6 +1,7 @@
 import { apiPath, companyUrl } from '../constants.js';
 import { message } from '../../utilities/message/message.js';
 import { getToken } from '../getToken.js';
+import { showUserDetails } from '../../listeners/profile/showUserDetails.js';
 
 /**
  * This function sends a PUT request to the API to update the company profile
@@ -13,7 +14,7 @@ import { getToken } from '../getToken.js';
 export async function editCompany(profile) {
   const id = localStorage.getItem('companyId');
   const profileURL = apiPath + companyUrl + `${id}`;
-  const accessToken = JSON.parse(getToken('token'));
+  const accessToken = getToken();
   const body = JSON.stringify(profile);
 
   const options = {
@@ -28,10 +29,36 @@ export async function editCompany(profile) {
   try {
     const response = await fetch(profileURL, options);
     const profile = await response.json();
+
+    const successMessage = document.getElementById('company-success-modal');
+
+    if (!successMessage) {
+      throw new Error('Success modal element not found');
+    }
+
+    const closeModal = () => {
+      successMessage.close();
+      document.body.focus();
+      successMessage.style.display = 'none';
+      successMessage.removeEventListener('click', closeModal);
+    };
+
     switch (response.status) {
       case 200: {
-        console.log(profile)
-        alert('Update was successful');
+        successMessage.style.display = 'flex';
+        successMessage.showModal();
+        successMessage.addEventListener('click', closeModal);
+
+        showUserDetails();
+
+        setTimeout(() => {
+          closeModal();
+          const editProfileModal = document.getElementById('editProfileModal');
+          const modalInstance =
+            bootstrap.Modal.getInstance(editProfileModal) || new bootstrap.Modal(editProfileModal);
+          modalInstance.hide();
+        }, 1500);
+
         return profile;
       }
       default:

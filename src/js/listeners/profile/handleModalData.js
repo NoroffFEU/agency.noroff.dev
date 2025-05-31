@@ -1,4 +1,5 @@
 import { showUserDetails } from './showUserDetails.js';
+import { handleEditForms } from './handleEditForm.js';
 
 export function handleModalData() {
   const aboutField = document.querySelector('#studentDescription');
@@ -17,6 +18,7 @@ export function handleModalData() {
         aboutField.innerText = '';
         skillsField.innerText = '';
       }
+      handleEditForms(profileData);
     } catch (error) {
       console.error(error);
     }
