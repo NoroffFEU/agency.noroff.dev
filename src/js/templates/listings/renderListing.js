@@ -60,13 +60,14 @@ const createListing = (result, userRole) => {
 };
 
 const createImg = ({ name, logo }) => {
+  const logoUrl = logo || 'https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg';
   const element = createElement(
     'img',
     ['listing-logo', 'my-5', 'card-img-top', 'rounded', 'w-75'],
     null,
     null,
     null,
-    logo,
+    logoUrl,
     name
   );
   return element;
