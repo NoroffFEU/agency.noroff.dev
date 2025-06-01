@@ -60,13 +60,14 @@ const createListing = (result, userRole) => {
 };
 
 const createImg = ({ name, logo }) => {
+  const logoUrl = logo || 'https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg';
   const element = createElement(
     'img',
     ['listing-logo', 'my-5', 'card-img-top', 'rounded', 'w-75'],
     null,
     null,
     null,
-    logo,
+    logoUrl,
     name
   );
   return element;
@@ -144,7 +145,7 @@ const createBtnContainer = (userRole) => {
     null,
     'Apply for job'
   );
-  applyBtn.dataset.auth = 'applyForJob';
+
   element.append(applyBtn);
 
   const favIcon = createElement(
@@ -159,7 +160,17 @@ const createBtnContainer = (userRole) => {
   favIcon.style = 'width: 30px';
   const favBtn = createElement('button', ['btn', 'btn-theme-light'], [favIcon]);
   favBtn.dataset.auth = 'favoriteListing';
-  element.append(favBtn);
+
+  // Render favBtn only if user is registered.
+  // Redirect unregistered users when clicking "Apply for job"
+
+  if (userRole !== null) {
+    applyBtn.dataset.auth = 'applyForJob';
+
+    element.append(favBtn);
+  } else {
+    applyBtn.href = '../../auth/register/applicant/';
+  }
 
   return element;
 };

@@ -57,6 +57,12 @@ Version: 1.0.0
   justify-content: center;
   text-align: center;
   gap: 10px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent(0, 0, 0, 0.5); // Keep the transparent background
 }
 
 .profile-input {
