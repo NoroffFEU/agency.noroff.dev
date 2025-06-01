@@ -15,25 +15,16 @@
     -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Description -->
-    <meta
-      name="description"
-      content="Welcome to your profile page, a versatile platform for both students and companies to customize their information and preferences. This central hub enables you to tailor your experience, whether you're showcasing skills and aspirations as a student or presenting company details and recruitment criteria as an employer. It's designed to facilitate meaningful connections and opportunities on our platform."
-    />
-    <title>Noroff Jobs</title>
-    <!-- Links and scripts -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-    <script defer src="/index.js" type="module"></script>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Description -->
+  <meta name="description"
+    content="Welcome to your profile page, a versatile platform for both students and companies to customize their information and preferences. This central hub enables you to tailor your experience, whether you're showcasing skills and aspirations as a student or presenting company details and recruitment criteria as an employer. It's designed to facilitate meaningful connections and opportunities on our platform." />
+  <title>Noroff Jobs</title>
+  <!-- Links and scripts -->
 
   <script defer src="/index.js" type="module"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -68,27 +59,10 @@
           <p id="profileContact" class="text-center fw-regular fs-1"></p>
           <p id="profileEmail" class="text-center fs-2 fw-lighter"></p>
         </div>
-        
-        <div class="d-flex justify-content-center gap-4">
-          <button
-            id="editProfileBtn"
-            data-bs-toggle="modal"
-            data-bs-target="#editProfileModal"
-            class="fw-semibold mt-4 m-1 btn btn-theme-dark text-theme-light fs-4 rounded-0"
-          >
-            EDIT PROFILE
-          </button>
-          
-          <button
-          id="newListingsBtn"
-          data-bs-toggle="modal"
-          data-bs-target="#newListingsModal"
-          class="fw-semibold mt-4 m-1 btn btn-theme-dark text-theme-light fs-4 rounded-0"
-          >
-            NEW LISTING
-          </button>
-
-
+        <div class="px-4 py-3 bg-theme-new-grey mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
+          id="skillsContainer">
+          <h2 class="fs-2 fw-bold mb-3" id="skillsHeader">Skills</h2>
+          <ul class="list-unstyled d-flex flex-wrap justify-content-start fw-bold fs-6 mb-0" id="skillsList"></ul>
         </div>
         <div class="px-4 pt-3 pb-2 bg-theme-new-grey shadow mx-auto rounded-4 my-3 maxWidthProfileContainer w-75"
           id="descriptionContainer">
@@ -96,10 +70,15 @@
           <p class="mb-2" id="descriptionBody"></p>
         </div>
       </div>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center gap-4">
         <button id="editProfileBtn" data-bs-toggle="modal" data-bs-target="#editProfileModal"
           class="fw-semibold mt-4 m-1 btn btn-theme-dark text-theme-light fs-4 rounded-0">
           EDIT PROFILE
+        </button>
+
+        <button id="newListingsBtn" data-bs-toggle="modal" data-bs-target="#newListingsModal"
+          class="fw-semibold mt-4 m-1 btn btn-theme-dark text-theme-light fs-4 rounded-0 toggle-create-listing">
+          NEW LISTING
         </button>
       </div>
 
@@ -554,9 +533,9 @@
                     <input type="text" name="name" id="nameCompany" class="form-control" />
                   </div>
                   <!-- <div class="mb-2 col-md">
-                          <label for="emailCompany" class="form-label mb-0">E-mail</label>
-                          <input type="email" name="email" id="emailCompany" class="form-control" />
-                        </div> -->
+                              <label for="emailCompany" class="form-label mb-0">E-mail</label>
+                              <input type="email" name="email" id="emailCompany" class="form-control" />
+                            </div> -->
                   <div class="mb-2 col-md">
                     <label for="sector" class="form-label mb-0">Title / Sector</label>
                     <input type="text" name="sector" id="sectorCompany" class="form-control" />
@@ -573,7 +552,7 @@
                   <label for="companyDescription" class="form-label mb-0 fw-bold fs-4">About us</label>
                   <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
                   <textarea class="form-control" rows="5" name="description" id="companyDescription">
-                        </textarea>
+                            </textarea>
                 </div>
                 <div id="editCompanyErrorContainer"></div>
                 <!-- Submit button -->
@@ -585,115 +564,85 @@
             </div>
           </div>
         </div>
-        
-        <!-- // Edit Profile Modal Ends // -->
+      </div>
+      <!-- // Edit Profile Modal Ends // -->
 
-        <!-- // New listings Modal // -->
-        <div
-        class="modal fade"
-        id="newListingsModal"
-        tabindex="-1"
-        aria-labelledby="newListingsModalTitle"
-        aria-hidden="true"
-        >
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-              <!-- Modal header -->
-              <div class="modal-header">
-                <div id="newListingsModalTitle">Create New Listing</div>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <!-- Modal content -->
-              <div class="modal-body">
-                <!-- // Form starts here // -->
-                <form class="m-2" id="createNewListing" data-auth="createForm">
-                  <div class="mx-auto profile-input">
-                    <div class="form mb-3">
-                      <label for="companySelect">Select Company</label>
-                      <select class="form-control rounded-3" id="companySelect" name="company"
-                        data-auth="createFormCompanySelect" aria-label="Enter company ID from dropdown menu">
-                        <!-- The options will be dynamically added by the script -->
-                      </select>
-                    </div>
-                    <div class="form mb-3">
-                      <label for="createTitle">Job Title/Position</label>
-                      <input class="form-control " type="text" name="title"
-                        placeholder="Please enter a job title/position." id="createTitle" data-auth="createFormTitle"
-                        required />
-                    </div>
-                    <div class="form mb-3">
-                      <label for="tags">Tags</label>
-                      <input class="form-control" type="text" name="tags"
-                        placeholder="Separate tags by commas (,)" id="createTags" data-auth="createFormTags"
-                        aria-label="Enter Tags" required />
-                    </div>
-                    <div class="form mb-3">
-                      <label for="requirements">Requirements</label>
-                      <input class="form-control" type="text" name="requirements"
-                        placeholder="Separate requirements by commas (,)" id="createRequirements"
-                        data-auth="createFormRequirements" aria-label="Enter Requirements" required />
-                    </div>
-                    <div class="form mb-3">
-                      <label for="deadline">Application Deadline</label>
-                      <input class="form-control rounded-3" type="datetime-local" name="deadline" id="createDeadline"
-                        data-auth="createFormLocation" title="Enter a valid date" aria-label="Application deadline" required />
-                    </div>
-                    </div>
-                    <div class="mt-2">
-                    <div class="form mb-3">
-                      <label for="jobDescription" class="form-label mb-0 fw-bold fs-4">Job Description</label>
-                      <textarea class="form-control" rows="10" type="text" name="jobDescription"
-                        placeholder="Please write a clear description. Description must be at least 10 characters long."
-                        id="createDescription" data-auth="createFormDescription" required></textarea>
-                    </div>
+      <!-- // New listings Modal // -->
+      <div class="modal fade" id="newListingsModal" tabindex="-1" aria-labelledby="newListingsModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <!-- Modal header -->
+            <div class="modal-header">
+              <div id="newListingsModalTitle">Create New Listing</div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Modal content -->
+            <div class="modal-body">
+              <!-- // Form starts here // -->
+              <form class="m-2" id="createNewListing" data-auth="createForm">
+                <div class="mx-auto profile-input">
+                  <div class="form mb-3">
+                    <label for="companySelect">Select Company</label>
+                    <select class="form-control rounded-3" id="companySelect" name="company"
+                      data-auth="createFormCompanySelect" aria-label="Enter company ID from dropdown menu">
+                      <!-- The options will be dynamically added by the script -->
+                    </select>
                   </div>
-                  <div class="d-grid">
-                    <button id="createListingBtn" class="fw-semibold btn btn-dark mt-2 rounded-0 mx-auto px-5" type="submit"
-                      data-auth="createFormSubmitButton">
-                      CREATE NEW LISTING
-                    </button>
+                  <div class="form mb-3">
+                    <label for="createTitle">Job Title/Position</label>
+                    <input class="form-control " type="text" name="title"
+                      placeholder="Please enter a job title/position." id="createTitle" data-auth="createFormTitle"
+                      required />
                   </div>
-                  
-                  <!-- success message -->
-                  <dialog id="listing-success-modal" class="shadow m-auto p-5 border-0">
-                    <img
-                      src="/public/assets/icons/checkmark.svg"
-                      alt="Check mark icon"
-                      class="m-auto"
-                    />
-                    <p class="m-auto">Listing created</p>
-                  </dialog>
-                  <dialog id="error-modal" class="shadow m-auto p-5 border-0">
-                    <img src="/assets/icons/cancel.svg" alt="Error icon" class="m-auto" />
-                    <p id="error-message" class="m-auto">Woops! Please try again.</p>
-                  </dialog>
-                </form>
-              </div>
+                  <div class="form mb-3">
+                    <label for="tags">Tags</label>
+                    <input class="form-control" type="text" name="tags" placeholder="Separate tags by commas (,)"
+                      id="createTags" data-auth="createFormTags" aria-label="Enter Tags" required />
+                  </div>
+                  <div class="form mb-3">
+                    <label for="requirements">Requirements</label>
+                    <input class="form-control" type="text" name="requirements"
+                      placeholder="Separate requirements by commas (,)" id="createRequirements"
+                      data-auth="createFormRequirements" aria-label="Enter Requirements" required />
+                  </div>
+                  <div class="form mb-3">
+                    <label for="deadline">Application Deadline</label>
+                    <input class="form-control rounded-3" type="datetime-local" name="deadline" id="createDeadline"
+                      data-auth="createFormLocation" title="Enter a valid date" aria-label="Application deadline"
+                      required />
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <div class="form mb-3">
+                    <label for="jobDescription" class="form-label mb-0 fw-bold fs-4">Job Description</label>
+                    <textarea class="form-control" rows="10" type="text" name="jobDescription"
+                      placeholder="Please write a clear description. Description must be at least 10 characters long."
+                      id="createDescription" data-auth="createFormDescription" required></textarea>
+                  </div>
+                </div>
+                <div class="d-grid">
+                  <button id="createListingBtn" class="fw-semibold btn btn-dark mt-2 rounded-0 mx-auto px-5"
+                    type="submit" data-auth="createFormSubmitButton">
+                    CREATE NEW LISTING
+                  </button>
+                </div>
+
+                <!-- success message -->
+                <dialog id="listing-success-modal" class="shadow m-auto p-5 border-0">
+                  <img src="/public/assets/icons/checkmark.svg" alt="Check mark icon" class="m-auto" />
+                  <p class="m-auto">Listing created</p>
+                </dialog>
+                <dialog id="error-modal" class="shadow m-auto p-5 border-0">
+                  <img src="/assets/icons/cancel.svg" alt="Error icon" class="m-auto" />
+                  <p id="error-message" class="m-auto">Woops! Please try again.</p>
+                </dialog>
+              </form>
             </div>
           </div>
         </div>
-        <!-- // New Listings Modal Ends // -->
-
-        <!-- // Company view section goes here // -->
-        <div class="d-none" id="companyView">
-          <!-- Displayed if company is logged in -->
-          <div>
-            <!-- // Button for modal goes here // -->
-            <button
-              id="companyModalButton"
-              class="btn btn-dark d-block mx-auto"
-              data-bs-toggle="modal"
-              data-bs-target="#editProfileModal"
-            >
-              Edit Profile
-            </button>
-          </div>
-
+      </div>
+      <!-- // New Listings Modal Ends // -->
 
       <!-- // Company view section goes here // -->
       <div class="d-none" id="companyView">
@@ -706,41 +655,24 @@
           </button>
         </div>
 
-        <div class="mt-5" id="companyApplicationsContainer">
-          <!-- Tab navigation for app/offers -->
-          <nav class="nav nav-tabs container-sm" role="tablist" id="companyNavTab">
-            <!-- Button for Application tab -->
-            <button class="nav-link active" data-bs-target="#companyApplications" type="button" role="tab"
-              aria-controls="#companyApplications" data-bs-toggle="tab">
-              All Applications
+        <!-- // Student view section goes here // -->
+        <div class="d-none" id="studentView">
+          <div>
+            <button id="studentModalButton" class="btn btn-dark d-block mx-auto" data-bs-toggle="modal"
+              data-bs-target="#editProfileModal">
+              Edit Profile
             </button>
-            <!-- Button for Offers tab -->
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#companyOffers" aria-controls="#companyOffers"
-              aria-selected="true">
-              Offers Sent
-            </button>
-          </nav>
-          <!-- Tab content -->
-          <div class="tab-content bg-theme-dark rounded-bottom rounded-end p-5" id="companyNavTabContent">
-            <div tabindex="0" class="tab-pane active" id="companyApplications" role="tabpanel">
-              <!-- Company applications goes here -->
-            </div>
-            <div class="tab-pane" id="companyOffers" role="tabpanel">
-              <!-- Company offers goes here -->
-            </div>
+            <!-- Modal could live here -->
           </div>
+          <!-- Displayed if student is logged in -->
           <div class="mt-5">
-            <!-- Company listings goes here -->
-            <h2 class="fw-bold">Listings</h2>
-            <div class="mt-3 p-5" id="companyListings"></div>
+            <h2 class="fw-bold">Saved Listings</h2>
+            <div class="mt-3 p-5" id="studentFavoriteListings">
+              <!-- Student favourite listings go here -->
+            </div>
           </div>
         </div>
-
       </div>
-      <div class="mt-5 d-flex fs-5" id="toggle-create-listing">
-        <a class="ms-auto" href="/pages/listings/listing/create/index.html">New listings +</a>
-      </div>
-    </div>
   </main>
   <footer>
     <!-- Footer -->

@@ -21,7 +21,7 @@ Other libraries might include time formatting, routing, state management, animat
 The exact brief for each view will be delivered by the Design team on Figma. You can join the Figma workspace here: 
 
 [Team Invite](https://www.figma.com/team_invite/redeem/rUtvliWUCyEWu1aFubq3hX)
-[Project Invite](https://www.figma.com/files/project/78324144/agency.noroff.dev?fuid=1194169844201401532)
+[Project Invite](https://www.figma.com/design/nolP9LNjAqUOT0euPUnARH/Agency.noroff.dev?node-id=0-1&t=GOp7KaWeM9HJPLO5-1)
 
 The following views are recommended for this project:
 

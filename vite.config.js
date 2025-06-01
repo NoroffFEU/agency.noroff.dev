@@ -22,6 +22,7 @@ export default {
         user: path.resolve(__dirname, 'pages/user/index.html'),
         privacy: path.resolve(__dirname, 'privacy_policy.html'),
         terms: path.resolve(__dirname, 'terms_of_use.html'),
+        companyUserGuide: path.resolve(__dirname, 'pages/footer/companyUserGuide.html'),
       },
     },
   },
