@@ -1,41 +1,28 @@
-import { editCompany } from '../../api/users/editCompany.js';
-import { editStudent } from '../../api/users/editStudent.js';
+import { studentSubmitHandler } from './studentSubmitHandler.js';
+import { companySubmitHandler } from './companySubmitHandler.js';
 
-export function handleEditForms() {
+/**
+ * This function handles the submission of edit forms for student and company profiles.
+ * @param {Object} profileData - The current profile data to be used for editing.
+ * @returns {void}
+ * @example
+ * ```
+ * handleEditForms(profileData);
+ * ```
+ */
+export function handleEditForms(profileData) {
   const studentForm = document.querySelector('#editStudentProfile');
   const companyForm = document.querySelector('#editCompanyProfile');
 
-  if (studentForm) {
-    studentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const form = e.target;
-      const formData = new FormData(form);
-      const profile = Object.fromEntries(formData.entries());
-      
-      console.log(profile)
-      return editStudent(profile);
-    });
+  if (studentForm && profileData.role === 'Applicant') {
+    console.log('Handling student form submission');
+    studentForm.removeEventListener('submit', studentSubmitHandler);
+    studentForm.addEventListener('submit', studentSubmitHandler);
   }
 
-  if (companyForm) {
-    companyForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const form = e.target;
-      const formData = new FormData(form);
-      console.log(formData)
-      const filteredFormData = new FormData();
-      console.log(filteredFormData)
-      // Iterate over the entries and add non-empty ones to the new FormData
-      for (const [key, value] of formData.entries()) {
-        if (value !== '') {
-          filteredFormData.append(key, value);
-        }
-      }
-      const profile = Object.fromEntries(filteredFormData.entries());
-      console.log(profile)
-      return editCompany(profile);
-    });
+  if (companyForm && profileData.role === 'Client') {
+    companyForm.removeEventListener('submit', companyForm._handler);
+    companyForm._handler = companySubmitHandler(profileData);
+    companyForm.addEventListener('submit', companyForm._handler);
   }
 }
