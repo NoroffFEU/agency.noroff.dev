@@ -1,8 +1,4 @@
-// import headers for the requestOption
-import { headers } from '../../api/headers.js';
-
-// Import API url for fetch the data (dummy API for users data)
-const apiPath = 'https://cors.noroff.dev/https://agency-api.noroff.dev/';
+import { getUser } from '../../api/users/getUser.js';
 
 // Import API url for fetch the data (userDetailsTemplate)
 import { createProfileContent } from '../../templates/profile/createProfileContent.js';
@@ -14,35 +10,27 @@ import { createProfileContent } from '../../templates/profile/createProfileConte
  * @throws {Error} If the fetch request fails or the response is not ok.
  */
 export async function showUserDetails() {
+
   try {
-    const userUrl = apiPath + `users/` + JSON.parse(localStorage.getItem('id'));
-
-    const reqOption = {
-      method: 'GET',
-      headers: headers(),
-    };
-    const response = await fetch(userUrl, reqOption);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+    const id = localStorage.getItem('id').replaceAll('"', "")
+    if (id == null) {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
     }
-    const data = await response.json();
-    createProfileContent(data);
-    /**
-     * THIS IS NOT IDEAL, but as a temporary fix.
-     * The {object}.company.id should be stored during login of the user, instead of storing it here
-     * If this gets fixed, it needs to be addressed a little different inside src/js/users/editCompany.js
-     * You can see this is retrieved there in localStorage. This is for editing the Client profile
-     * */
-    if (data.company) {
-      localStorage.setItem('companyId', data.company.id);
+    const profile = await getUser(id);
+    createProfileContent(profile);
+
+    if (profile.company) {
+      localStorage.setItem('companyId', profile.company.id);
     }
 
-    if (data.role === 'Client') {
-      localStorage.setItem('companyName', data.company.name);
+    if (profile.role === 'Client') {
+      localStorage.setItem('companyName', profile.company.name);
     }
-    return data;
+    return profile
   } catch (error) {
     console.error('Error fetching user details:', error);
     return null;
+
   }
 }
