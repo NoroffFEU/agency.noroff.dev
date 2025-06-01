@@ -11,7 +11,7 @@ export function profileRouter() {
   // Redirects unregister user when accessing /pages/user/
   const role = localStorage.getItem('role')?.replace(/^"|"$/g, '').trim().toLowerCase();
   console.log('role', role);
-  if (role === undefined) {
+  if (!role) {
     window.location.href = '../auth/register/applicant/';
   } else {
     addDegreeInput();
