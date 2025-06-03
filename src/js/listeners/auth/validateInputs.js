@@ -129,59 +129,80 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
  * Validates the first name input against a specified pattern.
  * @param {HTMLInputElement} input - The first name input element.
  * @param {boolean} isTyping - Indicates whether the user is still typing.
+ * @returns {boolean} True if the input is valid; otherwise, false.
  */
 function validateFirstName(input, isTyping) {
   const errorDiv = input.nextElementSibling;
-  const pattern = /^[A-Za-zÆØÅæøå]+$/; // Allows only letters
+  const pattern = /^[A-Za-zÆØÅæøå\- ]+$/; // Tillater bokstaver, bindestrek og mellomrom
   const inputValue = input.value.trim();
-  const isValidFirstName = pattern.test(inputValue);
+  const isEmpty = inputValue === '';
+  const isValid = pattern.test(inputValue);
 
-  errorDiv.textContent = isValidFirstName ? '' : 'First Name should only contain letters.';
-
+  // Fjern tidligere klasser
   input.classList.remove("is-invalid", "is-valid");
-  errorDiv.classList.remove("invalid-feedback", "alert", "alert-danger", "valid-feedback");
+  errorDiv.classList.remove("alert", "alert-danger", "valid-feedback");
 
-  if (!isValidFirstName && isTyping) {
-      input.classList.add("is-invalid");
-      errorDiv.classList.add("alert", "alert-danger");
-  } else if (isValidFirstName) {
-      input.classList.add("is-valid");
-      errorDiv.classList.add("valid-feedback");
-  } else if (!isValidFirstName && !isTyping) {
-      errorDiv.textContent = '';
-      errorDiv.classList.remove("alert", "alert-danger");
+  // Håndter feilmeldinger og klasser
+  if (isEmpty && !isTyping) {
+    errorDiv.textContent = "Please enter your name.";
+    errorDiv.classList.add("alert", "alert-danger");
+    input.classList.add("is-invalid");
+    return false;
+  } else if (!isValid && !isTyping) {
+    errorDiv.textContent = "Please enter your name.";
+    errorDiv.classList.add("alert", "alert-danger");
+    input.classList.add("is-invalid");
+    return false;
+  } else if (isValid) {
+    input.classList.add("is-valid");
+    errorDiv.classList.add("valid-feedback");
+    errorDiv.textContent = "";
+    return true;
   }
-  return isValidFirstName;
+
+  // Ikke vis noe mens bruker skriver
+  errorDiv.textContent = "";
+  return false;
 }
+
 
 /**
-* Validates the last name input against a specified pattern.
-* @param {HTMLInputElement} input - The last name input element.
-* @param {boolean} isTyping - Indicates whether the user is still typing.
-*/
+ * Validates the last name input against a specified pattern.
+ * @param {HTMLInputElement} input - The last name input element.
+ * @param {boolean} isTyping - Indicates whether the user is still typing.
+ * @returns {boolean} True if the input is valid; otherwise, false.
+ */
 function validateLastName(input, isTyping) {
   const errorDiv = input.nextElementSibling;
-  const pattern = /^[A-Za-zÆØÅæøå]+$/; // Allows only letters
+  const pattern = /^[A-Za-zÆØÅæøå\- ]+$/; // Tillater bokstaver, bindestrek og mellomrom
   const inputValue = input.value.trim();
-  const isValidLastName = pattern.test(inputValue);
-
-  errorDiv.textContent = isValidLastName ? '' : 'Last Name should only contain letters.';
+  const isEmpty = inputValue === '';
+  const isValid = pattern.test(inputValue);
 
   input.classList.remove("is-invalid", "is-valid");
-  errorDiv.classList.remove("invalid-feedback", "alert", "alert-danger", "valid-feedback");
+  errorDiv.classList.remove("alert", "alert-danger", "valid-feedback");
 
-  if (!isValidLastName && isTyping) {
-      input.classList.add("is-invalid");
-      errorDiv.classList.add("alert", "alert-danger");
-  } else if (isValidLastName) {
-      input.classList.add("is-valid");
-      errorDiv.classList.add("valid-feedback");
-  } else if (!isValidLastName && !isTyping) {
-      errorDiv.textContent = '';
-      errorDiv.classList.remove("alert", "alert-danger");
+  if (isEmpty && !isTyping) {
+    errorDiv.textContent = "Please enter your last name.";
+    errorDiv.classList.add("alert", "alert-danger");
+    input.classList.add("is-invalid");
+    return false;
+  } else if (!isValid && !isTyping) {
+    errorDiv.textContent = "Please enter your last name.";
+    errorDiv.classList.add("alert", "alert-danger");
+    input.classList.add("is-invalid");
+    return false;
+  } else if (isValid) {
+    input.classList.add("is-valid");
+    errorDiv.classList.add("valid-feedback");
+    errorDiv.textContent = "";
+    return true;
   }
-  return isValidLastName;
+
+  errorDiv.textContent = "";
+  return false;
 }
+
 
 // Export both functions so other files (like setRegisterFormListenerApplicant.js) can use them
 export { validateFirstName, validateLastName };
