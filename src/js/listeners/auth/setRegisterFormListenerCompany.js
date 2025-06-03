@@ -40,6 +40,9 @@ export function setRegisterFormListenerCompany() {
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
+      const logoInput = document.querySelector('#imageUrl');
+      const logoUrl = logoInput.value.trim();
+
       const successElement = document.querySelector('#registrationSuccessMessage');
       const errorElement = document.querySelector('#errorMessage');
 
@@ -100,7 +103,7 @@ export function setRegisterFormListenerCompany() {
           sector: formEntries.sector,
           website: formEntries.website,
           phone: formEntries.phone,
-          logo: '', // TODO: Add logo
+          logo: logoUrl,
           admin: userProfile.id,
           registerToken: userProfile.token,
         };
