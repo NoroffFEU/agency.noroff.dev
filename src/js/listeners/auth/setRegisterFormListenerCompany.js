@@ -4,7 +4,7 @@ import { message } from '../../utilities/message/message.js';
 import { inputs } from './validateInputs.js';
 
 /**
- * function that gets the form input from the company form and stores it, 
+ * function that gets the form input from the company form and stores it,
  * it then registers the company and if it fails the user gets an error message
  */
 export function setRegisterFormListenerCompany() {
@@ -16,8 +16,7 @@ export function setRegisterFormListenerCompany() {
     const password = form.querySelector('#userPassword');
     const repeatPassword = form.querySelector('#userConfirmPassword');
     const sector = form.querySelector('#companySector');
-    const firstName = form.querySelector('#firstName');
-    const lastName = form.querySelector('#lastName');
+    const userName = form.querySelector('#userName');
 
     email.addEventListener('blur', () => {
       inputs.validateCompanyEmail(email, false);
@@ -34,12 +33,8 @@ export function setRegisterFormListenerCompany() {
     sector.addEventListener('blur', () => {
       inputs.validateSector(sector, false);
     });
-
-    firstName.addEventListener('blur', () => {
-      inputs.validateFirstName(firstName, false);
-    });
-    lastName.addEventListener('blur', () => {
-      inputs.validateLastName(lastName, false);
+    userName.addEventListener('blur', (event) => {
+      inputs.validateUserName(event.target, false);
     });
 
     form.addEventListener('submit', async (event) => {
@@ -53,8 +48,7 @@ export function setRegisterFormListenerCompany() {
       const isPasswordValid = inputs.validatePassword(password);
       const isRepeatPasswordValid = inputs.validateRepeatPassword(password, repeatPassword);
       const isSectorValid = inputs.validateSector(sector);
-      const isFirstNameValid = inputs.validateFirstName(firstName);
-      const isLastNameValid = inputs.validateLastName(lastName);
+      const isUserNameValid = inputs.validateUserName(userName);
 
       if (
         !isEmailValid ||
@@ -62,8 +56,7 @@ export function setRegisterFormListenerCompany() {
         !isPasswordValid ||
         !isRepeatPasswordValid ||
         !isSectorValid ||
-        !isFirstNameValid ||
-        !isLastNameValid
+        !isUserNameValid
       ) {
         message('danger', 'Invalid registration credentials. Please try again', '#errorMessage');
         return;
@@ -81,9 +74,13 @@ export function setRegisterFormListenerCompany() {
         return;
       }
 
+      const nameParts = formEntries.user.split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+
       const userPayload = {
-        firstName: formEntries.firstName,
-        lastName: formEntries.lastName,
+        firstName: firstName,
+        lastName: lastName,
         email: formEntries.email,
         password: formEntries.password,
         role: 'Client',
