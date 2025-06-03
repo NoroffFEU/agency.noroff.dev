@@ -138,27 +138,27 @@ function validateFirstName(input, isTyping) {
 
   errorDiv.textContent = isValidFirstName ? '' : 'First Name should only contain letters.';
 
-  input.classList.remove("is-invalid", "is-valid");
-  errorDiv.classList.remove("invalid-feedback", "alert", "alert-danger", "valid-feedback");
+  input.classList.remove('is-invalid', 'is-valid');
+  errorDiv.classList.remove('invalid-feedback', 'alert', 'alert-danger', 'valid-feedback');
 
   if (!isValidFirstName && isTyping) {
-      input.classList.add("is-invalid");
-      errorDiv.classList.add("alert", "alert-danger");
+    input.classList.add('is-invalid');
+    errorDiv.classList.add('alert', 'alert-danger');
   } else if (isValidFirstName) {
-      input.classList.add("is-valid");
-      errorDiv.classList.add("valid-feedback");
+    input.classList.add('is-valid');
+    errorDiv.classList.add('valid-feedback');
   } else if (!isValidFirstName && !isTyping) {
-      errorDiv.textContent = '';
-      errorDiv.classList.remove("alert", "alert-danger");
+    errorDiv.textContent = '';
+    errorDiv.classList.remove('alert', 'alert-danger');
   }
   return isValidFirstName;
 }
 
 /**
-* Validates the last name input against a specified pattern.
-* @param {HTMLInputElement} input - The last name input element.
-* @param {boolean} isTyping - Indicates whether the user is still typing.
-*/
+ * Validates the last name input against a specified pattern.
+ * @param {HTMLInputElement} input - The last name input element.
+ * @param {boolean} isTyping - Indicates whether the user is still typing.
+ */
 function validateLastName(input, isTyping) {
   const errorDiv = input.nextElementSibling;
   const pattern = /^[A-Za-zÆØÅæøå]+$/; // Allows only letters
@@ -167,25 +167,54 @@ function validateLastName(input, isTyping) {
 
   errorDiv.textContent = isValidLastName ? '' : 'Last Name should only contain letters.';
 
-  input.classList.remove("is-invalid", "is-valid");
-  errorDiv.classList.remove("invalid-feedback", "alert", "alert-danger", "valid-feedback");
+  input.classList.remove('is-invalid', 'is-valid');
+  errorDiv.classList.remove('invalid-feedback', 'alert', 'alert-danger', 'valid-feedback');
 
   if (!isValidLastName && isTyping) {
-      input.classList.add("is-invalid");
-      errorDiv.classList.add("alert", "alert-danger");
+    input.classList.add('is-invalid');
+    errorDiv.classList.add('alert', 'alert-danger');
   } else if (isValidLastName) {
-      input.classList.add("is-valid");
-      errorDiv.classList.add("valid-feedback");
+    input.classList.add('is-valid');
+    errorDiv.classList.add('valid-feedback');
   } else if (!isValidLastName && !isTyping) {
-      errorDiv.textContent = '';
-      errorDiv.classList.remove("alert", "alert-danger");
+    errorDiv.textContent = '';
+    errorDiv.classList.remove('alert', 'alert-danger');
   }
   return isValidLastName;
 }
 
+function validateUserName(input, isTyping) {
+  const errorDiv = input.nextElementSibling;
+  if (!errorDiv) {
+    console.error('Error div not found for userName input');
+    return false;
+  }
+
+  const pattern = /^[A-Za-zÆØÅæøå]+ [A-Za-zÆØÅæøå]+$/; // First name and last name separated by a space
+  const inputValue = input.value.trim();
+  const isValidUserName = pattern.test(inputValue);
+
+  errorDiv.textContent = isValidUserName ? '' : 'Please enter your full name.';
+
+  input.classList.remove('is-invalid', 'is-valid');
+  errorDiv.classList.remove('invalid-feedback', 'alert', 'alert-danger', 'valid-feedback');
+
+  if (!isValidUserName && !isTyping) {
+    input.classList.add('is-invalid');
+    errorDiv.classList.add('alert', 'alert-danger');
+  } else if (isValidUserName) {
+    input.classList.add('is-valid');
+    errorDiv.classList.add('valid-feedback');
+  } else if (!isValidUserName && isTyping) {
+    errorDiv.textContent = '';
+    errorDiv.classList.remove('alert', 'alert-danger');
+  }
+
+  return isValidUserName;
+}
+
 // Export both functions so other files (like setRegisterFormListenerApplicant.js) can use them
 export { validateFirstName, validateLastName };
-
 
 /**
  * Validates the email input against a specified pattern.
@@ -257,6 +286,7 @@ export const inputs = {
   validateRepeatPassword,
   validateFirstName,
   validateLastName,
+  validateUserName,
   validateEmail,
   validateCompanyEmail,
 };
