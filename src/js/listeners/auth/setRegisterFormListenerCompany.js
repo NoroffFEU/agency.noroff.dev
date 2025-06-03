@@ -65,11 +65,11 @@ export function setRegisterFormListenerCompany() {
       const formData = new FormData(event.target);
       const formEntries = Object.fromEntries(formData.entries());
 
-      const companyNameExists = await checkCompanyNameExists(formEntries.name);
+      const companyNameExists = await checkCompanyNameExists(formEntries.companyName);
       if (companyNameExists) {
         showMessage(
           errorElement,
-          `Company name <strong>${formEntries.name}</strong> already exists`
+          `Company name <strong>${formEntries.companyName}</strong> already exists`
         );
         return;
       }
