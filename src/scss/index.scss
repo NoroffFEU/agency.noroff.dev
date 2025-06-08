@@ -53,17 +53,11 @@ main {
   border: 0;
 }
 
-.btn,
-.bg-theme-primary {
-  transition: transform 0.2s ease;
-}
-
-.btn:hover {
-  transform: scale(1.06);
+.btn {
+  transition: background-color 0.2s ease;
 }
 
 .bg-theme-primary:hover {
-  transform: scale(1.06);
   background-color: #ff785a !important;
 }
 
