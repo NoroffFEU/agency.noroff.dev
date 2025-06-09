@@ -45,6 +45,16 @@ export const renderNoListings = async () => {
 
 const createListings = ({ title, description, company, deadline, id }) => {
   const element = createElement('div', ['col-12', 'col-lg-6']);
+
+  const link = createElement(
+    'a',
+    ['text-decoration-none', 'text-reset'], // ensure no default styling interferes
+    null,
+    null,
+    '/pages/listings/listing/index.html?id=' + id
+  );
+  link.addEventListener('click', handleClick);
+
   const elementRow = createElement('div', [
     'row',
     'p-2',
@@ -57,7 +67,8 @@ const createListings = ({ title, description, company, deadline, id }) => {
   const imgContainer = createImgContainer(company, title);
   const cardBody = createCardBody(title, description, deadline, id);
   elementRow.append(imgContainer, cardBody);
-  element.append(elementRow);
+  link.append(elementRow);
+  element.append(link);
 
   return element;
 };
@@ -71,7 +82,15 @@ const createImgContainer = ({ logo, name }) => {
     'justify-content-center',
   ]);
   const logoUrl = logo || 'https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg';
-  const img = createElement('img', ['img-fluid', 'rounded-start', 'listings-logo'], null, null, null, logoUrl, name);
+  const img = createElement(
+    'img',
+    ['img-fluid', 'rounded-start', 'listings-logo'],
+    null,
+    null,
+    null,
+    logoUrl,
+    name
+  );
   element.append(img);
   return element;
 };
