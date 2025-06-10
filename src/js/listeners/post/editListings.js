@@ -21,33 +21,32 @@ async function getListingData(listingUrl) {
 }
 
 export function editListingListener() {
+  const editButton = document.querySelector('#edit-listing-button-show-hide');
+  const accessToken = localStorage.getItem('token');
 
-  const editButton = document.querySelector("#edit-listing-button-show-hide");
-  const accessToken = localStorage.getItem("token");
-
-  if(!accessToken){
+  if (!accessToken) {
     //Hide the button if there is no accesstoken
-    if (editButton){
+    if (editButton) {
       // checks if there is an editbutton there
-    editButton.style.display = "none";
-  }
+      editButton.style.display = 'none';
+    }
   } else {
-    editButton.style.display = "block";
+    editButton.style.display = 'block';
 
-      getListingData(listingUrl); 
+    getListingData(listingUrl);
 
-      const form = document.querySelector('#editListing');
-      const viewListingBtn = document.querySelector('#editListingViewListingBtn');
+    const form = document.querySelector('#editListing');
+    const viewListingBtn = document.querySelector('#editListingViewListingBtn');
 
-      // Ensure form and viewListingBtn are not null before adding event listeners
-      if (form && viewListingBtn) {
-        form.addEventListener('submit', editListingListenerForm);
-        viewListingBtn.addEventListener('click', () => {
-          window.location.reload();
-        });
-      }
+    // Ensure form and viewListingBtn are not null before adding event listeners
+    if (form && viewListingBtn) {
+      form.addEventListener('submit', editListingListenerForm);
+      viewListingBtn.addEventListener('click', () => {
+        window.location.reload();
+      });
     }
   }
+}
 
 /**
  * function that allows users to edit the a listing, if a user clicks the submit button a new object is created with the new input the function the sends the new object to the api
@@ -59,6 +58,11 @@ async function editListingListenerForm(event) {
   const form = event.target;
   const formData = new FormData(form);
   const listing = Object.fromEntries(formData.entries());
+
+  // Convert comma-separated strings to arrays
+
+  listing.tags = listing.tags.split(',').map((tag) => tag.trim());
+  listing.requirements = listing.requirements.split(',').map((r) => r.trim());
 
   //send it to API
   editSingleListing(id, listing);
