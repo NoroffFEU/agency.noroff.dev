@@ -4,7 +4,7 @@
  */
 export const header = () => {
   const header = document.querySelector('header');
-  header.setAttribute('data-testid', 'header')
+  header.setAttribute('data-testid', 'header');
 
   header.classList.add('bg-theme-dark', 'fixed-top', 'align-items-center', 'shadow-lg', 'p-2');
 
@@ -42,7 +42,7 @@ export const header = () => {
   button.append(span);
 
   const navbarCollapse = document.createElement('div');
-  navbarCollapse.classList.add('collapse', 'navbar-collapse');
+  navbarCollapse.classList.add('collapse', 'navbar-collapse', 'w-100');
   navbarCollapse.id = 'navbarNavDropdown';
 
   const ul = document.createElement('ul');
@@ -53,7 +53,10 @@ export const header = () => {
     'text-center',
     'gap-4',
     'p-3',
-    'p-md-0'
+    'p-md-0',
+    'w-100',
+    'd-flex',
+    'justify-content-around'
   );
   ul.id = 'navUl';
   ul.setAttribute('role', 'button');
