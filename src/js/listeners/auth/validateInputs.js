@@ -68,7 +68,7 @@ export function validatePassword(input, isTyping) {
   const errorDiv = input.nextElementSibling;
   const isValidPassword = input.value.length >= 8;
 
-  errorDiv.textContent = isValidPassword ? '' : 'Password must be at least 8 characters.';
+  errorDiv.textContent = isValidPassword ? '' : "Password must be at least 8 characters.";
   input.classList.remove('is-invalid', 'is-valid');
   errorDiv.classList.remove('alert', 'alert-danger', 'valid-feedback');
 
