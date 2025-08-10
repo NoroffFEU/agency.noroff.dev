@@ -106,7 +106,7 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
     return false;
   }
 
-  errorDiv.textContent = isValidRepeatPassword ? '' : "Passwords don't match.";
+  errorDiv.textContent = isValidRepeatPassword ? '' : 'Passwords don't match.';
 
   repeatPasswordInput.classList.remove('is-invalid', 'is-valid');
   errorDiv.classList.remove('alert', 'alert-danger', 'valid-feedback');
@@ -138,30 +138,32 @@ function validateFirstName(input, isTyping) {
   const isEmpty = inputValue === '';
   const isValid = pattern.test(inputValue);
 
+
   // Fjern tidligere klasser
-  input.classList.remove("is-invalid", "is-valid");
-  errorDiv.classList.remove("alert", "alert-danger", "valid-feedback");
+  input.classList.remove('is-invalid', 'is-valid');
+  errorDiv.classList.remove('alert', 'alert-danger', 'valid-feedback');
 
   // Håndter feilmeldinger og klasser
   if (isEmpty && !isTyping) {
-    errorDiv.textContent = "Please enter your name.";
-    errorDiv.classList.add("alert", "alert-danger");
-    input.classList.add("is-invalid");
+    errorDiv.textContent = 'Please enter your name.';
+    errorDiv.classList.add('alert', 'alert-danger');
+    input.classList.add('is-invalid');
     return false;
   } else if (!isValid && !isTyping) {
-    errorDiv.textContent = "Please enter your name.";
-    errorDiv.classList.add("alert", "alert-danger");
-    input.classList.add("is-invalid");
+    errorDiv.textContent = 'Please enter your name.';
+    errorDiv.classList.add('alert', 'alert-danger');
+    input.classList.add('is-invalid');
     return false;
   } else if (isValid) {
-    input.classList.add("is-valid");
-    errorDiv.classList.add("valid-feedback");
-    errorDiv.textContent = "";
+    input.classList.add('is-valid');
+    errorDiv.classList.add('valid-feedback');
+    errorDiv.textContent = '';
     return true;
+
   }
 
   // Ikke vis noe mens bruker skriver
-  errorDiv.textContent = "";
+  errorDiv.textContent = '';
   return false;
 }
 
@@ -170,8 +172,10 @@ function validateFirstName(input, isTyping) {
  * Validates the last name input against a specified pattern.
  * @param {HTMLInputElement} input - The last name input element.
  * @param {boolean} isTyping - Indicates whether the user is still typing.
+
  * @returns {boolean} True if the input is valid; otherwise, false.
  */
+
 function validateLastName(input, isTyping) {
   const errorDiv = input.nextElementSibling;
   const pattern = /^[A-Za-zÆØÅæøå\- ]+$/; // Tillater bokstaver, bindestrek og mellomrom
@@ -179,34 +183,65 @@ function validateLastName(input, isTyping) {
   const isEmpty = inputValue === '';
   const isValid = pattern.test(inputValue);
 
-  input.classList.remove("is-invalid", "is-valid");
-  errorDiv.classList.remove("alert", "alert-danger", "valid-feedback");
+
+  input.classList.remove('is-invalid', 'is-valid');
+  errorDiv.classList.remove('alert', 'alert-danger', 'valid-feedback');
 
   if (isEmpty && !isTyping) {
-    errorDiv.textContent = "Please enter your last name.";
-    errorDiv.classList.add("alert", "alert-danger");
-    input.classList.add("is-invalid");
+    errorDiv.textContent = 'Please enter your last name.';
+    errorDiv.classList.add('alert', 'alert-danger');
+    input.classList.add('is-invalid');
     return false;
   } else if (!isValid && !isTyping) {
-    errorDiv.textContent = "Please enter your last name.";
-    errorDiv.classList.add("alert", "alert-danger");
-    input.classList.add("is-invalid");
+    errorDiv.textContent = 'Please enter your last name.';
+    errorDiv.classList.add('alert', 'alert-danger');
+    input.classList.add('is-invalid');
     return false;
   } else if (isValid) {
-    input.classList.add("is-valid");
-    errorDiv.classList.add("valid-feedback");
-    errorDiv.textContent = "";
+    input.classList.add('is-valid');
+    errorDiv.classList.add('valid-feedback');
+    errorDiv.textContent = '';
     return true;
+
   }
 
-  errorDiv.textContent = "";
+  errorDiv.textContent = '';
   return false;
+}
+
+function validateUserName(input, isTyping) {
+  const errorDiv = input.nextElementSibling;
+  if (!errorDiv) {
+    console.error('Error div not found for userName input');
+    return false;
+  }
+
+  const pattern = /^[A-Za-zÆØÅæøå]+ [A-Za-zÆØÅæøå]+$/; // First name and last name separated by a space
+  const inputValue = input.value.trim();
+  const isValidUserName = pattern.test(inputValue);
+
+  errorDiv.textContent = isValidUserName ? '' : 'Please enter your full name.';
+
+  input.classList.remove('is-invalid', 'is-valid');
+  errorDiv.classList.remove('invalid-feedback', 'alert', 'alert-danger', 'valid-feedback');
+
+  if (!isValidUserName && !isTyping) {
+    input.classList.add('is-invalid');
+    errorDiv.classList.add('alert', 'alert-danger');
+  } else if (isValidUserName) {
+    input.classList.add('is-valid');
+    errorDiv.classList.add('valid-feedback');
+  } else if (!isValidUserName && isTyping) {
+    errorDiv.textContent = '';
+    errorDiv.classList.remove('alert', 'alert-danger');
+  }
+
+  return isValidUserName;
 }
 
 
 // Export both functions so other files (like setRegisterFormListenerApplicant.js) can use them
 export { validateFirstName, validateLastName };
-
 
 /**
  * Validates the email input against a specified pattern.
@@ -278,6 +313,7 @@ export const inputs = {
   validateRepeatPassword,
   validateFirstName,
   validateLastName,
+  validateUserName,
   validateEmail,
   validateCompanyEmail,
 };
