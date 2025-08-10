@@ -106,7 +106,7 @@ function validateRepeatPassword(passwordInput, repeatPasswordInput, isTyping) {
     return false;
   }
 
-  errorDiv.textContent = isValidRepeatPassword ? '' : 'Passwords don't match.';
+  errorDiv.textContent = isValidRepeatPassword ? '' : "Passwords don't match.";
 
   repeatPasswordInput.classList.remove('is-invalid', 'is-valid');
   errorDiv.classList.remove('alert', 'alert-danger', 'valid-feedback');
