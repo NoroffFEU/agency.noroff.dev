@@ -12,7 +12,7 @@ import { createProfileContent } from '../../templates/profile/createProfileConte
 export async function showUserDetails() {
 
   try {
-    const id = localStorage.getItem('id').replaceAll('"', "")
+    const id = localStorage.getItem('id').replaceAll('"', "");
     if (id == null) {
       localStorage.removeItem("user");
       window.location.href = "login.html";
@@ -27,7 +27,7 @@ export async function showUserDetails() {
     if (profile.role === 'Client') {
       localStorage.setItem('companyName', profile.company.name);
     }
-    return profile
+    return profile;
   } catch (error) {
     console.error('Error fetching user details:', error);
     return null;
