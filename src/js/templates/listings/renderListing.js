@@ -2,6 +2,8 @@ import { getSingleListing } from '../../api/posts/getSingleListing.js';
 import { createElement } from '../CreateHtml.js';
 import { parseDate } from '../../utilities/parse/parse.js';
 import { findDaysAgo } from '../../utilities/dateConverter/dateConverter.js';
+import { setInitialFavoriteState } from '../listings/setInitialFavoriteState.js';
+import { toggleFavorite } from '../../utilities/listings/toggleFavorite.js';
 
 export const renderListing = async () => {
   const url = new URL(location.href);
@@ -29,6 +31,9 @@ export const renderListing = async () => {
 
     // Only display edit and delete if the user is the owner (companyId matches)
     editDeleteListingContainer.classList.toggle('d-none', currentUserCompanyId !== company.id);
+
+    toggleFavorite();
+    setInitialFavoriteState();
   } else {
     alert('No id provided');
     setTimeout(() => {
