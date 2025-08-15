@@ -11,6 +11,10 @@ export async function getUser(id) {
         headers: headers(),
     };
     const response = await fetch(userUrl, reqOption);
+
+    if (!response.ok) {
+        throw new Error(`Feiled to fetch user: ${response.status} ${response.statusText}`)
+    }
     const data = await response.json();
     return data;
 
