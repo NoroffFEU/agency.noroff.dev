@@ -47,14 +47,14 @@
       <i class="fa-solid fa-chevron-left"></i> Home
     </a>
 
-    <div class="container d-flex flex-column gap-4 bg-theme-light my-5 p-md-5 p-3 shadow maxWidthLayout">
+    <div class="container d-flex flex-column gap-4 bg-theme-light my-2 p-md-5 p-2 shadow maxWidthLayout">
       <!-- // Profile details goes here // -->
       <div class="container-sm" id="profileContainer">
         <div>
           <img class="rounded-circle d-block mx-auto w-25" id="profileImage"
             src="https://miniforetak.no/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss.png"
             alt="Profile User Avatar" />
-          <h1 class="text-center mt-3 fw-bold" id="profileName"></h1>
+          <h1 class="text-center mt-3 fw-bold text-break" id="profileName"></h1>
           <p id="profileRole" class="text-center fw-bold fs-2"></p>
           <p id="profileContact" class="text-center fw-regular fs-1"></p>
           <p id="profileEmail" class="text-center fs-2 fw-lighter"></p>
@@ -103,12 +103,12 @@
         </ul>
 
         <!-- Tab content -->
-        <div class="tab-content bg-theme-dark rounded-bottom rounded-end p-5" id="student-nav-tabContent">
+        <div class="tab-content bg-theme-dark rounded-bottom rounded-end p-2" id="student-nav-tabContent">
           <div tabindex="0" class="tab-pane active" id="studentOffers" role="tabpanel">
             <!-- Student offers go here -->
-            <div class="row bg-theme-dark">
+            <div class="row bg-theme-dark gy-2 gx-2">
               <!-- Card 1 -->
-              <div class="col-12 col-lg-6 mb-3">
+              <div class="col-12 col-lg-6">
                 <div class="card rounded-0">
                   <div class="row g-0">
                     <div class="col-4 d-flex">
@@ -133,7 +133,7 @@
                 </div>
               </div>
               <!-- Card 2 -->
-              <div class="col-12 col-lg-6 mb-3">
+              <div class="col-12 col-lg-6">
                 <div class="card rounded-0">
                   <div class="row g-0">
                     <div class="col-4 d-flex">
@@ -158,7 +158,7 @@
                 </div>
               </div>
               <!-- Card 3 -->
-              <div class="col-12 col-lg-6 mb-3">
+              <div class="col-12 col-lg-6">
                 <div class="card rounded-0">
                   <div class="row g-0">
                     <div class="col-4 d-flex">
@@ -183,7 +183,7 @@
                 </div>
               </div>
               <!-- Card 4 -->
-              <div class="col-12 col-lg-6 mb-3">
+              <div class="col-12 col-lg-6">
                 <div class="card rounded-0">
                   <div class="row g-0">
                     <div class="col-4 d-flex">
@@ -453,19 +453,20 @@
                 <div class="mx-auto profile-input">
                   <div class="mb-2 col-md">
                     <label for="firstNameStudent" class="form-label mb-0">First Name*</label>
-                    <input type="text" name="firstName" id="firstNameStudent" class="form-control" />
+                    <input type="text" name="firstName" required id="firstNameStudent" class="form-control" />
+                    <span id="firstName-error" class="input-error"></span>
+                    <div class="error"></div>
                   </div>
                   <div class="mb-2 col-md">
                     <label for="lastNameStudent" class="form-label mb-0">Last Name*</label>
-                    <input type="text" name="lastName" id="lastNameStudent" class="form-control" />
+                    <input type="text" name="lastName" required id="lastNameStudent" class="form-control" />
+                    <span id="lastName-error" class="input-error"></span>
+                    <div class="error"></div>
                   </div>
 
                   <!-- // Title and degree input group -->
 
-                  <div class="mb-2 col-md">
-                    <label for="emailStudent" class="form-label mb-0">Email</label>
-                    <input type="email" name="email" id="emailStudent" class="form-control" readonly disabled />
-                  </div>
+
                   <div class="mb-2 col-md">
                     <label for="degreeStudent" class="form-label mb-0">Degree(s)</label>
                     <div class="position-relative">
@@ -495,6 +496,7 @@
                   <label for="studentDescription" class="form-label mb-0 fw-bold fs-4">About me</label>
                   <span class="fw-lighter fs-6">(Maximum 300 characters)</span>
                   <textarea class="form-control" rows="5" name="about" id="studentDescription"></textarea>
+                  <div class="error"></div>
                 </div>
                 <div id="editUserErrorContainer"></div>
                 <!-- Submit button -->
