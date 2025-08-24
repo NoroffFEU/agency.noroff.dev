@@ -52,7 +52,13 @@ export const checkState = () => {
     const registerLi = document.createElement('li');
     registerLi.classList.add('nav-item');
     const registerBtn = document.createElement('a');
-    registerBtn.classList.add('btn', 'btn-theme-secondary', 'text-black', 'fw-semibold','navBtnCustomWidth');
+    registerBtn.classList.add(
+      'btn',
+      'btn-theme-secondary',
+      'text-white',
+      'fw-semibold',
+      'navBtnCustomWidth'
+    );
     registerBtn.href = '/pages/auth/register/applicant/';
     registerBtn.textContent = 'Register';
     registerBtn.id = 'registerUser';
@@ -82,7 +88,8 @@ function iterateLinks(links) {
 
     if (currentPage === link.href) {
       a.setAttribute('aria-current', 'page');
-    } else {a.setAttribute('aria-label', `${link.text} page`);
+    } else {
+      a.setAttribute('aria-label', `${link.text} page`);
     }
 
     li.append(a);
