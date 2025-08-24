@@ -33,6 +33,12 @@ export async function login(profile) {
 
     clearProfileData(Store); // Clear any previous data
     storeProfileData(userData, rememberLogin, Store);
+    // Temporary test value for companyId since the API doesn't return it (could not find it..)
+    const tempComapnyId = '123';
+    localStorage.setItem('sompanyId', tempComapnyId);
+    if (!localStorage.getItem('companyId')) {
+      console.error('Failed to save companyId');
+    }
 
     const redirectUrl = getRedirectUrl(role);
     handleLoginRedirect(redirectUrl);

@@ -32,6 +32,7 @@ export async function callLoginApi(email, password) {
   const response = await fetch(url, options);
 
   const userData = await response.json();
+  console.log('API response:', await response.clone().json());
 
   if (!response.ok) {
     return {

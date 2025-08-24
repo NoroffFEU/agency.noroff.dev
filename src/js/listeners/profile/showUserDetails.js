@@ -33,13 +33,7 @@ export async function showUserDetails() {
      * If this gets fixed, it needs to be addressed a little different inside src/js/users/editCompany.js
      * You can see this is retrieved there in localStorage. This is for editing the Client profile
      * */
-    if (data.company) {
-      localStorage.setItem('companyId', data.company.id);
-    }
 
-    if (data.role === 'Client') {
-      localStorage.setItem('companyName', data.company.name);
-    }
     return data;
   } catch (error) {
     console.error('Error fetching user details:', error);

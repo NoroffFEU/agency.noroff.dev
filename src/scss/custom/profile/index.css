@@ -1,3 +1,7 @@
+.registerButton {
+  background-image: linear-gradient(to top, #ff0844 0%, #ff4e27 100%);
+}
+
 /*
 Author: Truls Haakenstad - @Menubrea
 Team: User
@@ -21,6 +25,61 @@ Version: 1.0.0
   max-height: 300px;
 }
 
+#skillsList li {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.vertical-line {
+  border-left: 2px solid darkgray;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.card-img-left {
+  max-width: 150px;
+  min-width: 100px;
+}
+
+.card-title {
+  font-size: max(13px, min(4vw, 20px));
+}
+
+.card-text {
+  font-size: max(10px, min(4vw, 15px));
+}
+
+.card-bottom {
+  font-size: max(8px, min(4vw, 13px));
+}
+
+#success-modal {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent(0, 0, 0, 0.5);
+}
+
+.profile-input {
+  width: 100%;
+}
+
+#emailStudent {
+  cursor: not-allowed;
+}
+
+@media (min-width: 992px) {
+  .profile-input {
+    width: 50%;
+  }
+}
 /*
 Author: Truls Haakenstad - @Menubrea
 Team: User
@@ -29,4 +88,11 @@ Version: 1.0.0
 */
 /* To Future developer
   There aren't a whole lot of custom classes, and in reality they should probably be more globally applied through a consolidated team effort. For now I've applied my classes and variables locally to avoid any sort of conflict with other team's work.
-*//*# sourceMappingURL=index.css.map */
+*/
+.nav-tabs .nav-link:not(.active):hover {
+  background-color: #6f7174 !important;
+  color: white;
+}
+.nav-tabs .nav-link.active {
+  pointer-events: none;
+}/*# sourceMappingURL=index.css.map */

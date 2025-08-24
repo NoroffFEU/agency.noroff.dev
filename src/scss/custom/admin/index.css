@@ -35,6 +35,10 @@
     height: 100%;
   }
 }
+.registerButton {
+  background-image: linear-gradient(to top, #ff0844 0%, #ff4e27 100%);
+}
+
 .stripes:nth-child(odd) {
   background-color: #f2f2f2;
 }
@@ -43,8 +47,13 @@
   background-color: white;
 }
 
-.active {
+.active,
+.active-footer-link {
   font-weight: 600 !important;
+}
+
+.active-footer-link {
+  background-color: rgb(48, 57, 67);
 }
 
 .nav-link:hover {
@@ -57,4 +66,8 @@
 
 .adminSearchField {
   height: 38px !important;
+}
+
+.registerButton {
+  background-image: linear-gradient(to top, #ff0844 0%, #ff4e27 100%);
 }/*# sourceMappingURL=index.css.map */

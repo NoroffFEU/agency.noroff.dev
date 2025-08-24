@@ -19,6 +19,7 @@ const mockUserData = {
   role: 'Applicant',
   id: '1',
   email: 'user@example.com',
+  company: { id: 123 },
 };
 
 describe('login', () => {
